@@ -1,2 +1,2 @@
 $ cat .gitignore
-*.[mp3]
+*.mp3

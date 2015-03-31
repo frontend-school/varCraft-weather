@@ -1,1 +1,2 @@
-*.txt
+$ cat .gitignore
+*.[mp3]

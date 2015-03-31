@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/frontend-school/varCraft-weather/issues"
   },
-  "homepage": "https://github.com/frontend-school/varCraft-weather"
+  "homepage": "https://github.com/frontend-school/varCraft-weather",
+  "devDependencies": {
+    "bower": "^1.4.0"
+  }
 }

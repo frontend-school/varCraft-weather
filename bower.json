@@ -20,5 +20,8 @@
   ],
   "dependencies": {
     "gulp": "~3.8.11"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.11"
   }
 }

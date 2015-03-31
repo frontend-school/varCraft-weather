@@ -1,0 +1,26 @@
+{
+  "name": "varCraft-weather",
+  "version": "1.0.0",
+  "description": "weather project",
+  "main": "index.js",
+  "dependencies": {
+    "npm": "^2.7.4"
+  },
+  "devDependencies": {
+    "bower": "^1.4.0",
+    "gulp": "^3.8.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frontend-school/varCraft-weather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frontend-school/varCraft-weather/issues"
+  },
+  "homepage": "https://github.com/frontend-school/varCraft-weather"
+}

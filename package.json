@@ -1,0 +1,24 @@
+{
+  "name": "varCraft-weather",
+  "version": "1.0.0",
+  "description": "first project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frontend-school/varCraft-weather.git"
+  },
+  "keywords": [
+    "varCraft",
+    "Weather",
+    "App"
+  ],
+  "author": "Dolgachov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frontend-school/varCraft-weather/issues"
+  },
+  "homepage": "https://github.com/frontend-school/varCraft-weather"
+}

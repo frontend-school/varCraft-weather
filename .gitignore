@@ -10,4 +10,6 @@ private_folder*/
 # like public_file.txt
 
 .idea/
-.archive/
+
+node_modules/
+bower_components/

@@ -1,5 +1,7 @@
 var gulp = require('gulp'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    watch = require('gulp-watch'),
+    var batch = require('gulp-batch');
 
 gulp.task('minify', function () {
     gulp.src('app/js/*.js')
@@ -12,9 +14,17 @@ gulp.task('copy-sources', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy-bower_components_js', function()) {
+gulp.task('copy-bower', function()) {
 	gulp.src('bower_components/**/*.js')
 	.pipe(gulp.dest('dist/vendor'));
 });
 
-ggg
+gulp.task('watch', function () {
+    watch('app/**/*', batch(function () {
+        gulp.start('copy-sources');
+    })
+    watch('bower_components/**/*.js', batch(function () {
+        gulp.start('copy-bower');
+    }));
+});
+    

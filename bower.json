@@ -1,0 +1,25 @@
+{
+  "name": "aleksey",
+  "version": "unknown_",
+  "description": "no description_",
+  "main": "no main file_",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "_bower_"
+  ],
+  "authors": [
+    "unknown_"
+  ],
+  "license": "unknown_",
+  "homepage": "unknown_",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

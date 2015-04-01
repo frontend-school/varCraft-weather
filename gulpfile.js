@@ -28,7 +28,7 @@ gulp.task('build', function() {
 //****************************
 
 
-//**** for concread types ****
+//**** Builds for  types ****
 
 gulp.task('html:build', function () {
     gulp.src('app/*.html')
@@ -61,7 +61,17 @@ gulp.task('image:build', function () {
         .pipe(reload({stream: true}));
 });
 
-//****************************
+//*********Build all for  types***********
+
+gulp.task('build_all', [
+    'html:build',
+    'js:build',
+    'style:build',
+    'image:build'
+]);
+
+// ****************************
+
 
 gulp.task('copy-bower', function() {
     gulp.src('bower_components/**/*.js')

@@ -16,9 +16,13 @@ var source = 'app';
 var destination = 'dist';
 var srcComponents = 'bower_components';
 var destComponents = 'dist/vendor';
+var detailSrcSet = ['!' + source + '/' + 'Appeared Questions.txt',
+                    '!' + source + '/' + 'Dev Comments.txt',
+                    '!' + source + '/' + 'Project notes/',
+                    '!' + source + '/' + 'Project notes/**/*'];
 
-gulp.task('watch-folder', function() { return watchToCopy(source, destination)});
-gulp.task('watch-components-folder', function() { return watchToCopy(srcComponents, destComponents)});
+gulp.task('watch-folder', function() { return watchToCopy(source, destination, detailSrcSet)});
+gulp.task('watch-components-folder', function() { return watchToCopy(srcComponents, destComponents, detailSrcSet)});
 
 gulp.task('watch-folders', ['watch-folder', 'watch-components-folder']);
 
@@ -33,10 +37,16 @@ gulp.task('webserver', function() {
 gulp.task('default', ['watch-folders', 'webserver']);
 
 
-function watchToCopy(src, dest){
+function watchToCopy(src, dest, detailSrcSet){
 
-	gulp.src(src + '/**/*', {base: src})
-    .pipe(watch(src, {base: src}))
+    detailSrcSet = detailSrcSet || [];
+    var srcSettings = [src + '/**/*'];
+    for (var i = 0; i < detailSrcSet.length; i++){
+        srcSettings.push( detailSrcSet[i] );
+    };
+
+	gulp.src(srcSettings, {base: src})
+    .pipe(watch(srcSettings, {base: src}))
     .pipe(gulp.dest(dest));
 
 };

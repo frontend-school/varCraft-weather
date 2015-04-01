@@ -1,34 +1,23 @@
 var gulp = require('gulp');
+var watch = require('gulp-watch');
 var webserver = require('gulp-webserver');
 
-// A start  implementation of copy-from-to with watcher
-// gulp.task('watch-folder', function() {  
-//   gulp.watch('app/**/*', ['copy-folder']);
-// });
-// gulp.task('copy-folder', function() {  
-//   gulp.src('app/**/*')
-//     .pipe(gulp.dest('dist'));
-// });
-
-var watch = require('gulp-watch');
-
 var source = 'app';
+var filters = ['css/**/*.css', 'js/**/*.js', 'img/**/*.{png,jpg,jpeg,gif}', 'index.html'];
 var destination = 'dist';
+
 var srcComponents = 'bower_components';
 var destComponents = 'dist/vendor';
-var detailSrcSet = ['!' + source + '/' + 'Appeared Questions.txt',
-                    '!' + source + '/' + 'Dev Comments.txt',
-                    '!' + source + '/' + 'Project notes/',
-                    '!' + source + '/' + 'Project notes/**/*'];
 
-gulp.task('watch-folder', function() { return watchToCopy(source, destination, detailSrcSet)});
-gulp.task('watch-components-folder', function() { return watchToCopy(srcComponents, destComponents, detailSrcSet)});
+gulp.task('watch-folder', function() { return watchToCopy(source, destination, filters)});
+gulp.task('watch-components-folder', function() { return watchToCopy(srcComponents, destComponents)});
 
 gulp.task('watch-folders', ['watch-folder', 'watch-components-folder']);
 
 gulp.task('webserver', function() {
-  gulp.src('./' + source)
+  gulp.src(source)
     .pipe(webserver({
+      port: 8000,
       livereload: true,
       open: true
     }));
@@ -37,16 +26,25 @@ gulp.task('webserver', function() {
 gulp.task('default', ['watch-folders', 'webserver']);
 
 
-function watchToCopy(src, dest, detailSrcSet){
+function watchToCopy(src, dest, srcFilters){
 
-    detailSrcSet = detailSrcSet || [];
-    var srcSettings = [src + '/**/*'];
-    for (var i = 0; i < detailSrcSet.length; i++){
-        srcSettings.push( detailSrcSet[i] );
-    };
+  var filteredSource = getFilteredSource(src, srcFilters);
 
-	gulp.src(srcSettings, {base: src})
-    .pipe(watch(srcSettings, {base: src}))
+  gulp.src(filteredSource, {base: src})
+    .pipe(watch(filteredSource, {base: src}))
     .pipe(gulp.dest(dest));
 
+};
+
+function getFilteredSource(src, filters){
+  var filteredSource = [];
+  src = src || './';
+  filters = filters || ['**/*'];
+  for (var i = 0; i < filters.length; i++) {
+    filteredSource.push(src 
+                   + ((src.slice(-1) === '/' || filters[i][0] === '/') ? '' : '/')
+                   + filters[i]);
+  };
+
+  return filteredSource;
 };

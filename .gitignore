@@ -1,2 +1,5 @@
 $ cat .gitignore
-*.[mp3]
+node_modules/
+bower_components/
+dist/
+.*

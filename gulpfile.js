@@ -1,7 +1,19 @@
-var gulp = require('gulp'),
-    uglify = require('gulp-uglify'),
-    watch = require('gulp-watch'),
-    var batch = require('gulp-batch');
+var gulp        = require('gulp'),
+    uglify      = require('gulp-uglify'),
+    watch       = require('gulp-watch'),
+    browserSync = require("browser-sync"),
+    reload      = browserSync.reload;
+
+var config = {
+        server: {
+            baseDir: "./dist"
+        },
+        tunnel: true,
+        host:   'localhost',
+        port:   9000,
+        logPrefix: "Abramova"
+};
+
 
 gulp.task('minify', function () {
     gulp.src('app/js/*.js')
@@ -9,22 +21,35 @@ gulp.task('minify', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy-sources', function() {
+gulp.task('build', function() {
     gulp.src('app/**/*')
-    .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
+        .pipe(reload({stream: true}));
 });
 
-gulp.task('copy-bower', function()) {
-	gulp.src('bower_components/**/*.js')
-	.pipe(gulp.dest('dist/vendor'));
+gulp.task('copy-bower', function() {
+    gulp.src('bower_components/**/*.js')
+        .pipe(gulp.dest('dist/vendor'))
+        .pipe(reload({stream: true}));
 });
 
-gulp.task('watch', function () {
-    watch('app/**/*', batch(function () {
-        gulp.start('copy-sources');
-    })
-    watch('bower_components/**/*.js', batch(function () {
+gulp.task('watch', function(){
+    watch('app/**/*', function(event, cb) {
+        gulp.start('build');
+    });
+    watch('bower_components/**/*.js', function(event, cb) {
         gulp.start('copy-bower');
-    }));
+    });
 });
-    
+
+gulp.task('webserver', function () {
+    browserSync(config);
+});
+
+gulp.task('run', function () {
+    gulp.start('build');
+    gulp.start('webserver');
+
+});
+
+gulp.task('default', ['build', 'copy-bower', 'webserver', 'watch']);

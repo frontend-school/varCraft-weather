@@ -93,14 +93,18 @@ gulp.task('webserver', function () {
     browserSync(config);
 });
 
-gulp.task('run', function () {
-    gulp.start('build');
-    gulp.start('webserver');
+gulp.task('run', [
+    'build',
+    'webserver'
+]);
 
-});
-
-gulp.task('default', ['build', 'copy-bower', 'webserver', 'watch']); // just for fun
+gulp.task('default', [
+    'build', 
+    'copy-bower', 
+    'webserver', 
+    'watch'
+]); // just for fun
 
 gulp.task('clean', function (cb) {
     rimraf('dist', cb);
-});
+}); // just for fun

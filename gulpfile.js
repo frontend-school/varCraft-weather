@@ -1,6 +1,7 @@
 var gulp        = require('gulp'),
     uglify      = require('gulp-uglify'),
-    watch       = require('gulp-watch'),
+    watch       = require('gulp-watch'),   
+    rimraf      = require('rimraf'),
     browserSync = require("browser-sync"),
     reload      = browserSync.reload;
 
@@ -15,18 +16,44 @@ var config = {
 };
 
 
+//*** for all source file ***
 
 gulp.task('build', function() {
     gulp.src('app/**/*')
+    // add call for plugins
         .pipe(gulp.dest('dist'))
         .pipe(reload({stream: true}));
 });
 
+//****************************
+
+
+//**** for concread types ****
+
 gulp.task('html:build', function () {
-    gulp.src('app/*.html') 
+    gulp.src('app/*.html')
+
+    // add call for plugins
         .pipe(gulp.dest('dist')) 
         .pipe(reload({stream: true})); 
 });
+
+gulp.task('js:build', function () {
+    gulp.src('app/js/*.js') 
+        .pipe(gulp.dest('dist/js')) 
+        .pipe(reload({stream: true})); 
+});
+
+
+gulp.task('style:build', function () {
+    gulp.src('app/css/*.css') 
+
+        // add call for plugins
+        .pipe(gulp.dest('dist/css')) 
+        .pipe(reload({stream: true}));
+});
+
+//****************************
 
 gulp.task('copy-bower', function() {
     gulp.src('bower_components/**/*.js')
@@ -54,3 +81,7 @@ gulp.task('run', function () {
 });
 
 gulp.task('default', ['build', 'copy-bower', 'webserver', 'watch']); // just for fun
+
+gulp.task('clean', function (cb) {
+    rimraf('dist', cb);
+});

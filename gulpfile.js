@@ -40,6 +40,7 @@ gulp.task('html:build', function () {
 
 gulp.task('js:build', function () {
     gulp.src('app/js/*.js') 
+        // add call for plugins
         .pipe(gulp.dest('dist/js')) 
         .pipe(reload({stream: true})); 
 });
@@ -53,6 +54,13 @@ gulp.task('style:build', function () {
         .pipe(reload({stream: true}));
 });
 
+gulp.task('image:build', function () {
+    gulp.src('app/img/') 
+        //add img min
+        .pipe(gulp.dest('dist/img')) 
+        .pipe(reload({stream: true}));
+});
+
 //****************************
 
 gulp.task('copy-bower', function() {
@@ -60,6 +68,7 @@ gulp.task('copy-bower', function() {
         .pipe(gulp.dest('dist/vendor'))
         .pipe(reload({stream: true}));
 });
+
 
 gulp.task('watch', function(){
     watch('app/**/*', function(event, cb) {

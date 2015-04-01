@@ -15,16 +15,17 @@ var config = {
 };
 
 
-gulp.task('minify', function () {
-    gulp.src('app/js/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('dist'));
-});
 
 gulp.task('build', function() {
     gulp.src('app/**/*')
         .pipe(gulp.dest('dist'))
         .pipe(reload({stream: true}));
+});
+
+gulp.task('html:build', function () {
+    gulp.src('app/*.html') 
+        .pipe(gulp.dest('dist')) 
+        .pipe(reload({stream: true})); 
 });
 
 gulp.task('copy-bower', function() {
@@ -52,4 +53,4 @@ gulp.task('run', function () {
 
 });
 
-gulp.task('default', ['build', 'copy-bower', 'webserver', 'watch']);
+gulp.task('default', ['build', 'copy-bower', 'webserver', 'watch']); // just for fun

@@ -22,8 +22,8 @@ gulp.task('kopi', function () {
     destination = "dist";
 });
 
-gulp.task('klin', function (cb) {
-    del(destination, cb);
+gulp.task('klin', function() {
+    del(destination, function (err, deletedFiles) {});
 });
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -43,10 +43,9 @@ gulp.task('watch', function(){
     gulp.watch('app/**', function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         source = event.path.toString();
-        destination = 'dist' + source.slice(source.indexOf('app') + 3); //get all from "app/" to the end (xx + 3 = "app" compensation)
+        destination = source.replace("\\app\\", "\\dist\\");
         if(event.type == 'deleted')
         {
-            console.log("No task for deletion.");
             gulp.start(['klin']);
         }
         //if type is: added, changed or renamed. Works well, tested

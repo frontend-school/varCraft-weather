@@ -1,7 +1,7 @@
 Eldar Khaitov's branch
 ---------------------
 **03.04.2015**
-- some bugs found. Fixing...
+- some bugs fixed
 
 **27.03.2015**
 - local changes: practicing in reverting commits

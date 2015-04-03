@@ -1,5 +1,8 @@
 Eldar Khaitov's branch
 ---------------------
+**04.04.2015**
+- project taged with v0.1.0
+
 **03.04.2015**
 - some bugs fixed
 

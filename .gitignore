@@ -1,11 +1,5 @@
 $ cat .gitignore
 
-# check what will be with private_folder_inner
-private_folder*/
-
-# check what will be with files which contain "private_file" in name. If it see onto extensions
-*private_file*
-
 .idea/
 
 node_modules/

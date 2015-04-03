@@ -23,7 +23,7 @@ gulp.task('kopi', function () {
 });
 
 gulp.task('klin', function() {
-    del(destination, function (err, deletedFiles) {});
+    del(destination);
 });
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -1,5 +1,8 @@
 Eldar Khaitov's branch
 ---------------------
+**03.04.2015**
+- some bugs found. Fixing...
+
 **27.03.2015**
 - local changes: practicing in reverting commits
 - .gitignore added

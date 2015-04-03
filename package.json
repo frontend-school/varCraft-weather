@@ -1,0 +1,25 @@
+{
+  "name": "varCraft-weather",
+  "version": "0.1.0",
+  "description": "Web project - weather. Includes git files, common gulp tasks and project structure",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "bower": "^1.4.1",
+    "del": "^1.1.1",
+    "gulp-webserver": "^0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frontend-school/varCraft-weather.git"
+  },
+  "author": "Eldar Khaitov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frontend-school/varCraft-weather/issues"
+  },
+  "homepage": "https://github.com/frontend-school/varCraft-weather"
+}

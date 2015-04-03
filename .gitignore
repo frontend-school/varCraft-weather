@@ -1,5 +1,0 @@
-$ cat .gitignore
-node_modules/
-bower_components/
-.gitignore
-dist/

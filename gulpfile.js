@@ -1,5 +1,4 @@
 var gulp        = require('gulp'),
-    uglify      = require('gulp-uglify'),
     watch       = require('gulp-watch'),   
     rimraf      = require('rimraf'),
     browserSync = require("browser-sync"),
@@ -9,23 +8,8 @@ var config = {
         server: {
             baseDir: "./dist"
         },
-        tunnel: true,
-        host:   'localhost',
-        port:   9000,
-        logPrefix: "Abramova"
+        host:   'localhost'
 };
-
-
-//*** for all source file ***
-
-gulp.task('build', function() {
-    gulp.src('app/**/*')
-    // add call for plugins
-        .pipe(gulp.dest('dist'))
-        .pipe(reload({stream: true}));
-});
-
-//****************************
 
 
 //**** Builds for  types ****
@@ -34,8 +18,8 @@ gulp.task('html:build', function () {
     gulp.src('app/*.html')
 
     // add call for plugins
-        .pipe(gulp.dest('dist')) 
-        .pipe(reload({stream: true})); 
+        .pipe(gulp.dest('dist'))
+        .pipe(reload({stream: true}));
 });
 
 gulp.task('js:build', function () {
@@ -63,7 +47,7 @@ gulp.task('image:build', function () {
 
 //*********Build all for  types***********
 
-gulp.task('build_all', [
+gulp.task('build', [
     'html:build',
     'js:build',
     'style:build',
@@ -103,8 +87,8 @@ gulp.task('default', [
     'copy-bower', 
     'webserver', 
     'watch'
-]); // just for fun
+]);
 
 gulp.task('clean', function (cb) {
     rimraf('dist', cb);
-}); // just for fun
+});

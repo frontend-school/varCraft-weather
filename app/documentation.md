@@ -11,7 +11,7 @@ because this task wasn't very complicated. It was no need to use BEM tools and s
 
 Borders of the form
 ---
-It's a poor chance that designer painted a form with such paddings. It was even bigger than my screen! I had two options: it is <body> background color or this is still the form element. I leaved background partly. In any case it's easy to fix. However, BEM philosophy means to feel free to exchange components. It's scary to imagine that anyone need such huge form.
+It's a poor chance that designer painted a form with such paddings. It was even bigger than my screen! I had two options: it is \<body\> background color or this is still the form element. I leaved background partly. In any case it's easy to fix. However, BEM philosophy means to feel free to exchange components. It's scary to imagine that anyone need such huge form.
 
 Some work needs to be done both with designer. For example, font-weight or paddings. I could not measure them exactly.
 ---

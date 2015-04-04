@@ -3,18 +3,20 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Login form</title>
-    <link rel="stylesheet" href=""/>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/form.css"/>
 </head>
 <body>
     <div class="login-form">
-        <form action="">
-            <p><label for="email">Login:</label></p>
-            <p><input type="email" id="email"/></p>
+        <form action="" >
+            <p class="login-form__label"><label for="email">Login:</label></p>
+            <p><input type="email" id="email" required/></p>
 
-            <p><label for="password">Password:</label></p>
-            <p><input type="password" id="password"/></p>
+            <p class="login-form__label"><label for="password">Password:</label></p>
+            <p><input type="password" id="password" required/></p>
 
-            <p><input type="submit" value="Log in"/></p>
+            <p ><input type="submit" value="Log in" class="login-form__button"/></p>
         </form>
     </div>
 </body>

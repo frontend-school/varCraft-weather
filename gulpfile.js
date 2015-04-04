@@ -5,14 +5,7 @@ var gulp        = require('gulp'),
     reload      = browserSync.reload;
 
 var path = {
-    watch : {
-        html : 'app/**/*.html',
-        js   : 'app/js/**/*.js',
-        css  : 'app/css/**/*.css',
-        img  : 'app/img/**/*.*'
-    },
-
-    app   : { // app and watcher should be differ in future
+    app   : {
         html  : 'app/*.html',
         js    : 'app/js/*.js',
         css   : 'app/css/*.css',
@@ -38,19 +31,15 @@ var config = {
     host:   'localhost'
 };
 
-//**** Builds for  types ****
 
 gulp.task('html:build', function () {
     gulp.src(path.app.html)
-
-    // add call for plugins
         .pipe(gulp.dest(path.dist.html))
         .pipe(reload({stream: true}));
 });
 
 gulp.task('js:build', function () {
     gulp.src(path.app.js)
-        // add call for plugins
         .pipe(gulp.dest(path.dist.js))
         .pipe(reload({stream: true})); 
 });
@@ -58,31 +47,15 @@ gulp.task('js:build', function () {
 
 gulp.task('style:build', function () {
     gulp.src(path.app.css)
-
-        // add call for plugins
         .pipe(gulp.dest(path.dist.css))
         .pipe(reload({stream: true}));
 });
 
 gulp.task('image:build', function () {
     gulp.src(path.app.img)
-        //add img min
         .pipe(gulp.dest(path.dist.img))
         .pipe(reload({stream: true}));
 });
-
-//*********Build all for  types***********
-
-gulp.task('build', [
-    'html:build',
-    'js:build',
-    'style:build',
-    'image:build',
-    'copy-bower'
-]);
-
-// ****************************
-
 
 gulp.task('copy-bower', function() {
     gulp.src(path.app.bower)
@@ -92,16 +65,16 @@ gulp.task('copy-bower', function() {
 
 
 gulp.task('watch', function(){
-    watch([path.watch.html], function(event, cb) {
+    watch([path.app.html], function(event, cb) {
         gulp.start('html:build');
     });
-    watch([path.watch.css], function(event, cb) {
+    watch([path.app.css], function(event, cb) {
         gulp.start('style:build');
     });
-    watch([path.watch.js], function(event, cb) {
+    watch([path.app.js], function(event, cb) {
         gulp.start('js:build');
     });
-    watch([path.watch.img], function(event, cb) {
+    watch([path.app.img], function(event, cb) {
         gulp.start('image:build');
     });
 });
@@ -110,14 +83,21 @@ gulp.task('webserver', function () {
     browserSync(config);
 });
 
+gulp.task('build', [
+    'html:build',
+    'js:build',
+    'style:build',
+    'image:build',
+    'copy-bower'
+]);
+
 gulp.task('run', [
     'build',
     'webserver'
 ]);
 
 gulp.task('default', [
-    'build',
-    'webserver', 
+    'run',
     'watch'
 ]);
 

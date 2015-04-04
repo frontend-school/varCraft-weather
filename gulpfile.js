@@ -1,6 +1,7 @@
 var gulp        = require('gulp'),
     watch       = require('gulp-watch'),   
     rimraf      = require('rimraf'),
+    sass = require('gulp-sass'),
     browserSync = require("browser-sync"),
     reload      = browserSync.reload;
 
@@ -9,6 +10,7 @@ var path = {
         html  : 'app/*.html',
         js    : 'app/js/*.js',
         css   : 'app/css/*.css',
+        scss   : 'app/css/*.scss',
         img   : 'app/img/**/*.*',
         bower : 'bower_components/**/*.js'
     },
@@ -51,6 +53,15 @@ gulp.task('style:build', function () {
         .pipe(reload({stream: true}));
 });
 
+gulp.task('scss:build'), function () {
+    gulp.src(path.app.scss)
+        .pipe(sass())
+        .pipe(gulp.dest(path.dist.css))
+        .pipe(reload({stream: true}));
+};
+
+
+
 gulp.task('image:build', function () {
     gulp.src(path.app.img)
         .pipe(gulp.dest(path.dist.img))
@@ -87,6 +98,7 @@ gulp.task('build', [
     'html:build',
     'js:build',
     'style:build',
+    'scss:build',
     'image:build',
     'copy-bower'
 ]);

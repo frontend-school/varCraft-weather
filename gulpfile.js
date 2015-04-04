@@ -13,20 +13,27 @@ var config = {
 
 
 var path = {
-    watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        html: 'app/**/*.html',
-        js: 'app/js/**/*.js',
-        css: 'app/css/**/*.scss',
-        img: 'src/img/**/*.*'
+    watch : {
+        html : 'app/**/*.html',
+        js   : 'app/js/**/*.js',
+        css  : 'app/css/**/*.css',
+        img  : 'app/img/**/*.*'
     },
 
-    clean: './dist'
+    app   : {
+        html : 'app/*.html',
+        js   : 'app/js/*.js',
+        css  : 'app/css/*.css',
+        img  : 'app/img/**/*.*'
+    },
+
+    clean : './dist'
 };
 
 //**** Builds for  types ****
 
 gulp.task('html:build', function () {
-    gulp.src('app/*.html')
+    gulp.src(path.app.html)
 
     // add call for plugins
         .pipe(gulp.dest('dist'))
@@ -34,7 +41,7 @@ gulp.task('html:build', function () {
 });
 
 gulp.task('js:build', function () {
-    gulp.src('app/js/*.js') 
+    gulp.src(path.app.js)
         // add call for plugins
         .pipe(gulp.dest('dist/js')) 
         .pipe(reload({stream: true})); 
@@ -42,7 +49,7 @@ gulp.task('js:build', function () {
 
 
 gulp.task('style:build', function () {
-    gulp.src('app/css/*.css') 
+    gulp.src(path.app.css)
 
         // add call for plugins
         .pipe(gulp.dest('dist/css')) 
@@ -50,7 +57,7 @@ gulp.task('style:build', function () {
 });
 
 gulp.task('image:build', function () {
-    gulp.src('app/img/') 
+    gulp.src(path.app.img)
         //add img min
         .pipe(gulp.dest('dist/img')) 
         .pipe(reload({stream: true}));

@@ -1,5 +1,8 @@
 Eldar Khaitov's branch
 ---------------------
+**05.04.2015**
+- Login form made
+
 **04.04.2015**
 - project taged with v0.1.0
 

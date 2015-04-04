@@ -3,21 +3,35 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Login form</title>
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/form.css"/>
 </head>
 <body>
-    <div class="login-form">
+    <!--<div class=>
         <form action="" >
+
             <p class="login-form__label"><label for="email">Login:</label></p>
-            <p><input type="email" id="email" required/></p>
+            <p><input type="email" id="email" class="login-form__field"required/></p>
 
             <p class="login-form__label"><label for="password">Password:</label></p>
-            <p><input type="password" id="password" required/></p>
+            <p><input type="password" id="password" required class="login-form__field"/></p>
 
-            <p ><input type="submit" value="Log in" class="login-form__button"/></p>
+            <p class="login-form__button1"><input type="submit" value="Log in" class="login-form__button"/></p>
+        </form>
+    </div>-->
+
+    <div class="login-form">
+        <form action="" class="login-form__form">
+            <label for="name" class="login-form__form-label">Login:</label>
+            <input type="name" id="name" class="login-form__form-input">
+            <label for="password" class="login-form__form-label">Password:</label>
+            <input type="password" id="password" class="login-form__form-input">
+            <div class="login-form__submit">
+                <input type="submit" value="Log in" class="login-form__submit-button">
+            </div>
         </form>
     </div>
+
 </body>
 </html>

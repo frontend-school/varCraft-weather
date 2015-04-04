@@ -1,27 +1,60 @@
 
 body {
+    width: 100%;
     background-color: #262626;
 }
 
 .login-form {
     font-family: 'Titillium Web', sans-serif;
-    font-size: 1.3em;
-    width: 60%;
-    height: 60%;
-    min-width: 314px;
-    max-width: 237px;
-    padding: 0px;
+    font-size: 30pt;
+    font-weight: lighter;
+    color: #F6F6F6;
+
+
+    width: 650px;
+    height: 550px;
+
     overflow: auto;
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
 }
 
-.login-form__label {
-    color: #F6F6F6;
+.login-form__form {
+    margin: 20px auto 0;
 }
 
-.login-form__button {
+.login-form__form-label {
+    display: inline-block;
+    margin-left: 18px;
+    margin-bottom: 8px;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+.login-form__form-input{
+    padding-left: 10px;
+    margin: 0px;
+    margin-left: 18px;
+    width: 590px;
+    height: 81px;
+    border: none;
+    color: #000000;
+}
+
+.login-form__submit {
+    width: 100%;
+    height: 69px;
+    margin-top: 40px;
+}
+
+.login-form__submit-button {
+    float: right;
+    margin: 0 32px 0 0;
+    width: 140px;
+    height: 79px;
     background-color: #69B0BE;
-    font-size: 0.9em;
+    color: #000;
+    border: none;
+    cursor: pointer;
 }

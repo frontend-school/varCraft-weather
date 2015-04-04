@@ -18,10 +18,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "gulp": "~3.8.11"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp": "~3.8.11"
+    
   }
 }

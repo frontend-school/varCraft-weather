@@ -69,7 +69,8 @@ gulp.task('build', [
     'html:build',
     'js:build',
     'style:build',
-    'image:build'
+    'image:build',
+    'copy-bower'
 ]);
 
 // ****************************
@@ -107,8 +108,7 @@ gulp.task('run', [
 ]);
 
 gulp.task('default', [
-    'build', 
-    'copy-bower', 
+    'build',
     'webserver', 
     'watch'
 ]);

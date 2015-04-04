@@ -13,6 +13,12 @@ var config = {
 
 
 var path = {
+    watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+        html: 'app/**/*.html',
+        js: 'app/js/**/*.js',
+        css: 'app/css/**/*.scss',
+        img: 'src/img/**/*.*'
+    },
 
     clean: './dist'
 };
@@ -70,11 +76,17 @@ gulp.task('copy-bower', function() {
 
 
 gulp.task('watch', function(){
-    watch('app/**/*', function(event, cb) {
-        gulp.start('build');
+    watch([path.watch.html], function(event, cb) {
+        gulp.start('html:build');
     });
-    watch('bower_components/**/*.js', function(event, cb) {
-        gulp.start('copy-bower');
+    watch([path.watch.css], function(event, cb) {
+        gulp.start('style:build');
+    });
+    watch([path.watch.js], function(event, cb) {
+        gulp.start('js:build');
+    });
+    watch([path.watch.img], function(event, cb) {
+        gulp.start('image:build');
     });
 });
 

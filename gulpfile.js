@@ -12,6 +12,11 @@ var config = {
 };
 
 
+var path = {
+
+    clean: './dist'
+};
+
 //**** Builds for  types ****
 
 gulp.task('html:build', function () {
@@ -90,5 +95,5 @@ gulp.task('default', [
 ]);
 
 gulp.task('clean', function (cb) {
-    rimraf('dist', cb);
+    rimraf(path.clean, cb);
 });

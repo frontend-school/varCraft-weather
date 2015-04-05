@@ -1,13 +1,15 @@
-$form_width: 650px;
-$form_height: 550px;
+$form_height: 554px;
 $font_family: 'Titillium Web', sans-serif;
 $background_color: #262626;
 $label_color: #F6F6F6;
 $button_color: #69B0BE;
+$side_margin: 18px;
+$input_width: 600px;
+$form_width: $input_width + 2 * $side_margin;
 
 body {
   width: 100%;
-  //background-color: $background_color;
+  background-color: $background_color;
 }
 
 .login-form {
@@ -27,17 +29,15 @@ body {
   right: 0;
 
   &__label {
-    display: inline-block;
-    margin-left: 18px;
-    margin-bottom: 8px;
-    margin-top: 30px;
+    display: block;
+    margin: 30px 0 8px $side_margin;
     padding-top: 10px;
   }
 
   &__input {
     padding-left: 10px;
-    margin: 0 0 0 18px;
-    width: 590px;
+    margin: 0 0 0 $side_margin;
+    width: $input_width - 11px;
     height: 81px;
     border: none;
     color: #000000;
@@ -46,7 +46,7 @@ body {
   &__submit-button {
     display: block;
     float: right;
-    margin: 40px 32px 0 0;
+    margin: 36px $side_margin 0 0;
     width: 140px;
     height: 79px;
     background-color: $button_color;

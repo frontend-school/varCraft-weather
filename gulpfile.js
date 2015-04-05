@@ -40,13 +40,9 @@ gulp.task('js', function() {
 })
 
 gulp.task( 'css', function() {
-
-    gulp.src(source + '/css/*.css')
-        .pipe(gulp.dest(destination + '/css'));  //copy common CSS files, usefull during aprobation period with SASS
-
     gulp.src(source + '/css/*.scss')
     .pipe(sass())
-    .pipe( gulp.dest( destination + '/css' ) ); //transform files from SCSS to CSS and copy them to "dist/css"
+    .pipe( gulp.dest( destination + '/css' )); //transform files from SCSS to CSS and copy them to "dist/css"
 })
 
 gulp.task('img', function() {
@@ -54,11 +50,10 @@ gulp.task('img', function() {
     .pipe(gulp.dest(destination + '/img'))
 })
 
-
 gulp.task('bower', function () {
     bowerSrc()
         .pipe(gulp.dest(destination + '/vendor'));
-});
+})
 
 //watcher
 gulp.task('watch-source', function() {
@@ -75,7 +70,5 @@ gulp.task('livereload', function() {
 })
 
 gulp.task('watcher', ['watch-source', 'watch-components']);
-
 gulp.task('build', ['html', 'css', 'js', 'img']);
-
 gulp.task("default", ['server', 'build', 'watcher', 'livereload']);

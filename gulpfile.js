@@ -53,12 +53,12 @@ gulp.task('style:build', function () {
         .pipe(reload({stream: true}));
 });
 
-gulp.task('scss:build'), function () {
+gulp.task('scss:build', function () {
     gulp.src(path.app.scss)
         .pipe(sass())
         .pipe(gulp.dest(path.dist.css))
         .pipe(reload({stream: true}));
-};
+});
 
 
 
@@ -81,6 +81,9 @@ gulp.task('watch', function(){
     });
     watch([path.app.css], function(event, cb) {
         gulp.start('style:build');
+    });
+    watch([path.app.scss], function(event, cb) {
+        gulp.start('scss:build');
     });
     watch([path.app.js], function(event, cb) {
         gulp.start('js:build');

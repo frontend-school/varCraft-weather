@@ -1,91 +1,95 @@
 var gulp        = require('gulp'),
-    uglify      = require('gulp-uglify'),
-    watch       = require('gulp-watch'),   
+    watch       = require('gulp-watch'),
     rimraf      = require('rimraf'),
+    sass = require('gulp-sass'),
     browserSync = require("browser-sync"),
     reload      = browserSync.reload;
 
+var path = {
+    app   : {
+        html  : 'app/*.html',
+        js    : 'app/js/*.js',
+        css   : 'app/css/*.css',
+        scss   : 'app/css/*.scss',
+        img   : 'app/img/**/*.*',
+        bower : 'bower_components/**/*.js'
+    },
+
+    clean : './dist',
+
+    dist: {
+        html   : 'dist/',
+        js     : 'dist/js/',
+        css    : 'dist/css/',
+        img    : 'dist/img/',
+        vendor : 'dist/vendor'
+    }
+};
+
 var config = {
-        server: {
-            baseDir: "./dist"
-        },
-        tunnel: true,
-        host:   'localhost',
-        port:   9000,
-        logPrefix: "Abramova"
+    server: {
+        baseDir: "./dist"
+    },
+    host:   'localhost'
 };
 
 
-//*** for all source file ***
-
-gulp.task('build', function() {
-    gulp.src('app/**/*')
-    // add call for plugins
-        .pipe(gulp.dest('dist'))
+gulp.task('html:build', function () {
+    gulp.src(path.app.html)
+        .pipe(gulp.dest(path.dist.html))
         .pipe(reload({stream: true}));
 });
 
-//****************************
-
-
-//**** Builds for  types ****
-
-gulp.task('html:build', function () {
-    gulp.src('app/*.html')
-
-    // add call for plugins
-        .pipe(gulp.dest('dist')) 
-        .pipe(reload({stream: true})); 
-});
-
 gulp.task('js:build', function () {
-    gulp.src('app/js/*.js') 
-        // add call for plugins
-        .pipe(gulp.dest('dist/js')) 
-        .pipe(reload({stream: true})); 
+    gulp.src(path.app.js)
+        .pipe(gulp.dest(path.dist.js))
+        .pipe(reload({stream: true}));
 });
 
 
 gulp.task('style:build', function () {
-    gulp.src('app/css/*.css') 
-
-        // add call for plugins
-        .pipe(gulp.dest('dist/css')) 
+    gulp.src(path.app.css)
+        .pipe(gulp.dest(path.dist.css))
         .pipe(reload({stream: true}));
 });
+
+gulp.task('scss:build', function () {
+    gulp.src(path.app.scss)
+        .pipe(sass())
+        .pipe(gulp.dest(path.dist.css))
+        .pipe(reload({stream: true}));
+});
+
+
 
 gulp.task('image:build', function () {
-    gulp.src('app/img/') 
-        //add img min
-        .pipe(gulp.dest('dist/img')) 
+    gulp.src(path.app.img)
+        .pipe(gulp.dest(path.dist.img))
         .pipe(reload({stream: true}));
 });
 
-//*********Build all for  types***********
-
-gulp.task('build_all', [
-    'html:build',
-    'js:build',
-    'style:build',
-    'image:build'
-]);
-
-// ****************************
-
-
 gulp.task('copy-bower', function() {
-    gulp.src('bower_components/**/*.js')
-        .pipe(gulp.dest('dist/vendor'))
+    gulp.src(path.app.bower)
+        .pipe(gulp.dest(path.dist.vendor))
         .pipe(reload({stream: true}));
 });
 
 
 gulp.task('watch', function(){
-    watch('app/**/*', function(event, cb) {
-        gulp.start('build');
+    watch([path.app.html], function(event, cb) {
+        gulp.start('html:build');
     });
-    watch('bower_components/**/*.js', function(event, cb) {
-        gulp.start('copy-bower');
+    watch([path.app.css], function(event, cb) {
+        gulp.start('style:build');
+    });
+    watch([path.app.scss], function(event, cb) {
+        gulp.start('scss:build');
+    });
+    watch([path.app.js], function(event, cb) {
+        gulp.start('js:build');
+    });
+    watch([path.app.img], function(event, cb) {
+        gulp.start('image:build');
     });
 });
 
@@ -93,18 +97,25 @@ gulp.task('webserver', function () {
     browserSync(config);
 });
 
+gulp.task('build', [
+    'html:build',
+    'js:build',
+    'style:build',
+    'scss:build',
+    'image:build',
+    'copy-bower'
+]);
+
 gulp.task('run', [
     'build',
     'webserver'
 ]);
 
 gulp.task('default', [
-    'build', 
-    'copy-bower', 
-    'webserver', 
+    'run',
     'watch'
-]); // just for fun
+]);
 
 gulp.task('clean', function (cb) {
-    rimraf('dist', cb);
-}); // just for fun
+    rimraf(path.clean, cb);
+});

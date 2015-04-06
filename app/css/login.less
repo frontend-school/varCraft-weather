@@ -1,0 +1,59 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:200,400);
+
+@form-width: 300px;
+@form-height: 240px;
+@input-width: 300px;
+@input-height: 40px;
+@login-font-size: 15pt;
+
+.font {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: @login-font-size;
+}
+
+.authentication {
+  width: 595px;
+  height: 595px;
+  background-color: #262626;
+  position: relative;
+
+  &-form {
+    width: @form-width;
+    height: @form-height;
+
+    .font;
+    font-weight: 300;
+
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+
+    &__login-label, &__password-label {
+      color: #FFFFFF;
+    }
+
+    &__login, &__password {
+      .font;
+      font-weight: 400;
+
+      width: @input-width;
+      height: @input-height;
+
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+
+    &__submit {
+      .font;
+      font-weight: 400;
+      background-color: #6CB0BD;
+
+      height: @input-height;
+      width: 70px;
+
+      float: right;
+      border: none;
+      outline: none;
+    }
+  }
+}

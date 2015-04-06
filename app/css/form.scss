@@ -1,28 +1,30 @@
 $font_family: 'Titillium Web', sans-serif;
-$font_size: 30pt;
+$font_size: 15pt;
 $background_color: #262626;
 $label_color: #F6F6F6;
 
-$side_margin: 18px;
-$input_width: 600px;
-$form_width: $input_width + 2 * $side_margin;
-$form_height: 558px;
+$side_margin: 0px;
+$input_width: 300px;
+$form_width: $input_width;
+$form_height: 246px;
 
-$button_width: 140px;
-$button_height: 80px;
+$label_margin_top: 15px;
+$label_padding_top: 5px;
+$label_margin_bottom: 6px;
+
+$button_width: 70px;
+$input_height: 39px;
 $button_color: #69B0BE;
 
 
 body {
   width: 100%;
-  //background-color: $background_color;
+  background-color: $background_color;
 }
 
 .login-form {
-  background-color: $background_color;
   font-family: $font_family;
   font-size: $font_size;
-  font-weight: lighter;
   color: $label_color;
   width: $form_width;
   height: $form_height;
@@ -36,15 +38,20 @@ body {
 
   &__label {
     display: block;
-    margin: 31px 0 9px $side_margin;
-    padding-top: 10px;
+    margin: $label_margin_top 0 $label_margin_bottom;
+    padding-top: $label_padding_top;
+
+    &:first-child{
+      margin-top: 0;
+      padding-top: 0;
+    }
   }
 
   &__input {
     padding-left: 10px;
-    margin: 0 0 0 $side_margin;
+    margin: 0;
     width: $input_width - 11px;
-    height: 81px;
+    height: $input_height;
     border: none;
     color: #000000;
   }
@@ -52,9 +59,9 @@ body {
   &__submit-button {
     display: block;
     float: right;
-    margin: 39px $side_margin 0 0;
+    margin: 20px 0 0;
     width: $button_width;
-    height: $button_height;
+    height: $input_height;
     background-color: $button_color;
     color: #000;
     border: none;

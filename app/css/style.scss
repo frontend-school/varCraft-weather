@@ -1,31 +1,24 @@
 $grey: #262626;
 $white: #fff;
-$page-width: 1190/16 + em;
-$page-height: 800/16 + em;
-$main-font: 'Titillium Web', sans-serif;
 $blue: #6cb0bd;
+$page-width: 1190/16 + em;
+$page-height: 1190/16 + em;
+$form-height: 470/16 + em;
+$form-width: 600/16 + em;
+$main-font: 'Titillium Web', sans-serif;
 
-*{
+body{
 	margin: 0;
 	padding: 0;
 }
 
-.clearfix:after{
-	content: "";
-	clear: both;
-	display: table;
-}
-
-.main-page {
-
+.page {
 	position: relative;
-	max-width: $page-width;
-	min-height: $page-height;
-	margin: auto;
+	height: $page-height;
+	width: $page-width;
+	margin:0 auto;
 	background-color: $grey;
-	margin: 0 auto;
 	font-family: $main-font;
-
 }
 
 .main-form {
@@ -33,40 +26,33 @@ $blue: #6cb0bd;
 	-webkit-box-sizing: border-box ;
 	-moz-box-sizing: border-box ;
 	box-sizing: border-box ;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	top: 0; left: 0; bottom: 0;	right: 0;
 	margin: auto;
-	width: 50.505%;
-	height: 460/16 + em;
-	&__login {
+	width: $form-width;
+	height: $form-height;
+	&__text-input {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	    width: 100%;
-		font-size: 82/16 + em;
+		font-size: 70/16 + em;
 		display: block;
 		border: none;
-		margin-top: 10px;
+		margin-top: 9px;
 		margin-bottom: 40px;
 
 	}
-	&__password {
-		@extend .main-form__login;
-	}
 
-	&__login-label{
+	&__text-input-label{
 		color:$white;
-		font-size: 2.0em;
-	}
-	&__password-label {
-		@extend .main-form__login-label;
+		font-size: 2.5em;
+		font-weight: 200;
 	}
 
 	&__submit {
-		font-size: 2.0em;
-		padding: 26px;
+		font-family: $main-font;
+		font-size: 2.5em;
+		padding: 10px 20px;
 		float: right;
 		background-color: $blue;
 		border: none;

@@ -40,7 +40,7 @@ gulp.task('js', function() {
 })
 
 gulp.task( 'css', function() {
-    gulp.src(source + '/css/*.scss')
+    gulp.src(source + '/css/*.*')
     .pipe(sass())
     .pipe( gulp.dest( destination + '/css' )); //transform files from SCSS to CSS and copy them to "dist/css"
 })

@@ -1,0 +1,65 @@
+$font_family: 'Titillium Web', sans-serif;
+$font_size: 30pt;
+$background_color: #262626;
+$label_color: #F6F6F6;
+$button_color: #69B0BE;
+$side_margin: 18px;
+$input_width: 600px;
+$form_width: $input_width + 2 * $side_margin;
+$form_height: 558px;
+
+body {
+  width: 100%;
+  background-color: $background_color;
+}
+
+.login-form {
+  background-color: $background_color;
+  font-family: $font_family;
+  font-size: $font_size;
+  font-weight: lighter;
+  color: $label_color;
+  width: $form_width;
+  height: $form_height;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  &__label {
+    display: block;
+    margin: 30px 0 9px $side_margin;
+    padding-top: 10px;
+  }
+
+  &__input {
+    padding-left: 10px;
+    margin: 0 0 0 $side_margin;
+    width: $input_width - 11px;
+    height: 81px;
+    border: none;
+    color: #000000;
+  }
+
+  &__submit-button {
+    display: block;
+    float: right;
+    margin: 39px $side_margin 0 0;
+    width: 140px;
+    height: 80px;
+    background-color: $button_color;
+    color: #000;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+
+
+
+
+
+

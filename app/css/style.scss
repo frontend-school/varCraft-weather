@@ -1,10 +1,10 @@
 $grey: #262626;
 $white: #fff;
 $blue: #6cb0bd;
-$page-width: 1190/16 + em;
-$page-height: 1190/16 + em;
-$form-height: 470/16 + em;
-$form-width: 600/16 + em;
+$page-width: 594/16 + em;
+$page-height: 594/16 + em;
+$form-height: 234/16 + em;
+$form-width: 300/16 + em;
 $main-font: 'Titillium Web', sans-serif;
 
 body{
@@ -14,45 +14,48 @@ body{
 
 .page {
 	position: relative;
-	height: $page-height;
-	width: $page-width;
-	margin:0 auto;
+	min-height: $page-height;
+	min-width: $page-width;
 	background-color: $grey;
 	font-family: $main-font;
 }
 
 .main-form {
+	width: $form-width;
+	height: $form-height;
 	position: absolute;
 	-webkit-box-sizing: border-box ;
 	-moz-box-sizing: border-box ;
 	box-sizing: border-box ;
-	top: 0; left: 0; bottom: 0;	right: 0;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	margin: auto;
-	width: $form-width;
-	height: $form-height;
 	&__text-input {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	    width: 100%;
-		font-size: 70/16 + em;
+		height: 32/16 + em;
+		font-size: 1.25em;
 		display: block;
 		border: none;
-		margin-top: 9px;
-		margin-bottom: 40px;
+		margin-top: 4px;
+		margin-bottom: 20px;
 
 	}
 
 	&__text-input-label{
 		color:$white;
-		font-size: 2.5em;
+		font-size: 1.25em;
 		font-weight: 200;
 	}
 
 	&__submit {
 		font-family: $main-font;
-		font-size: 2.5em;
-		padding: 10px 20px;
+		font-size: 1.25em;
+		padding: 5px 10px;
 		float: right;
 		background-color: $blue;
 		border: none;

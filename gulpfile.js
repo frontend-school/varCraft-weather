@@ -1,5 +1,5 @@
 var gulp        = require('gulp'),
-    watch       = require('gulp-watch'),   
+    watch       = require('gulp-watch'),
     rimraf      = require('rimraf'),
     sass = require('gulp-sass'),
     browserSync = require("browser-sync"),
@@ -43,7 +43,7 @@ gulp.task('html:build', function () {
 gulp.task('js:build', function () {
     gulp.src(path.app.js)
         .pipe(gulp.dest(path.dist.js))
-        .pipe(reload({stream: true})); 
+        .pipe(reload({stream: true}));
 });
 
 

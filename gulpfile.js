@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var webserver = require('gulp-webserver');
+var sass = require('gulp-ruby-sass');
 
 var source = 'app';
 var filteredSource = [source + '/css/**/*.css',
@@ -8,6 +9,10 @@ var filteredSource = [source + '/css/**/*.css',
                       source + '/img/**/*.{png,jpg,jpeg,gif}',
                       source + '/index.html'];
 var destination = 'dist';
+
+var sourceCSS = source + '/css';
+var filteredSourceSCSS = sourceCSS + '/**/*.scss';
+
 
 var srcComponents = 'bower_components';
 var destComponents = 'dist/vendor';
@@ -26,6 +31,21 @@ gulp.task('watch-components-folder', function() {
 
 gulp.task('watch-folders', ['watch-folder', 'watch-components-folder']);
 
+// Sass Compile Task
+gulp.task('sass', function() {
+    sass(sourceCSS, {style: 'expanded'}) 
+    .on('error', function (err) {
+      console.error('Error!', err.message);
+    })
+    .pipe(gulp.dest(sourceCSS));
+});
+
+gulp.task('watch-sass', function() { 
+  watch(sourceCSS + '/**/*.scss', function() {
+    gulp.run('sass');
+  });
+});
+
 gulp.task('webserver', function() {
   gulp.src(source)
     .pipe(webserver({
@@ -35,4 +55,5 @@ gulp.task('webserver', function() {
     }));
 });
 
-gulp.task('default', ['webserver', 'watch-folders']);
+gulp.task('default', ['webserver', 'watch-sass','watch-folders']);
+

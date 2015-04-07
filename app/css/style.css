@@ -1,23 +1,43 @@
-/*@font-face {
-    font-family: 'bad_scriptregular';
-    src: url('../fonts/badscript-regular-webfont.eot');
-    src: url('../fonts/badscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/badscript-regular-webfont.woff2') format('woff2'),
-         url('../fonts/badscript-regular-webfont.woff') format('woff'),
-         url('../fonts/badscript-regular-webfont.ttf') format('truetype'),
-         url('../fonts/badscript-regular-webfont.svg#bad_scriptregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}*/
-
-.test-bar{
-	display: inline-block;
-	
-	height: 200px;
-	width: 200px;
-	border: 10px solid #5d5;
-	background-color: #99d;
-
-	margin-top: 200px;
-	margin-right: 20px;
+.popup {
+  position: absolute;
+  width: 300px;
+  height: 234px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 60px 80px;
+  overflow: hidden;
+  background-color: #262626;
+  color: #000;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 20px;
+}
+.popup__label {
+  display: block;
+  height: 30px;
+  color: #fff;
+  font-weight: 200;
+}
+.popup__login-pwd {
+  display: block;
+  width: inherit;
+  height: 40px;
+  margin: 6px 0 21px 0;
+  border: none;
+  padding: 0;
+  font-weight: 600;
+}
+.popup__submit {
+  position: relative;
+  width: 70px;
+  height: 40px;
+  margin: 0 0 0 230px;
+  border: none;
+  padding: 0;
+  background-color: #6cb0bd;
+  color: #000;
+  font-weight: 400;
+  line-height: 30px;
 }

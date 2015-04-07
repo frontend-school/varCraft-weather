@@ -2,19 +2,23 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>~~</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<title>Authentication form</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/script.js"></script>
-	<!-- set your google font. Example:
-	<link href='http://fonts.googleapis.com/css?family=Neucha&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
+	
+	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:600,400,300,200' rel='stylesheet' type='text/css'> <!-- Titillium Web -->
 
 </head>
 <body>
-
-	<div class="test-bar"> </div>
-	<div class="test-bar"> </div>
-	<div class="test-bar"> </div>
+		
+	<form class="popup" method="POST">
+		
+		<label for="login" class="popup__label">Login:</label>
+		<input type="text" id="login" class="popup__login-pwd">
+		<label for="password" class="popup__label">Password:</label>
+		<input type="password" id="password" class="popup__login-pwd">
+		<button type="submit" class="popup__submit">Log in</button>   
+	</form>
 
 </body>
 </html>

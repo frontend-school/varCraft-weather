@@ -1,0 +1,57 @@
+$bgColor: #262626;
+$buttonColor: #6cb0bd;
+
+.popup{
+	position: absolute;
+	width: 300px;
+	height: 234px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+	padding: 60px 80px;
+
+	overflow: hidden;
+	background-color: $bgColor;
+
+	color: #000;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 20px;
+
+	&__label{
+		display: block;
+		height: 30px;
+		color: #fff;
+		font-weight: 200;
+	}
+
+	&__login-pwd{
+		display: block;
+		width: inherit;
+		height: 40px;
+		margin: 6px 0 21px 0;	
+		border: none;
+		padding: 0;
+
+		font-weight: 600;
+	}
+
+	&__submit{
+		position: relative;
+		width: 70px;
+		height: 40px;
+		margin: 0 0 0 230px;
+		border: none;
+		padding: 0;
+		background-color: $buttonColor;
+		
+		color: #000;
+		font-weight: 400;
+		line-height: 30px;
+	}
+
+}
+
+

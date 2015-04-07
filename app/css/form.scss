@@ -27,6 +27,9 @@ body {
   font-size: $font_size;
   color: $label_color;
   width: $form_width;
+    -webkit-box-sizing: border-box ;
+    -moz-box-sizing: border-box ;
+    box-sizing: border-box ;
   height: $form_height;
   overflow: auto;
   margin: auto;
@@ -50,7 +53,10 @@ body {
   &__input {
     padding-left: 10px;
     margin: 0;
-    width: $input_width - 11px;
+    width: 100%;
+    -webkit-box-sizing: border-box ;
+    -moz-box-sizing: border-box ;
+    box-sizing: border-box ;
     height: $input_height;
     border: none;
     color: #000000;

@@ -14,6 +14,7 @@ $label_margin_bottom: 6px;
 $button_width: 70px;
 $input_height: 39px;
 $button_color: #69B0BE;
+$button_color_text: #000000;
 
 
 body {
@@ -26,9 +27,9 @@ body {
   font-size: $font_size;
   color: $label_color;
   width: $form_width;
-    -webkit-box-sizing: border-box ;
-    -moz-box-sizing: border-box ;
-    box-sizing: border-box ;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   height: $form_height;
   overflow: auto;
   margin: auto;
@@ -53,12 +54,12 @@ body {
     padding-left: 10px;
     margin: 0;
     width: 100%;
-    -webkit-box-sizing: border-box ;
-    -moz-box-sizing: border-box ;
-    box-sizing: border-box ;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     height: $input_height;
     border: none;
-    color: #000000;
+    color: $button_color_text;
   }
 
   &__submit-button {

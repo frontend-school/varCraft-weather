@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 var source = "app/**",
     destination = "dist";
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['build', 'watch']);
 
 gulp.task('copy', function () {
     gulp.src(source)
@@ -27,6 +27,18 @@ gulp.task('bc-vendor', function(){
     gulp.start(['copy']);
 });
 
+gulp.task('build', function(){
+    source = 'app\\index.html';
+    destination = source.replace("app\\", "dist\\");
+    destination = destination.slice(0, destination.lastIndexOf('\\'));
+    gulp.start(['copy']);
+
+    source = 'app\\block\\general.scss';
+    destination = source.replace("app\\", "dist\\");
+    destination = destination.slice(0, destination.lastIndexOf('\\'));
+    gulp.start(['sass']);
+});
+
 gulp.task('sass',function(){
     gulp.src(source)
         .pipe(sass({
@@ -35,31 +47,30 @@ gulp.task('sass',function(){
             includePaths: [source]
         }))
         .pipe(gulp.dest(destination));
+
+    source = "app/**";
+    destination = "dist";
 });
 
 gulp.task('watch', function(){
-    try {
-        gulp.watch('app/**', function (event) {
-            source = event.path.toString();
-            destination = source.replace("\\app\\", "\\dist\\");
-            if (event.type == 'deleted') {
-                gulp.start(['clean']);
+    gulp.watch('app/**', function (event) {
+        source = event.path.toString();
+        destination = source.replace("\\app\\", "\\dist\\");
+        if (event.type == 'deleted') {
+            gulp.start(['clean']);
+        }
+        else {
+            var fileExtension = source.slice(source.lastIndexOf('.'));
+            if (fileExtension == '.scss') {
+                source = 'app\\block\\general.scss';
+                destination = 'dist\\block'
+                gulp.start(['sass']);
             }
             else {
-                destination = destination.slice(0, destination.lastIndexOf('\\'));
-                var fileExtension = source.slice(source.lastIndexOf('.'));
-                if (fileExtension == '.scss') {
-                    gulp.start(['sass']);
-                }
-                else {
-                    gulp.start(['copy']);
-                }
+                gulp.start(['copy']);
             }
-        });
-    }
-    catch(error){
-        gulp.start(['watch']);
-    }
+        }
+    });
 });
 
 gulp.task('webserver', function() {

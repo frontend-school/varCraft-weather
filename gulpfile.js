@@ -18,15 +18,15 @@ gulp.task('css', function() {
 
 // LESS
 gulp.task('less', function() {
-    return gulp.src(source + '/css/*.less', {base: source})
-        .pipe(watch(source, {base: source}))
+    return gulp.src(source + 'css/*.less', {base: source+'css'})
+        .pipe(watch(source + 'css/*.less', {base: source+'css'}))
         .pipe(less())
-        .pipe(gulp.dest(destination));
+        .pipe(gulp.dest(destination+'css'));
 });
 // JS
 gulp.task('js', function() {
-    return gulp.src(source + 'js**.js', {base: source})
-        .pipe(watch(source + 'js**.js', {base: source}))
+    return gulp.src(source + 'js/*.js', {base: source})
+        .pipe(watch(source + 'js/*.js', {base: source}))
         .pipe(gulp.dest(destination));
 });
 

@@ -6,9 +6,9 @@
   "dependencies": {
     "bower": "^1.4.1",
     "del": "^1.1.1",
-    "gulp-webserver": "^0.9.0"
+    "gulp-webserver": "^0.9.0",
+    "gulp-sass": "^1.3.3"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +21,5 @@
   "bugs": {
     "url": "https://github.com/frontend-school/varCraft-weather/issues"
   },
-  "homepage": "https://github.com/frontend-school/varCraft-weather"
+  "homepage": "https://github.com/frontend-school/varCraft-weather/tree/eldar"
 }

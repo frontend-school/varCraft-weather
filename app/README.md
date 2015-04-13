@@ -5,8 +5,8 @@ The task was:
 - Select an open API which you can use in the app to show current weather
 
 Result of a SPILE is:
-1.  you have to have a git repository with simple example
-2.  You have to be ready to prove your decision
+- you have to have a git repository with simple example
+- you have to be ready to prove your decision
 
 I used OpenWeatherMap
 ---

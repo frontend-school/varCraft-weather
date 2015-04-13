@@ -1,5 +1,14 @@
-@import "b-login-form/b-login-form.scss";
 html, body{
     width: 100%;
     height: 100%;
 }
+
+.page{
+  background-color: #262626;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+@import "login-form/login-form.scss";
+@import "weather/weather.scss";

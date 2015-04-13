@@ -2,13 +2,19 @@ var express = require('express'),
     pageConstructor = require('./pageConstructor');
 var app = express();
 
-var content = pageConstructor.construct('index.html', 'block/b-login-form/b-login-form.html');
+
 
 app.use('/block', express.static('block'));
+
 app.get('/', function (req, res) {
+    var content = pageConstructor.construct('index.html', 'block/login-form/login-form.html');
     res.send(content);
 });
 
+app.get('/weather', function (req, res) {
+    var content = pageConstructor.construct('index.html', 'block/weather/weather.html');
+    res.send(content);
+});
 
 var server = app.listen(3000, function () {
 

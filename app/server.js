@@ -5,8 +5,7 @@ var express = require('express'),
 
 var app = express(),
     login,
-    password,
-    refreshTime;
+    password;
 
 app.use('/block', express.static('block'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,7 +46,6 @@ app.get('/weather', function (req, res) {
 app.post('/login', function (req, res) {
     login = req.body.login;
     password = req.body.password;
-    refreshTime = (new Date()).getTime();
     res.redirect('/weather');
 });
 

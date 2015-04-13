@@ -8,8 +8,9 @@ var users = [
 ];
 
 function userExists(login, password){
-    for(var user in users){
-        if ((users.hasOwnProperty(user)) && (user[login] == login) &&(user[password] == password)) {
+    for(var i = 0; i < users.length; i++)
+    {
+        if ((users[i].login == login) &&(users[i].password == password)) {
             return true;
         }
     }

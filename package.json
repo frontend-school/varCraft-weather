@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/frontend-school/varCraft-weather/tree/eldar",
   "devDependencies": {
+    "body-parser": "^1.12.2",
+    "connect-timeout": "^1.6.1",
     "gulp-concat": "^2.5.2"
   }
 }

@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-function construct(template, tiles) {
+function construct(template, tiles, info) {
     template = fs.readFileSync(template, 'utf8');
 
     var content = template;
@@ -10,6 +10,8 @@ function construct(template, tiles) {
             content = content.replace(placeholder, tile);
         }
     }
+    if(content.match(/@-info/))
+        content = content.replace('@-info',  info);
     return content;
 }
 

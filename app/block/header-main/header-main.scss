@@ -47,6 +47,9 @@ $header-main-height:50;
       font: inherit;
       font-weight: 400;
       border: none;
+      &_disabled{
+        background-color: #949494;
+      }
     }
   }
 }

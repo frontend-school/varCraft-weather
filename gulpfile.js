@@ -45,6 +45,9 @@ gulp.task('build', function(){
 
     gulp.start(['concatScripts']);
 
+    source = 'app/*.js';
+    runTask('copy');
+
     source = 'app/**/*.html';
     runTask('copy');
 

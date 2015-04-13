@@ -1,6 +1,7 @@
-<p class="header-main__logo">varCraft-weather</p>
-<div class="header-main__info">
-    <p id="header-main__info_userinfo" class="header-main__info_userinfo"></p>
-    <input class="header-main__info_logout" type="button" value="Log out">
+<div class="header-main">
+    <p class="header-main__logo">varCraft-weather</p>
+    <form class="header-main__info" method="get">
+        <label id="header-main__info_userinfo" class="header-main__info_userinfo">Hello, user!</label>
+        <input class="header-main__info_logout" id="header-main__info_logout" type="button" value="Log out" onclick="window.location.replace('/logout');">
+    </form>
 </div>
-<!--<script src="block/header-main/header-main.js"></script>-->

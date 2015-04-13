@@ -6,13 +6,15 @@ $page-height: 594/16 + em;
 $form-height: 234/16 + em;
 $form-width: 300/16 + em;
 $main-font: 'Titillium Web', sans-serif;
+$mo: 0;
+
 
 body{
-	margin: 0;
+	margin: $mo;
 	padding: 0;
 }
 
-.page {
+.login-page {
 	position: relative;
 	min-height: $page-height;
 	min-width: $page-width;
@@ -20,7 +22,7 @@ body{
 	font-family: $main-font;
 }
 
-.main-form {
+.login-form {
 	width: $form-width;
 	height: $form-height;
 	position: absolute;
@@ -32,7 +34,7 @@ body{
 	bottom: 0;
 	right: 0;
 	margin: auto;
-	&__text-input {
+	&__input {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
@@ -46,7 +48,7 @@ body{
 
 	}
 
-	&__text-input-label{
+	&__label{
 		color:$white;
 		font-size: 1.25em;
 		font-weight: 200;

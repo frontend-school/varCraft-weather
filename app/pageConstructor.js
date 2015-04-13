@@ -1,11 +1,16 @@
 var fs = require('fs');
 
-function construct(wrapper, tile) {
-    tile = fs.readFileSync(tile, 'utf8');
-    wrapper = fs.readFileSync(wrapper, 'utf8');
+function construct(template, tiles) {
+    template = fs.readFileSync(template, 'utf8');
 
-    var content = wrapper.replace('@content', tile);
+    var content = template;
+    for (var placeholder in tiles) {
+        if (tiles.hasOwnProperty(placeholder)) {
+            var tile = fs.readFileSync(tiles[placeholder]);
+            content = content.replace(placeholder, tile);
+        }
+    }
     return content;
-};
+}
 
 exports.construct = construct;

@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/frontend-school/varCraft-weather/issues"
   },
-  "homepage": "https://github.com/frontend-school/varCraft-weather/tree/eldar"
+  "homepage": "https://github.com/frontend-school/varCraft-weather/tree/eldar",
+  "devDependencies": {
+    "gulp-concat": "^2.5.2"
+  }
 }

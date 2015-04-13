@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     del = require('del'),
     webserver = require('gulp-webserver'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat');
 
 var source = "app/**",
     destination = "dist";
@@ -27,6 +28,12 @@ gulp.task('bc-vendor', function(){
     gulp.start(['copy']);
 });
 
+gulp.task('concatScripts',function(){
+    return gulp.src(['./app/**/*.js', '!./app/*.js'])
+        .pipe(concat('general.js'))
+        .pipe(gulp.dest('./dist/block/'));
+});
+
 gulp.task('build', function(){
     destination = 'dist';
 
@@ -36,8 +43,7 @@ gulp.task('build', function(){
     source = 'app\\block\\general.scss';
     runTask('sass');
 
-    source = 'app/**/*.js';
-    runTask('copy');
+    gulp.start(['concatScripts']);
 
     source = 'app/**/*.html';
     runTask('copy');
@@ -67,23 +73,6 @@ gulp.task('sass',function(){
 gulp.task('watch', function(){
     gulp.watch('app/**', function (event) {
         gulp.start(['build']);
-        //source = event.path.toString();
-        //destination = source.replace("\\app\\", "\\dist\\");
-        //destination = destination.slice(0, destination.lastIndexOf('\\'));
-        //if (event.type == 'deleted') {
-        //    gulp.start(['clean']);
-        //}
-        //else {
-        //    var fileExtension = source.slice(source.lastIndexOf('.'));
-        //    if (fileExtension == '.scss') {
-        //        source = 'app\\block\\general.scss';
-        //        destination = 'dist\\block';
-        //        gulp.start(['sass']);
-        //    }
-        //    else {
-        //        gulp.start(['copy']);
-        //    }
-        //}
     });
 });
 

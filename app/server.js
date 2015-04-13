@@ -1,18 +1,24 @@
 var express = require('express'),
-    pageConstructor = require('./pageConstructor');
+    pageConstructor = require('./pageConstructor'),
+    dataBaseHandler = require('./dataBaseHandler');
+
 var app = express();
-
-
 
 app.use('/block', express.static('block'));
 
 app.get('/', function (req, res) {
-    var content = pageConstructor.construct('index.html', 'block/login-form/login-form.html');
+    var content = pageConstructor.construct('index.html', {
+        '@content':'block/login-form/login-form.html',
+        '@placeHolder1':'block/header-main/header-main.html'
+    });
     res.send(content);
 });
 
 app.get('/weather', function (req, res) {
-    var content = pageConstructor.construct('index.html', 'block/weather/weather.html');
+    var content = pageConstructor.construct('index.html', {
+        '@content':'block/weather/weather.html',
+        '@placeHolder1':'block/header-main/header-main.html'
+    });
     res.send(content);
 });
 

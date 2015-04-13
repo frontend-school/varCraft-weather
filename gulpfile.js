@@ -28,15 +28,27 @@ gulp.task('bc-vendor', function(){
 });
 
 gulp.task('build', function(){
+    destination = 'dist';
+
     source = 'app\\index.html';
-    destination = source.replace("app\\", "dist\\");
-    destination = destination.slice(0, destination.lastIndexOf('\\'));
-    gulp.start(['copy']);
+    runTask('copy');
 
     source = 'app\\block\\general.scss';
-    destination = source.replace("app\\", "dist\\");
-    destination = destination.slice(0, destination.lastIndexOf('\\'));
-    gulp.start(['sass']);
+    runTask('sass');
+
+    source = 'app/**/*.js';
+    runTask('copy');
+
+    source = 'app/**/*.html';
+    runTask('copy');
+
+    function runTask(task){
+        if(!source.match(/[*]/)) {
+            destination = source.replace("app\\", "dist\\");
+            destination = destination.slice(0, destination.lastIndexOf('\\'));
+        }
+        gulp.start([task]);
+    }
 });
 
 gulp.task('sass',function(){
@@ -54,22 +66,24 @@ gulp.task('sass',function(){
 
 gulp.task('watch', function(){
     gulp.watch('app/**', function (event) {
-        source = event.path.toString();
-        destination = source.replace("\\app\\", "\\dist\\");
-        if (event.type == 'deleted') {
-            gulp.start(['clean']);
-        }
-        else {
-            var fileExtension = source.slice(source.lastIndexOf('.'));
-            if (fileExtension == '.scss') {
-                source = 'app\\block\\general.scss';
-                destination = 'dist\\block'
-                gulp.start(['sass']);
-            }
-            else {
-                gulp.start(['copy']);
-            }
-        }
+        gulp.start(['build']);
+        //source = event.path.toString();
+        //destination = source.replace("\\app\\", "\\dist\\");
+        //destination = destination.slice(0, destination.lastIndexOf('\\'));
+        //if (event.type == 'deleted') {
+        //    gulp.start(['clean']);
+        //}
+        //else {
+        //    var fileExtension = source.slice(source.lastIndexOf('.'));
+        //    if (fileExtension == '.scss') {
+        //        source = 'app\\block\\general.scss';
+        //        destination = 'dist\\block';
+        //        gulp.start(['sass']);
+        //    }
+        //    else {
+        //        gulp.start(['copy']);
+        //    }
+        //}
     });
 });
 
@@ -80,5 +94,5 @@ gulp.task('webserver', function() {
             directoryListing: true,
             open: true
         }));
-    gulp.run(['watch']);
+    //gulp.start(['watch']);
 });

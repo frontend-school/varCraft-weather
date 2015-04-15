@@ -9,12 +9,14 @@ var filteredSource = [source + '/css/**/*.css',
                       source + '/css/**/*.scss',
                       source + '/js/**/*.js',
                       source + '/img/**/*.*',
-                      source + '/index.html'];
+                      source + '/index.html',
+                      source + '/pages/*.*'];
 
 var filteredDestination = ['dist/css/*.css',
                             'dist/js/*.js',
                             'dist/*.html',
-                            'dist/img/*.*'];
+                            'dist/img/*.*',
+                            'dist/pages/*.html'];
 
 var appComponents  = "bower_components";
 
@@ -23,7 +25,8 @@ gulp.task('server', function() {
     browserSync({
             port: 8080,
             server: {
-            baseDir: destination
+            baseDir: destination,
+            index: '/pages/mobile1.html'
         }
     });
 });
@@ -32,6 +35,11 @@ gulp.task('server', function() {
 gulp.task('html', function() {
     gulp.src(source + '/*.html')
     .pipe(gulp.dest(destination));
+})
+
+gulp.task('mobile-html', function() {
+    gulp.src(source + '/pages/*.html')
+    .pipe(gulp.dest(destination + '/pages'));
 })
 
 gulp.task('js', function() {
@@ -70,5 +78,5 @@ gulp.task('livereload', function() {
 })
 
 gulp.task('watcher', ['watch-source', 'watch-components']);
-gulp.task('build', ['html', 'css', 'js', 'img']);
+gulp.task('build', ['html', 'css', 'js', 'img', 'mobile-html']);
 gulp.task("default", ['server', 'build', 'watcher', 'livereload']);

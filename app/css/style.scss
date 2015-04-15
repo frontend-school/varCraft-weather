@@ -1,65 +1,209 @@
+@import 'normalize.css';
+@import url('http://fonts.googleapis.com/css?family=Titillium+Web');
+@import "login-form.scss";
+
+$page-height: 1080px;
+$page-width: 1920px;
 $grey: #262626;
-$white: #fff;
-$blue: #6cb0bd;
-$page-width: 594/16 + em;
-$page-height: 594/16 + em;
-$form-height: 234/16 + em;
-$form-width: 300/16 + em;
+$green: #1d9e48;
+$blue: #1a6698;
+$purple: #75608b;
 $main-font: 'Titillium Web', sans-serif;
-$mo: 0;
+$current-user-info-width: 700px;
+$weather-display-width: 1220px;
 
-
-body{
-	margin: $mo;
-	padding: 0;
-}
-
-.login-page {
-	position: relative;
-	min-height: $page-height;
-	min-width: $page-width;
-	background-color: $grey;
-	font-family: $main-font;
-}
-
-.login-form {
-	width: $form-width;
-	height: $form-height;
-	position: absolute;
+*{
 	-webkit-box-sizing: border-box ;
 	-moz-box-sizing: border-box ;
 	box-sizing: border-box ;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	margin: auto;
-	&__input {
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-	    width: 100%;
-		height: 32/16 + em;
-		font-size: 1.25em;
-		display: block;
-		border: none;
-		margin-top: 4px;
-		margin-bottom: 20px;
+}
 
+body{
+	font-family: $main-font;
+	font-size: 1em;
+
+}
+.weather-page{
+	width: 	$page-width;
+	height: $page-height;
+	margin: 0 auto;
+}
+
+.current-user-info{
+	width: $current-user-info-width;
+	float: left;
+	height: 100%;
+	background-color: $grey;
+	padding-top: 184px;
+	padding-left: 90px;
+	&__time{
+		position: relative;
+		display: inline-block;
+		font-size: 230/16 + em;
+		color: #FFF;
+	}
+	&__day-part{
+			position: absolute;
+			bottom: 55% ;
+			left: 100%;
+			text-transform: uppercase ;
+			color: #FFF;
+			font-size: 40px;
+		}
+
+	&__date{
+		font-size: 40/16 + em;
+		color: #fff;
+		margin-top: 10px ;
 	}
 
-	&__label{
-		color:$white;
-		font-size: 1.25em;
-		font-weight: 200;
-	}
+	&-location{
+		margin-top: 80px;
 
-	&__submit {
-		font-family: $main-font;
-		font-size: 1.25em;
-		padding: 5px 10px;
-		float: right;
-		background-color: $blue;
-		border: none;
+		&__marker {
+			float: left;
+			width: 40px;
+			height: 80px;
+			background: url('../img/app-icons.png') no-repeat -55px 0;
+			margin-right: 5px;
+		}
+		&__city {
+			font-size: 40/16 + em;
+			color: #FFF;
+		}
+		&__country {
+			font-size: 22/16 + em;
+			color: #FFF;
+			line-height: 0.5em; 
+
+		}
 	}
 }
+
+.weather-display{
+	width: $weather-display-width;
+	height: 100%;
+	float: left;
+	background-color: green; 
+}
+
+.forecast{
+	width: 33.333%;
+	height: 100%;
+	float: left;
+	&_partly-cloudy{
+		background-color: $green;
+	}
+	&_snow-fall{
+		background-color: $blue;
+	}
+	&_fog{
+		background-color: $purple;
+	}
+
+	&-title{
+		height: 182px;
+		width: 100%;
+		background-color: $grey;
+		padding-left: 125px;
+		padding-top: 50px;
+		&__day-of-week{
+			color: #FFF;
+			font-size: 40/16 + em;
+		}
+
+		&__date{
+			color: #FFF;
+			font-size: 22/16 + em;
+		}
+	}
+
+	&-weather-condition{
+		margin-top: 90px;
+
+
+		&__logo{
+			background: url('../img/weather-conditions.png') no-repeat ;
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			&_partly-cloudy{
+				background-position:  -210px -435px;
+			}
+			&_snow-fall{
+				background-position: 0 -620px ;
+			}
+			&_fog{
+				background-position: -435px 0;
+			}
+		}
+
+
+		&__description{
+			color: #FFF;
+			font-size: 40/16 + em;
+			text-align: center;
+			margin-top: 30px;
+		}
+	}
+	&-temperature{
+		margin-top: 20px ;
+		padding-left: 70px;
+		width: 100%;
+		&__at-day{
+			display: inline-block;
+			color: #fff;
+			font-size: 140/16 + em;
+		}
+		&__at-night{
+			&:before{
+				content: "Night";
+				position: absolute;
+				top: -50%;
+				font-size: 22/40 + em;
+			}
+			display: inline-block;
+			position: relative;
+			color: #FFF;
+			font-size: 40/16 + em;
+		}
+	}
+	&-additional-info{
+		margin-top: 80px;
+		margin-left: 90px;
+		float: left;
+		&__title{
+			text-align: right;
+			font-size: 22/16 + em;
+			color: #FFF ;
+			text-align: center;
+		}
+		&__logo{
+			margin-top: 20px;
+			text-align: center;
+			color: #FFF;
+			float: right;
+			width: 72px;
+			height: 90px;
+			padding: 30px 0;
+
+			&_wind{
+				background: url('../img/app-icons.png') no-repeat -150px -64px;
+
+			}
+
+			&_moon{
+				background: url('../img/moon-conditions.png') no-repeat  -176px 5px;;
+				-webkit-background-size: 30em;
+				-o-background-size: 30em;
+				background-size: 30em;
+
+			}
+		}
+	}
+
+}
+
+
+
+

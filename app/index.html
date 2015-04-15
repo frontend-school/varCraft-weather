@@ -8,7 +8,7 @@
 </head>
 <html>
 	<body>
-		<article class="login-page">
+		<section class="login-page">
 			<form action="#" method = "post" class="login-form">
 				<label class="login-form__label" for="login-field">Login:</label>
 				<input type="text" class="login-form__input" name="login" id="login-field">
@@ -16,6 +16,106 @@
 				<input type= "password" class="login-form__input" name="password" id="password-field">
 				<input type="submit" class="login-form__submit" value="Log in">
 			</form>
-		</article>
+		</section>
+
+		<section class="weather-page">
+			<div class="current-user-info">
+				<div class="current-user-info__time">9:20<span class="current-user-info__day-part">AM</span></div>
+				<div class="current-user-info__date">Wed, September 3</div>
+				<div class="current-user-info-location">
+					<div class="current-user-info-location__marker"></div>
+					<span class="current-user-info-location__city">Kiev</span>
+					<br>
+					<span class="current-user-info-location__country">Ukraine</span>
+				</div>
+			</div>
+
+			<div class="weather-display">
+				<div class="forecast forecast_partly-cloudy">
+					<div class="forecast-title">
+						<div class="forecast-title__day-of-week">Yesterday</div>
+						<div class="forecast-title__date">30 / 07 / 2013</div>
+					</div>
+
+					<div class="forecast-weather-condition">
+						<div class="forecast-weather-condition__logo forecast-weather-condition__logo_partly-cloudy"></div>
+						<div class="forecast-weather-condition__description">Partly Cloudy</div>
+					</div>
+
+					<div class="forecast-temperature">
+						<span class="forecast-temperature__at-day">-22</span>
+						<span class="forecast-temperature__at-night">-17</span>
+					</div>
+
+					<div class="forecast-additional-info">
+						<div class="forecast-additional-info__title">4mph</div>
+						<div class="forecast-additional-info__logo forecast-additional-info__logo_wind">NW</div>
+					</div>
+
+					<div class="forecast-additional-info">
+						<div class="forecast-additional-info__title">Moon</div>
+						<div class="forecast-additional-info__logo forecast-additional-info__logo_moon"></div>
+					</div>
+				</div>
+
+				<div class="forecast forecast_snow-fall">
+					<div class="forecast-title">
+						<div class="forecast-title__day-of-week">Today</div>
+						<div class="forecast-title__date">30 / 07 / 2013</div>
+					</div>
+
+					<div class="forecast-weather-condition">
+						<div class="forecast-weather-condition__logo forecast-weather-condition__logo_snow-fall"></div>
+						<div class="forecast-weather-condition__description">Snow Fall</div>
+					</div>
+
+					<div class="forecast-temperature">
+						<span class="forecast-temperature__at-day">-22</span>
+						<span class="forecast-temperature__at-night">-17</span>
+					</div>
+
+					<div class="forecast-additional-info">
+						<div class="forecast-additional-info__title">4mph</div>
+						<div class="forecast-additional-info__logo forecast-additional-info__logo_wind">NW</div>
+					</div>
+
+					<div class="forecast-additional-info">
+						<div class="forecast-additional-info__title">Moon</div>
+						<div class="forecast-additional-info__logo forecast-additional-info__logo_moon"></div>
+					</div>
+				</div>
+
+				<div class="forecast forecast_fog">
+					<div class="forecast-title">
+						<div class="forecast-title__day-of-week">Tomorrow</div>
+						<div class="forecast-title__date">30 / 07 / 2013</div>
+					</div>
+
+					<div class="forecast-weather-condition">
+						<div class="forecast-weather-condition__logo forecast-weather-condition__logo_fog"></div>
+						<div class="forecast-weather-condition__description">Fog</div>
+					</div>
+
+					<div class="forecast-temperature">
+						<span class="forecast-temperature__at-day">-22</span>
+						<span class="forecast-temperature__at-night">-17</span>
+					</div>
+
+					<div class="forecast-additional-info">
+						<div class="forecast-additional-info__title">4mph</div>
+						<div class="forecast-additional-info__logo forecast-additional-info__logo_wind">NW</div>
+					</div>
+
+					<div class="forecast-additional-info">
+						<div class="forecast-additional-info__title">Moon</div>
+						<div class="forecast-additional-info__logo forecast-additional-info__logo_moon"></div>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+
 	</body>
 </html>

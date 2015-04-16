@@ -8,17 +8,20 @@
     <link rel="stylesheet" href="css/form.css"/>
 </head>
 <body>
+<h1 id="hello"></h1>
+<div class="popup__overlay">
     <div class="login-block">
         <form action="" class="login-form">
             <label for="name" class="login-form__label">Login:</label>
-            <input type="text" id="name" class="login-form__input">
+            <input type="text" id="name" class="login-form__input" autofocus>
 
             <label for="password" class="login-form__label">Password:</label>
             <input type="password" id="password" class="login-form__input">
 
-            <input type="submit" value="Log in" class="login-form__submit-button">
+            <input type="button" value="Log in" class="login-form__submit-button" onclick="logIn()">
         </form>
     </div>
-
+</div>
+<script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>

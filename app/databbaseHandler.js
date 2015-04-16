@@ -4,7 +4,7 @@
 
 var users = [
     {login:'Victor', password:'thebest'},
-    {login:'Mikhail', password:'thebest'}
+    {login:'Maksym', password:'thebest'}
 ];
 
 function userExists(login, password){

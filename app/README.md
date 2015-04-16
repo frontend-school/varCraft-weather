@@ -1,4 +1,9 @@
-Documentation For Weather API
+Documentation for Weather Screen
+===
+
+The task with weather screen is in `app/block/weatherScreen2` folder. No server needed for its preview. `Version 0.8.0 beta`
+
+Documentation for Weather API
 ===
 
 The task was:
@@ -23,7 +28,7 @@ I have explained my decision...
 
 
 
-Documentation For Login Form
+Documentation for Login Form
 ===
 
 The task was:

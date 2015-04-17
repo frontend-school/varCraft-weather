@@ -21,9 +21,14 @@ $weather-display-width: 1220px;
 body{
 	font-family: $main-font;
 	font-size: 1em;
-
 }
-.weather-page{
+
+.hide{
+	display: none;
+}
+
+.main-page{
+	position: relative;
 	width: 	$page-width;
 	height: $page-height;
 	margin: 0 auto;
@@ -87,7 +92,7 @@ body{
 	background-color: green; 
 }
 
-.forecast{
+.daily-forecast{
 	width: 33.333%;
 	height: 100%;
 	float: left;
@@ -101,7 +106,7 @@ body{
 		background-color: $purple;
 	}
 
-	&-title{
+	&-header{
 		height: 182px;
 		width: 100%;
 		background-color: $grey;

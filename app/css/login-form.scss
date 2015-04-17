@@ -15,7 +15,6 @@ body{
 }
 
 .login-page {
-	display: none	;
 	position: relative;
 	min-height: $page-height;
 	min-width: $page-width;
@@ -62,5 +61,12 @@ body{
 		float: right;
 		background-color: $blue;
 		border: none;
+		&_log-out{
+			position: absolute;
+			top: 5%;
+			left: 5%;
+			font-size: 2em;
+			color: #FFF ;
+		}
 	}
 }

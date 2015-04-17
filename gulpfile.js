@@ -7,7 +7,7 @@ var source = "app";
 var destination = "dist";
 var filteredSource = [source + '/css/**/*.css',
                       source + '/css/**/*.scss',
-                      source + '/js/**/*.js',
+                      source + '/js/*.js',
                       source + '/img/**/*.*',
                       source + '/index.html',
                       source + '/pages/*.*'];
@@ -26,7 +26,7 @@ gulp.task('server', function() {
             port: 8080,
             server: {
             baseDir: destination,
-            index: '/pages/mobile1.html'
+            index: 'index.html'
         }
     });
 });

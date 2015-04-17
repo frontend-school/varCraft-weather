@@ -1,0 +1,16 @@
+API desciption and dependencies
+
+http://www.wunderground.com/
+key: e3752440b31bb376
+
+requests:
+current weather http://api.wunderground.com/api/e3752440b31bb376/conditions/q/CA/San_Francisco.json
+forecast http://api.wunderground.com/api/e3752440b31bb376/forecast/q/CA/San_Francisco.json
+moon phases http://api.wunderground.com/api/e3752440b31bb376/astronomy/q/Australia/Sydney.json
+
+https://developer.weatherunlocked.com/
+(Weather trigger)
+
+App name varCraft's App
+App ID 88138b07
+Key 94c48b0f1d2d3aec507af9d93045d2fb

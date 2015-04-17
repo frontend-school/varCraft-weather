@@ -31,7 +31,7 @@ function main(){
 	}
 
 	function checkDuration(){
-		var delayBeforeQuit = 30 * 1000;
+		var delayBeforeQuit = 1800 * 1000;
 		var curTime = new Date();
 		console.log(curTime - startTime);
 		if(curTime - startTime > delayBeforeQuit){
@@ -52,7 +52,7 @@ function main(){
 
 
 	loginForm.onsubmit = function(){
-		var startTime = new Date();
+		startTime = new Date();
 		var login = this.elements.login.value;
 		var password = this.elements.password.value;
 
@@ -62,7 +62,7 @@ function main(){
 		}
 
 		alert("Hello, " + login + "!");
-		var expire30 = setInterval(checkDuration, 500);
+		expire30 = setInterval(checkDuration, 500);
 
 		setCookie("login", login, cookieOptions);
 

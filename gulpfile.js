@@ -69,7 +69,7 @@ gulp.task('build', function(){
             destination = destination.slice(0, destination.lastIndexOf('\\'));
         }
         gulp.start([task]);
-        console.log(task + 'ing of ' + source + ' executed. ');
+        console.log(task + 'ing of ' + source + ' executed at ' + new Date());
     }
 });
 

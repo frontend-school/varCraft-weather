@@ -13,7 +13,7 @@ $misc-icon-font-size:48px;
 
 @mixin center-vertical{
   position: absolute;
-  top:50%;
+  top: 50%;
   transform: translateY(-50%);
 }
 
@@ -39,6 +39,16 @@ $misc-icon-font-size:48px;
 
 @mixin show-moon($phase){
   background-image: url('../icons/moon-state/mn' + $phase + '.png');
+}
+
+@mixin clearfix($element){
+  #{element}:after{
+    content: '';
+    clear: both;
+    visibility: hidden;
+    display: block;
+    height: 0;
+  }
 }
 
 @for $i from 1 through 4{
@@ -98,13 +108,7 @@ $misc-icon-font-size:48px;
       margin: inherit;
     }
   }
-  &:after{
-    content: '';
-    clear: both;
-    visibility: hidden;
-    display: block;
-    height: 0;
-  }
+  @include clearfix('weather__header');
   &__info{
     margin: 0;
     padding: 0;
@@ -170,13 +174,7 @@ $misc-icon-font-size:48px;
         width: 50%;
         min-width: 126px;
         font-size: $night-caption-temp-font-size;
-        &:after{
-          content: '';
-          clear: both;
-          visibility: hidden;
-          display: block;
-          height: 0;
-        }
+        @include clearfix('weather__header');
       }
       &_icon{
         font-size: $misc-icon-font-size;
@@ -195,14 +193,7 @@ $misc-icon-font-size:48px;
         margin: 0 0 0 1px;
       }
     }
-
-    &:after{
-      content: '';
-      clear: both;
-      visibility: hidden;
-      display: block;
-      height: 0;
-    }
+    @include clearfix('weather__header');
   }
 }
 

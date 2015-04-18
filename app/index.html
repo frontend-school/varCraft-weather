@@ -9,23 +9,22 @@
     <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body class="main-page">
-    <div class="general-info">
-        <div class="general-info__time">
-            <div class="general-info__time-value">
-                9:20
+    <div class="info">
+        <div class="info__time">
+            <div class="info__time-value" id="clockDisplay">
             </div>
-            <div class="general-info__time-notation">
+            <div class="info__time-notation" id="diem">
                 am
             </div>
         </div>
-        <div class="general-info__day">
+        <div class="info__day">
             Wed, September 3
         </div>
-        <div class="general-info__location">
-            <div class="general-info__city">
+        <div class="info__location">
+            <div class="info__city">
                 Kiev
             </div>
-            <div class="general-info__country">
+            <div class="info__country">
                 Ukraine
             </div>
         </div>
@@ -168,5 +167,35 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function renderTime() {
+
+            var currentTime = new Date();
+            var d = "AM";
+            var h = currentTime.getHours();
+            var m = currentTime.getMinutes();
+
+            if (h == 0)  {
+                h = 12;
+            }	else if (h > 12)	{
+                h = h - 12;
+                d = "PM"
+            }
+            if (m < 10)	{
+                m = "0" + m;
+            }
+
+            var myClock = document.getElementById('clockDisplay');
+            myClock.textContent = h + ":" + m;
+            myClock.innerText = h + ":" + m;
+            var diem = document.getElementById("diem");
+            diem.textContent =  d;
+            diem.innerText =  d;
+            setTimeout('renderTime()',1000);
+        }
+
+        renderTime();
+    </script>
 </body>
 </html>

@@ -1,7 +1,213 @@
-body {
-    background: rgba(0,0,0,0.08);
+@font-face {
+  font-family: Lintel;
+  src: local(Lintel Light), local(Lintel-Light), url(../fonts/lintel_light.otf);
 }
 
-h1 {
-    color: red;
+$font_family: 'Lintel', sans-serif;
+$font_size: 24pt;
+$min_page_width: 1024px;
+
+
+.main-page {
+  min-width: $min_page_width;
+  height:100vh;
+  min-height:568px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  //overflow: scroll;
+  background-color: #262626;
+  padding-left: 1.5%;
+  color: #fff;
+  font-family: $font_family;
+  font-size:$font_size;
 }
+
+.general-info {
+  margin-top: 23vh;
+  float:left;
+  width: 35%;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  &__time{
+    margin-bottom: 40px;
+  }
+  &__time-value{
+    display:inline-block;
+    vertical-align:top;
+    padding-right: 1vh;
+    font-size: 5.5em;
+    line-height: 0.7em;
+  }
+  &__time-notation{
+    display:inline-block;
+    vertical-align:top;
+    margin-left: -12px;
+    text-transform: uppercase;
+    line-height: 1em;
+    position: relative;
+    top:-10px;
+    left:-10px;
+  }
+  &__day{
+    margin: 10vh 0 10vh;
+  }
+  &__location{
+    padding-left: 40px;
+    background: url("../img/icon-loc.png") no-repeat;
+  }
+
+  &__city{
+    height: 24px;
+    line-height: 25px;
+
+    padding-bottom: 4px;
+    padding-left: 2px;
+    font-size: 1em;
+  }
+  &__country {
+    padding-top: 10px;
+    font-size: 0.6em;
+  }
+}
+
+.forecast {
+  height:100%;
+  width: 65%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float:right;
+}
+
+
+.daily-forecast {
+  height:100%;
+  width: 33%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: right;
+
+  &__day {
+    text-align: center;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+  }
+  &__weekday {
+    font-size: 1em;
+  }
+  &__date {
+    font-size: 0.6em;
+  }
+
+  &__weather-temperature-day {
+      display: inline-block;
+      font-size: 3.5em;
+      height: 80px;
+      line-height: 81px;
+      vertical-align: bottom;
+  }
+
+  &__weather-temperature-night {
+      display: inline-block;
+      vertical-align: bottom;
+      text-align: left;
+  }
+
+  &__weather-status {
+      text-transform: capitalize;
+      height: 31px;
+      line-height: 32px;
+  }
+    &__weather-additional {
+      display: inline-block;
+      font-size: 0.6em;
+      vertical-align: top;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+  &__weather-additional-value {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 88px;
+    width: 63px;
+    margin-top: 20px;
+    background-repeat: no-repeat;
+
+    &_wind {
+      padding-top: 33px;
+      background-image: url("../img/wind_direction.png");
+    }
+    &_moon {
+      background-image: url("../img/mn9.png");
+      background-position: 10px;
+    }
+  }
+    &__weather-temperature {
+      padding-top: 8vh;
+      padding-bottom: 8vh;
+    }
+  &__weather-temperature-night-value {
+    height: 26px;
+    line-height: 27px;
+    font-size: 1.2em;
+  }
+
+  &__weather-temperature-night-header {
+    font-size: 0.6em;
+    padding-bottom: 20px;
+  }
+
+  &__weather {
+      height:84.5%;
+      text-align: center;
+      &_fog {
+        background-color: #75608b;
+      }
+      &_snow-fall {
+        background-color: #1a6698;
+      }
+      &_partly-cloudy {
+        background-color: #1d9e48;
+      }
+      &_sunny {
+        background-color: #f2385a;
+      }
+  }
+
+  &__pic {
+    height:28vh;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    &_fog {
+      background-image: url('../img/weather_state_fog.png');
+    }
+    &_snow-fall {
+      background-image:url('../img/weather_state_snow.png');
+    }
+    &_partly-cloudy {
+      background-image:url('../img/weather_state_partly_cloud.png');
+    }
+    &_sunny {
+      background-image:url('../img/weather_state_sunny.png');
+    }
+  }
+
+
+
+}
+
+
+
+
+

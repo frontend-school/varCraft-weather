@@ -1,24 +1,50 @@
-/**
- * Created by Oleksandra_Abramova on 3/31/2015.
- */
 function logIn() {
     var userName = document.getElementById("name").value;
 
     if (userName == "" ||  document.getElementById("password").value=="") {
         return;
     }
-    //simple validation
-    document.getElementsByClassName("popup__overlay")[0].style.display = 'none';
+    //add simple validation
+    hideForm();
     writeCookie('testCookie', userName, 30);
-    // cookie = new cookie;
     greating(userName);
     clearForm();
     isInactive();
 }
 
+function logOut() {
+    eraceCookie('testCookie');
+    hideDashboard();
+    showForm();
+
+}
+
+function hideForm() {
+    document.getElementById("popup__overlay").className = document.getElementById("popup__overlay").className.replace
+        ( /(?:^|\s)popup__overlay_active(?!\S)/g , '' );
+    document.getElementById("popup__overlay").className += " popup__overlay_hidden";
+}
+
+function hideDashboard(){
+    document.getElementById("hello").innerHTML = "";
+    document.getElementById("dashboard").className = document.getElementById("dashboard").className.replace
+    ( /(?:^|\s)b-dashboard_active(?!\S)/g , '' );
+    document.getElementById("dashboard").className += " b-dashboard_hidden";
+}
+
+function showForm() {
+    hideDashboard();
+    document.getElementById("popup__overlay").className = document.getElementById("popup__overlay").className.replace
+        ( /(?:^|\s)popup__overlay_hidden(?!\S)/g , '' );
+    document.getElementById("popup__overlay").className += " popup__overlay_active";
+}
+
 function greating(name) {
-    //do normal block
     document.getElementById("hello").innerHTML = "Hello " + name;
+
+    document.getElementById("dashboard").className = document.getElementById("dashboard").className.replace
+    ( /(?:^|\s)b-dashboard_hidden(?!\S)/g , '' );
+    document.getElementById("dashboard").className += " b-dashboard_active";
 }
 
 function clearForm() {
@@ -27,11 +53,11 @@ function clearForm() {
 
 
 function isInactive() {
-    var timeOut =  30 * 60 * 1000;//30 min
+    var timeOut = 30 * 60 * 1000;//30 min
     var timer;
 
     function startTimer() {
-        timer = setTimeout(showForm, timeOut);
+        timer = setTimeout(reloadPage, timeOut);
     }
 
     function stopTimer() {
@@ -43,9 +69,11 @@ function isInactive() {
 }
 
 
-function showForm() {
+
+
+function reloadPage() {
     eraceCookie('testCookie');
-    document.getElementsByClassName("popup__overlay")[0].style.display = 'block';
+    showForm();
 }
 
 function writeCookie(name, value, days) {
@@ -81,10 +109,39 @@ function eraceCookie(name) {
     writeCookie(name, "", -1);
 }
 
+function httpGet(theUrl)
+{
+    var xmlHttp = null;
+
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+function getweather(city) {
+   var answer = httpGet("http://api.openweathermap.org/data/2.5/weather?q=" + city + ",ua&units=metric&APPID=b04a06714afca79362dec1420563b1e7");
+
+    return answer;
+}
+
+function writeSomething(){
+    var weatherJSON = getweather("Kiev");
+    console.log(weatherJSON);
+
+    var weatherObj = JSON.parse(weatherJSON);
+    console.log(weatherObj);
+
+
+    document.getElementById("demo").innerHTML = weatherObj.weather[0].description.toString();
+}
+
 document.onload = (function () {
     var userName = readCookie("testCookie");
     document.getElementById("submit-button").addEventListener( 'click' , logIn );
+    document.getElementById("log-out-button").addEventListener( 'click' , logOut );
     if (userName) {
+        writeCookie('testCookie', userName, 30);
         greating(userName);
         isInactive();
     } else {

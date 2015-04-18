@@ -16,7 +16,6 @@ function logOut() {
     eraceCookie('testCookie');
     hideDashboard();
     showForm();
-
 }
 
 function hideForm() {
@@ -53,7 +52,7 @@ function clearForm() {
 
 
 function isInactive() {
-    var timeOut = 30 * 60 * 1000;//30 min
+    var timeOut = 3000//30 * 60 * 1000;
     var timer;
 
     function startTimer() {
@@ -76,11 +75,11 @@ function reloadPage() {
     showForm();
 }
 
-function writeCookie(name, value, days) {
+function writeCookie(name, value, time) {
     var expires = "";
-    if (days) {
+    if (time) {
         var date = new Date();
-        date.setTime(date.getTime() + (days * 24  *60  *60 *1000));
+        date.setTime(date.getTime() + time);
         expires = "; expires=" + date.toUTCString();
     }
 
@@ -137,11 +136,12 @@ function writeSomething(){
 }
 
 document.onload = (function () {
+    var stayInTime = 3000//30 * 60 * 1000;
     var userName = readCookie("testCookie");
     document.getElementById("submit-button").addEventListener( 'click' , logIn );
     document.getElementById("log-out-button").addEventListener( 'click' , logOut );
     if (userName) {
-        writeCookie('testCookie', userName, 30);
+        writeCookie('testCookie', userName, stayInTime);
         greating(userName);
         isInactive();
     } else {

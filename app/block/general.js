@@ -3,3 +3,5 @@ if(username == 'undefined' || username == 'null')
 {
     username = undefined;
 }
+weatherHeader();
+weather();

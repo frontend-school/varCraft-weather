@@ -8,6 +8,7 @@ var app = express(),
     password;
 
 app.use('/block', express.static('block'));
+app.use('/icon', express.static('icon'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
@@ -30,9 +31,17 @@ app.get('/weather', function (req, res) {
         password = undefined;
     }, 1800000);
     if(databaseHandler.userExists(login, password)) {
+        //var weatherInfo = pageConstructor.construct()
+
         var content = pageConstructor.construct('index.html', {
-            '@content': 'block/weather/weather.html',
-            '@placeHolder1': 'block/header-main/header-main.html'
+            '@content': 'block/weather-wrapper/weather-wrapper.html',
+            '@placeHolder1': 'block/header-main/header-main.html',
+            '@header-1-weather': 'block/weather-header/weather-header.html',
+            '@header-2-weather': 'block/weather-header/weather-header.html',
+            '@header-3-weather': 'block/weather-header/weather-header.html',
+            '@weather-1': 'block/weather/weather.html',
+            '@weather-2': 'block/weather/weather.html',
+            '@weather-3': 'block/weather/weather.html'
         }, login);
         res.send(content);
         refreshTime = (new Date()).getTime();
@@ -50,8 +59,8 @@ app.post('/login', function (req, res) {
 });
 
 app.get('/logout', function (req, res) {
-    login = '';
-    password = '';
+    login = undefined;
+    password = undefined;
     res.redirect('/');
 });
 

@@ -1,6 +1,8 @@
 //api - 788362a84fe3647e4bc964823a588f45
-if(username) {
-    setTimeout(function(){
+function weather(dates) {
+    if (!username) return;
+
+    setTimeout(function () {
         window.location.href = 'http://' + window.location.host;
     }, 1800100);
 
@@ -16,14 +18,11 @@ if(username) {
     };
 
     function write() {
-        document.getElementById('weather-city').innerHTML = 'Current weather in ' + result.name + ':';
-        document.getElementById('weather-temperature').innerHTML = 'Temperature: ' + (+result.main.temp - 273.15).toFixed(0) + ' C';
-        document.getElementById('weather-cloudness').innerHTML = 'Clouds: ' + result.clouds.all + '%';
-        document.getElementById('weather-humidity').innerHTML = 'Humidity: ' + result.main.humidity + '%';
-
+        alert('Current temperature in Kiev, UA: ' + (result.main.temp-273).toFixed(0) + ' degrees Celsius');
         console.log(result);
     }
 
     xmlhttp.open("GET", request, true);
     xmlhttp.send();
+
 }

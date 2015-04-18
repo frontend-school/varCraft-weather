@@ -51,12 +51,25 @@ gulp.task('build', function(){
     source = 'app/**/*.html';
     runTask('copy');
 
+    source = 'app/block/image';
+    runTask('copy');
+
+    source = 'app/block/icons';
+    runTask('copy');
+
+    source = 'app/icons*/**';
+    runTask('copy');
+
+    source = 'app/font*/**';
+    runTask('copy');
+
     function runTask(task){
         if(!source.match(/[*]/)) {
             destination = source.replace("app\\", "dist\\");
             destination = destination.slice(0, destination.lastIndexOf('\\'));
         }
         gulp.start([task]);
+        console.log(task + 'ing of ' + source + ' executed. ');
     }
 });
 
@@ -65,8 +78,12 @@ gulp.task('sass',function(){
         .pipe(sass({
             outputStyle: 'nested', //compressed for uglification
             sourceComments: 'map',
-            includePaths: [source]
+            includePaths: [source],
+            errLogToConsole: true
         }))
+        //.onError(function(){
+        //    gulp.start(['watch'])
+        //})
         .pipe(gulp.dest(destination));
 
     source = "app/**";

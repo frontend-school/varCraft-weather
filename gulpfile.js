@@ -1,6 +1,7 @@
 var gulp        = require('gulp'),
     watch       = require('gulp-watch'),
     rigger      = require('gulp-rigger'),
+    cssmin      = require('gulp-minify-css'),
     rimraf      = require('rimraf'),
     sass        = require('gulp-sass'),
     browserSync = require("browser-sync"),
@@ -8,13 +9,13 @@ var gulp        = require('gulp'),
 
 var path = {
     app   : {
-        html  : 'app/*.html',
-        js    : 'app/js/*.js',
-        css   : 'app/css/*.css',
-        scss   : 'app/css/*.scss',
-        img   : 'app/img/**/*.*',
-        bower : 'bower_components/**/*.js',
-        fonts : 'app/fonts/**/*.*'
+        html        : 'app/*.html',
+        js          : 'app/js/*.js',
+        mainStyle   : 'app/css/main.scss',
+        scss        : 'app/css/*.scss',
+        img         : 'app/img/**/*.*',
+        bower       : 'bower_components/**/*.js',
+        fonts       : 'app/fonts/**/*.*'
     },
 
     clean : './dist',
@@ -50,16 +51,10 @@ gulp.task('js:build', function () {
         .pipe(reload({stream: true}));
 });
 
-
-gulp.task('style:build', function () {
-    gulp.src(path.app.css)
-        .pipe(gulp.dest(path.dist.css))
-        .pipe(reload({stream: true}));
-});
-
 gulp.task('scss:build', function () {
-    gulp.src(path.app.scss)
+    gulp.src(path.app.mainStyle)
         .pipe(sass())
+        .pipe(cssmin())
         .pipe(gulp.dest(path.dist.css))
         .pipe(reload({stream: true}));
 });
@@ -87,9 +82,6 @@ gulp.task('watch', function(){
     watch([path.app.html], function(event, cb) {
         gulp.start('html:build');
     });
-    watch([path.app.css], function(event, cb) {
-        gulp.start('style:build');
-    });
     watch([path.app.scss], function(event, cb) {
         gulp.start('scss:build');
     });
@@ -108,7 +100,6 @@ gulp.task('webserver', function () {
 gulp.task('build', [
     'html:build',
     'js:build',
-    'style:build',
     'scss:build',
     'image:build',
     'fonts:build',

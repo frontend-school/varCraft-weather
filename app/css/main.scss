@@ -87,15 +87,15 @@ $min_page_width: 1024px;
 }
 
 
-.daily-forecast {
-  height:100%;
+.forecast-item {
+  height: 100%;
   width: 33%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: right;
 
-  &__day {
+  &__date {
     text-align: center;
     vertical-align: middle;
     -webkit-box-sizing: border-box;
@@ -104,14 +104,39 @@ $min_page_width: 1024px;
     padding-bottom: 3vh;
     padding-top: 3vh;
   }
-  &__weekday {
+  &__date-header {
     font-size: 1em;
   }
-  &__date {
+  &__date-value {
     font-size: 0.6em;
   }
+}
 
-  &__weather-temperature-day {
+.weather{
+  height:84.5%;
+  text-align: center;
+
+  &_fog {
+     background-color: #75608b;
+  }
+  &_snow-fall {
+    background-color: #1a6698;
+  }
+
+  &_partly-cloudy {
+     background-color: #1d9e48;
+  }
+
+  &_sunny {
+     background-color: #f2385a;
+  }
+
+  &__temperature {
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+  }
+
+  &__temperature-day {
       display: inline-block;
       font-size: 3.5em;
       height: 80px;
@@ -119,26 +144,38 @@ $min_page_width: 1024px;
       vertical-align: bottom;
   }
 
-  &__weather-temperature-night {
+  &__temperature-night {
       display: inline-block;
       vertical-align: bottom;
       text-align: left;
   }
 
-  &__weather-status {
+  &__temperature-night-value {
+    height: 26px;
+    line-height: 27px;
+    font-size: 1.2em;
+  }
+
+  &__temperature-night-header {
+    font-size: 0.6em;
+    padding-bottom: 20px;
+  }
+
+  &__status {
       text-transform: capitalize;
       height: 31px;
       line-height: 32px;
   }
-    &__weather-additional {
+
+  &__additional {
       display: inline-block;
       font-size: 0.6em;
       vertical-align: top;
       padding-left: 8px;
       padding-right: 8px;
-    }
+  }
 
-  &__weather-additional-value {
+  &__additional-value {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -156,37 +193,7 @@ $min_page_width: 1024px;
       background-position: 10px;
     }
   }
-    &__weather-temperature {
-      padding-top: 8vh;
-      padding-bottom: 8vh;
-    }
-  &__weather-temperature-night-value {
-    height: 26px;
-    line-height: 27px;
-    font-size: 1.2em;
-  }
 
-  &__weather-temperature-night-header {
-    font-size: 0.6em;
-    padding-bottom: 20px;
-  }
-
-  &__weather {
-      height:84.5%;
-      text-align: center;
-      &_fog {
-        background-color: #75608b;
-      }
-      &_snow-fall {
-        background-color: #1a6698;
-      }
-      &_partly-cloudy {
-        background-color: #1d9e48;
-      }
-      &_sunny {
-        background-color: #f2385a;
-      }
-  }
 
   &__pic {
     height:28vh;
@@ -206,9 +213,6 @@ $min_page_width: 1024px;
       background-image:url('../img/weather_state_sunny.png');
     }
   }
-
-
-
 }
 
 

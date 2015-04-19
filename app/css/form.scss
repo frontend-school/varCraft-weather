@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(../fonts/titilliumthin.ttf) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
 $font_family: 'Titillium Web', sans-serif;
 $font_size: 15pt;
-$background_color: #7e2752;
 $label_color: #F6F6F6;
 
 $side_margin: 0px;
@@ -17,11 +24,6 @@ $button_color: #69B0BE;
 $button_color_text: #000000;
 
 
-body {
-  width: 100%;
-  background-color: $background_color;
-}
-
 .popup__overlay {
   display: none;
   position: fixed;
@@ -29,7 +31,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.8);
   text-align: center;
   &:after {
     display: inline-block;
@@ -98,41 +100,6 @@ body {
     color: #000;
     border: none;
     cursor: pointer;
-  }
-}
-
-.b-dashboard {
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-family: $font_family;
-  font-size: $font_size;
-  color: $label_color;
-  padding: 20px;
-  width:200px;
-  vertical-align: bottom;
-  &__greeting {
-    display: inline-block;
-    padding-right: 30px;
-    height: $input_height;
-    width:150px;
-  }
-  &_active {
-    display: block;
-  }
-
-  &_hidden {
-    display: none;
-  }
-
-  &__log-out {
-    width: auto;
-    height: $input_height;
-    background-color: $button_color;
-    color: #000;
-    border: none;
-    cursor: pointer;
-    margin-right: 30px;
   }
 }
 

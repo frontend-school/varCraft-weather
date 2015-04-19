@@ -57,15 +57,14 @@ body{
 	&__submit {
 		font-family: $main-font;
 		font-size: 1.25em;
-		padding: 5px 10px;
+		padding: 5/16 + em 10/16 + em;
 		float: right;
 		background-color: $blue;
 		border: none;
 		&_log-out{
-			position: absolute;
-			top: 5%;
-			left: 5%;
-			font-size: 2em;
+			float: none;
+			margin-right: 5%;
+			font-size: 0.8em;
 			color: #FFF ;
 		}
 	}

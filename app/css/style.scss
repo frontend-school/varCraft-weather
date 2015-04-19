@@ -2,15 +2,32 @@
 @import url('http://fonts.googleapis.com/css?family=Titillium+Web');
 @import "login-form.scss";
 
-$page-height: 1080px;
-$page-width: 1920px;
+@font-face {
+	    font-family: Lintel-Regular;
+	    src: local("Lintel-Regular"),
+         url(fonts/Lintel-Regular.eot);
+}
+
+@font-face {
+	    font-family: Lintel-Regular;
+	    src: local("Lintel-Regular"),
+         url(fonts/Lintel-Regular.otf);
+ }
+
+
+$min-page-height: 640/16 + em;
+$max-page-height: 1280/16 + em;
+$max-page-width: 1920/16 + em;
+
+$min-page-width: 1024/16 + em;
 $grey: #262626;
 $green: #1d9e48;
 $blue: #1a6698;
 $purple: #75608b;
-$main-font: 'Titillium Web', sans-serif;
-$current-user-info-width: 700px;
-$weather-display-width: 1220px;
+$main-font: 'Lintel-Regular', 'Titillium Web';
+$current-user-info-width: 37%;//37%
+$weather-display-width: 63%; //63%
+$daily-forecast-width: 33.333%; //21%
 
 *{
 	-webkit-box-sizing: border-box ;
@@ -20,17 +37,26 @@ $weather-display-width: 1220px;
 
 body{
 	font-family: $main-font;
-	font-size: 1em;
+	font-size: 100%;
+	background-color: $grey ;
 }
 
 .hide{
 	display: none;
 }
 
+.clearfix:after{
+	content: '' ;
+	display: table;
+	clear: both;
+}
+
 .main-page{
 	position: relative;
-	width: 	$page-width;
-	height: $page-height;
+	max-width: 	$max-page-width;
+	min-width: $min-page-width;
+	min-height: $min-page-height;
+	max-height: $max-page-height;
 	margin: 0 auto;
 }
 
@@ -39,47 +65,53 @@ body{
 	float: left;
 	height: 100%;
 	background-color: $grey;
-	padding-top: 184px;
-	padding-left: 90px;
+	padding-top: 1%;
+	padding-left: 6em;
+	&-name{
+		font-size: 24/16 + em;
+		color: #FFF ;
+	}
+
 	&__time{
 		position: relative;
 		display: inline-block;
-		font-size: 230/16 + em;
+		margin-top: 0.5em;
+		font-size: 115/16 + em;
 		color: #FFF;
 	}
 	&__day-part{
 			position: absolute;
-			bottom: 55% ;
+			bottom: 60% ;
 			left: 100%;
 			text-transform: uppercase ;
 			color: #FFF;
-			font-size: 40px;
+			font-size: 1/5 + em;
 		}
 
 	&__date{
-		font-size: 40/16 + em;
+		font-size: 20/16 + em;
 		color: #fff;
 		margin-top: 10px ;
 	}
 
 	&-location{
-		margin-top: 80px;
+		margin-top: 2em;
 
 		&__marker {
 			float: left;
 			width: 40px;
-			height: 80px;
-			background: url('../img/app-icons.png') no-repeat -55px 0;
-			margin-right: 5px;
+			height: 40/16 + em;
+			background: url('../img/app-icons.png') no-repeat -55px -10px;
+			margin-right: 5/16 + em;
 		}
 		&__city {
-			font-size: 40/16 + em;
+			font-size: 20/16 + em;
 			color: #FFF;
 		}
 		&__country {
-			font-size: 22/16 + em;
+			font-size: 14/16 + em;
 			color: #FFF;
-			line-height: 0.5em; 
+			//line-height: 0.5em;
 
 		}
 	}
@@ -89,11 +121,11 @@ body{
 	width: $weather-display-width;
 	height: 100%;
 	float: left;
-	background-color: green; 
+	background-color: green;
 }
 
 .daily-forecast{
-	width: 33.333%;
+	width: $daily-forecast-width;
 	height: 100%;
 	float: left;
 	&_partly-cloudy{
@@ -107,24 +139,27 @@ body{
 	}
 
 	&-header{
-		height: 182px;
+		height: 90/16 + em;
 		width: 100%;
 		background-color: $grey;
-		padding-left: 125px;
-		padding-top: 50px;
+		padding-top: 25px;
+		
 		&__day-of-week{
 			color: #FFF;
-			font-size: 40/16 + em;
+			font-size: 20/16 + em;
+			text-align: center;
 		}
 
 		&__date{
 			color: #FFF;
-			font-size: 22/16 + em;
+			font-size: 14/16 + em;
+			text-align: center;
+
 		}
 	}
 
 	&-weather-condition{
-		margin-top: 90px;
+		margin-top: 45px;
 
 
 		&__logo{
@@ -146,62 +181,63 @@ body{
 
 		&__description{
 			color: #FFF;
-			font-size: 40/16 + em;
+			font-size: 20/16 + em;
 			text-align: center;
 			margin-top: 30px;
 		}
 	}
 	&-temperature{
+		width: 60%;
+		margin-left: auto ;
+		margin-left: auto ;
 		margin-top: 20px ;
-		padding-left: 70px;
+		text-align: center ;
 		width: 100%;
 		&__at-day{
 			display: inline-block;
 			color: #fff;
-			font-size: 140/16 + em;
+			font-size: 70/16 + em;
 		}
 		&__at-night{
 			&:before{
 				content: "Night";
 				position: absolute;
-				top: -50%;
-				font-size: 22/40 + em;
+				top: -70%;
+				font-size: 14/20 + em;
 			}
 			display: inline-block;
 			position: relative;
 			color: #FFF;
-			font-size: 40/16 + em;
+			font-size: 24/16 + em;
 		}
 	}
 	&-additional-info{
-		margin-top: 80px;
-		margin-left: 90px;
+		width: 50%;
+		margin-top: 30/16 + em;
 		float: left;
 		&__title{
-			text-align: right;
-			font-size: 22/16 + em;
+			text-align: center;
+			font-size: 1em;
 			color: #FFF ;
 			text-align: center;
 		}
 		&__logo{
 			margin-top: 20px;
+			margin-left: auto ;
+			margin-right: auto ;
 			text-align: center;
 			color: #FFF;
-			float: right;
 			width: 72px;
 			height: 90px;
 			padding: 30px 0;
 
 			&_wind{
-				background: url('../img/app-icons.png') no-repeat -150px -64px;
+				background: blue url('../img/app-icons.png') no-repeat -150px -64px;
 
 			}
 
 			&_moon{
-				background: url('../img/moon-conditions.png') no-repeat  -176px 5px;;
-				-webkit-background-size: 30em;
-				-o-background-size: 30em;
-				background-size: 30em;
+				background: blue url('../img/moon-conditions.png') no-repeat  -176px 5px;;
 
 			}
 		}

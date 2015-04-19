@@ -10,7 +10,11 @@ function ready(fn) {
 function main(){
 	var loginForm = document.forms[0];
 	var loginFormOut = document.forms[1];
-	var dataBase = {login: "Viktor", password: "1"};
+	var loginPage = loginForm.parentNode;
+	var mainPage = document.querySelector('.main-page-js');
+	var userName = mainPage.querySelector('.user-name-js');
+
+	var dataBase = [{login: "Viktor", password: "1"}, {login: "Maksim", password: "1"}, {login: "Stas", password: "1"}];
 	var cookieOptions = {
 		path: "/",
 		expires: 3600,
@@ -20,12 +24,14 @@ function main(){
 	var startTime = new Date();
 
 	if(getCookie("login")){
-	var expire30 = setInterval(checkDuration, 500);}
+	var expire30 = setInterval(checkDuration, 500);
+	userName.innerHTML = getCookie("login");
+	}
 
 	function logOut(){
 		deleteCookie("login");
-		loginFormOut.parentNode.classList.add("hide");
-		loginForm.parentNode.classList.remove("hide");
+		mainPage.parentNode.classList.add("hide");
+		mainPage.classList.remove("hide");
 		window.location.reload();
 		return false;
 	}
@@ -41,12 +47,14 @@ function main(){
 
 
 	if(getCookie("login")){
-		loginForm.parentNode.classList.add("hide");
-		loginFormOut.parentNode.classList.remove("hide");
+		loginPage.classList.add("hide");
+		mainPage.classList.remove("hide");
 	}
 
 	function checkLogin(login, password, dataBase){
-		if(login == dataBase.login && password == dataBase.password) return true;
+		for(var i = 0; i < dataBase.length; i++){
+			if(login == dataBase[i].login && password == dataBase[i].password) return true;
+		}
 		return false;
 	}
 
@@ -61,13 +69,13 @@ function main(){
 			return false;
 		}
 
-		alert("Hello, " + login + "!");
+		userName.innerHTML = login;
 		expire30 = setInterval(checkDuration, 500);
 
 		setCookie("login", login, cookieOptions);
 
-		this.parentNode.classList.add("hide");
-		loginFormOut.parentNode.classList.remove("hide");
+		loginPage.classList.add("hide");
+		mainPage.classList.remove("hide");
 
 		return false;
 	}

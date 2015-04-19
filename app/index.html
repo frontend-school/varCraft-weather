@@ -10,7 +10,7 @@
 	<body>
 		<script src="/js/script.js"></script>
 
-		<section class="login-page">
+		<section class="login-page login-page-js">
 
 			<form action="" method = "post" class="login-form" name="login-form">
 				<label class="login-form__label" for="login-field">Login:</label>
@@ -22,11 +22,19 @@
 		</section>
 
 
-		<section class="main-page hide">
-			<form action="post" class="login-out-form" name="log-out">
-					<input type="submit" class="login-form__submit login-form__submit_log-out" value="Log Out">
-			</form>
+		<section class="main-page hide main-page-js">
+
+
 			<div class="current-user-info">
+
+				<div class="current-user-info-name">
+					<form action="post" name="log-out" clas="login-out-form">
+						Hello, <span class="current-user-info__hello-message user-name-js">user-name</span>!
+							<input type="submit" class="login-form__submit login-form__submit_log-out" value="Log Out">
+				    </form>
+				</div>
+
+
 				<div class="current-user-info__time">9:20<span class="current-user-info__day-part">AM</span></div>
 				<div class="current-user-info__date">Wed, September 3</div>
 				<div class="current-user-info-location">
@@ -118,7 +126,6 @@
 						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon"></div>
 					</div>
 				</div>
-
 			</div>
 		</section>
 

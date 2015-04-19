@@ -7,29 +7,43 @@ var source = "app";
 var destination = "dist";
 var filteredSource = [source + '/css/**/*.css',
                       source + '/css/**/*.scss',
+                      source + '/css/fonts/*.*',
                       source + '/js/*.js',
                       source + '/img/**/*.*',
                       source + '/index.html',
                       source + '/pages/*.*'];
 
 var filteredDestination = ['dist/css/*.css',
+                            'dist/css/fonts/*.*',
                             'dist/js/*.js',
                             'dist/*.html',
                             'dist/img/*.*',
                             'dist/pages/*.html'];
 
 var appComponents  = "bower_components";
-
+var runningPage = "index.html";
+var testAPI = "/pages/testAPI.html";
 
 gulp.task('server', function() {
     browserSync({
             port: 8080,
             server: {
             baseDir: destination,
-            index: 'index.html'
+            index: runningPage
         }
-    });
+    })
 });
+
+gulp.task('testAPIserver',function() {
+     browserSync({
+            port: 8081,
+            server: {
+            baseDir: destination,
+            index: testAPI
+        }
+    })
+});
+
 
 
 gulp.task('html', function() {
@@ -44,13 +58,18 @@ gulp.task('mobile-html', function() {
 
 gulp.task('js', function() {
     gulp.src(source + '/js/**')
-    .pipe(gulp.dest(destination + '/js'))
+    .pipe(gulp.dest(destination + '/js'));
 })
 
 gulp.task( 'css', function() {
     gulp.src(source + '/css/*.*')
     .pipe(sass())
     .pipe( gulp.dest( destination + '/css' )); //transform files from SCSS to CSS and copy them to "dist/css"
+})
+
+gulp.task( 'fonts', function() {
+    gulp.src(source + '/css/fonts/*.*')
+    .pipe(gulp.dest(destination + '/css/fonts'));
 })
 
 gulp.task('img', function() {
@@ -78,5 +97,6 @@ gulp.task('livereload', function() {
 })
 
 gulp.task('watcher', ['watch-source', 'watch-components']);
-gulp.task('build', ['html', 'css', 'js', 'img', 'mobile-html']);
+gulp.task('build', ['html', 'css', 'fonts', 'js', 'img', 'mobile-html']);
 gulp.task("default", ['server', 'build', 'watcher', 'livereload']);
+gulp.task('testAPI', ['build', 'testAPIserver']);

@@ -1,0 +1,36 @@
+$font_family: 'Titillium Web', sans-serif;
+$font_size: 15pt;
+$label_color: #F6F6F6;
+
+.b-dashboard {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: $font_family;
+  font-size: $font_size;
+  color: $label_color;
+  padding: 20px;
+  width:300px;
+  vertical-align: bottom;
+  &__greeting {
+    display: inline-block;
+    padding-right: 30px;
+    width:150px;
+  }
+  &_active {
+    display: block;
+  }
+
+  &_hidden {
+    display: none;
+  }
+
+  &__log-out {
+    width: 27px;
+    height: 22px;
+    background: url("../img/exit.png") no-repeat 0 0;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+}

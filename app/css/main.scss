@@ -123,13 +123,88 @@ $min_page_width: 1024px;
     background-color: #1a6698;
   }
 
-  &_partly-cloudy {
+  &_partly-cloudy{
+    background-color: #F1854B;
+  }
+
+  &_mostly-cloudy {
      background-color: #1d9e48;
   }
 
   &_sunny {
      background-color: #f2385a;
   }
+
+  &_downpour {
+    background-color: #675680;
+  }
+
+  &_rain-and-sun {
+    background-color: #E9B841;
+  }
+
+  &_light-rain {
+    background-color: #BDA881;
+  }
+
+  &_rain {
+    background-color: #999999;
+  }
+
+  &_snow {
+    background-color: #375D81;
+  }
+
+  &_sleet {
+    background-color: #36B1BF;
+  }
+
+  &__pic {
+    height:28vh;
+    text-align: center;
+    background: no-repeat 50%;
+    &_fog {
+      background-image: url('../img/weather_state_fog.png');
+    }
+    &_snow-fall {
+      background-image:url('../img/weather_state_snow_fall.png');
+    }
+    &_partly-cloudy {
+      background-image:url('../img/weather_state_partly_cloudy.png');
+    }
+    &_sunny {
+      background-image:url('../img/weather_state_sunny.png');
+    }
+
+    &_downpour {
+      background-image:url('../img/weather_state_downpour.png');
+    }
+
+    &_mostly-cloudy {
+      background-image:url('../img/weather_state_mostly_cloudy.png');
+    }
+
+    &_rain-and-sun {
+      background-image:url('../img/weather_state_rain_and_sun.png');
+    }
+
+    &_light-rain {
+      background-image:url('../img/weather_state_light_rain.png');
+    }
+
+    &_rain {
+      background-image:url('../img/weather_state_light_rain.png');
+    }
+
+    &_snow {
+      background-image:url('../img/weather_state_snow.png');
+    }
+
+    &_sleet {
+      background-image:url('../img/weather_state_sleet.png');
+    }
+  }
+
 
   &__temperature {
     padding-top: 8vh;
@@ -195,24 +270,7 @@ $min_page_width: 1024px;
   }
 
 
-  &__pic {
-    height:28vh;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    &_fog {
-      background-image: url('../img/weather_state_fog.png');
-    }
-    &_snow-fall {
-      background-image:url('../img/weather_state_snow.png');
-    }
-    &_partly-cloudy {
-      background-image:url('../img/weather_state_partly_cloud.png');
-    }
-    &_sunny {
-      background-image:url('../img/weather_state_sunny.png');
-    }
-  }
+
 }
 
 

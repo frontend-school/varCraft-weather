@@ -34,17 +34,12 @@ function getDay() {
 }
 
 function writeDay(currentDate, holder) {
-    console.log("dd");
     var dayValue = currentDate.getDate();
     var todayMonth = currentDate.getMonth();
     var todayYear= currentDate.getFullYear();
     if (todayMonth < 10) {
         todayMonth = "0" + todayMonth;
     }
-
-    console.log(dayValue);
-    console.log(todayMonth);
-    console.log(todayYear);
 
     var dayHolder = document.getElementById(holder);
     dayHolder.textContent =  dayValue + "/" + todayMonth + "/" + todayYear;

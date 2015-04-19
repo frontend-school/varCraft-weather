@@ -9,7 +9,7 @@ function renderTime() {
         hour = 12;
     }	else if (hour > 12)	{
         hour -= 12;
-        diem = "PM"
+        diem = "PM";
     }
     if (minute < 10)	{
         minute = "0" + minute;

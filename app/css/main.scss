@@ -163,45 +163,85 @@ $min_page_width: 1024px;
     height:28vh;
     text-align: center;
     background: no-repeat 50%;
-    &_fog {
-      background-image: url('../img/weather_state_fog.png');
+    &:after {
+      display: inline-block;
+      height: 28vh;
+      width: 0;
+      vertical-align: middle;
+      content: '';
     }
-    &_snow-fall {
-      background-image:url('../img/weather_state_snow_fall.png');
-    }
-    &_partly-cloudy {
-      background-image:url('../img/weather_state_partly_cloudy.png');
-    }
-    &_sunny {
-      background-image:url('../img/weather_state_sunny.png');
+  }
+
+  &__pic-status{
+    background: url("../img/weather_state.png") no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+
+
+    &_fog{
+      background-position: 0 0;
+      width: 142px;
+      height: 108px;
     }
 
-    &_downpour {
-      background-image:url('../img/weather_state_downpour.png');
+    &_snow-fall{
+      background-position: -160px 0;
+      width: 148px;
+      height: 122px;
     }
 
-    &_mostly-cloudy {
-      background-image:url('../img/weather_state_mostly_cloudy.png');
+    &_partly-cloudy{
+      background-position: -325px 0;
+      width: 170px;
+      height: 112px;
     }
 
-    &_rain-and-sun {
-      background-image:url('../img/weather_state_rain_and_sun.png');
+    &_sunny{
+      background-position: -1px -300px ;
+      width: 142px;
+      height: 142px;
     }
 
-    &_light-rain {
-      background-image:url('../img/weather_state_light_rain.png');
+    &_downpour{
+      background-position: 0 -150px ;
+      width: 148px;
+      height: 101px;
     }
 
-    &_rain {
-      background-image:url('../img/weather_state_light_rain.png');
+    &_mostly-cloudy{
+      background-position: -160px -150px ;
+      width: 148px;
+      height: 90px;
     }
 
-    &_snow {
-      background-image:url('../img/weather_state_snow.png');
+    &_rain-and-sun{
+      background-position: -325px -150px ;
+      width: 170px;
+      height: 142px;
     }
 
-    &_sleet {
-      background-image:url('../img/weather_state_sleet.png');
+    &_snow{
+      background-position: -160px -300px ;
+      width: 143px;
+      height: 144px;
+    }
+
+    &_light-rain{
+      background-position: -325px -300px ;
+      width: 148px;
+      height: 120px;
+    }
+
+    &_rain{
+      background-position: -500px 0;
+      width: 148px;
+      height: 120px;
+    }
+
+    &_sleet{
+      background-position: -500px -150px ;
+      width: 148px;
+      height: 123px;
     }
   }
 

@@ -8,7 +8,7 @@
 }
 
 $font_family: 'Lintel', sans-serif;
-$font_size: 24pt;
+$font_size: 23pt;
 $min_page_width: 1024px;
 
 
@@ -19,7 +19,6 @@ $min_page_width: 1024px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  //overflow: scroll;
   background-color: #262626;
   padding-left: 1.5%;
   color: #fff;
@@ -32,28 +31,24 @@ $min_page_width: 1024px;
   float:left;
   width: 35%;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   &__time{
     margin-bottom: 40px;
   }
   &__time-value{
     display:inline-block;
     vertical-align:top;
-    padding-right: 1vh;
-    font-size: 5.5em;
-    line-height: 0.7em;
+    font-size: 5em;
+    line-height: 0.6em;
   }
   &__time-notation{
+    font-size: 0.9em;
     display:inline-block;
     vertical-align:top;
     margin-left: -12px;
     text-transform: uppercase;
-    line-height: 1em;
+    line-height: 0.9em;
     position: relative;
     top:-10px;
-    left:-10px;
   }
   &__day{
     margin: 10vh 0 10vh;
@@ -95,25 +90,34 @@ $min_page_width: 1024px;
   box-sizing: border-box;
   float: right;
 
-  &__date {
+  &__day{
+    height:15%;
     text-align: center;
-    vertical-align: middle;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding-bottom: 3vh;
-    padding-top: 3vh;
+
+    &:after {
+      display: inline-block;
+      height: 15vh;
+      width: 0;
+      vertical-align: middle;
+      content: '';
+    }
   }
-  &__date-header {
+
+  &__day-date {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  &__day-date-header {
     font-size: 1em;
   }
-  &__date-value {
+  &__day-date-value {
     font-size: 0.6em;
   }
 }
 
 .weather{
-  height:84.5%;
+  height:85%;
   text-align: center;
 
   &_fog {
@@ -161,6 +165,7 @@ $min_page_width: 1024px;
 
   &__pic {
     height:28vh;
+    min-height: 150px;
     text-align: center;
     background: no-repeat 50%;
     &:after {
@@ -308,9 +313,6 @@ $min_page_width: 1024px;
       background-position: 10px;
     }
   }
-
-
-
 }
 
 

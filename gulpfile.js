@@ -1,5 +1,6 @@
 var gulp        = require('gulp'),
     watch       = require('gulp-watch'),
+    rigger      = require('gulp-rigger'),
     rimraf      = require('rimraf'),
     sass        = require('gulp-sass'),
     browserSync = require("browser-sync"),
@@ -38,6 +39,7 @@ var config = {
 
 gulp.task('html:build', function () {
     gulp.src(path.app.html)
+        .pipe(rigger())
         .pipe(gulp.dest(path.dist.html))
         .pipe(reload({stream: true}));
 });
@@ -61,7 +63,6 @@ gulp.task('scss:build', function () {
         .pipe(gulp.dest(path.dist.css))
         .pipe(reload({stream: true}));
 });
-
 
 
 gulp.task('image:build', function () {

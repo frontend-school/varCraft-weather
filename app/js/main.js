@@ -2,7 +2,7 @@
 //= form.js
 //= cookie.js
 //= writeWeather.js
-
+//= renderTime
 function getStayTime() {
     var stayTime = 30 * 60 * 1000;
     return stayTime;
@@ -50,6 +50,7 @@ function reloadPage() {
 }
 
 document.onload = (function () {
+    renderTime();
     var userName = readCookie("testCookie");
     document.getElementById("submit-button").addEventListener( 'click' , logIn );
     document.getElementById("log-out-button").addEventListener( 'click' , logOut );

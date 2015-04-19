@@ -167,34 +167,5 @@
     </div>
 
     <script src="js/main.js" type="text/javascript"></script>
-    <script>
-        function renderTime() {
-
-            var currentTime = new Date();
-            var d = "AM";
-            var h = currentTime.getHours();
-            var m = currentTime.getMinutes();
-
-            if (h == 0)  {
-                h = 12;
-            }	else if (h > 12)	{
-                h = h - 12;
-                d = "PM"
-            }
-            if (m < 10)	{
-                m = "0" + m;
-            }
-
-            var myClock = document.getElementById('clockDisplay');
-            myClock.textContent = h + ":" + m;
-            myClock.innerText = h + ":" + m;
-            var diem = document.getElementById("diem");
-            diem.textContent =  d;
-            diem.innerText =  d;
-            setTimeout('renderTime()',1000);
-        }
-
-        renderTime();
-    </script>
 </body>
 </html>

@@ -15,6 +15,9 @@ function renderTime() {
         minute = "0" + minute;
     }
 
+    if (diem == "AM" && hour == 0 && minute == 0) {
+        getDay();
+    }
     var myClock = document.getElementById('clockDisplay');
     myClock.textContent = hour + ":" + minute;
     myClock.innerText = hour + ":" + minute;

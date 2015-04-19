@@ -9,13 +9,14 @@ var gulp        = require('gulp'),
 
 var path = {
     app   : {
-        html        : 'app/*.html',
-        js          : 'app/js/*.js',
-        mainStyle   : 'app/css/main.scss',
-        scss        : 'app/css/*.scss',
-        img         : 'app/img/**/*.*',
-        bower       : 'bower_components/**/*.js',
-        fonts       : 'app/fonts/**/*.*'
+        html      : 'app/*.html',
+        js        : 'app/js/*.js',
+        mainJs    : 'app/js/main.js',
+        mainStyle : 'app/css/main.scss',
+        scss      : 'app/css/*.scss',
+        img       : 'app/img/**/*.*',
+        bower     : 'bower_components/**/*.js',
+        fonts     : 'app/fonts/**/*.*'
     },
 
     clean : './dist',
@@ -46,7 +47,8 @@ gulp.task('html:build', function () {
 });
 
 gulp.task('js:build', function () {
-    gulp.src(path.app.js)
+    gulp.src(path.app.mainJs)
+        .pipe(rigger())
         .pipe(gulp.dest(path.dist.js))
         .pipe(reload({stream: true}));
 });

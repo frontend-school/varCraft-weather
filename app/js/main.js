@@ -1,3 +1,8 @@
+function getStayTime() {
+    var stayTime = 30 * 60 * 1000;
+    return stayTime;
+}
+
 function logIn() {
     var userName = document.getElementById("name").value;
 
@@ -6,7 +11,7 @@ function logIn() {
     }
     //add simple validation
     hideForm();
-    writeCookie('testCookie', userName, 30);
+    writeCookie('testCookie', userName, getStayTime());
     greating(userName);
     clearForm();
     isInactive();
@@ -52,7 +57,7 @@ function clearForm() {
 
 
 function isInactive() {
-    var timeOut = 3000//30 * 60 * 1000;
+    var timeOut = getStayTime();
     var timer;
 
     function startTimer() {
@@ -136,12 +141,11 @@ function writeSomething(){
 }
 
 document.onload = (function () {
-    var stayInTime = 3000//30 * 60 * 1000;
     var userName = readCookie("testCookie");
     document.getElementById("submit-button").addEventListener( 'click' , logIn );
     document.getElementById("log-out-button").addEventListener( 'click' , logOut );
     if (userName) {
-        writeCookie('testCookie', userName, stayInTime);
+        writeCookie('testCookie', userName, getStayTime());
         greating(userName);
         isInactive();
     } else {

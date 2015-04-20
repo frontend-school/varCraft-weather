@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Weather app</title>
+    <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div class="user">
+    Hello, <span id="username" class="user__name">1</span>
+    <button id="log-out" class="user__logout">Log out</button>
+</div>
+
+<div class="weather">
+    <div class="weather-info">
+        <div class="weather-info__time">9:20</div>
+        <div class="weather-info__midday">AM</div>
+        <div class="clearfix"></div>
+        <div class="weather-info__date">Wed. September 3</div>
+        <div class="weather-info-location">
+            <div class="weather-info-location__city">Kiev</div>
+            <div class="weather-info-location__country">Ukraine</div>
+        </div>
+
+    </div>
+
+    <div class="weather-forecast">
+        <div class="weather-forecast-column weather-forecast-column_yesterday">
+            <div class="weather-forecast-column-header">
+                <div class="weather-forecast-column-header__name">Yesterday</div>
+                <div class="weather-forecast-column-header__date">13 / 04 / 2015</div>
+            </div>
+            <div class="weather-forecast-column-data weather-forecast-column-data_mostly-cloudy">
+                <div class="weather-forecast-column-data__condition-icon weather-forecast-column-data__condition-icon_partly-cloudy"></div>
+                <div class="weather-forecast-column-data__condition-title">Partly cloudy</div>
+                <div class="weather-forecast-column-data__daily-temperature">-22</div>
+                <div class="weather-forecast-column-data__night-temperature">-17</div>
+                <div class="clearfix"></div>
+                <div class="weather-forecast-column-data-other">
+                    <div class="weather-forecast-column-data-other-wind">
+                        <div class="weather-forecast-column-data-other-wind__value">4 mph</div>
+                        <div class="weather-forecast-column-data-other-wind__direction">NW</div>
+                    </div>
+                    <div class="weather-forecast-column-data-other-moon">
+                        <div class="weather-forecast-column-data-other-moon__label">Moon</div>
+                        <div class="weather-forecast-column-data-other-moon__icon weather-forecast-column-data-other-moon__icon_third-quater"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather-forecast-column weather-forecast-column_today">
+            <div class="weather-forecast-column-header">
+                <div class="weather-forecast-column-header__name">Today</div>
+                <div class="weather-forecast-column-header__date">14 / 04 / 2015</div>
+            </div>
+            <div class="weather-forecast-column-data weather-forecast-column-data_snow-fall">
+                <div class="weather-forecast-column-data__condition-icon weather-forecast-column-data__condition-icon_snow-fall"></div>
+                <div class="weather-forecast-column-data__condition-title">Snow fall</div>
+                <div class="weather-forecast-column-data__daily-temperature">-22</div>
+                <div class="weather-forecast-column-data__night-temperature">-17</div>
+                <div class="clearfix"></div>
+                <div class="weather-forecast-column-data-other">
+                    <div class="weather-forecast-column-data-other-wind">
+                        <div class="weather-forecast-column-data-other-wind__value">4 mph</div>
+                        <div class="weather-forecast-column-data-other-wind__direction">NW</div>
+                    </div>
+                    <div class="weather-forecast-column-data-other-moon">
+                        <div class="weather-forecast-column-data-other-moon__label">Moon</div>
+                        <div class="weather-forecast-column-data-other-moon__icon weather-forecast-column-data-other-moon__icon_first-quater"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather-forecast-column weather-forecast-column_tomorrow">
+            <div class="weather-forecast-column-header">
+                <div class="weather-forecast-column-header__name">Tomorrow</div>
+                <div class="weather-forecast-column-header__date">15 / 04 / 2015</div>
+            </div>
+            <div class="weather-forecast-column-data weather-forecast-column-data_fog">
+                <div class="weather-forecast-column-data__condition-icon weather-forecast-column-data__condition-icon_fog"></div>
+                <div class="weather-forecast-column-data__condition-title">Fog</div>
+                <div class="weather-forecast-column-data__daily-temperature">-22</div>
+                <div class="weather-forecast-column-data__night-temperature">-17</div>
+                <div class="clearfix"></div>
+                <div class="weather-forecast-column-data-other">
+                    <div class="weather-forecast-column-data-other-wind">
+                        <div class="weather-forecast-column-data-other-wind__value">4 mph</div>
+                        <div class="weather-forecast-column-data-other-wind__direction">NW</div>
+                    </div>
+                    <div class="weather-forecast-column-data-other-moon">
+                        <div class="weather-forecast-column-data-other-moon__label">Moon</div>
+                        <div class="weather-forecast-column-data-other-moon__icon weather-forecast-column-data-other-moon__icon_waxing-crescent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="login">
+    <form class="login-form">
+        <label class="login-form__label" for="login">Login:</label>
+        <input type="text" class="login-form__input" id="login"/>
+
+        <label class="login-form__label" for="password">Password:</label>
+        <input type="password" class="login-form__input" id="password"/>
+
+        <button id="log-in" class="login-form__submit">Log in</button>
+    </form>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

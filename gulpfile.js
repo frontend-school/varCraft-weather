@@ -39,8 +39,15 @@ gulp.task('html', function() {
 
 // Images
 gulp.task('images', function() {
-    return gulp.src(source + 'img**', {base: source})
-        .pipe(watch(source + 'img**', {base: source}))
+    return gulp.src(source + 'img/*.png', {base: source})
+        .pipe(watch(source + 'img/*.png', {base: source}))
+        .pipe(gulp.dest(destination));
+});
+
+// Fonts
+gulp.task('fonts', function() {
+    return gulp.src(source + 'fonts/*.otf', {base: source})
+        .pipe(watch(source + 'fonts/*.otf', {base: source}))
         .pipe(gulp.dest(destination));
 });
 
@@ -52,7 +59,7 @@ gulp.task('bower', function() {
 });
 
 // Build into dist folder
-gulp.task('build', ['html', 'css', 'less',  'js', 'images', 'bower']);
+gulp.task('build', ['html', 'css', 'less',  'js', 'images', 'fonts', 'bower']);
 
 // Add livereload
 gulp.task('webserver', function() {

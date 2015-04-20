@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Weather API description</title>
+
+
+</head>
+<body>
+<strong>Aeris weather API</strong> was chosen for this project. It provides the way to get next weather parameters:
+<ul>
+    <li>Temperature (day and night)</li>
+    <li>Wind direction and speed</li>
+    <li>Humidity</li>
+    <li>Weather conditions</li>
+    <li>Moon phase</li>
+</ul>
+
+Request for current weather:
+<b>https://api.aerisapi.com/observations/kyiv,ua?fields=ob.timestamp,ob.tempC,ob.windSpeedMPH,ob.weather,ob.windDir,ob.humidity,ob.isDay%26client_id=12YqIi4RMpOnS5ObJbAF3%26client_secret=5zvUzHIUEmxlmHsgzVJGDuDxMhuRfa3e4fNRSoFT</b>
+<br><br>
+Request for weather forecast:
+<b>https://api.aerisapi.com/forecasts/kyiv,ua?fields=periods.timestamp,periods.avgTempC,periods.windSpeedMPH,periods.weather,periods.windDirMax,periods.humidity,periods.isDay%26from=today%26to=+2days%26filter=daynight%26client_secret=5zvUzHIUEmxlmHsgzVJGDuDxMhuRfa3e4fNRSoFT</b>
+<br><br>
+Request for moon phase for 3 days:
+<b>https://api.aerisapi.com/sunmoon/kyiv,ua?filter=moonphase%26from=-1days%26to=+2day%26client_id=12YqIi4RMpOnS5ObJbAF3%26client_secret=5zvUzHIUEmxlmHsgzVJGDuDxMhuRfa3e4fNRSoFT</b>
+<br><br>
+Batch request:
+<b>https://api.aerisapi.com/batch/kyiv,ua?requests=/observations%3fields=ob.timestamp,ob.tempC,ob.windSpeedMPH,ob.weather,ob.windDir,ob.humidity,ob.isDay,/forecasts%3fields=periods.timestamp,periods.avgTempC,periods.windSpeedMPH,periods.weather,periods.windDirMax,periods.humidity,periods.isDay%26from=today%26to=+2days%26filter=daynight,/sunmoon%3filter=moonphase%26from=-1days%26to=+2day&client_id=12YqIi4RMpOnS5ObJbAF3&client_secret=5zvUzHIUEmxlmHsgzVJGDuDxMhuRfa3e4fNRSoFT</b>
+<br><br><br>
+
+<i>Example of forecast query:</i>
+<ul id="results"></ul>
+<script>
+    var res = document.getElementById("results");
+    var weather;
+    var xhr = new XMLHttpRequest();
+
+    var params = "fields=periods.timestamp,periods.avgTempC,periods.windSpeedMPH,periods.weather,periods.windDirMax,periods.humidity,periods.isDay";
+    var keys = 'client_id=12YqIi4RMpOnS5ObJbAF3&client_secret=5zvUzHIUEmxlmHsgzVJGDuDxMhuRfa3e4fNRSoFT';
+    var place = "kyiv,ua";
+    xhr.open('GET', 'https://api.aerisapi.com/forecasts/' + place + '?' + params + '&from=today&to=+2days&filter=daynight&' + keys, false);
+
+    xhr.send();
+
+    if (xhr.status != 200) {
+        alert(xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
+    } else {
+        weather = JSON.parse(xhr.responseText).response[0]; // responseText -- текст ответа.
+    }
+
+    if (weather) {
+        for (var prop in weather.periods[0]) {
+            var temp = document.createElement("li");
+            temp.innerHTML = "<u>"+prop + "</u>: " + weather.periods[0][prop];
+            res.appendChild(temp);
+        }
+
+    }
+</script>
+</body>
+</html>

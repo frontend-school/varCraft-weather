@@ -6,33 +6,76 @@
 @input-height: 40px;
 @login-font-size: 15pt;
 
+@font-face {
+  font-family: Lintel;
+  src: url(../fonts/Lintel-Regular.otf);
+}
+
 .font {
   font-family: 'Titillium Web', sans-serif;
   font-size: @login-font-size;
 }
 
-.authentication {
-  width: 595px;
-  height: 595px;
+.user {
+  font-family: Lintel;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 5px;
+  z-index: 3;
+  height: 20px;
+  margin: 0;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+
+  &__logout {
+    font-family: Lintel;
+    border: none;
+    outline: none;
+
+    margin-left: 5px;
+    font-size: 10pt;
+    background-color: #6CB0BD;
+  }
+}
+
+.login {
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: #262626;
-  position: relative;
+
+  &_hide {
+    display: none;
+
+  }
 
   &-form {
+
     width: @form-width;
     height: @form-height;
 
     .font;
     font-weight: 300;
 
-    margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
 
-    &__login-label, &__password-label {
+    &__label {
       color: #FFFFFF;
     }
 
-    &__login, &__password {
+    &__input {
       .font;
       font-weight: 400;
 

@@ -10,12 +10,13 @@
 $font_family: 'Lintel', sans-serif;
 $font_size: 23pt;
 $min_page_width: 1024px;
+$min_page_height:568px;
 
 
 .main-page {
   min-width: $min_page_width;
   height:100vh;
-  min-height:568px;
+  min-height:$min_page_height;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -27,7 +28,7 @@ $min_page_width: 1024px;
 }
 
 .info {
-  margin-top: 23vh;
+  margin-top: 170px;
   float:left;
   width: 35%;
 
@@ -38,6 +39,7 @@ $min_page_width: 1024px;
     display:inline-block;
     vertical-align:top;
     font-size: 5em;
+    font-weight: bold;
     line-height: 0.6em;
   }
   &__time-notation{
@@ -51,7 +53,7 @@ $min_page_width: 1024px;
     top:-10px;
   }
   &__day{
-    margin: 10vh 0 10vh;
+    margin: 65px 0;
   }
   &__location{
     padding-left: 40px;
@@ -62,12 +64,12 @@ $min_page_width: 1024px;
     height: 24px;
     line-height: 25px;
 
-    padding-bottom: 4px;
+    padding-bottom: 5px;
     padding-left: 2px;
     font-size: 1em;
   }
   &__country {
-    padding-top: 10px;
+    padding-top: 5px;
     font-size: 0.6em;
   }
 }
@@ -92,15 +94,11 @@ $min_page_width: 1024px;
 
   &__day{
     height:15%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 15px 0;
     text-align: center;
-
-    &:after {
-      display: inline-block;
-      height: 15vh;
-      width: 0;
-      vertical-align: middle;
-      content: '';
-    }
   }
 
   &__day-date {
@@ -252,15 +250,15 @@ $min_page_width: 1024px;
 
 
   &__temperature {
-    padding-top: 8vh;
-    padding-bottom: 8vh;
+    padding: 55px 0;
   }
 
   &__temperature-day {
       display: inline-block;
-      font-size: 3.5em;
-      height: 80px;
-      line-height: 81px;
+      font-size: 3.1em;
+      font-weight: bold;
+      height: 73px;
+      line-height: 74px;
       vertical-align: bottom;
   }
 
@@ -268,6 +266,7 @@ $min_page_width: 1024px;
       display: inline-block;
       vertical-align: bottom;
       text-align: left;
+      padding-left: 14px;
   }
 
   &__temperature-night-value {
@@ -295,24 +294,99 @@ $min_page_width: 1024px;
       padding-right: 8px;
   }
 
-  &__additional-value {
+  &__additional-desc {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+
     height: 88px;
     width: 63px;
     margin-top: 20px;
     background-repeat: no-repeat;
-
     &_wind {
       padding-top: 33px;
       background-image: url("../img/wind_direction.png");
+      &_n{
+        transform-origin: center;
+        transform: rotate(0deg);
+      }
+      &_ne{
+        transform-origin: center;
+        transform: rotate(45deg);
+      }
+      &_e{
+        transform-origin: center;
+        transform: rotate(90deg);
+      }
+      &_se{
+        transform-origin: center;
+        transform: rotate(135deg);
+      }
+      &_s{
+        transform-origin: center;
+        transform: rotate(180deg);
+      }
+      &_sw{
+        transform-origin: center;
+        transform: rotate(225deg);
+      }
+      &_w{
+        transform-origin: center;
+        transform: rotate(270deg);
+      }
+      &_nw{
+        transform-origin: center;
+        transform: rotate(315deg);
+      }
     }
+
     &_moon {
-      background-image: url("../img/mn9.png");
-      background-position: 10px;
+      margin-top: 33px;
+      background: url("../img/moon_state.png") no-repeat;
+      &_mn0{
+        background-position: 0 0;
+        width: 64px;
+        height: 63px;
+      }
+
+      &_mn1{
+        background-position: -72px 0;
+        width: 63px;
+        height: 63px;
+      }
+
+      &_mn2{
+        background-position: -150px 0;
+        width: 63px;
+        height: 63px;
+      }
+
+      &_mn3{
+        background-position: -230px 0;
+        width: 63px;
+        height: 63px;
+      }
+
+      &_mn4{
+        background-position: -300px 0;
+        width: 63px;
+        height: 63px;
+      }
+
+      &_mn5{
+        background-position: -375px 0;
+        width: 63px;
+        height: 63px;
+      }
     }
   }
+
+  &_additional-desc {
+      position: absolute;
+      top: 75px;
+      left: 26px;
+  }
+
 }
 
 

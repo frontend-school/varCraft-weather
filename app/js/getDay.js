@@ -17,35 +17,32 @@ function getDay() {
     var dayName = currentDate.getDayName();
     var month = currentDate.getMonthName();
     var dayValue = currentDate.getDate();
+    var dayHolder = document.getElementsByClassName("js-info__day")[0];
 
-    var dayHolder = document.getElementById("info__day");
     dayHolder.textContent =  dayName + ", " + month + " " + dayValue;
-    dayHolder.innerText =  dayName + ", " + month + " " + dayValue;
 
-    writeDay(currentDate, "daily-forecast__date_today");
+    writeDay(currentDate, "js-forecast_today");
 
     var yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    writeDay(yesterday, "daily-forecast__date_yesterday");
+    writeDay(yesterday, "js-forecast_yesterday");
 
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    writeDay(tomorrow, "daily-forecast__date_tomorrow");
+    writeDay(tomorrow, "js-forecast_tomorrow");
 }
 
 function writeDay(currentDate, holder) {
     var dayValue = currentDate.getDate();
     var todayMonth = currentDate.getMonth();
     var todayYear= currentDate.getFullYear();
+    var dayHolder = document.getElementsByClassName(holder)[0];
+
     if (todayMonth < 10) {
         todayMonth = "0" + todayMonth;
     }
 
-    var dayHolder = document.getElementById(holder);
-    dayHolder.textContent =  dayValue + "/" + todayMonth + "/" + todayYear;
-    dayHolder.innerText =  dayValue + "/" + todayMonth + "/" + todayYear;
+    dayHolder.textContent =  dayValue + " / " + todayMonth + " / " + todayYear;
 }
-
-getDay();
 
 

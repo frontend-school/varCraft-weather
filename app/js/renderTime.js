@@ -4,6 +4,8 @@ function renderTime() {
     var diem = "AM";
     var hour = currentTime.getHours();
     var minute = currentTime.getMinutes();
+    var myClock = document.getElementsByClassName('js-info__time-value')[0];
+    var diemHolder = document.getElementsByClassName("js-info__time-notation")[0];
 
     if (hour == 0)  {
         hour = 12;
@@ -18,11 +20,8 @@ function renderTime() {
     if (diem == "AM" && hour == 0 && minute == 0) {
         getDay();
     }
-    var myClock = document.getElementById('clockDisplay');
+
     myClock.textContent = hour + ":" + minute;
-    myClock.innerText = hour + ":" + minute;
-    var diemHolder = document.getElementById("diem");
     diemHolder.textContent =  diem;
-    diemHolder.innerText =  diem;
     setTimeout('renderTime()',1000);
 }

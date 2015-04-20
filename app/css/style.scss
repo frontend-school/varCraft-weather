@@ -27,7 +27,7 @@ $purple: #75608b;
 $main-font: 'Lintel-Regular', 'Titillium Web';
 $current-user-info-width: 37%;//37%
 $weather-display-width: 63%; //63%
-$daily-forecast-width: 33.333%; //21%
+$daily-forecast-width: 21%; //21%
 
 *{
 	-webkit-box-sizing: border-box ;
@@ -111,23 +111,16 @@ body{
 		&__country {
 			font-size: 14/16 + em;
 			color: #FFF;
-			//line-height: 0.5em;
 
 		}
 	}
-}
-
-.weather-display{
-	width: $weather-display-width;
-	height: 100%;
-	float: left;
-	background-color: green;
 }
 
 .daily-forecast{
 	width: $daily-forecast-width;
 	height: 100%;
 	float: left;
+	padding-bottom: 2em ;
 	&_partly-cloudy{
 		background-color: $green;
 	}
@@ -143,7 +136,6 @@ body{
 		width: 100%;
 		background-color: $grey;
 		padding-top: 25px;
-		
 		&__day-of-week{
 			color: #FFF;
 			font-size: 20/16 + em;
@@ -174,7 +166,7 @@ body{
 				background-position: 0 -620px ;
 			}
 			&_fog{
-				background-position: -435px 0;
+				background-position: -425px 0;
 			}
 		}
 
@@ -227,18 +219,49 @@ body{
 			margin-right: auto ;
 			text-align: center;
 			color: #FFF;
-			width: 72px;
-			height: 90px;
-			padding: 30px 0;
+			width: 48px;
+			height: 48px;
+			font-size: 0.8em;
 
-			&_wind{
-				background: blue url('../img/app-icons.png') no-repeat -150px -64px;
-
+			&_wind-n{
+				background:  url('../img/wind-dir-48.png') no-repeat 0 0;
+				padding-top: 1.2em ;
 			}
 
-			&_moon{
-				background: blue url('../img/moon-conditions.png') no-repeat  -176px 5px;;
+			&_wind-ne{
+				background:  url('../img/wind-dir-48.png') no-repeat -58px 0;
+				padding-top: 1.2em ;
+			}
 
+			&_wind-e{
+				background:  url('../img/wind-dir-48.png') no-repeat -116px 0;
+				padding-top: 1.2em ;
+			}
+			&_wind-se{
+				background:  url('../img/wind-dir-48.png') no-repeat -174px 0;
+				padding-top: 1.2em ;
+			}
+			&_wind-s{
+				background:  url('../img/wind-dir-48.png') no-repeat -232px 0;
+				padding-top: 1.2em ;
+			}
+			&_wind-sw{
+				background:  url('../img/wind-dir-48.png') no-repeat -290px 0;
+				padding-top: 1.2em ;
+			}
+			&_wind-w{
+				background:  url('../img/wind-dir-48.png') no-repeat -348px 0;
+				padding-top: 1.2em ;
+			}
+			&_wind-nw{
+				background:  url('../img/wind-dir-48.png') no-repeat -406px 0;
+				padding-top: 1.2em ;
+			}
+
+
+
+			&_moon-1{
+				background: url('../img/moon-conditions.png') no-repeat  -180px -5px;;
 			}
 		}
 	}

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	    <meta charset="utf-8">
     	<title>varCraft weatherApp</title>
         <link rel = "stylesheet" type="text/css" href = "css/style.css">
-        <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
 
 </head>
 <html>
 	<body>
 		<script src="/js/script.js"></script>
 
-		<section class="login-page login-page-js">
+		<section class="login-page">
 
 			<form action="" method = "post" class="login-form" name="login-form">
 				<label class="login-form__label" for="login-field">Login:</label>
@@ -22,14 +21,14 @@
 		</section>
 
 
-		<section class="main-page hide main-page-js">
+		<section class="main-page hide js-main-page">
 
 
 			<div class="current-user-info">
 
 				<div class="current-user-info-name">
 					<form action="post" name="log-out" clas="login-out-form">
-						Hello, <span class="current-user-info__hello-message user-name-js">user-name</span>!
+						Hello, <span class="current-user-info__hello-message js-user-name">user-name</span>!
 							<input type="submit" class="login-form__submit login-form__submit_log-out" value="Log Out">
 				    </form>
 				</div>
@@ -45,7 +44,7 @@
 				</div>
 			</div>
 
-			<div class="weather-display">
+			
 				<div class="daily-forecast daily-forecast_partly-cloudy">
 					<div class="daily-forecast-header">
 						<div class="daily-forecast-header__day-of-week">Yesterday</div>
@@ -64,12 +63,12 @@
 
 					<div class="daily-forecast-additional-info">
 						<div class="daily-forecast-additional-info__title">4mph</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind">NW</div>
+						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind-n">N</div>
 					</div>
 
 					<div class="daily-forecast-additional-info">
 						<div class="daily-forecast-additional-info__title">Moon</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon"></div>
+						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon-1	"></div>
 					</div>
 				</div>
 
@@ -91,12 +90,12 @@
 
 					<div class="daily-forecast-additional-info">
 						<div class="daily-forecast-additional-info__title">4mph</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind">NW</div>
+						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind-n">N</div>
 					</div>
 
 					<div class="daily-forecast-additional-info">
 						<div class="daily-forecast-additional-info__title">Moon</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon"></div>
+						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon-1"></div>
 					</div>
 				</div>
 
@@ -118,15 +117,15 @@
 
 					<div class="daily-forecast-additional-info">
 						<div class="daily-forecast-additional-info__title">4mph</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind">NW</div>
+						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind-n">N</div>
 					</div>
 
 					<div class="daily-forecast-additional-info">
 						<div class="daily-forecast-additional-info__title">Moon</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon"></div>
+						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon-1"></div>
 					</div>
 				</div>
-			</div>
+			
 		</section>
 
 

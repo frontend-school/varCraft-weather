@@ -24,6 +24,7 @@ var appComponents  = "bower_components";
 var runningPage = "index.html";
 var testAPI = "/pages/testAPI.html";
 
+
 gulp.task('server', function() {
     browserSync({
             port: 8080,

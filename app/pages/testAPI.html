@@ -2,17 +2,20 @@
 <html>
 <head>
 	<title>testAPI</title>
+    <meta charset="utf-8">
 
 </head>
 <body>
 	<script src="/js/testAPI.js"></script>
 	<h1>Weather API</h1>
-	<div>I have chosen AERIS weather API
-	I have registred on their website, and have got access for sending requests.</div>
+	<div>I have chosen AERIS weather API.
+	I have registred on their website, and have already got access to request sending.</div>
 	<ul>
 		<li>This API provides 750 requests per day for free</li>
-		<li>You could send multiple('batch requests')</li>
-		<li>Fetch all data we need, even moonphase information</li>
+		<li>We could send multiple('batch requests'), and receive all data we need by single request</li>
+		<li>Gives full weather data, even moonphase information</li>
+		<li>Location could be set by city name and by coordinates either</li>
+
 	</ul>
 	<h2>Weather request simulation. Internet connection required!</h2>
 	This page has just sent request and get weather data for Kiev, Ukraine;
@@ -20,9 +23,10 @@
 	Request body: <strong>http://api.aerisapi.com/observations/kiev,ua?client_id=CJJJaR93zeaUcqYar9FIh&client_secret=Ij7u8zZ9hc9syrHYjDP1q9w0wR1DZriljQpUpPfs</strong>
 	<br>
 
-	<div><h3>Some of data, which was received</h3>
+	<div><h3>Some of data, which was received. All data preseneted below, generated from JSON response</h3>
 		<div class="output-js" style="border: 1px solid green; display: inline-block;"></div>
 	</div>
+	<h4>Whole received JSON object outputed to the console</h4>
 
 
 

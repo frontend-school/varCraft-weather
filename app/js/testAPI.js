@@ -14,16 +14,16 @@ weatherRequest.open('GET', 'http://api.aerisapi.com/observations/kiev,ua?client_
 weatherRequest.send();
 
 if (weatherRequest.status != 200) {
-  alert( weatherRequest.status + ': ' + weatherRequest.statusText ); // пример вывода: 404: Not Found
+  alert( weatherRequest.status + ': ' + weatherRequest.statusText );
 } else {
- // alert( weatherRequest.responseText ); // responseText -- текст ответа.
+ // alert( weatherRequest.responseText );
 }
 
 var output = document.querySelector(".output-js");
 
 
 var weather = JSON.parse(weatherRequest.responseText);
-console.log(weather);
+console.log("Received JSON object: ", weather);
 var temperatureC = "Current temperature in C:" + "<strong>" + weather.response.ob.tempC + "</strong>";
 var temperatureF = "Current temperature in F:" + "<strong>" + weather.response.ob.tempF + "</strong>";
 var weatherConditions = "Weater conditions: " + "<strong>" + weather.response.ob.weather + "</strong>";
@@ -31,8 +31,6 @@ var windDir = "wind direction: " + "<strong>" + weather.response.ob.windDir + "<
 
 
 output.innerHTML =  temperatureC +"<br>" + temperatureF + "<br>" + weatherConditions + "<br>" + windDir;
-
-console.log(temperatureC, temperatureF, weatherConditions, windDir);
 
 }
 

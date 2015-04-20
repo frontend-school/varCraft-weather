@@ -11,13 +11,13 @@ function main(){
 	var loginForm = document.forms[0];
 	var loginFormOut = document.forms[1];
 	var loginPage = loginForm.parentNode;
-	var mainPage = document.querySelector('.main-page-js');
-	var userName = mainPage.querySelector('.user-name-js');
+	var mainPage = document.querySelector('.js-main-page');
+	var userName = mainPage.querySelector('.js-user-name');
 
 	var dataBase = [{login: "Viktor", password: "1"}, {login: "Maksim", password: "1"}, {login: "Stas", password: "1"}];
 	var cookieOptions = {
 		path: "/",
-		expires: 3600,
+		expires: 36000,
 		domain: ""
 	};
 
@@ -39,7 +39,7 @@ function main(){
 	function checkDuration(){
 		var delayBeforeQuit = 1800 * 1000;
 		var curTime = new Date();
-		console.log(curTime - startTime);
+		console.log("remained time after last action:" +(curTime - startTime)/1000 + "");
 		if(curTime - startTime > delayBeforeQuit){
 			logOut();
 		}

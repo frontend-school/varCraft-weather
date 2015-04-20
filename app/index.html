@@ -2,23 +2,212 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Authentication form</title>
+	<title>Weather.</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	
+
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:600,400,300,200' rel='stylesheet' type='text/css'> <!-- Titillium Web -->
 
 </head>
-<body>
-		
-	<form class="popup" method="POST">
-		
-		<label for="login" class="popup__label">Login:</label>
-		<input type="text" id="login" class="popup__login-pwd">
-		<label for="password" class="popup__label">Password:</label>
-		<input type="password" id="password" class="popup__login-pwd">
-		<button type="submit" class="popup__submit">Log in</button>   
-	</form>
+<body class="b-wrapper">
+
+	<div class="popup__overlay popup__overlay_show-block">
+	<!-- <div class="popup__overlay popup__overlay_hide-block"> -->
+
+		<form class="popup" method="POST">
+
+			<label class="popup__label">Login:
+        <input type="text" class="js-login-name popup__login-pwd">
+      </label>
+
+			<label for="password" class="popup__label">Password:
+        <input type="password" class="js-login-password popup__login-pwd">
+      </label>
+
+			<button type="submit" class="js-log-in button-log-in-out button-log-in-out_log-out">Log in</button>
+
+		</form> <!-- popup__overlay -->
+
+	</div> <!-- popup__overlay -->
+
+	<div class="b-sidebar">
+
+		<div class="b-sidebar-b-settings">
+
+			<button type="submit" class="js-log-out button-log-in-out button-log-in-out_log-out">Log out</button>
+			<span class="b-sidebar-b-settings__hallo-message js-hallo-message"><!-- Hallo, [Name]! (Is filled with JS by login name)--></span>
+			<span class="b-sidebar-b-settings__logging-time js-timer"><!-- You are inactive: XX sec (Is filled with JS by time which left)--></span>
+
+		</div>
+
+		<div class="b-sidebar__clock">
+			9:20
+			<span class="b-sidebar__clock-format">
+				AM
+			</span>
+		</div>
+
+		<div class="b-sidebar__date">
+			Wed, April 22
+		</div>
+
+		<div class="b-sidebar-b-location">
+			<span class="b-sidebar-b-location__city">
+				Kiev
+			</span>
+			<span class="b-sidebar-b-location__country">
+				Ukraine
+			</span>
+		</div>
+
+	</div> <!-- b-sidebar -->
+
+	<div class="b-day b-day_partly-cloudly"> <!-- yesterday -->
+
+		<div class="b-day-b-title">
+			<p class="b-day-b-title__order-day">Yesterday</p>
+			<p class="b-day-b-title__date-day">20/04/2015</p>
+		</div>
+
+		<div class="b-status-weather b-status-weather_icon-partly-cloudly">
+			Partly Cloudly
+		</div>
+
+		<div class="b-temperature">
+			<p class="b-temperature__day-value">
+				-22
+			</p>
+			<div class="b-temperature-b-night">
+				<!-- Night -->
+				<p class="b-temperature-b-night__title">
+					Night
+				</p>
+				<p class="b-temperature-b-night__value b-temperature-b-night__value_bold">
+					-17
+				</p>
+			</div>
+		</div> <!-- b-temperature -->
+
+		<!-- <div class="b-temperature_after"></div> -->
+
+		<div class="b-weather-params">
+			<div class="b-weather-params-b-wind">
+				<p class="b-weather-params-b-wind__speed">
+					4 pmh
+				</p>
+				<div class="b-weather-params-b-wind__scheme b-weather-params-b-wind__scheme_E">
+
+				</div>
+				<p class="b-weather-params-b-wind__direction">
+					E
+				</p>
+			</div>
+			<div class="b-weather-params-b-moon">
+				<p class="b-weather-params-b-moon__title">
+					Moon
+				</p>
+				<div class="b-weather-params-b-moon__scheme b-weather-params-b-moon__scheme_waning-gibbous"></div>
+			</div>
+		</div> <!-- b-weather-params -->
+
+	</div> <!-- b-day yesterday -->
+
+	<div class="b-day b-day_snow"> <!-- today -->
+
+		<div class="b-day-b-title">
+			<p class="b-day-b-title__order-day">Today</p>
+			<p class="b-day-b-title__date-day">21/04/2015</p>
+		</div>
+
+		<div class="b-status-weather b-status-weather_icon-snowfall">
+			Snowfall
+		</div>
+
+		<div class="b-temperature">
+			<p class="b-temperature__day-value">
+				-22
+			</p>
+			<div class="b-temperature-b-night">
+				<p class="b-temperature-b-night__title">
+					Night
+				</p>
+				<p class="b-temperature-b-night__value b-temperature-b-night__value_bold">
+					-17
+				</p>
+			</div>
+		</div> <!-- b-temperature -->
+
+		<div class="b-weather-params">
+			<div class="b-weather-params-b-wind">
+				<p class="b-weather-params-b-wind__speed">
+					4 pmh
+				</p>
+				<div class="b-weather-params-b-wind__scheme b-weather-params-b-wind__scheme_SE">
+
+				</div>
+				<p class="b-weather-params-b-wind__direction">
+					SE
+				</p>
+			</div>
+			<div class="b-weather-params-b-moon">
+				<p class="b-weather-params-b-moon__title">
+					Moon
+				</p>
+				<div class="b-weather-params-b-moon__scheme b-weather-params-b-moon__scheme_last-quater"></div>
+			</div>
+		</div> <!-- b-weather-params -->
+
+	</div> <!-- b-day today -->
+
+	<div class="b-day b-day_fog"> <!-- tomorrow -->
+
+		<div class="b-day-b-title">
+			<p class="b-day-b-title__order-day">Tomorrow</p>
+			<p class="b-day-b-title__date-day">22/04/2015</p>
+		</div>
+
+		<div class="b-status-weather b-status-weather_icon-fog">
+			Fog
+		</div>
+
+		<div class="b-temperature">
+			<p class="b-temperature__day-value">
+				-22
+			</p>
+			<div class="b-temperature-b-night">
+				<p class="b-temperature-b-night__title">
+					Night
+				</p>
+				<p class="b-temperature-b-night__value b-temperature-b-night__value_bold">
+					-17
+				</p>
+			</div>
+		</div> <!-- b-temperature -->
+
+		<div class="b-weather-params">
+			<div class="b-weather-params-b-wind">
+				<p class="b-weather-params-b-wind__speed">
+					4 pmh
+				</p>
+				<div class="b-weather-params-b-wind__scheme b-weather-params-b-wind__scheme_NW">
+
+				</div>
+				<p class="b-weather-params-b-wind__direction">
+					NW
+				</p>
+			</div>
+			<div class="b-weather-params-b-moon">
+				<p class="b-weather-params-b-moon__title">
+					Moon
+				</p>
+				<div class="b-weather-params-b-moon__scheme b-weather-params-b-moon__scheme_waxing-crescent"></div>
+			</div>
+		</div> <!-- b-weather-params -->
+
+	</div> <!-- b-day tomorrow -->
+
+
+  <script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>

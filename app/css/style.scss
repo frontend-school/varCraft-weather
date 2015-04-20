@@ -1,6 +1,53 @@
 $bgColor: #262626;
 $buttonColor: #6cb0bd;
 
+$bgSnowfall: #82a8c4;
+$bgSnow: #375d81;
+
+$bgMostlyCloudly: #1d9e48;
+$bgPartlyCloudly: #1d9e48;
+$bgFog: #75608b;
+
+@mixin transform-rotate($deg) {
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+@mixin transform-origin($originX, $originY) {
+	-webkit-transform-origin: $originX $originY;
+	-moz-transform-origin: $originX $originY;
+	-o-transform-origin: $originX $originY;
+	-ms-transform-origin: $originX $originY;
+	transform-origin: $originX $originY;
+}
+
+html {
+	height: 100%;
+}
+
+.popup__overlay {
+	// display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: $bgColor;
+  background: rgba(38,38,38,.97);
+  z-index: 999;
+
+	&_show-block{
+		display: block;
+	}
+
+	&_hide-block{
+		display: none;
+	}
+}
+
 .popup{
 	position: absolute;
 	width: 300px;
@@ -11,7 +58,7 @@ $buttonColor: #6cb0bd;
 	right: 0;
 	margin: auto;
 
-	padding: 60px 80px;
+	padding: 30px 40px;
 
 	overflow: hidden;
 	background-color: $bgColor;
@@ -22,36 +69,403 @@ $buttonColor: #6cb0bd;
 
 	&__label{
 		display: block;
-		height: 30px;
 		color: #fff;
 		font-weight: 200;
 	}
 
 	&__login-pwd{
 		display: block;
-		width: inherit;
+		width: 100%;
 		height: 40px;
-		margin: 6px 0 21px 0;	
+		margin: 5px 0 21px 0;
 		border: none;
 		padding: 0;
 
+		color: #000;
 		font-weight: 600;
 	}
 
-	&__submit{
-		position: relative;
-		width: 70px;
-		height: 40px;
-		margin: 0 0 0 230px;
-		border: none;
-		padding: 0;
-		background-color: $buttonColor;
-		
-		color: #000;
-		font-weight: 400;
-		line-height: 30px;
+	&__log-in{
+		float: right;
 	}
 
 }
+
+.button-log-in-out{
+	border: none;
+	padding: 8px 10px;
+	background-color: $buttonColor;
+
+	color: #000;
+	line-height: 24px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+
+	&_log-in{
+		float: right;
+	}
+	&_log-out{
+		float: left;
+	}
+}
+
+.b-wrapper{
+	height: 100%;
+	background-color: $bgColor;
+
+	color: #fff;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 30px;
+	font-weight: 300;
+}
+
+.b-sidebar{
+	position: relative;
+	float: left;
+	padding: 0 0 0 35px;
+	width: 37%;
+	min-height: 100%;
+	box-sizing: border-box;
+
+	&-b-settings{
+		display: block;
+		margin: 0 0 0 -35px;
+		padding: 5px;
+		overflow: hidden;
+
+		&__hallo-message{
+			float: left;
+			padding: 5px 10px;
+
+			font-size: 30px;
+			line-height: 30px;
+			font-weight: 200;
+		}
+
+		&__logging-time{
+			float: left;
+			padding: 8px 5px;
+
+			font-size: 18px;
+			line-height: 18px;
+			font-weight: 200;
+			color: $buttonColor;
+		}
+	}
+
+	&__clock{
+		width: 100%;
+
+		padding: 20px 0 25px;
+		font-size: 160px;
+		line-height: 160px;
+		font-weight: 300;
+	}
+
+	&__clock-format{
+		display: inline;
+		margin-left: -20px;
+
+		font-size: 30px;
+		line-height:90px;
+		font-weight: 200;
+
+		vertical-align: top;
+	}
+
+	&__date{
+		width: 100%;
+
+		padding: 25px 0;
+
+		font-size: 30px;
+		line-height: 30px;
+		font-weight: 200;
+	}
+
+	&-b-location{
+		display: block;
+
+		margin-top: 25px;
+		padding: 0 0 0 46px;
+
+		background: url('../img/location_icon.png') 0 0 no-repeat;
+
+		&__city{
+			display: block;
+			margin: 0;
+			padding: 5px 0 0;
+			font-size: 30px;
+			line-height: 30px;
+			font-weight: 200;
+		}
+
+		&__country{
+			display: block;
+			margin: 5px 0 0 -5px;
+
+			font-size: 18px;
+			line-height: 18px;
+			font-weight: 200;
+		}
+	} /* -b-location */
+} /* .b-sidebar */
+
+.b-day{
+	position: relative;
+	float: left;
+	width: 21%;
+	min-height: 100%;
+	margin: 0 auto;
+
+	text-align: center;
+
+	&_snowfall{
+		background-color: $bgSnowfall;
+	}
+
+	&_snow{
+		background-color: $bgSnow;
+	}
+
+	&_mostly-cloudly{
+		background-color: $bgMostlyCloudly;
+	}
+
+	&_partly-cloudly{
+		background-color: $bgPartlyCloudly;
+	}
+
+	&_fog{
+		background-color: $bgFog;
+	}
+
+	&-b-title{
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background-color: $bgColor;
+
+		&__order-day{
+			width: 100%;
+			margin: 0;
+			padding: 25px 0 5px;
+
+			font-size: 30px;
+			line-height: 30px;
+			font-weight: 200;
+		}
+
+		&__date-day{
+			width: 100%;
+			margin: 0;
+			padding: 5px 0 25px;
+
+			font-size: 18px;
+			line-height: 18px;
+			font-weight: 200;
+		}
+	}
+} /* .b-day */
+
+.b-status-weather{
+	width: auto;
+	padding: 200px 0 25px;
+
+	text-align: center;
+
+	font-size: 30px;
+	line-height: 30px;
+	font-weight: 200;
+
+	&_icon-snowfall{
+		background: url('../img/widget_state_snow_fall.png') center 0 no-repeat;
+		background-origin: padding-box;
+	}
+
+	&_icon-mostly-cloudly{
+		background: url('../img/widget_state_mostly_cloudly.png') center 0 no-repeat;
+		background-origin: padding-box;
+	}
+	&_icon-partly-cloudly{
+		background: url('../img/widget_state_partly_cloudly.png') center 0 no-repeat;
+		background-origin: padding-box;
+	}
+	&_icon-fog{
+		background: url('../img/widget_state_fog.png') center 0 no-repeat;
+		background-origin: padding-box;
+	}
+}
+
+.b-temperature{
+	display: block;
+	margin: 0 auto;
+	padding: 20px 0 0;
+
+	text-align: center;
+
+	&__day-value{
+		display: inline-block;
+		margin: 0 auto;
+		padding: 0;
+
+		font-size: 110px;
+		line-height: 80px;
+		font-weight: 300;
+	}
+
+	&-b-night{
+		display: inline-block;
+		margin: 0 auto;
+		padding: 0 0 0 10px;
+
+		vertical-align: text-bottom; /* !! */
+
+		&__title{
+			margin: 0;
+			padding: 0;
+			text-align: left;
+			font-size: 18px;
+			line-height: 18px;
+			font-weight: 200;
+		}
+
+		&__value{
+			margin: 0;
+			padding: 20px 0 3px;
+			font-size: 30px;
+			line-height: 30px;
+			font-weight: 300;
+		}
+
+	}
+}
+
+.b-weather-params{
+	display: block;
+	margin: 0 auto;
+	padding: 40px 0 0;
+
+	text-align: center;
+
+	&-b-wind{
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		margin-right: 30px;
+
+		font-size: 18px;
+		line-height: 18px;
+		font-weight: 200;
+
+		overflow: hidden;
+
+		text-align: center;
+		vertical-align: top;
+
+		&__speed{
+			display: block;
+			margin: 0;
+			padding: 0;
+		}
+
+		&__scheme{
+			display: block;
+			margin: 0;
+			padding: 0;
+			height: 88px;
+			width: 88px;
+			// width: 63px;
+			background: url('../img/wind_direction.png') 50% 0 no-repeat;
+			@include transform-origin(50%, 50%);
+
+			&_S{
+				@include transform-rotate(0deg);
+			}
+			&_N{
+				@include transform-rotate(180deg);
+			}
+			&_E{
+				@include transform-rotate(-90deg);
+			}
+			&_W{
+				@include transform-rotate(90deg);
+			}
+
+			&_SE{
+				@include transform-rotate(-45deg);
+			}
+			&_SW{
+				@include transform-rotate(45deg);
+			}
+			&_NE{
+				@include transform-rotate(-135deg);
+			}
+			&_NW{
+				@include transform-rotate(135deg);
+			}
+		}
+
+		&__direction{
+			height: 88px;
+			width: 88px;
+			line-height: 88px;
+			margin: -88px auto 0;
+			padding: 0;
+		}
+	} /* -b-wind */
+
+	&-b-moon{
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+
+		vertical-align: top;
+
+		&__title{
+			display: block;
+			margin: 0;
+			padding: 0;
+
+			font-size: 18px;
+			line-height: 18px;
+			font-weight: 200;
+		}
+
+		&__scheme{
+			display: block;
+			height: 60px;
+			margin: 14px 0;
+			width: 60px;
+			background: url('../img/spritesheet_moon.png') 0 50% no-repeat;
+
+			&_new-moon{
+				background-position: 0px 0px;
+			}
+			&_waxing-crescent{
+				background-position: -62px 0px;
+			}
+			&_first-quater{
+				background-position: -124px 0;
+			}
+			&_waxing-gibbous{
+				background-position: -186px 0;
+			}
+			&_full-moon{
+				background-position: -248px 0;
+			}&_waning-gibbous{
+				background-position: -310px 0;
+			}&_last-quater{
+				background-position: -372px 0;
+			}&_waning-crescent{
+				background-position: -434px 0;
+			}
+		}
+	} /* -b-moon */
+
+} /* .b-weather-params */
+
+
 
 

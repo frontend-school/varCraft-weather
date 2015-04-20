@@ -1,18 +1,18 @@
 var fs = require('fs');
 
-function construct(template, tiles, info) {
-    template = fs.readFileSync(template, 'utf8');
-
-    var content = template;
-    for (var placeholder in tiles) {
-        if (tiles.hasOwnProperty(placeholder)) {
-            var tile = fs.readFileSync(tiles[placeholder]);
-            content = content.replace(placeholder, tile);
+function constructPage(page){
+    var currentTemplate = fs.readFileSync(page.index,'utf-8');
+    for(var item in page){
+        if((page.hasOwnProperty(item)) && (item != 'index') && (typeof page[item] != 'object')){
+            var content = (fs.existsSync(page[item]) && fs.readFileSync(page[item],'utf-8')) || page[item];
+            currentTemplate = currentTemplate.replace(item, content);
+        }
+        if(typeof page[item] == 'object'){
+            var result = constructPage(page[item]);
+            currentTemplate = currentTemplate.replace(item, result);
         }
     }
-    if(content.match(/@-info/))
-        content = content.replace('@-info',  info);
-    return content;
+    return currentTemplate;
 }
 
-exports.construct = construct;
+exports.constructPage = constructPage;

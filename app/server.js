@@ -1,7 +1,7 @@
 var express = require('express'),
+    bodyParser = require('body-parser'),
     pageConstructor = require('./pageConstructor'),
-    databaseHandler = require('./databaseHandler'),
-    bodyParser = require('body-parser');
+    databaseHandler = require('./databaseHandler');
 
 var app = express(),
     login,
@@ -9,13 +9,16 @@ var app = express(),
 
 app.use('/block', express.static('block'));
 app.use('/icon', express.static('icon'));
+app.use('/font', express.static('font'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
     if(!login) {
-        var content = pageConstructor.construct('index.html', {
+        var content = pageConstructor.constructPage({
+            'index':'index.html',
             '@content': 'block/login-form/login-form.html',
-            '@placeHolder1': 'block/header-main/header-main.html'
+            '@placeHolder1': 'block/header-main/header-main.html',
+            '@user':'Hello, user!'
         });
         res.send(content);
     }
@@ -31,9 +34,8 @@ app.get('/weather', function (req, res) {
         password = undefined;
     }, 1800000);
     if(databaseHandler.userExists(login, password)) {
-        //var weatherInfo = pageConstructor.construct()
-
-        var content = pageConstructor.construct('index.html', {
+        var content = pageConstructor.constructPage({
+            'index':'index.html',
             '@content': 'block/weather-wrapper/weather-wrapper.html',
             '@placeHolder1': 'block/header-main/header-main.html',
             '@header-1-weather': 'block/weather-header/weather-header.html',
@@ -41,8 +43,9 @@ app.get('/weather', function (req, res) {
             '@header-3-weather': 'block/weather-header/weather-header.html',
             '@weather-1': 'block/weather/weather.html',
             '@weather-2': 'block/weather/weather.html',
-            '@weather-3': 'block/weather/weather.html'
-        }, login);
+            '@weather-3': 'block/weather/weather.html',
+            '@user':'Hello, ' + login + '!'
+        });
         res.send(content);
         refreshTime = (new Date()).getTime();
     }

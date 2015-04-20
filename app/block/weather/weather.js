@@ -1,5 +1,6 @@
 //api - 788362a84fe3647e4bc964823a588f45
-function weather(dates) {
+
+function weather() {
     if (!username) return;
 
     setTimeout(function () {
@@ -24,5 +25,4 @@ function weather(dates) {
 
     xmlhttp.open("GET", request, true);
     xmlhttp.send();
-
 }

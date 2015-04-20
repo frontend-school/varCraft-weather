@@ -43,6 +43,9 @@ gulp.task('build', function(){
     source = 'app\\block\\general.scss';
     runTask('sass');
 
+    source = 'app\\block\\Normalize.css';
+    runTask('copy');
+
     gulp.start(['concatScripts']);
 
     source = 'app/*.js';

@@ -1,8 +1,6 @@
 function httpGet(theUrl)
 {
-    var xmlHttp = null;
-
-    xmlHttp = new XMLHttpRequest();
+    var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false );
     xmlHttp.send( null );
     return xmlHttp.responseText;
@@ -14,14 +12,19 @@ function getweather(city) {
     return answer;
 }
 
-function writeSomething(){
+function writeWeather(){
     var weatherJSON = getweather("Kiev");
     console.log(weatherJSON);
 
     var weatherObj = JSON.parse(weatherJSON);
     console.log(weatherObj);
+    console.log(weatherObj.main.temp.toString());
 
-    document.getElementById("demo").innerHTML = weatherObj.weather[0].description.toString();
+    var statusHolder = document.getElementsByClassName("status")[0];
+    statusHolder.textContent = weatherObj.weather[0].description.toString();
+
+    var tempDayHolder = document.getElementsByClassName("temp")[0];
+    tempDayHolder.textContent = Math.round(weatherObj.main.temp);
 }
 
 

@@ -28,7 +28,6 @@
   "devDependencies": {
     "body-parser": "^1.12.2",
     "express": "^4.12.3",
-    "gulp-concat": "^2.5.2",
-    "gulp-run": "^1.6.7"
+    "gulp-concat": "^2.5.2"
   }
 }

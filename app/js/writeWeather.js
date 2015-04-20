@@ -14,16 +14,12 @@ function getweather(city) {
 
 function writeWeather(){
     var weatherJSON = getweather("Kiev");
-    console.log(weatherJSON);
-
     var weatherObj = JSON.parse(weatherJSON);
-    console.log(weatherObj);
-    console.log(weatherObj.main.temp.toString());
 
     var statusHolder = document.getElementsByClassName("status")[0];
-    statusHolder.textContent = weatherObj.weather[0].description.toString();
-
     var tempDayHolder = document.getElementsByClassName("temp")[0];
+
+    statusHolder.textContent = weatherObj.weather[0].description.toString();
     tempDayHolder.textContent = Math.round(weatherObj.main.temp);
 }
 

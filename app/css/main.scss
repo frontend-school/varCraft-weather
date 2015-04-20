@@ -76,7 +76,7 @@ $min_page_height:568px;
 
 .forecast {
   height:100%;
-  width: 65%;
+  width: 63%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -292,8 +292,14 @@ $min_page_height:568px;
       vertical-align: top;
       padding-left: 8px;
       padding-right: 8px;
-  }
+    position: relative;
 
+  }
+  &__additional-direction {
+    position: absolute;
+    left: 33px;
+    top: 75px;
+  }
   &__additional-desc {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

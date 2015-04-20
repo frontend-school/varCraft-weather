@@ -19,6 +19,7 @@ function logIn() {
     hideForm();
     writeCookie('testCookie', userName, getStayTime());
     greating(userName);
+
     clearForm();
     isInactive();
 }
@@ -53,6 +54,7 @@ function reloadPage() {
 document.onload = (function () {
     renderTime();
     getDay();
+    //writeWeather();//for api working example
     var userName = readCookie("testCookie");
     document.getElementById("submit-button").addEventListener( 'click' , logIn );
     document.getElementById("log-out-button").addEventListener( 'click' , logOut );

@@ -58,11 +58,17 @@ gulp.task('bower', function() {
         .pipe(gulp.dest(destinationComp));
 });
 
+// First build
+gulp.task('copy', function() {
+    return gulp.src(source)
+        .pipe(gulp.dest(destination));
+});
+
 // Build into dist folder
 gulp.task('build', ['html', 'css', 'less',  'js', 'images', 'fonts', 'bower']);
 
 // Add livereload
-gulp.task('webserver', function() {
+gulp.task('webserver', ['copy'], function() {
     gulp.src(destination)
         .pipe(webServer({
             host:             'localhost',

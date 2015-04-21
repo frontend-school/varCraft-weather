@@ -12,7 +12,7 @@ function getStayTime() {
 function logIn() {
     var userName = document.getElementById("name").value;
 
-    if (userName == "" ||  document.getElementById("password").value=="") {
+    if (userName === "" ||  document.getElementById("password").value === "") {
         return;
     }
     //add simple validation
@@ -48,6 +48,7 @@ function isInactive() {
 
 function reloadPage() {
     eraseCookie('testCookie');
+    hideDashboard();
     showForm();
 }
 
@@ -56,8 +57,8 @@ document.onload = (function () {
     getDay();
     //writeWeather();//for api working example
     var userName = readCookie("testCookie");
-    document.getElementById("submit-button").addEventListener( 'click' , logIn );
-    document.getElementById("log-out-button").addEventListener( 'click' , logOut );
+    document.getElementById("submit-button").addEventListener('click', logIn);
+    document.getElementById("log-out-button").addEventListener('click', logOut);
     if (userName) {
         writeCookie('testCookie', userName, getStayTime());
         greating(userName);

@@ -5,7 +5,6 @@ function hideForm() {
 }
 
 function showForm() {
-    hideDashboard();
     document.getElementById("popup__overlay").className = document.getElementById("popup__overlay").className.replace
     ( /(?:^|\s)popup__overlay_hidden(?!\S)/g , '' );
     document.getElementById("popup__overlay").className += " popup__overlay_active";

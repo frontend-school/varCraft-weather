@@ -1,11 +1,8 @@
 @import "../../bower_components/normalize.css/normalize.css";
+@import "fonts.scss";
 @import "form.scss";
 @import "b-dashboard.scss";
 
-@font-face {
-  font-family: Lintel;
-  src: local(Lintel Light), local(Lintel-Light), url(../fonts/lintel_light.otf);
-}
 
 $font_family: 'Lintel', sans-serif;
 $font_size: 23pt;

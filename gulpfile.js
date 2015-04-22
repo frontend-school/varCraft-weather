@@ -1,11 +1,9 @@
 var gulp = require('gulp'),
     del = require('del'),
-    webserver = require('gulp-webserver'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     open = require('gulp-open'),
-    server = require('./server'),
-    lr;
+    server = require('./server');
 
 var source = "app/**",
     destination = "dist";
@@ -107,8 +105,11 @@ gulp.task('sass',function(){
 gulp.task('watch', function(){
     gulp.watch('app/**', function (event) {
         gulp.start(['build']);
+
+        server.reload();
     });
 });
+
 
 gulp.task('webserver', function() {
     gulp.src('app')

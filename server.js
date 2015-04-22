@@ -1,4 +1,4 @@
-//runServer();
+var needReload = false;
 function runServer() {
     var express = require('express'),
         bodyParser = require('body-parser'),
@@ -7,16 +7,12 @@ function runServer() {
         lr;
 
     var app = express();
-    //app.use(require('connect-livereload')());
 
     var login,
         password,
         refreshedTime,
         appFolder = 'dist/';
 
-    app.use(require('connect-livereload')({
-        port: 35729
-    }));
     app.use('/dist', express.static('dist'));
     app.use('/block*', express.static('block'));
     app.use('/icon', express.static('icon'));
@@ -56,7 +52,7 @@ function runServer() {
     app.get('/ask', function(req, res){
         var result = {
             'login':login,
-            'needReload':false,
+            'needReload':needReload,
             'needLogout':(new Date().getTime() - refreshedTime) >= 1800000
         };
         if(result.needLogout){
@@ -64,6 +60,7 @@ function runServer() {
             password = '';
         }
         res.send(result);
+        needReload = false;
     });
 
     app.post('/login', function (req, res) {
@@ -85,4 +82,9 @@ function runServer() {
     });
 }
 
+function reload(){
+    needReload = true;
+}
+
 exports.runServer = runServer;
+exports.reload = reload;

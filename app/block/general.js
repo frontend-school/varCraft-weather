@@ -16,8 +16,11 @@ setInterval(function(){
         if(result['needLogout']){
             location.href = 'http://' + location.host + '/logout';
         }
+        if(result['needReload']){
+            location.reload();
+        }
     }
 
     xmlhttp.open("GET", request, true);
     xmlhttp.send();
-}, 20000);
+}, 2000);

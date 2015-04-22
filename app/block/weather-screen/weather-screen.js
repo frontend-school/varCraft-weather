@@ -19,7 +19,7 @@ function weatherScreen() {
     };
 
     function write() {
-        alert('Current temperature in Kiev, UA: ' + (result.main.temp-273).toFixed(0) + ' degrees Celsius');
+        document.getElementById('header-main__info_userinfo').innerHTML = 'Hello, ' + username + '! ' + ('Current temperature in Kiev, UA: ' + (result.main.temp-273).toFixed(0) + ' degrees Celsius');
         console.log(result);
     }
 

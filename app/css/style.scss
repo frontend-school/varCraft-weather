@@ -15,7 +15,7 @@
  }
 
 
-$min-page-height: 640/16 + em;
+$min-page-height: 800/16 + em;
 $max-page-height: 1280/16 + em;
 $max-page-width: 1920/16 + em;
 
@@ -35,10 +35,16 @@ $daily-forecast-width: 21%; //21%
 	box-sizing: border-box ;
 }
 
+html{
+	height: 100%;
+	background-color: $grey;
+}
+
 body{
 	font-family: $main-font;
 	font-size: 100%;
-	background-color: $grey ;
+	height: 100%;
+	//background-color: $grey ;
 }
 
 .hide{
@@ -55,8 +61,10 @@ body{
 	position: relative;
 	max-width: 	$max-page-width;
 	min-width: $min-page-width;
+	background-color: red ;
 	min-height: $min-page-height;
-	max-height: $max-page-height;
+	height: 100%;
+	//max-height: $max-page-height;
 	margin: 0 auto;
 }
 
@@ -119,6 +127,7 @@ body{
 .daily-forecast{
 	width: $daily-forecast-width;
 	height: 100%;
+	min-height: $min-page-height ;
 	float: left;
 	padding-bottom: 2em ;
 	&_partly-cloudy{
@@ -132,7 +141,8 @@ body{
 	}
 
 	&-header{
-		height: 90/16 + em;
+		min-height: 90/16 + em;
+		height: 10% ;
 		width: 100%;
 		background-color: $grey;
 		padding-top: 25px;
@@ -152,7 +162,8 @@ body{
 
 	&-weather-condition{
 		margin-top: 45px;
-
+		height: 25%;
+		min-height: 300px ;
 
 		&__logo{
 			background: url('../img/weather-conditions.png') no-repeat ;
@@ -179,12 +190,13 @@ body{
 		}
 	}
 	&-temperature{
-		width: 60%;
 		margin-left: auto ;
 		margin-left: auto ;
 		margin-top: 20px ;
 		text-align: center ;
 		width: 100%;
+		height: 20%;
+		min-height: 150px ;
 		&__at-day{
 			display: inline-block;
 			color: #fff;
@@ -205,6 +217,8 @@ body{
 	}
 	&-additional-info{
 		width: 50%;
+		height: 20%;
+		min-height: 100px;
 		margin-top: 30/16 + em;
 		float: left;
 		&__title{
@@ -222,10 +236,12 @@ body{
 			width: 48px;
 			height: 48px;
 			font-size: 0.8em;
+			vertical-align: middle;
+		
 
 			&_wind-n{
 				background:  url('../img/wind-dir-48.png') no-repeat 0 0;
-				padding-top: 1.2em ;
+				line-height: 48px; 
 			}
 
 			&_wind-ne{

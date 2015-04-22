@@ -7,7 +7,7 @@ function constructPage(page){
             var content = (fs.existsSync(page[item]) && fs.readFileSync(page[item],'utf-8')) || page[item];
             currentTemplate = currentTemplate.replace(item, content);
         }
-        if(typeof page[item] == 'object'){
+        if((page.hasOwnProperty(item)) && (typeof page[item] == 'object')){
             var result = constructPage(page[item]);
             currentTemplate = currentTemplate.replace(item, result);
         }

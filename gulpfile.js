@@ -2,12 +2,29 @@ var gulp = require('gulp'),
     del = require('del'),
     webserver = require('gulp-webserver'),
     sass = require('gulp-sass'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    open = require('gulp-open'),
+    server = require('./server'),
+    lr;
 
 var source = "app/**",
     destination = "dist";
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', function(){
+    gulp.start(['build', 'runServer', 'runIndex', 'watch']);
+});
+
+gulp.task('runServer', function (cb) {
+    server.runServer();
+});
+
+gulp.task('runIndex', function(){
+    var options = {
+        url: 'http://localhost:3000/'
+    };
+    gulp.src('./dist/index.html')
+        .pipe(open('', options));
+});
 
 gulp.task('copy', function () {
     gulp.src(source)
@@ -43,9 +60,6 @@ gulp.task('build', function(){
     source = 'app\\block\\general.scss';
     runTask('sass');
 
-    source = 'app\\block\\Normalize.css';
-    runTask('copy');
-
     gulp.start(['concatScripts']);
 
     source = 'app/*.js';
@@ -79,14 +93,11 @@ gulp.task('build', function(){
 gulp.task('sass',function(){
     gulp.src(source)
         .pipe(sass({
-            outputStyle: 'nested', //compressed for uglification
+            outputStyle: 'compressed',
             sourceComments: 'map',
             includePaths: [source],
             errLogToConsole: true
         }))
-        //.onError(function(){
-        //    gulp.start(['watch'])
-        //})
         .pipe(gulp.dest(destination));
 
     source = "app/**";
@@ -106,5 +117,4 @@ gulp.task('webserver', function() {
             directoryListing: true,
             open: true
         }));
-    //gulp.start(['watch']);
 });

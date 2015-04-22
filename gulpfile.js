@@ -10,10 +10,8 @@ var gulp        = require('gulp'),
 var path = {
     app   : {
         html      : 'app/*.html',
-        js        : 'app/js/*.js',
         mainJs    : 'app/js/main.js',
         mainStyle : 'app/css/main.scss',
-        scss      : 'app/css/*.scss',
         img       : 'app/img/**/*.*',
         bower     : 'bower_components/**/*.js',
         fonts     : 'app/fonts/**/*.*'
@@ -28,6 +26,13 @@ var path = {
         img    : 'dist/img/',
         vendor : 'dist/vendor',
         fonts  : 'dist/fonts/'
+    },
+    watch: {
+        html: 'app/**/*.html',
+        js: 'app/js/**/*.js',
+        style: 'app/css/**/*.scss',
+        img: 'app/img/**/*.*',
+        fonts: 'app/fonts/**/*.*'
     }
 };
 
@@ -73,25 +78,27 @@ gulp.task('fonts:build', function () {
         .pipe(gulp.dest(path.dist.fonts));
 });
 
-gulp.task('copy-bower', function() {
+gulp.task('copy-bower', function () {
     gulp.src(path.app.bower)
         .pipe(gulp.dest(path.dist.vendor))
         .pipe(reload({stream: true}));
 });
 
-
-gulp.task('watch', function(){
-    watch([path.app.html], function(event, cb) {
+gulp.task('watch', function () {
+    watch([path.watch.html], function(event, cb) {
         gulp.start('html:build');
     });
-    watch([path.app.scss], function(event, cb) {
+    watch([path.watch.style], function(event, cb) {
         gulp.start('scss:build');
     });
-    watch([path.app.js], function(event, cb) {
+    watch([path.watch.js], function(event, cb) {
         gulp.start('js:build');
     });
-    watch([path.app.img], function(event, cb) {
+    watch([path.watch.img], function(event, cb) {
         gulp.start('image:build');
+    });
+    watch([path.watch.fonts], function(event, cb) {
+        gulp.start('fonts:build');
     });
 });
 

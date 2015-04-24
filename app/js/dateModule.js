@@ -1,4 +1,4 @@
-var DateModule = (function () {
+var dateModule = (function () {
     (function () {
         var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -25,16 +25,16 @@ var DateModule = (function () {
         },
         writeTomorrow: function (currentDate) {
             currentDate.setDate(currentDate.getDate() + 1);
-            DateModule.writeDay(currentDate, "js-forecast_tomorrow");
+            dateModule.writeDay(currentDate, "js-forecast_tomorrow");
         },
         writeYesterday: function (currentDate) {
             currentDate.setDate(currentDate.getDate() - 2);
-            DateModule.writeDay(currentDate, "js-forecast_yesterday");
+            dateModule.writeDay(currentDate, "js-forecast_yesterday");
         },
         writeWeatherDates: function (currentDate) {
-            DateModule.writeDay(currentDate, "js-forecast_today");
-            DateModule.writeTomorrow(currentDate);
-            DateModule.writeYesterday(currentDate);
+            dateModule.writeDay(currentDate, "js-forecast_today");
+            dateModule.writeTomorrow(currentDate);
+            dateModule.writeYesterday(currentDate);
         },
         writeInfoDate: function (currentDate) {
             var dayName = currentDate.getDayName(),
@@ -46,8 +46,8 @@ var DateModule = (function () {
         },
         writeAllDates: function () {
             var currentDate = new Date();
-            DateModule.writeInfoDate(currentDate);
-            DateModule.writeWeatherDates(currentDate);
+            dateModule.writeInfoDate(currentDate);
+            dateModule.writeWeatherDates(currentDate);
         }
     };
 }());

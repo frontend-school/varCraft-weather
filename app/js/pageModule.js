@@ -1,13 +1,13 @@
-var pageModule = ( function() {
-    return{
+var pageModule = (function () {
+    return {
         logIn: function () {
             var userName = document.getElementById("name").value;
-
             if (userName === "" ||  document.getElementById("password").value === "") {
                 return;
             }
             //add simple validation
             formModule.hideForm();
+
             cookieModule.writeCookie('testCookie', userName, getStayTime());
             dashboardModule.showDashboard(userName);
             formModule.clearForm();

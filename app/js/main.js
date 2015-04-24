@@ -1,11 +1,12 @@
 //= dashboard.js
-//= form.js
-//= cookie.js
+//= formModule.js
+//= cookieModule.js
 //= writeWeather.js
-//= renderTime
-//= getDay.js
+//= renderTime.js
+//= dateModule.js
+//= timerModule.js
 function getStayTime() {
-    var stayTime = 30 * 60 * 1000;
+    var stayTime = 15 * 1000//30 * 60 * 1000;
     return stayTime;
 }
 
@@ -16,54 +17,38 @@ function logIn() {
         return;
     }
     //add simple validation
-    hideForm();
-    writeCookie('testCookie', userName, getStayTime());
-    greating(userName);
-
-    clearForm();
-    isInactive();
+    formModule.hideForm();
+    cookieModule.writeCookie('testCookie', userName, getStayTime());
+    dashboardModule.showDashboard(userName);
+    formModule.clearForm();
+    timerModule.startTimer();
 }
 
 function logOut() {
-    eraseCookie('testCookie');
-    hideDashboard();
-    showForm();
-}
-
-function isInactive() {
-    var timeOut = getStayTime();
-    var timer;
-
-    function startTimer() {
-        timer = setTimeout(reloadPage, timeOut);
-    }
-
-    function stopTimer() {
-        clearTimeout(timer);
-    }
-
-    stopTimer();
-    startTimer();
+    cookieModule.eraseCookie('testCookie');
+    timerModule.stopTimer();
+    dashboardModule.hideDashboard();
+    formModule.showForm();
 }
 
 function reloadPage() {
-    eraseCookie('testCookie');
-    hideDashboard();
-    showForm();
+    cookieModule.eraseCookie('testCookie');
+    dashboardModule.hideDashboard();
+    formModule.showForm();
 }
 
 document.onload = (function () {
+    var userName = cookieModule.readCookie("testCookie");
     renderTime();
-    getDay();
+    dateModule.writeAllDates();
     //writeWeather();//for api working example
-    var userName = readCookie("testCookie");
     document.getElementById("submit-button").addEventListener('click', logIn);
     document.getElementById("log-out-button").addEventListener('click', logOut);
     if (userName) {
-        writeCookie('testCookie', userName, getStayTime());
-        greating(userName);
-        isInactive();
+        cookieModule.writeCookie('testCookie', userName, getStayTime());
+        dashboardModule.showDashboard(userName);
+        timerModule.restartTimer();
     } else {
-        showForm();
+        formModule.showForm();
     }
 })()

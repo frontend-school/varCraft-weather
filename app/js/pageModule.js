@@ -1,26 +1,27 @@
 var pageModule = (function () {
     return {
         logIn: function () {
-            var userName = document.getElementById("name").value;
-            if (userName === "" ||  document.getElementById("password").value === "") {
+            var userName = helperModule.getElementById(loginFormName).value,
+                password = helperModule.getElementById(loginFormPassword).value;
+            if (userName === "" ||  password === "") {
                 return;
             }
             //add simple validation
             formModule.hideForm();
 
-            cookieModule.writeCookie('testCookie', userName, getStayTime());
+            cookieModule.writeCookie(cookieName, userName, getStayTime());
             dashboardModule.showDashboard(userName);
             formModule.clearForm();
             timerModule.startTimer();
         },
         logOut: function () {
-            cookieModule.eraseCookie('testCookie');
+            cookieModule.eraseCookie(cookieName);
             timerModule.stopTimer();
             dashboardModule.hideDashboard();
             formModule.showForm();
         },
         reloadPage: function () {
-            cookieModule.eraseCookie('testCookie');
+            cookieModule.eraseCookie(cookieName);
             dashboardModule.hideDashboard();
             formModule.showForm();
         }

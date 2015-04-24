@@ -17,8 +17,8 @@ document.onload = (function () {
     MYAPPLICATION.timeModule.renderTime();
     MYAPPLICATION.dateModule.writeAllDates();
     //weatherModule.writeWeather();//for api working example
-    MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.submitButton).addEventListener(MYAPPLICATION.CONST.action, MYAPPLICATION.pageModule.logIn);
-    MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.logOutButton).addEventListener(MYAPPLICATION.CONST.action, MYAPPLICATION.pageModule.logOut);
+    MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.submitButton).addEventListener('click', MYAPPLICATION.pageModule.logIn);
+    MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.logOutButton).addEventListener('click', MYAPPLICATION.pageModule.logOut);
     MYAPPLICATION.eventModule.startEventModule();
     if (userName) {
         MYAPPLICATION.cookieModule.writeCookie(MYAPPLICATION.CONST.cookieName, userName, MYAPPLICATION.CONST.stayTime);

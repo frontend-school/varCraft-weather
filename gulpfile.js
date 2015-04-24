@@ -68,7 +68,7 @@ gulp.task('mobile-html', function() {
 
 gulp.task('js', function() {
    return gulp.src(source + '/js/*.js')
-  //  .pipe( concat("../js/script.js") )
+    .pipe( concat("../js/script.js") )
     .pipe( jshint() )
     .pipe(jshint.reporter('default'))
     .pipe(gulp.dest(destination + '/js')) // this code copy initiall script.js file to the "dist" folder

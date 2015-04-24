@@ -1,13 +1,3 @@
-function ready(fn) {
-  if (document.readyState != 'loading'){
-    fn();
-  } else {
-  	window.onload = fn;
-     // document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
-
 function main(){
 	var loginForm = document.forms[0];
 	var loginFormOut = document.forms[1];
@@ -60,8 +50,7 @@ function main(){
 		return true;
 	}
 
-
-	loginForm.onsubmit = function(){
+	function logIn(){
 		startTime = new Date();
 		var login = this.elements.login.value;
 		var password = this.elements.password.value;
@@ -80,50 +69,9 @@ function main(){
 		mainPage.classList.remove("hide");
 
 		return false;
-	};
-
-	function getCookie(name) {
-		  var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-		  ));
-		  return matches ? decodeURIComponent(matches[1]) : undefined;
-		}
-
-	function setCookie(name, value, options) {
-	  options = options || {};
-
-	  var expires = options.expires;
-
-	  if (typeof expires == "number" && expires) {
-	    var d = new Date();
-	    d.setTime(d.getTime() + expires * 1000);
-	    expires = options.expires = d;
-	  }
-	  if (expires && expires.toUTCString) {
-	    options.expires = expires.toUTCString();
-	  }
-
-	  value = encodeURIComponent(value);
-
-	  var updatedCookie = name + "=" + value;
-
-	  for (var propName in options) {
-	  	if (!options.hasOwnProperty(propName)) continue;
-	    updatedCookie += "; " + propName;
-	    var propValue = options[propName];
-	    if (propValue !== true) {
-	      updatedCookie += "=" + propValue;
-	    }
-	  }
-
-	  document.cookie = updatedCookie;
 	}
 
-	function deleteCookie(name) {
-	  setCookie(name, "", {
-	    expires: -1
-	  });
-	}
-
+	loginForm.onsubmit = logIn;
 	loginFormOut.onsubmit = logOut;
 
 }

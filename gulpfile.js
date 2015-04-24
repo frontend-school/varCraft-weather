@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     open = require('gulp-open'),
-    server = require('./server');
+    server = require('./server/server');
 
 var source = "app/**",
     destination = "dist";
@@ -13,12 +13,22 @@ gulp.task('default', function(){
 });
 
 gulp.task('runServer', function (cb) {
-    server.runServer();
+    //server.runServer();
+    var exec = require('child_process').exec;
+
+    //gulp.task('task', function (cb) {
+        exec('node server/server.js', function (err){//, stdout, stderr) {
+            //console.log(stdout);
+            //console.log(stderr);
+            cb(err);
+        });
+    //})
 });
 
 gulp.task('runIndex', function(){
+    var port = process.env.PORT || 3000;
     var options = {
-        url: 'http://localhost:3000/'
+        url: 'http://localhost:' + port
     };
     gulp.src('./dist/index.html')
         .pipe(open('', options));

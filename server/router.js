@@ -1,23 +1,19 @@
-var needReload = false;
-function runServer() {
-    var express = require('express'),
-        bodyParser = require('body-parser'),
-        pageConstructor = require('./pageConstructor'),
-        databaseHandler = require('./databaseHandler'),
-        lr;
+module.exports = function(app,needReload){
 
-    var app = express();
+    var bodyParser = require('body-parser'),
+        pageConstructor = require('./pageConstructor'),
+        databaseHandler = require('./databaseHandler');
 
     var login,
         password,
         refreshedTime,
         appFolder = 'dist/';
 
-    app.use('/dist', express.static('dist'));
-    app.use('/block*', express.static('block'));
-    app.use('/icon', express.static('icon'));
-    app.use('/font', express.static('font'));
-    app.use(bodyParser.urlencoded({extended: false}));
+    app.post('/login', function (req, res) {
+        login = req.body.login;
+        password = req.body.password;
+        res.redirect('/weather');
+    });
 
     app.get('/', function (req, res) {
         if (!login) {
@@ -34,7 +30,7 @@ function runServer() {
     });
 
     app.get('/weather', function (req, res) {
-        if (databaseHandler.userExists(login, password)) {
+        if((databaseHandler.userExists(login, password)) && (login)){
             var content = pageConstructor.constructPage({
                 'index': appFolder + 'index.html',
                 '@content': appFolder + 'block/weather-screen/weather-screen.html',
@@ -63,28 +59,11 @@ function runServer() {
         needReload = false;
     });
 
-    app.post('/login', function (req, res) {
-        login = req.body.login;
-        password = req.body.password;
-        res.redirect('/weather');
-    });
-
     app.get('/logout', function (req, res) {
         login = undefined;
         password = undefined;
         res.redirect('/');
     });
+};
 
-    var server = app.listen(3000, function () {
-        var host = server.address().address;
-        var port = server.address().port;
-        console.log('Web application is available at http://%s:%s', host, port);
-    });
-}
-
-function reload(){
-    needReload = true;
-}
-
-exports.runServer = runServer;
-exports.reload = reload;
+//exports.router = router;

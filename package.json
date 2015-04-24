@@ -1,6 +1,6 @@
 {
   "name": "varCraft-weather",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Web project - weather. Includes git files, common gulp tasks and project structure",
   "main": "gulpfile.js",
   "dependencies": {
@@ -11,7 +11,8 @@
     "npm": "^2.7.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
     "gulp-concat": "^2.5.2",
     "gulp-open": "^0.3.2",
     "gulp-run": "^1.6.7"
-  }
+  },
+  "keywords": [
+    "serverupdate"
+  ]
 }

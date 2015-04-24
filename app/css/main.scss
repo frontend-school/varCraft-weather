@@ -89,6 +89,7 @@ $min_page_height:568px;
   box-sizing: border-box;
   float: right;
 
+
   &__day{
     height:15%;
     -webkit-box-sizing: border-box;
@@ -96,11 +97,13 @@ $min_page_height:568px;
     box-sizing: border-box;
     padding: 15px 0;
     text-align: center;
+
   }
 
   &__day-date {
     vertical-align: middle;
     display: inline-block;
+
   }
 
   &__day-date-header {

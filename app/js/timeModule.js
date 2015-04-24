@@ -24,7 +24,7 @@ var timeModule = (function () {
 
             myClock.textContent = hour + ":" + minute;
             diemHolder.textContent =  diem;
-            setTimeout('renderTime()', 1000 * 60);
+            setTimeout('timeModule.renderTime()', 1000 * 60);
         }
     };
 }());

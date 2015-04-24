@@ -8,8 +8,9 @@
 //= dateModule.js
 //= timerModule.js
 //= pageModule.js
+//= eventModule.js
 function getStayTime() {
-    var stayTime = 30 * 60 * 1000;
+    var stayTime = 10*1000//30 * 60 * 1000;
     return stayTime;
 }
 
@@ -20,6 +21,7 @@ document.onload = (function () {
     //weatherModule.writeWeather();//for api working example
     helperModule.getElement(submitButton).addEventListener(action, pageModule.logIn);
     helperModule.getElement(logOutButton).addEventListener(action, pageModule.logOut);
+    eventModule.startEventModule();
     if (userName) {
         cookieModule.writeCookie(cookieName, userName, getStayTime());
         dashboardModule.showDashboard(userName);

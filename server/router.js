@@ -1,6 +1,7 @@
-module.exports = function(app,needReload){
+module.exports = function(app, needReload){
 
-    var bodyParser = require('body-parser'),
+    var express = require('express'),
+        bodyParser = require('body-parser'),
         pageConstructor = require('./pageConstructor'),
         databaseHandler = require('./databaseHandler');
 
@@ -8,6 +9,12 @@ module.exports = function(app,needReload){
         password,
         refreshedTime,
         appFolder = 'dist/';
+
+    app.use('/dist', express.static('dist'));
+    app.use('/block', express.static('block'));
+    app.use('/icon', express.static('icon'));
+    app.use('/font', express.static('font'));
+    app.use(bodyParser.urlencoded({extended: false}));
 
     app.post('/login', function (req, res) {
         login = req.body.login;

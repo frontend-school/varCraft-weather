@@ -1,5 +1,5 @@
 var needReload = false;
-runServer();
+//runServer();
 function runServer() {
     var express = require('express'),
         bodyParser = require('body-parser'),
@@ -7,6 +7,11 @@ function runServer() {
         databaseHandler = require('./databaseHandler');
 
     var app = express();
+
+    //var server,
+    //    isListening;
+    //
+    //server.close();
 
     //var login,
     //    password,
@@ -16,11 +21,7 @@ function runServer() {
     //var router = require('./router')(app);
 
     //app.use(app.router);
-    app.use('/dist', express.static('dist'));
-    app.use('/block', express.static('block'));
-    app.use('/icon', express.static('icon'));
-    app.use('/font', express.static('font'));
-    app.use(bodyParser.urlencoded({extended: false}));
+
 
     require('./router')(app,needReload);
 

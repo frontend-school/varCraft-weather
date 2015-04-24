@@ -27,9 +27,12 @@
   "devDependencies": {
     "body-parser": "^1.12.2",
     "express": "^4.12.3",
+    "forever": "^0.14.1",
     "gulp-concat": "^2.5.2",
     "gulp-open": "^0.3.2",
-    "gulp-run": "^1.6.7"
+    "gulp-run": "^1.6.7",
+    "mongoose": "^4.0.2",
+    "passport": "^0.2.1"
   },
   "keywords": [
     "serverupdate"

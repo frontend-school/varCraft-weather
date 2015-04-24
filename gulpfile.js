@@ -2,6 +2,11 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var bowerSrc = require('gulp-bower-src');
 var sass = require( 'gulp-sass' );
+var uglify = require( 'gulp-uglify' );
+var clean = require('gulp-clean');
+var rename = require( 'gulp-rename' );
+var jshint = require( 'gulp-jshint' );
+var concat = require('gulp-concat') ;
 
 var source = "app";
 var destination = "dist";
@@ -45,6 +50,10 @@ gulp.task('testAPIserver',function() {
     })
 });
 
+gulp.task('clean', function () {
+    return gulp.src(destination, {read: false})
+        .pipe(clean());
+});
 
 
 gulp.task('html', function() {
@@ -58,12 +67,18 @@ gulp.task('mobile-html', function() {
 })
 
 gulp.task('js', function() {
-    gulp.src(source + '/js/**')
+   return gulp.src(source + '/js/*.js')
+  //  .pipe( concat("../js/script.js") )
+    .pipe( jshint() )
+    .pipe(jshint.reporter('default'))
+    .pipe(gulp.dest(destination + '/js')) // this code copy initiall script.js file to the "dist" folder
+    .pipe( uglify() )
+    .pipe( rename( { suffix: '.min' } ))
     .pipe(gulp.dest(destination + '/js'));
 })
 
 gulp.task( 'css', function() {
-    gulp.src(source + '/css/*.scss')
+    gulp.src(source + '/css/*.*')
     .pipe(sass())
     .pipe( gulp.dest( destination + '/css' )); //transform files from SCSS to CSS and copy them to "dist/css"
 })

@@ -1,17 +1,17 @@
 var formModule = (function () {
     return {
         hideForm: function () {
-            document.getElementById("popup__overlay").className = document.getElementById("popup__overlay").className.replace
+            helperModule.getElement(popup).className = helperModule.getElement(popup).className.replace
             ( /(?:^|\s)popup__overlay_active(?!\S)/g , '' );
-            document.getElementById("popup__overlay").className += " popup__overlay_hidden";
+            helperModule.getElement(popup).className += popupHidden;
         },
         showForm: function () {
-            document.getElementById("popup__overlay").className = document.getElementById("popup__overlay").className.replace
+            helperModule.getElement(popup).className = helperModule.getElement(popup).className.replace
             ( /(?:^|\s)popup__overlay_hidden(?!\S)/g , '' );
-            document.getElementById("popup__overlay").className += " popup__overlay_active";
+            helperModule.getElement(popup).className += popupActive;
         },
         clearForm: function () {
-            document.getElementsByClassName("login-form")[0].reset();
+            helperModule.getElement(loginForm).reset();
         }
     };
 }());

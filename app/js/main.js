@@ -1,3 +1,5 @@
+//= constants.js
+//= helperModule.js
 //= dashboardModule.js
 //= formModule.js
 //= cookieModule.js
@@ -12,14 +14,14 @@ function getStayTime() {
 }
 
 document.onload = (function () {
-    var userName = cookieModule.readCookie("testCookie");
+    var userName = cookieModule.readCookie(cookieName);
     timeModule.renderTime();
     dateModule.writeAllDates();
     //weatherModule.writeWeather();//for api working example
-    document.getElementById("submit-button").addEventListener('click', pageModule.logIn);
-    document.getElementById("log-out-button").addEventListener('click', pageModule.logOut);
+    helperModule.getElement(submitButton).addEventListener(action, pageModule.logIn);
+    helperModule.getElement(logOutButton).addEventListener(action, pageModule.logOut);
     if (userName) {
-        cookieModule.writeCookie('testCookie', userName, getStayTime());
+        cookieModule.writeCookie(cookieName, userName, getStayTime());
         dashboardModule.showDashboard(userName);
         timerModule.restartTimer();
     } else {

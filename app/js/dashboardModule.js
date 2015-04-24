@@ -1,17 +1,17 @@
 var dashboardModule = (function () {
     return {
         hideDashboard: function () {
-            document.getElementById("hello").innerHTML = "";
-            document.getElementById("dashboard").className = document.getElementById("dashboard").className.replace
+            helperModule.getElement(dashboardGreating).innerHTML = "";
+            helperModule.getElement(dashboard).className = helperModule.getElement(dashboard).className.replace
             (/(?:^|\s)b-dashboard_active(?!\S)/g , '');
-            document.getElementById("dashboard").className += " b-dashboard_hidden";
+            helperModule.getElement(dashboard).className += dashboardHidden;
         },
         showDashboard: function (name) {
-            document.getElementById("hello").innerHTML = "Hello " + name;
+            helperModule.getElement(dashboardGreating).innerHTML = greating + name;
 
-            document.getElementById("dashboard").className = document.getElementById("dashboard").className.replace
+            helperModule.getElement(dashboard).className = helperModule.getElement(dashboard).className.replace
             (/(?:^|\s)b-dashboard_hidden(?!\S)/g , '');
-            document.getElementById("dashboard").className += " b-dashboard_active";
+            helperModule.getElement(dashboard).className += dashboardActive;
         }
     };
 }());

@@ -1,6 +1,6 @@
 var helperModule = (function() {
     return {
-        getElementById: function (name) {
+        getElement: function (name) {
             return document.getElementById(name);
         }
     };

@@ -9,13 +9,13 @@ var dateModule = (function () {
         Date.prototype.getDayName = function () {
             return days[this.getDay()];
         };
-    })();
+    }) ();
     return {
         writeDay: function (currentDate, holder) {
             var dayValue = currentDate.getDate(),
                 todayMonth = currentDate.getMonth() + 1,
                 todayYear = currentDate.getFullYear(),
-                dayHolder = document.getElementsByClassName(holder)[0];
+                dayHolder = helperModule.getElement(holder);
 
             if (todayMonth < 10) {
                 todayMonth = "0" + todayMonth;
@@ -25,14 +25,14 @@ var dateModule = (function () {
         },
         writeTomorrow: function (currentDate) {
             currentDate.setDate(currentDate.getDate() + 1);
-            dateModule.writeDay(currentDate, "js-forecast_tomorrow");
+            dateModule.writeDay(currentDate, forecastTomorrow);
         },
         writeYesterday: function (currentDate) {
             currentDate.setDate(currentDate.getDate() - 2);
-            dateModule.writeDay(currentDate, "js-forecast_yesterday");
+            dateModule.writeDay(currentDate, forecastYesterday);
         },
         writeWeatherDates: function (currentDate) {
-            dateModule.writeDay(currentDate, "js-forecast_today");
+            dateModule.writeDay(currentDate, forecastToday);
             dateModule.writeTomorrow(currentDate);
             dateModule.writeYesterday(currentDate);
         },
@@ -40,7 +40,7 @@ var dateModule = (function () {
             var dayName = currentDate.getDayName(),
                 month = currentDate.getMonthName(),
                 dayValue = currentDate.getDate(),
-                dayHolder = document.getElementsByClassName("js-info__day")[0];
+                dayHolder = helperModule.getElement(infoDay);
 
             dayHolder.textContent =  dayName + ", " + month + " " + dayValue;
         },

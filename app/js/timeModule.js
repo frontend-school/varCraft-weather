@@ -2,23 +2,23 @@ var timeModule = (function () {
     return {
         renderTime: function () {
             var currentTime = new Date(),
-                diem = "AM",
+                diem = timeAM,
                 hour = currentTime.getHours(),
                 minute = currentTime.getMinutes(),
-                myClock = document.getElementsByClassName('js-info__time-value')[0],
-                diemHolder = document.getElementsByClassName("js-info__time-notation")[0];
+                myClock = helperModule.getElement(infoTime),
+                diemHolder = helperModule.getElement(infoTimeNotation);
 
             if (hour === 0) {
                 hour = 12;
             } else if (hour > 12) {
                 hour -= 12;
-                diem = "PM";
+                diem = timePM;
             }
             if (minute < 10) {
                 minute = "0" + minute;
             }
 
-            if (diem === "AM" && hour === 0 && minute === 0) {
+            if (diem === timeAM && hour === 0 && minute === 0) {
                 dateModule.writeAllDates();
             }
 

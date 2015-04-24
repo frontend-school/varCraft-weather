@@ -1,8 +1,8 @@
 var pageModule = (function () {
     return {
         logIn: function () {
-            var userName = helperModule.getElementById(loginFormName).value,
-                password = helperModule.getElementById(loginFormPassword).value;
+            var userName = helperModule.getElement(loginFormName).value,
+                password = helperModule.getElement(loginFormPassword).value;
             if (userName === "" ||  password === "") {
                 return;
             }

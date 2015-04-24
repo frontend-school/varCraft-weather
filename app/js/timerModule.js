@@ -1,8 +1,8 @@
-var timerModule = (function () {
-    var timeOut = getStayTime(),
+MYAPPLICATION.timerModule = (function () {
+    var timeOut = MYAPPLICATION.CONST.stayTime,
         timer = null;
     function startTimer() {
-        timer = setTimeout(pageModule.reloadPage, timeOut);
+        timer = setTimeout(MYAPPLICATION.pageModule.reloadPage, timeOut);
     }
     function stopTimer() {
         clearTimeout(timer);

@@ -1,30 +1,30 @@
-var timeModule = (function () {
+MYAPPLICATION.timeModule = (function () {
     return {
         renderTime: function () {
             var currentTime = new Date(),
-                diem = timeAM,
+                diem = MYAPPLICATION.CONST.timeAM,
                 hour = currentTime.getHours(),
                 minute = currentTime.getMinutes(),
-                myClock = helperModule.getElement(infoTime),
-                diemHolder = helperModule.getElement(infoTimeNotation);
+                myClock = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.infoTime),
+                diemHolder = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.infoTimeNotation);
 
             if (hour === 0) {
                 hour = 12;
             } else if (hour > 12) {
                 hour -= 12;
-                diem = timePM;
+                diem = MYAPPLICATION.CONST.timePM;
             }
             if (minute < 10) {
                 minute = "0" + minute;
             }
 
-            if (diem === timeAM && hour === 0 && minute === 0) {
-                dateModule.writeAllDates();
+            if (diem === MYAPPLICATION.CONST.timeAM && hour === 0 && minute === 0) {
+                MYAPPLICATION.CONST.dateModule.writeAllDates();
             }
 
             myClock.textContent = hour + ":" + minute;
             diemHolder.textContent =  diem;
-            setTimeout('timeModule.renderTime()', 1000 * 60);
+            setTimeout('MYAPPLICATION.timeModule.renderTime()', 1000 * 60);
         }
     };
 }());

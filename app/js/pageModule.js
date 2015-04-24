@@ -1,29 +1,28 @@
-var pageModule = (function () {
+MYAPPLICATION.pageModule = (function () {
     return {
         logIn: function () {
-            var userName = helperModule.getElement(loginFormName).value,
-                password = helperModule.getElement(loginFormPassword).value;
+            var userName = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.loginFormName).value,
+                password = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.loginFormPassword).value;
             if (userName === "" ||  password === "") {
                 return;
             }
             //add simple validation
-            formModule.hideForm();
-
-            cookieModule.writeCookie(cookieName, userName, getStayTime());
-            dashboardModule.showDashboard(userName);
-            formModule.clearForm();
-            timerModule.startTimer();
+            MYAPPLICATION.formModule.hideForm();
+            MYAPPLICATION.cookieModule.writeCookie(MYAPPLICATION.CONST.cookieName, userName, MYAPPLICATION.CONST.stayTime);
+            MYAPPLICATION.dashboardModule.showDashboard(userName);
+            MYAPPLICATION.formModule.clearForm();
+            MYAPPLICATION.timerModule.restartTimer();
         },
         logOut: function () {
-            cookieModule.eraseCookie(cookieName);
-            timerModule.stopTimer();
-            dashboardModule.hideDashboard();
-            formModule.showForm();
+            MYAPPLICATION.cookieModule.eraseCookie(MYAPPLICATION.CONST.cookieName);
+            MYAPPLICATION.timerModule.restartTimer();
+            MYAPPLICATION.dashboardModule.hideDashboard();
+            MYAPPLICATION.formModule.showForm();
         },
         reloadPage: function () {
-            cookieModule.eraseCookie(cookieName);
-            dashboardModule.hideDashboard();
-            formModule.showForm();
+            MYAPPLICATION.cookieModule.eraseCookie(MYAPPLICATION.CONST.cookieName);
+            MYAPPLICATION.dashboardModule.hideDashboard();
+            MYAPPLICATION.formModule.showForm();
         }
     };
 }());

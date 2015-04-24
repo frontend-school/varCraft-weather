@@ -1,11 +1,11 @@
-var eventModule = (function () {
+MYAPPLICATION.eventModule = (function () {
     function resetEvent() {
         document.onmousemove = null;
         document.onkeydown = null;
     }
 
     function onEvent() {
-        timerModule.restartTimer();
+        MYAPPLICATION.timerModule.restartTimer();
         resetEvent();
     }
     function addMouseEvent() {
@@ -19,6 +19,5 @@ var eventModule = (function () {
             addMouseEvent();
             addKeyEvent();
         }
-    }
-
-} ());
+    };
+}());

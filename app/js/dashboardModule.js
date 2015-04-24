@@ -1,17 +1,17 @@
-var dashboardModule = (function () {
+MYAPPLICATION.dashboardModule = (function () {
     return {
         hideDashboard: function () {
-            helperModule.getElement(dashboardGreating).innerHTML = "";
-            helperModule.getElement(dashboard).className = helperModule.getElement(dashboard).className.replace
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.dashboardGreating).innerHTML = "";
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.dashboard).className = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.dashboard).className.replace
             (/(?:^|\s)b-dashboard_active(?!\S)/g , '');
-            helperModule.getElement(dashboard).className += dashboardHidden;
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.dashboard).className += MYAPPLICATION.CONST.ID.dashboardHidden;
         },
         showDashboard: function (name) {
-            helperModule.getElement(dashboardGreating).innerHTML = greating + name;
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.dashboardGreating).innerHTML = MYAPPLICATION.CONST.greating + name;
 
-            helperModule.getElement(dashboard).className = helperModule.getElement(dashboard).className.replace
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.dashboard).className = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.dashboard).className.replace
             (/(?:^|\s)b-dashboard_hidden(?!\S)/g , '');
-            helperModule.getElement(dashboard).className += dashboardActive;
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.dashboard).className += MYAPPLICATION.CONST.ID.dashboardActive;
         }
     };
 }());

@@ -1,17 +1,17 @@
-var formModule = (function () {
+MYAPPLICATION.formModule = (function () {
     return {
         hideForm: function () {
-            helperModule.getElement(popup).className = helperModule.getElement(popup).className.replace
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.popup).className = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.popup).className.replace
             ( /(?:^|\s)popup__overlay_active(?!\S)/g , '' );
-            helperModule.getElement(popup).className += popupHidden;
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.popup).className += MYAPPLICATION.CONST.ID.popupHidden;
         },
         showForm: function () {
-            helperModule.getElement(popup).className = helperModule.getElement(popup).className.replace
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.popup).className = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.popup).className.replace
             ( /(?:^|\s)popup__overlay_hidden(?!\S)/g , '' );
-            helperModule.getElement(popup).className += popupActive;
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.popup).className += MYAPPLICATION.CONST.ID.popupActive;
         },
         clearForm: function () {
-            helperModule.getElement(loginForm).reset();
+            MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.loginForm).reset();
         }
     };
 }());

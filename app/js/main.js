@@ -1,3 +1,5 @@
+var MYAPPLICATION = MYAPPLICATION || {};
+
 //= constants.js
 //= helperModule.js
 //= dashboardModule.js
@@ -9,24 +11,20 @@
 //= timerModule.js
 //= pageModule.js
 //= eventModule.js
-function getStayTime() {
-    var stayTime = 10*1000//30 * 60 * 1000;
-    return stayTime;
-}
 
 document.onload = (function () {
-    var userName = cookieModule.readCookie(cookieName);
-    timeModule.renderTime();
-    dateModule.writeAllDates();
+    var userName = MYAPPLICATION.cookieModule.readCookie(MYAPPLICATION.CONST.cookieName);
+    MYAPPLICATION.timeModule.renderTime();
+    MYAPPLICATION.dateModule.writeAllDates();
     //weatherModule.writeWeather();//for api working example
-    helperModule.getElement(submitButton).addEventListener(action, pageModule.logIn);
-    helperModule.getElement(logOutButton).addEventListener(action, pageModule.logOut);
-    eventModule.startEventModule();
+    MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.submitButton).addEventListener(MYAPPLICATION.CONST.action, MYAPPLICATION.pageModule.logIn);
+    MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.logOutButton).addEventListener(MYAPPLICATION.CONST.action, MYAPPLICATION.pageModule.logOut);
+    MYAPPLICATION.eventModule.startEventModule();
     if (userName) {
-        cookieModule.writeCookie(cookieName, userName, getStayTime());
-        dashboardModule.showDashboard(userName);
-        timerModule.restartTimer();
+        MYAPPLICATION.cookieModule.writeCookie(MYAPPLICATION.CONST.cookieName, userName, MYAPPLICATION.CONST.stayTime);
+        MYAPPLICATION.dashboardModule.showDashboard(userName);
+        MYAPPLICATION.timerModule.restartTimer();
     } else {
-        formModule.showForm();
+        MYAPPLICATION.formModule.showForm();
     }
 })()

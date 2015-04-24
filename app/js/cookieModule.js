@@ -1,4 +1,4 @@
-var cookieModule = (function () {
+MYAPPLICATION.cookieModule = (function () {
     return {
         writeCookie: function (name, value, time) {
             var expires = "",
@@ -29,7 +29,7 @@ var cookieModule = (function () {
             return null;
         },
         eraseCookie: function (name) {
-            cookieModule.writeCookie(name, "", -1);
+            MYAPPLICATION.cookieModule.writeCookie(name, "", -1);
         }
     }
 }());

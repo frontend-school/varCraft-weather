@@ -7,6 +7,7 @@ var clean = require('gulp-clean');
 var rename = require( 'gulp-rename' );
 var jshint = require( 'gulp-jshint' );
 var concat = require('gulp-concat') ;
+var autoprefixer = require('gulp-autoprefixer');
 
 var source = "app";
 var destination = "dist";
@@ -78,8 +79,12 @@ gulp.task('js', function() {
 })
 
 gulp.task( 'css', function() {
-    gulp.src(source + '/css/*.*')
+    gulp.src([source + '/css/style.scss', source + '/css/normalize.css' ])
     .pipe(sass())
+    .pipe(autoprefixer({
+            browsers: ['last 3 versions'],
+            cascade: false
+        }))
     .pipe( gulp.dest( destination + '/css' )); //transform files from SCSS to CSS and copy them to "dist/css"
 })
 

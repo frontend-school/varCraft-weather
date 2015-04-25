@@ -1,289 +1,357 @@
 @import 'normalize.css';
 @import url('http://fonts.googleapis.com/css?family=Titillium+Web');
-@import "login-form.scss";
+@import 'login-form.scss';
+@import 'var.scss';
 
-@font-face {
-	    font-family: Lintel-Regular;
-	    src: local("Lintel-Regular"),
-         url(fonts/Lintel-Regular.eot);
+@font-face
+{
+    font-family: Lintel-Regular;
+
+    src: local('Lintel-Regular'),
+    url(fonts/Lintel-Regular.eot);
 }
 
-@font-face {
-	    font-family: Lintel-Regular;
-	    src: local("Lintel-Regular"),
-         url(fonts/Lintel-Regular.otf);
- }
+@font-face
+{
+    font-family: Lintel-Regular;
+
+    src: local('Lintel-Regular'),
+    url(fonts/Lintel-Regular.otf);
+}
+
 
 
 $min-page-height: 700/16 + em;
 $max-page-height: 1280/16 + em;
 $max-page-width: 1920/16 + em;
-
 $min-page-width: 1024/16 + em;
 $grey: #262626;
 $green: #1d9e48;
 $blue: #1a6698;
 $purple: #75608b;
-$main-font: 'Lintel-Regular', 'Titillium Web';
 $current-user-info-width: 37%;//37%
 $weather-display-width: 63%; //63%
 $daily-forecast-width: 21%; //21%
 
-*{
-	-webkit-box-sizing: border-box ;
-	-moz-box-sizing: border-box ;
-	box-sizing: border-box ;
+*
+{
+    -webkit-box-sizing: border-box ;
+       -moz-box-sizing: border-box ;
+            box-sizing: border-box ;
 }
 
-html{
-	height: 100%;
-	background-color: $grey;
+html
+{
+    height: 100%;
+
+    background-color: $grey;
 }
 
-body{
-	font-family: $main-font;
-	font-size: 100%;
-	height: 100%;
+body
+{
+    font-family: $main-font;
+    font-size: 100%;
+
+    height: 100%;
 }
 
-.hide{
-	display: none;
-}
-
-.clearfix:after{
-	content: '' ;
-	display: table;
-	clear: both;
-}
-
-.main-page{
-	position: relative;
-	max-width: 	$max-page-width;
-	min-width: $min-page-width;
-	min-height: $min-page-height;
-	height: 100%;
-	//max-height: $max-page-height;
-	margin: 0 auto;
-}
-
-.current-user-info{
-	width: $current-user-info-width;
-	float: left;
-	height: 100%;
-	min-height:  500px;
-	background-color: $grey;
-	padding-top: 1%;
-	padding-left: 6em;
-	&-name{
-		font-size: 24/16 + em;
-		color: #FFF ;
-	}
-
-	&__time{
-		position: relative;
-		display: inline-block;
-		margin-top: 0.5em;
-		font-size: 115/16 + em;
-		color: #FFF;
-	}
-	&__day-part{
-			height: 10%;
-			position: absolute;
-			top:17%;
-			left: 100%;
-			text-transform: uppercase ;
-			color: #FFF;
-			font-size: 1/5 + em;
-		}
-
-	&__date{
-		font-size: 20/16 + em;
-		color: #fff;
-		margin-top: 10% ;
-	}
-
-	&-location{
-		margin-top: 10%;
-
-		&__marker {
-			float: left;
-			width: 40px;
-			height: 40/16 + em;
-			background: url('../img/app-icons.png') no-repeat -55px -10px;
-			margin-right: 5/16 + em;
-		}
-		&__city {
-			font-size: 20/16 + em;
-			color: #FFF;
-		}
-		&__country {
-			font-size: 14/16 + em;
-			color: #FFF;
-
-		}
-	}
-}
-
-.daily-forecast{
-	width: $daily-forecast-width;
-	height: 100%;
-	min-height: $min-page-height ;
-	float: left;
-	padding-bottom: 2em ;
-	&_partly-cloudy{
-		background-color: $green;
-	}
-	&_snow-fall{
-		background-color: $blue;
-	}
-	&_fog{
-		background-color: $purple;
-	}
-
-	&-header{
-		min-height: 90/16 + em;
-		height: 10% ;
-		width: 100%;
-		background-color: $grey;
-		padding-top: 25px;
-		&__day-of-week{
-			color: #FFF;
-			font-size: 20/16 + em;
-			text-align: center;
-		}
-
-		&__date{
-			color: #FFF;
-			font-size: 14/16 + em;
-			text-align: center;
-
-		}
-	}
-
-	&-weather-condition{
-		margin-top: 45px;
-		height: 25%;
-		min-height: 250px ;
-
-		&__logo{
-			background: url('../img/weather-conditions.png') no-repeat ;
-			width: 200px;
-			height: 200px;
-			margin: 0 auto;
-			&_partly-cloudy{
-				background-position:  -210px -435px;
-			}
-			&_snow-fall{
-				background-position: 0 -620px ;
-			}
-			&_fog{
-				background-position: -425px 0;
-			}
-		}
-
-
-		&__description{
-			color: #FFF;
-			font-size: 20/16 + em;
-			text-align: center;
-			margin-top: 30px;
-		}
-	}
-	&-temperature{
-		margin-left: auto ;
-		margin-left: auto ;
-		margin-top: 20px ;
-		text-align: center ;
-		width: 100%;
-		height: 15%;
-		min-height: 130px ;
-		&__at-day{
-			display: inline-block;
-			color: #fff;
-			font-size: 70/16 + em;
-		}
-		&__at-night{
-			&:before{
-				content: "Night";
-				position: absolute;
-				top: -70%;
-				font-size: 14/20 + em;
-			}
-			display: inline-block;
-			position: relative;
-			color: #FFF;
-			font-size: 24/16 + em;
-		}
-	}
-	&-additional-info{
-		width: 50%;
-		height: 20%;
-		min-height: 100px;
-		margin-top: 30/16 + em;
-		float: left;
-		&__title{
-			text-align: center;
-			font-size: 1em;
-			color: #FFF ;
-			text-align: center;
-		}
-		&__logo{
-			margin-top: 20px;
-			margin-left: auto ;
-			margin-right: auto ;
-			text-align: center;
-			color: #FFF;
-			width: 48px;
-			height: 48px;
-			font-size: 0.8em;
-			vertical-align: middle;
-		
-
-			&_wind-n{
-				background:  url('../img/wind-dir-48.png') no-repeat 0 0;
-				line-height: 48px; 
-			}
-
-			&_wind-ne{
-				background:  url('../img/wind-dir-48.png') no-repeat -58px 0;
-				padding-top: 1.2em ;
-			}
-
-			&_wind-e{
-				background:  url('../img/wind-dir-48.png') no-repeat -116px 0;
-				padding-top: 1.2em ;
-			}
-			&_wind-se{
-				background:  url('../img/wind-dir-48.png') no-repeat -174px 0;
-				padding-top: 1.2em ;
-			}
-			&_wind-s{
-				background:  url('../img/wind-dir-48.png') no-repeat -232px 0;
-				padding-top: 1.2em ;
-			}
-			&_wind-sw{
-				background:  url('../img/wind-dir-48.png') no-repeat -290px 0;
-				padding-top: 1.2em ;
-			}
-			&_wind-w{
-				background:  url('../img/wind-dir-48.png') no-repeat -348px 0;
-				padding-top: 1.2em ;
-			}
-			&_wind-nw{
-				background:  url('../img/wind-dir-48.png') no-repeat -406px 0;
-				padding-top: 1.2em ;
-			}
-
-
-
-			&_moon-1{
-				background: url('../img/moon-conditions.png') no-repeat  -180px -5px;;
-			}
-		}
-	}
-
+.hide
+{
+    display: none;
 }
 
 
+.main-page
+{
+    position: relative;
 
+    min-width: $min-page-width;
+    max-width: $max-page-width;
+    height: 100%;
+    min-height: $min-page-height;
+    //max-height: $max-page-height;
+    margin: 0 auto;
+}
 
+.user-info
+{
+    float: left;
+
+    width: $current-user-info-width;
+    height: 100%;
+    min-height: 500px;
+    padding-top: 1%;
+    padding-left: 6em;
+
+    background-color: $grey;
+    &-name
+    {
+        font-size: 24/16 + em;
+
+        color: #fff ;
+    }
+    &__time
+    {
+        font-size: 115/16 + em;
+
+        position: relative;
+
+        display: inline-block;
+
+        margin-top: .5em;
+
+        color: #fff;
+    }
+    &__day-part
+    {
+        font-size: 1/5 + em;
+
+        position: absolute;
+        top: 17%;
+        left: 100%;
+
+        height: 10%;
+
+        text-transform: uppercase ;
+
+        color: #fff;
+    }
+    &__date
+    {
+        font-size: 20/16 + em;
+
+        margin-top: 10% ;
+
+        color: #fff;
+    }
+    &-location
+    {
+        margin-top: 10%;
+        &__marker
+        {
+            float: left;
+
+            width: 40px;
+            height: 40/16 + em;
+            margin-right: 5/16 + em;
+
+            background: url('../img/app-icons.png') no-repeat -55px -10px;
+        }
+        &__city
+        {
+            font-size: 20/16 + em;
+
+            color: #fff;
+        }
+        &__country
+        {
+            font-size: 14/16 + em;
+
+            color: #fff;
+        }
+    }
+}
+
+.daily-forecast
+{
+    float: left;
+
+    width: $daily-forecast-width;
+    height: 100%;
+    min-height: $min-page-height ;
+    padding-bottom: 2em ;
+    &_partly-cloudy
+    {
+        background-color: $green;
+    }
+    &_snow-fall
+    {
+        background-color: $blue;
+    }
+    &_fog
+    {
+        background-color: $purple;
+    }
+    &-header
+    {
+        width: 100%;
+        height: 10% ;
+        min-height: 90/16 + em;
+        padding-top: 25px;
+
+        background-color: $grey;
+        &__day-of-week
+        {
+            font-size: 20/16 + em;
+
+            text-align: center;
+
+            color: #fff;
+        }
+        &__date
+        {
+            font-size: 14/16 + em;
+
+            text-align: center;
+
+            color: #fff;
+        }
+    }
+    &-weather-condition
+    {
+        height: 25%;
+        min-height: 250px ;
+        margin-top: 45px;
+        &__logo
+        {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+
+            background: url('../img/weather-conditions.png') no-repeat ;
+            &_partly-cloudy
+            {
+                background-position: -210px -435px;
+            }
+            &_snow-fall
+            {
+                background-position: 0 -620px ;
+            }
+            &_fog
+            {
+                background-position: -425px 0;
+            }
+        }
+        &__description
+        {
+            font-size: 20/16 + em;
+
+            margin-top: 30px;
+
+            text-align: center;
+
+            color: #fff;
+        }
+    }
+    &-temperature
+    {
+        width: 100%;
+        height: 15%;
+        min-height: 130px ;
+        margin-top: 20px ;
+        margin-left: auto ;
+
+        text-align: center ;
+        &__at-day
+        {
+            font-size: 70/16 + em;
+
+            display: inline-block;
+
+            color: #fff;
+        }
+        &__at-night
+        {
+            font-size: 24/16 + em;
+
+            position: relative;
+
+            display: inline-block;
+
+            color: #fff;
+            &:before
+            {
+                font-size: 14/20 + em;
+
+                position: absolute;
+                top: -70%;
+
+                content: 'Night';
+            }
+        }
+    }
+    &-additional-info
+    {
+        float: left;
+
+        width: 50%;
+        height: 20%;
+        min-height: 100px;
+        margin-top: 30/16 + em;
+        &__title
+        {
+            font-size: 1em;
+
+            text-align: center;
+
+            color: #fff ;
+        }
+        &__logo
+        {
+            font-size: .8em;
+
+            width: 48px;
+            height: 48px;
+            margin-top: 20px;
+            margin-right: auto ;
+            margin-left: auto ;
+
+            text-align: center;
+            vertical-align: middle;
+
+            color: #fff;
+            &_wind-n
+            {
+                line-height: 48px;
+
+                background: url('../img/wind-dir-48.png') no-repeat 0 0;
+            }
+            &_wind-ne
+            {
+                padding-top: 1.2em ;
+
+                background: url('../img/wind-dir-48.png') no-repeat -58px 0;
+            }
+            &_wind-e
+            {
+                padding-top: 1.2em ;
+
+                background: url('../img/wind-dir-48.png') no-repeat -116px 0;
+            }
+            &_wind-se
+            {
+                padding-top: 1.2em ;
+
+                background: url('../img/wind-dir-48.png') no-repeat -174px 0;
+            }
+            &_wind-s
+            {
+                padding-top: 1.2em ;
+
+                background: url('../img/wind-dir-48.png') no-repeat -232px 0;
+            }
+            &_wind-sw
+            {
+                padding-top: 1.2em ;
+
+                background: url('../img/wind-dir-48.png') no-repeat -290px 0;
+            }
+            &_wind-w
+            {
+                padding-top: 1.2em ;
+
+                background: url('../img/wind-dir-48.png') no-repeat -348px 0;
+            }
+            &_wind-nw
+            {
+                padding-top: 1.2em ;
+
+                background: url('../img/wind-dir-48.png') no-repeat -406px 0;
+            }
+            &_moon-1
+            {
+                background: url('../img/moon-conditions.png') no-repeat  -180px -5px;;
+            }
+        }
+    }
+}

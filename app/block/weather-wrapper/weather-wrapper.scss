@@ -1,0 +1,38 @@
+.weather-wrapper{
+  width: 64%;
+  height: 100%;
+  float: right;
+  &__header{
+    width: 100%;
+    height: 17%;
+    @for $i from 1 through 3{
+      &_element-#{$i}{
+        width: 33.333%;
+        margin: 0;
+        padding: 0;
+        float: left;
+        height: 100%;
+      }
+    }
+  }
+  &__body{
+    width: 100%;
+    height: 83%;
+    @for $i from 1 through 3{
+      &_element-#{$i}{
+        width: 33.333%;
+        margin: 0;
+        padding: 0;
+        float: left;
+        height: 100%;
+      }
+    }
+    &:after{
+      content: '';
+      clear: both;
+      visibility: hidden;
+      display: block;
+      height: 0;
+    }
+  }
+}

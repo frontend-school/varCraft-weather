@@ -90,6 +90,7 @@ html {
   /* -b-location */
 }
 .b-sidebar-b-settings {
+  position: absolute;
   display: block;
   margin: 0 0 0 -35px;
   padding: 5px;
@@ -102,16 +103,9 @@ html {
   line-height: 30px;
   font-weight: 200;
 }
-.b-sidebar-b-settings__logging-time {
-  float: left;
-  padding: 8px 5px;
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: 200;
-  color: #6cb0bd;
-}
 .b-sidebar__clock {
   width: 100%;
+  margin: 100px 0 0;
   padding: 20px 0 25px;
   font-size: 160px;
   line-height: 160px;
@@ -232,6 +226,7 @@ html {
   margin: 0 auto;
   padding: 20px 0 0;
   text-align: center;
+  /* -b-night */
 }
 .b-temperature__day-value {
   display: inline-block;
@@ -260,7 +255,7 @@ html {
   margin: 0;
   padding: 20px 0 3px;
   font-size: 30px;
-  line-height: 30px;
+  line-height: 35px;
   font-weight: 300;
 }
 

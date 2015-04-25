@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>API weather example</title>
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+
+  <style>
+  .label{
+    display: inline-block;
+    width: 80px;
+  }
+  #respData{
+    width: 100%;
+    height: 100px;
+  }
+  input{
+    width: 250px;
+  }
+  </style>
+</head>
+<body>
+
+<h1>Here you can see an example of using AppController for HAM weather API (Aeris).</h1>
+
+<p>
+  <label>
+    <span class="label">Endpoint:</span> <input id="endpoint" type="text" value="forecasts">
+  </label>
+</p>
+<p>
+  <label>
+    <span class="label">Place:</span> <input id="place" type="text" value="odessa,ua">
+  </label>
+</p>
+<p>
+  <label>
+    <span class="label">Options:</span> <input id="options" type="text" value="fields=periods.timestamp,periods.avgTempC,periods.windSpeedMPH,periods.weather,periods.windDirMax,periods.humidity,periods.isDay&from=today&to=+48hours&filter=daynight">
+  </label>
+</p>
+<p>
+  <button type="submit" id="btnSubmit">Generate request!</button>
+</p>
+<p><b>Response:</b></p>
+<p><textarea id="respData" name="response"></textarea></p>
+
+<h2>You can do your own request</h2>
+<h3>How to get weather forecast today and tomorrow?</h3>
+<p>endpoint: forecasts<br>place: odessa,ua<br>options: fields=periods.timestamp,periods.avgTempC,periods.windSpeedMPH,periods.weather,periods.windDirMax,periods.humidity,periods.isDay&from=today&to=+48hours&filter=daynight</p>
+
+<h3>How to get moonphases (with prev. conditions) on some days (here yesterday, today, tomorrow)?</h3>
+<p>endpoint: sunmoon<br>place: shostka,ukraine<br>options: from=yesterday&to=+2days&fields=timastamp,dateTimeISO,moon.phase.phase,moon.phase.name,moon.phase.illum,moon.phase.age&filter=moonphase</p>
+
+<h4>More information see in <a href="http://www.aerisweather.com/support/docs/api/reference/">Aeris docs</a></h4>
+
+<script>
+
+  function AppController() {
+
+    var _domain = 'http://api.aerisapi.com/';
+    var _appKeys = 'client_id=rylOb8yXYwCTR4J7AecRI&client_secret=QR8fBFvirkL60q7DpZplbqnjSOH7SiJaU19KrWQO';
+    var _place, _endpoint, _options;
+    var _requestText;
+
+    this.setPlace = function(place) {
+      _place = place;
+    }
+    this.setEndpoint = function(endpoint) {
+      _endpoint = endpoint;
+    }
+    this.setOptions = function(options) {
+      _options = options;
+    }
+
+    this.generateTextRequest = function () {
+      _requestText = _domain + _endpoint + '/' + _place + '?' + _options + ((_options) ? '&' : '') + _appKeys;
+    }
+
+    this.getData = function () {
+
+      var respData;
+      var request = new XMLHttpRequest();
+
+      request.open('GET', _requestText, false);
+      request.send();
+      if (request.status != 200)
+        alert('Request failed! ' + request.status + '. Details: ' + request.statusText);
+      else
+        respData = request.responseText;
+      // respData = JSON.parse(request.responseText).response[0];
+
+      // elemWithRespData.innerHTML = respData;
+
+      return respData;
+    }
+
+  }
+
+  document.getElementById('btnSubmit').addEventListener('click', (function () {
+    var elemWithRespData = document.getElementById('respData');
+
+    appController = new AppController();
+
+    appController.setEndpoint(document.getElementById('endpoint').value);
+    appController.setPlace(document.getElementById('place').value);
+    appController.setOptions(document.getElementById('options').value);
+    appController.generateTextRequest();
+
+    elemWithRespData.innerHTML = appController.getData();
+
+  }));
+
+</script>
+
+</body>
+</html>

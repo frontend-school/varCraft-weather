@@ -1,5 +1,13 @@
-12:25 PM 3/27/2015
-This file is used for product introdution
 
-3/30/2015 01
-This is text for pre-reset commit.
+1.03.01
+* Fixed bug with timer 30 sec instead 30 min. Removed timer from page. Interval of inactivity inspection changed to 20 seconds.
+
+* Changed way of enent listeners handling. Used more convenient addEventListener().
+
+* Splited script.js into separete files
+
+* Created AppController (see API HAMweather/API weather example.html)
+
+* Added gulp-concact
+
+

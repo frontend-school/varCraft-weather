@@ -22,7 +22,6 @@ MYAPPLICATION.CONST = {
         weatherTemp : "temp"
     },
     cookieName : "testCookie",
-    greating : "Hello ",
     api : "http://api.openweathermap.org/data/2.5/weather?q=",
     apiOther : ",ua&units=metric&APPID=b04a06714afca79362dec1420563b1e7",
     cityTest : "Kiev",

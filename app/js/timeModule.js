@@ -4,7 +4,7 @@ MYAPPLICATION.timeModule = (function () {
 
     function timeCount () {
         var currentTime = new Date(),
-            diem = MYAPPLICATION.CONST.timeAM,
+            diem = timeAM,
             hour = currentTime.getHours(),
             minute = currentTime.getMinutes(),
             myClock = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.infoTime),
@@ -14,13 +14,13 @@ MYAPPLICATION.timeModule = (function () {
             hour = 12;
         } else if (hour > 12) {
             hour -= 12;
-            diem = MYAPPLICATION.CONST.timePM;
+            diem = timePM;
         }
         if (minute < 10) {
             minute = "0" + minute;
         }
 
-        if (diem === MYAPPLICATION.CONST.timeAM && hour === 0 && minute === 0) {
+        if (diem === timeAM && hour === 0 && minute === 0) {
             MYAPPLICATION.CONST.dateModule.writeAllDates();
         }
 

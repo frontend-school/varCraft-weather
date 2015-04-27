@@ -1,10 +1,11 @@
 var gulp        = require('gulp'),
     watch       = require('gulp-watch'),
     rigger      = require('gulp-rigger'),
+    prefixer    = require('gulp-autoprefixer'),
     cssmin      = require('gulp-minify-css'),
     rimraf      = require('rimraf'),
     sass        = require('gulp-sass'),
-    browserSync = require("browser-sync"),
+    browserSync = require('browser-sync'),
     reload      = browserSync.reload;
 
 var path = {
@@ -61,6 +62,7 @@ gulp.task('js:build', function () {
 gulp.task('scss:build', function () {
     gulp.src(path.app.mainStyle)
         .pipe(sass())
+        .pipe(prefixer())
         .pipe(cssmin())
         .pipe(gulp.dest(path.dist.css))
         .pipe(reload({stream: true}));

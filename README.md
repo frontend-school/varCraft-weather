@@ -11,5 +11,17 @@
 * Added gulp-concact
 
 1.03.02
-*
+* Changed tabs into spaces for indents
+
+* Removed b- prefixes
+
+1.03.03
+* Installed a package 'gulp-autoprefixer'. Udated 'gulpfile.js'.
+
+* Removed obsolete mixins from 'style.scss'.
+
+* Created separate var.scss
+
+
+
 

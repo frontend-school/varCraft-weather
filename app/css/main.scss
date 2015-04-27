@@ -24,6 +24,7 @@
   &__time{
     margin-bottom: 40px;
   }
+
   &__time-value{
     display:inline-block;
     vertical-align:top;
@@ -31,6 +32,7 @@
     font-weight: bold;
     line-height: 0.6em;
   }
+
   &__time-notation{
     font-size: 0.9em;
     display:inline-block;
@@ -41,9 +43,11 @@
     position: relative;
     top:-10px;
   }
+
   &__day{
     margin: 65px 0;
   }
+
   &__location{
     padding-left: 40px;
     background: url("../img/icon-loc.png") no-repeat;
@@ -52,11 +56,11 @@
   &__city{
     height: 24px;
     line-height: 25px;
-
     padding-bottom: 5px;
     padding-left: 2px;
     font-size: 1em;
   }
+
   &__country {
     padding-top: 5px;
     font-size: 0.6em;
@@ -76,7 +80,6 @@
   width: 33%;
   box-sizing: border-box;
   float: right;
-
 
   &__day{
     height:15%;
@@ -164,7 +167,6 @@
     vertical-align: middle;
     display: inline-block;
 
-
     &_fog{
       background-position: 0 0;
       width: 142px;
@@ -238,19 +240,19 @@
   }
 
   &__temperature-day {
-      display: inline-block;
-      font-size: 3.1em;
-      font-weight: bold;
-      height: 73px;
-      line-height: 74px;
-      vertical-align: bottom;
+    display: inline-block;
+    font-size: 3.1em;
+    font-weight: bold;
+    height: 73px;
+    line-height: 74px;
+    vertical-align: bottom;
   }
 
   &__temperature-night {
-      display: inline-block;
-      vertical-align: bottom;
-      text-align: left;
-      padding-left: 14px;
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: left;
+    padding-left: 14px;
   }
 
   &__temperature-night-value {
@@ -265,9 +267,9 @@
   }
 
   &__status {
-      text-transform: capitalize;
-      height: 31px;
-      line-height: 32px;
+    text-transform: capitalize;
+    height: 31px;
+    line-height: 32px;
   }
 
   &__additional {
@@ -277,16 +279,16 @@
     padding-left: 8px;
     padding-right: 8px;
     position: relative;
-
   }
+
   &__additional-direction {
     position: absolute;
     left: 33px;
     top: 75px;
   }
+
   &__additional-desc {
     box-sizing: border-box;
-
     height: 88px;
     width: 63px;
     margin-top: 20px;
@@ -370,9 +372,9 @@
   }
 
   &_additional-desc {
-      position: absolute;
-      top: 75px;
-      left: 26px;
+    position: absolute;
+    top: 75px;
+    left: 26px;
   }
 }
 

@@ -71,7 +71,7 @@ html {
   float: left;
 }
 
-.b-wrapper {
+.wrapper {
   height: 100%;
   background-color: #262626;
   color: #fff;
@@ -80,30 +80,30 @@ html {
   font-weight: 300;
 }
 
-.b-sidebar {
+.sidebar {
   position: relative;
   float: left;
   padding: 0 0 0 35px;
   width: 37%;
   min-height: 100%;
   box-sizing: border-box;
-  /* -b-location */
+  /* -location */
 }
-.b-sidebar-b-settings {
+.sidebar-settings {
   position: absolute;
   display: block;
   margin: 0 0 0 -35px;
   padding: 5px;
   overflow: hidden;
 }
-.b-sidebar-b-settings__hallo-message {
+.sidebar-settings__hallo-message {
   float: left;
   padding: 5px 10px;
   font-size: 30px;
   line-height: 30px;
   font-weight: 200;
 }
-.b-sidebar__clock {
+.sidebar__clock {
   width: 100%;
   margin: 100px 0 0;
   padding: 20px 0 25px;
@@ -111,7 +111,7 @@ html {
   line-height: 160px;
   font-weight: 300;
 }
-.b-sidebar__clock-format {
+.sidebar__clock-format {
   display: inline;
   margin-left: -20px;
   font-size: 30px;
@@ -119,20 +119,20 @@ html {
   font-weight: 200;
   vertical-align: top;
 }
-.b-sidebar__date {
+.sidebar__date {
   width: 100%;
   padding: 25px 0;
   font-size: 30px;
   line-height: 30px;
   font-weight: 200;
 }
-.b-sidebar-b-location {
+.sidebar-location {
   display: block;
   margin-top: 25px;
   padding: 0 0 0 46px;
   background: url("../img/location_icon.png") 0 0 no-repeat;
 }
-.b-sidebar-b-location__city {
+.sidebar-location__city {
   display: block;
   margin: 0;
   padding: 5px 0 0;
@@ -140,7 +140,7 @@ html {
   line-height: 30px;
   font-weight: 200;
 }
-.b-sidebar-b-location__country {
+.sidebar-location__country {
   display: block;
   margin: 5px 0 0 -5px;
   font-size: 18px;
@@ -148,8 +148,8 @@ html {
   font-weight: 200;
 }
 
-/* .b-sidebar */
-.b-day {
+/* .sidebar */
+.day {
   position: relative;
   float: left;
   width: 21%;
@@ -157,28 +157,28 @@ html {
   margin: 0 auto;
   text-align: center;
 }
-.b-day_snowfall {
+.day_snowfall {
   background-color: #82a8c4;
 }
-.b-day_snow {
+.day_snow {
   background-color: #375d81;
 }
-.b-day_mostly-cloudly {
+.day_mostly-cloudly {
   background-color: #1d9e48;
 }
-.b-day_partly-cloudly {
+.day_partly-cloudly {
   background-color: #1d9e48;
 }
-.b-day_fog {
+.day_fog {
   background-color: #75608b;
 }
-.b-day-b-title {
+.day-title {
   width: 100%;
   margin: 0;
   padding: 0;
   background-color: #262626;
 }
-.b-day-b-title__order-day {
+.day-title__order-day {
   width: 100%;
   margin: 0;
   padding: 25px 0 5px;
@@ -186,7 +186,7 @@ html {
   line-height: 30px;
   font-weight: 200;
 }
-.b-day-b-title__date-day {
+.day-title__date-day {
   width: 100%;
   margin: 0;
   padding: 5px 0 25px;
@@ -195,8 +195,8 @@ html {
   font-weight: 200;
 }
 
-/* .b-day */
-.b-status-weather {
+/* .day */
+.status-weather {
   width: auto;
   padding: 200px 0 25px;
   text-align: center;
@@ -204,31 +204,31 @@ html {
   line-height: 30px;
   font-weight: 200;
 }
-.b-status-weather_icon-snowfall {
+.status-weather_icon-snowfall {
   background: url("../img/widget_state_snow_fall.png") center 0 no-repeat;
   background-origin: padding-box;
 }
-.b-status-weather_icon-mostly-cloudly {
+.status-weather_icon-mostly-cloudly {
   background: url("../img/widget_state_mostly_cloudly.png") center 0 no-repeat;
   background-origin: padding-box;
 }
-.b-status-weather_icon-partly-cloudly {
+.status-weather_icon-partly-cloudly {
   background: url("../img/widget_state_partly_cloudly.png") center 0 no-repeat;
   background-origin: padding-box;
 }
-.b-status-weather_icon-fog {
+.status-weather_icon-fog {
   background: url("../img/widget_state_fog.png") center 0 no-repeat;
   background-origin: padding-box;
 }
 
-.b-temperature {
+.temperature {
   display: block;
   margin: 0 auto;
   padding: 20px 0 0;
   text-align: center;
-  /* -b-night */
+  /* -night */
 }
-.b-temperature__day-value {
+.temperature__day-value {
   display: inline-block;
   margin: 0 auto;
   padding: 0;
@@ -236,14 +236,14 @@ html {
   line-height: 80px;
   font-weight: 300;
 }
-.b-temperature-b-night {
+.temperature-night {
   display: inline-block;
   margin: 0 auto;
   padding: 0 0 0 10px;
   vertical-align: text-bottom;
   /* !! */
 }
-.b-temperature-b-night__title {
+.temperature-night__title {
   margin: 0;
   padding: 0;
   text-align: left;
@@ -251,7 +251,7 @@ html {
   line-height: 18px;
   font-weight: 200;
 }
-.b-temperature-b-night__value {
+.temperature-night__value {
   margin: 0;
   padding: 20px 0 3px;
   font-size: 30px;
@@ -259,16 +259,16 @@ html {
   font-weight: 300;
 }
 
-/* .b-temperature */
-.b-weather-params {
+/* .temperature */
+.weather-params {
   display: block;
   margin: 0 auto;
   padding: 40px 0 0;
   text-align: center;
-  /* -b-wind */
-  /* -b-moon */
+  /* -wind */
+  /* -moon */
 }
-.b-weather-params-b-wind {
+.weather-params-wind {
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -280,12 +280,12 @@ html {
   text-align: center;
   vertical-align: top;
 }
-.b-weather-params-b-wind__speed {
+.weather-params-wind__speed {
   display: block;
   margin: 0;
   padding: 0;
 }
-.b-weather-params-b-wind__scheme {
+.weather-params-wind__scheme {
   display: block;
   margin: 0;
   padding: 0;
@@ -298,76 +298,76 @@ html {
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 }
-.b-weather-params-b-wind__scheme_S {
+.weather-params-wind__scheme_S {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
-.b-weather-params-b-wind__scheme_N {
+.weather-params-wind__scheme_N {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.b-weather-params-b-wind__scheme_E {
+.weather-params-wind__scheme_E {
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
   -o-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
-.b-weather-params-b-wind__scheme_W {
+.weather-params-wind__scheme_W {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-.b-weather-params-b-wind__scheme_SE {
+.weather-params-wind__scheme_SE {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-.b-weather-params-b-wind__scheme_SW {
+.weather-params-wind__scheme_SW {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.b-weather-params-b-wind__scheme_NE {
+.weather-params-wind__scheme_NE {
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
   -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
-.b-weather-params-b-wind__scheme_NW {
+.weather-params-wind__scheme_NW {
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   -o-transform: rotate(135deg);
   -ms-transform: rotate(135deg);
   transform: rotate(135deg);
 }
-.b-weather-params-b-wind__direction {
+.weather-params-wind__direction {
   height: 88px;
   width: 88px;
   line-height: 88px;
   margin: -88px auto 0;
   padding: 0;
 }
-.b-weather-params-b-moon {
+.weather-params-moon {
   display: inline-block;
   margin: 0;
   padding: 0;
   vertical-align: top;
 }
-.b-weather-params-b-moon__title {
+.weather-params-moon__title {
   display: block;
   margin: 0;
   padding: 0;
@@ -375,36 +375,36 @@ html {
   line-height: 18px;
   font-weight: 200;
 }
-.b-weather-params-b-moon__scheme {
+.weather-params-moon__scheme {
   display: block;
   height: 60px;
   margin: 14px 0;
   width: 60px;
   background: url("../img/spritesheet_moon.png") 0 50% no-repeat;
 }
-.b-weather-params-b-moon__scheme_new-moon {
+.weather-params-moon__scheme_new-moon {
   background-position: 0px 0px;
 }
-.b-weather-params-b-moon__scheme_waxing-crescent {
+.weather-params-moon__scheme_waxing-crescent {
   background-position: -62px 0px;
 }
-.b-weather-params-b-moon__scheme_first-quater {
+.weather-params-moon__scheme_first-quater {
   background-position: -124px 0;
 }
-.b-weather-params-b-moon__scheme_waxing-gibbous {
+.weather-params-moon__scheme_waxing-gibbous {
   background-position: -186px 0;
 }
-.b-weather-params-b-moon__scheme_full-moon {
+.weather-params-moon__scheme_full-moon {
   background-position: -248px 0;
 }
-.b-weather-params-b-moon__scheme_waning-gibbous {
+.weather-params-moon__scheme_waning-gibbous {
   background-position: -310px 0;
 }
-.b-weather-params-b-moon__scheme_last-quater {
+.weather-params-moon__scheme_last-quater {
   background-position: -372px 0;
 }
-.b-weather-params-b-moon__scheme_waning-crescent {
+.weather-params-moon__scheme_waning-crescent {
   background-position: -434px 0;
 }
 
-/* .b-weather-params */
+/* .weather-params */

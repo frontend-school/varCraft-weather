@@ -79,16 +79,14 @@ gulp.task('js', function() {
 })
 
 gulp.task( 'css', function() {
-    gulp.src([source + '/css/style.scss', source + '/css/normalize.css' ])
+    gulp.src([source + '/css/style.scss', source + '/css/normalize.css', source + '/css/style-mobile.scss' ])
     .pipe(sass())
     .pipe(autoprefixer({
             browsers: ['last 3 versions'],
             cascade: false
         }))
     .pipe( gulp.dest( destination + '/css' )); //transform files from SCSS to CSS and copy them to "dist/css"
-})
 
-gulp.task( 'fonts', function() {
     gulp.src(source + '/css/fonts/*.*')
     .pipe(gulp.dest(destination + '/css/fonts'));
 })
@@ -118,6 +116,6 @@ gulp.task('livereload', function() {
 })
 
 gulp.task('watcher', ['watch-source', 'watch-components']);
-gulp.task('build', ['html', 'css', 'fonts', 'js', 'img', 'mobile-html']);
+gulp.task('build', ['html', 'css', 'js', 'img', 'mobile-html']);
 gulp.task("default", ['server', 'build', 'watcher', 'livereload']);
 gulp.task('testAPI', ['build', 'testAPIserver']);

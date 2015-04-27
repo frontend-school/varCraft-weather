@@ -20,7 +20,20 @@
                 <input type="submit" class="login-form__submit" value="Log in">
             </form>
         </section>
+    
+        <div class="mobile-window">
+            <a href="#"><div class="mobile-window__settings"></div></a>
+            <a href="#"><div class="mobile-window__log-out"></div></a>
 
+            <div class="mobile-window__change-day mobile-window__change-day_previous"></div>
+            <div class="mobile-window__change-day mobile-window__change-day_next"></div>
+            <ul class="mobile-window-day-list">
+                <li class="mobile-window-day-list__item"></li>
+                <li class="mobile-window-day-list__item mobile-window-day-list__item_active"></li>
+                <li class="mobile-window-day-list__item"></li>
+            </ul>
+        </div>
+        
         <section class="main-page hide js-main-page">
 
 
@@ -51,7 +64,7 @@
                     </div>
 
                     <div class="forecast-weather">
-                        <div class="forecast-weather__logo forecast-weather__logo_partly-cloudy"></div>
+                        <div class="forecast-weather__logo"></div>
                         <div class="forecast-weather__description">Partly Cloudy</div>
                     </div>
 
@@ -59,13 +72,20 @@
                         <span class="forecast-temperature__at-day">-22</span>
                         <span class="forecast-temperature__at-night"><span class="forecast-temperature__at-night_title">Night</span><br>-17</span>
                     </div>
+                    
+                    
 
-                    <div class="forecast-extra-info">
+                    <div class="forecast-extra-info forecast-extra-info_humidity">
+                        <div class="forecast-extra-info__title">77%</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_wind">
                         <div class="forecast-extra-info__title">4mph</div>
                         <div class="forecast-extra-info__logo forecast-extra-info__logo_wind-n">N</div>
                     </div>
 
-                    <div class="forecast-extra-info">
+                    <div class="forecast-extra-info forecast-extra-info_moon">
                         <div class="forecast-extra-info__title">Moon</div>
                         <div class="forecast-extra-info__logo forecast-extra-info__logo_moon-1    "></div>
                     </div>
@@ -87,12 +107,17 @@
                         <span class="forecast-temperature__at-night"><span class="forecast-temperature__at-night_title">Night</span><br>-17</span>
                     </div>
 
-                    <div class="forecast-extra-info">
+                    <div class="forecast-extra-info forecast-extra-info_humidity">
+                        <div class="forecast-extra-info__title">77%</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_wind">
                         <div class="forecast-extra-info__title">4mph</div>
                         <div class="forecast-extra-info__logo forecast-extra-info__logo_wind-n">N</div>
                     </div>
 
-                    <div class="forecast-extra-info">
+                    <div class="forecast-extra-info forecast-extra-info_moon">
                         <div class="forecast-extra-info__title">Moon</div>
                         <div class="forecast-extra-info__logo forecast-extra-info__logo_moon-1"></div>
                     </div>
@@ -114,18 +139,22 @@
                         <span class="forecast-temperature__at-night"><span class="forecast-temperature__at-night_title">Night</span><br>-17</span>
                     </div>
 
-                    <div class="forecast-extra-info">
+                    <div class="forecast-extra-info forecast-extra-info_humidity">
+                        <div class="forecast-extra-info__title">77%</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                    <div class="forecast-extra-info forecast-extra-info_wind">
                         <div class="forecast-extra-info__title">4mph</div>
                         <div class="forecast-extra-info__logo forecast-extra-info__logo_wind-n">N</div>
                     </div>
 
-                    <div class="forecast-extra-info">
+                    <div class="forecast-extra-info forecast-extra-info_moon">
                         <div class="forecast-extra-info__title">Moon</div>
                         <div class="forecast-extra-info__logo forecast-extra-info__logo_moon-1"></div>
                     </div>
                 </div>
         </section>
-
+    
 
     </body>
 </html>

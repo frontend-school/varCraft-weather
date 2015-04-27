@@ -14,8 +14,6 @@ $min_page_height:568px;
   min-width: $min_page_width;
   height:100vh;
   min-height:$min_page_height;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #262626;
   padding-left: 1.5%;
@@ -74,8 +72,6 @@ $min_page_height:568px;
 .forecast {
   height:100%;
   width: 63%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   float:right;
 }
@@ -84,16 +80,12 @@ $min_page_height:568px;
 .forecast-item {
   height: 100%;
   width: 33%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: right;
 
 
   &__day{
     height:15%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 15px 0;
     text-align: center
@@ -285,11 +277,11 @@ $min_page_height:568px;
   }
 
   &__additional {
-      display: inline-block;
-      font-size: 0.6em;
-      vertical-align: top;
-      padding-left: 8px;
-      padding-right: 8px;
+    display: inline-block;
+    font-size: 0.6em;
+    vertical-align: top;
+    padding-left: 8px;
+    padding-right: 8px;
     position: relative;
 
   }
@@ -299,8 +291,6 @@ $min_page_height:568px;
     top: 75px;
   }
   &__additional-desc {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 
     height: 88px;
@@ -390,7 +380,6 @@ $min_page_height:568px;
       top: 75px;
       left: 26px;
   }
-
 }
 
 

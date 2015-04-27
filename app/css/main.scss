@@ -1,25 +1,19 @@
 @import "../../bower_components/normalize.css/normalize.css";
 @import "fonts.scss";
+@import "var.scss";
 @import "form.scss";
 @import "dashboard";
 
-
-$font_family: 'Lintel', sans-serif;
-$font_size: 23pt;
-$min_page_width: 1024px;
-$min_page_height:568px;
-
-
 .main-page {
-  min-width: $min_page_width;
+  min-width: 1024px;
   height:100vh;
-  min-height:$min_page_height;
+  min-height:620px;
   box-sizing: border-box;
   background-color: #262626;
   padding-left: 1.5%;
-  color: #fff;
-  font-family: $font_family;
-  font-size:$font_size;
+  color: $label_color;
+  font-family: 'Lintel', sans-serif;
+  font-size:23pt;
 }
 
 .info {

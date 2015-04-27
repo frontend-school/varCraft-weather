@@ -3,7 +3,7 @@
 @weather-height: 100%;
 @weather-info-width: @weather-width/4;
 @weather-container-width: @weather-width*3/4;
-@weather-forecast-column-width: (@weather-width - @weather-info-width)/2.5;
+@weather-forecast-column-width: (@weather-container-width)/2.4;
 @weather-forecast-column-header-height: 15%;
 
 @info-min-width: 300px;
@@ -21,13 +21,6 @@
   font-weight: 100;
 }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  content: "";
-  clear: both;
-  height: 0;
-}
 
 html, body {
   margin: 0;
@@ -66,6 +59,14 @@ html, body {
       height: 84pt;
       font-size: 15pt;
     }
+
+    &__midday:after {
+      visibility: hidden;
+      display: block;
+      content: "";
+      clear: both;
+      height: 0;
+    }
     
     &__date {
       font-size: 15pt;
@@ -92,9 +93,10 @@ html, body {
     width: @weather-container-width;
     height: @weather-height;
 
-    float: right;
+
     position: absolute;
-    left: @info-min-width;
+    float: right;
+    right: 0;
 
     min-width: 700px;
 
@@ -121,7 +123,6 @@ html, body {
         height: @weather-forecast-column-header-height;
         text-align: center;
         min-height: 92px;
-        height: 17%;
 
         &__name {
           padding-top: 30px;
@@ -209,6 +210,14 @@ html, body {
           margin-top: 32pt;
           width: 40%;
           position: relative;
+        }
+
+        &__night-temperature:after {
+          visibility: hidden;
+          display: block;
+          content: "";
+          clear: both;
+          height: 0;
         }
 
         &__night-temperature:before {

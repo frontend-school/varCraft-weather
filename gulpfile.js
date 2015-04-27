@@ -7,6 +7,9 @@ var jshint = require('gulp-jshint');
 var concatC = require('gulp-continuous-concat');
 var concat = require('gulp-concat');
 
+var LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+    autoprefixPlugin = new LessPluginAutoPrefix({browsers: ["last 3 versions"]});
+
 var source = 'app/',
     destination = 'dist/',
     sourceComp = 'bower_components',
@@ -23,7 +26,9 @@ gulp.task('css', function() {
 gulp.task('less', function() {
     return gulp.src(source + 'css/*.less', {base: source+'css'})
         .pipe(watch(source + 'css/*.less', {base: source+'css'}))
-        .pipe(less())
+        .pipe(less({
+            plugins: [autoprefixPlugin]
+        }))
         .pipe(gulp.dest(destination+'css'));
 });
 

@@ -14,7 +14,8 @@
     "gulp-jshint": "^1.10.0",
     "gulp-less": "^3.0.2",
     "gulp-watch": "^4.2.4",
-    "gulp-webserver": "^0.9.0"
+    "gulp-webserver": "^0.9.0",
+    "less-plugin-autoprefix": "^1.4.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

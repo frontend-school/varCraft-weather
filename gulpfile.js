@@ -4,6 +4,7 @@ var gulp        = require('gulp'),
     prefixer    = require('gulp-autoprefixer'),
     cssmin      = require('gulp-minify-css'),
     rimraf      = require('rimraf'),
+    uglify      = require('gulp-uglify'),
     sass        = require('gulp-sass'),
     browserSync = require('browser-sync'),
     reload      = browserSync.reload;
@@ -55,6 +56,7 @@ gulp.task('html:build', function () {
 gulp.task('js:build', function () {
     gulp.src(path.app.mainJs)
         .pipe(rigger())
+        .pipe(uglify())
         .pipe(gulp.dest(path.dist.js))
         .pipe(reload({stream: true}));
 });

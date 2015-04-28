@@ -27,7 +27,7 @@ html, body {
   height: 100%;
 }
 
-.weather {
+.w {
   .font;
   overflow-y: hidden;
   z-index: 2;
@@ -101,235 +101,235 @@ html, body {
     min-width: 700px;
 
 
-    &-column {
+  }
+}
+
+.column {
+  position: absolute;
+  width: @weather-forecast-column-width;
+  height: @weather-height;
+
+
+  &_yesterday {
+    right: 2*@weather-forecast-column-width;
+  }
+
+  &_today {
+    right: @weather-forecast-column-width;
+  }
+
+  &_tomorrow {
+    right: 0;
+  }
+
+  &-header {
+    height: @weather-forecast-column-header-height;
+    text-align: center;
+    min-height: 92px;
+
+    &__name {
+      padding-top: 30px;
+      font-size: 16pt;
+    }
+
+    &__date {
+      padding-bottom: 25px;
+      font-size: 10pt;
+    }
+  }
+
+  &-data {
+    height: @weather-height - @weather-forecast-column-header-height;
+    text-align: center;
+    padding-top: 12%;
+
+    &__condition-icon {
+
+      background-size: cover;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px auto;
+
+      &_partly-cloudy {
+        background-image: url(../img/weather_partly_cloudy.png);
+      }
+
+      &_snow-fall {
+        background-image: url(../img/weather_snow_fall.png);
+      }
+
+      &_fog {
+        background-image: url(../img/weather_fog.png);
+      }
+
+      &_downpour {
+        background-image: url(../img/weather_downpour.png);
+      }
+
+      &_mostly-cloudy {
+        background-image: url(../img/weather_mostly_cloudy.png);
+      }
+
+      &_sunny {
+        background-image: url(../img/weather_sunny.png);
+      }
+
+      &_sleet {
+        background-image: url(../img/weather_sleet.png);
+
+      }
+      &_snow {
+        background-image: url(../img/weather_snow.png);
+      }
+
+      &_rain {
+        background-image: url(../img/weather_rain.png);
+      }
+
+      &_light-rain {
+        background-image: url(../img/weather_light_rain.png);
+      }
+
+      &_rain-and-sun {
+        background-image: url(../img/weather_rain_and_sun.png);
+      }
+    }
+
+    &__condition-title {
+      font-size: 20pt;
+      padding-bottom: 40px;
+    }
+
+    &__daily-temp {
+      text-align: right;
+      font-size: 60pt;
+      float: left;
+      width: 60%;
+    }
+
+    &__night-temp {
+      font-size: 22pt;
+      float: right;
+      margin-top: 32pt;
+      width: 40%;
+      position: relative;
+    }
+
+    &__night-temp:after {
+      visibility: hidden;
+      display: block;
+      content: "";
+      clear: both;
+      height: 0;
+    }
+
+    &__night-temp:before {
+      content: 'Night';
+      font-size: 10pt;
       position: absolute;
-      width: @weather-forecast-column-width;
-      height: @weather-height;
+      top: -18px;
+    }
 
+    &-other {
+      margin-top: 40px;
+      font-size: 11pt;
 
-      &_yesterday {
-        right: 2*@weather-forecast-column-width;
+      &-wind {
+
+        float: left;
+        width: 50%;
+        position: relative;
+
+        &__direction {
+          margin: 10px auto;
+          background: url("../img/wind_direction.png") center no-repeat;
+          background-size: contain;
+          padding-top: 20px;
+          width: 40px;
+          height: 35px;
+        }
+
       }
+      &-moon {
+        float: right;
+        width: 50%;
 
-      &_today {
-        right: @weather-forecast-column-width;
-      }
+        &__icon {
+          margin: 15px auto;
+          background-size: auto;
+          width: 48px;
+          height: 48px;
+          background-position: center;
+          background-repeat: no-repeat;
 
-      &_tomorrow {
-        right: 0;
-      }
-
-      &-header {
-        height: @weather-forecast-column-header-height;
-        text-align: center;
-        min-height: 92px;
-
-        &__name {
-          padding-top: 30px;
-          font-size: 16pt;
-        }
-
-        &__date {
-          padding-bottom: 25px;
-          font-size: 10pt;
-        }
-      }
-
-      &-data {
-        height: @weather-height - @weather-forecast-column-header-height;
-        text-align: center;
-        padding-top: 12%;
-
-        &__condition-icon {
-
-          background-size: cover;
-          width: 140px;
-          height: 140px;
-          margin: 0 auto 20px auto;
-
-          &_partly-cloudy {
-            background-image: url(../img/weather_partly_cloudy.png);
+          &_full {
+            background-image: url("../img/mn1.png");
           }
 
-          &_snow-fall {
-            background-image: url(../img/weather_snow_fall.png);
+          &_new {
+            background-image: url("../img/mn0.png");
           }
 
-          &_fog {
-            background-image: url(../img/weather_fog.png);
+          &_first-quater {
+            background-image: url("../img/mn2.png");
           }
 
-          &_downpour {
-            background-image: url(../img/weather_downpour.png);
+          &_third-quater {
+            background-image: url("../img/mn3.png");
           }
 
-          &_mostly-cloudy {
-            background-image: url(../img/weather_mostly_cloudy.png);
+          &_waxing-crescent {
+            background-image: url("../img/mn5.png");
           }
 
-          &_sunny {
-            background-image: url(../img/weather_sunny.png);
+          &_waxing-gibbous {
+            background-image: url("../img/mn6.png");
           }
-
-          &_sleet {
-            background-image: url(../img/weather_sleet.png);
-
+          &_waning-crescent {
+            background-image: url("../img/mn4.png");
           }
-          &_snow {
-            background-image: url(../img/weather_snow.png);
+          &_waning-gibbous {
+            background-image: url("../img/mn7.png");
           }
-
-          &_rain {
-            background-image: url(../img/weather_rain.png);
-          }
-
-          &_light-rain {
-            background-image: url(../img/weather_light_rain.png);
-          }
-
-          &_rain-and-sun {
-            background-image: url(../img/weather_rain_and_sun.png);
-          }
-        }
-
-        &__condition-title {
-          font-size: 20pt;
-          padding-bottom: 40px;
-        }
-
-        &__daily-temperature {
-          text-align: right;
-          font-size: 60pt;
-          float: left;
-          width: 60%;
-        }
-
-        &__night-temperature {
-          font-size: 22pt;
-          float: right;
-          margin-top: 32pt;
-          width: 40%;
-          position: relative;
-        }
-
-        &__night-temperature:after {
-          visibility: hidden;
-          display: block;
-          content: "";
-          clear: both;
-          height: 0;
-        }
-
-        &__night-temperature:before {
-          content: 'Night';
-          font-size: 10pt;
-          position: absolute;
-          top: -18px;
-        }
-
-        &-other {
-          margin-top: 40px;
-          font-size: 11pt;
-
-          &-wind {
-
-            float: left;
-            width: 50%;
-            position: relative;
-
-            &__direction {
-              margin: 10px auto;
-              background: url("../img/wind_direction.png") center no-repeat;
-              background-size: contain;
-              padding-top: 20px;
-              width: 40px;
-              height: 35px;
-            }
-
-          }
-          &-moon {
-            float: right;
-            width: 50%;
-
-            &__icon {
-              margin: 15px auto;
-              background-size: auto;
-              width: 48px;
-              height: 48px;
-              background-position: center;
-              background-repeat: no-repeat;
-
-              &_full {
-                background-image: url("../img/mn1.png");
-              }
-
-              &_new {
-                background-image: url("../img/mn0.png");
-              }
-
-              &_first-quater {
-                background-image: url("../img/mn2.png");
-              }
-
-              &_third-quater {
-                background-image: url("../img/mn3.png");
-              }
-
-              &_waxing-crescent {
-                background-image: url("../img/mn5.png");
-              }
-
-              &_waxing-gibbous {
-                background-image: url("../img/mn6.png");
-              }
-              &_waning-crescent {
-                background-image: url("../img/mn4.png");
-              }
-              &_waning-gibbous {
-                background-image: url("../img/mn7.png");
-              }
-            }
-          }
-        }
-
-        &_snow-fall {
-          background-color: #1a6698;
-        }
-        &_fog {
-          background-color: #75608b;
-        }
-        &_downpour {
-          background-color: #675680;
-        }
-        &_partly-cloudy {
-          background-color: #f1854b;
-        }
-        &_mostly-cloudy {
-          background-color: #1d9e48;
-        }
-        &_sunny {
-          background-color: #f2385a;
-        }
-        &_sleet {
-          background-color: #36b1bf;
-        }
-        &_snowfall {
-          background-color: #82a8c4;
-        }
-        &_snow {
-          background-color: #375d81;
-        }
-        &_rain {
-          background-color: #999999;
-        }
-        &_light-rain {
-          background-color: #bda881;
-        }
-        &_rain-and-sun {
-          background-color: #e9b841;
         }
       }
     }
 
+    &_snow-fall {
+      background-color: #1a6698;
+    }
+    &_fog {
+      background-color: #75608b;
+    }
+    &_downpour {
+      background-color: #675680;
+    }
+    &_partly-cloudy {
+      background-color: #f1854b;
+    }
+    &_mostly-cloudy {
+      background-color: #1d9e48;
+    }
+    &_sunny {
+      background-color: #f2385a;
+    }
+    &_sleet {
+      background-color: #36b1bf;
+    }
+    &_snowfall {
+      background-color: #82a8c4;
+    }
+    &_snow {
+      background-color: #375d81;
+    }
+    &_rain {
+      background-color: #999999;
+    }
+    &_light-rain {
+      background-color: #bda881;
+    }
+    &_rain-and-sun {
+      background-color: #e9b841;
+    }
   }
 }

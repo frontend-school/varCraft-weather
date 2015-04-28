@@ -8,85 +8,85 @@
 </head>
 <body>
 <div class="user">
-    Hello, <span id="username" class="user__name">1</span>
+    Hello, <span id="username" class="user__name"></span>
     <button id="log-out" class="user__logout">Log out</button>
 </div>
 
-<div class="weather">
-    <div class="weather-info">
-        <div class="weather-info__time">9:20</div>
-        <div class="weather-info__midday">AM</div>
-        <div class="weather-info__date">Wed. September 3</div>
-        <div class="weather-info-location">
-            <div class="weather-info-location__city">Kiev</div>
-            <div class="weather-info-location__country">Ukraine</div>
+<div class="w">
+    <div class="w-info">
+        <div class="w-info__time">9:20</div>
+        <div class="w-info__midday">AM</div>
+        <div class="w-info__date">Wed. September 3</div>
+        <div class="w-info-location">
+            <div class="w-info-location__city">Kiev</div>
+            <div class="w-info-location__country">Ukraine</div>
         </div>
 
     </div>
 
-    <div class="weather-forecast">
-        <div class="weather-forecast-column weather-forecast-column_yesterday">
-            <div class="weather-forecast-column-header">
-                <div class="weather-forecast-column-header__name">Yesterday</div>
-                <div class="weather-forecast-column-header__date">13 / 04 / 2015</div>
+    <div class="w-forecast">
+        <div class="column column_yesterday">
+            <div class="column-header">
+                <div class="column-header__name">Yesterday</div>
+                <div class="column-header__date">13 / 04 / 2015</div>
             </div>
-            <div class="weather-forecast-column-data weather-forecast-column-data_mostly-cloudy">
-                <div class="weather-forecast-column-data__condition-icon weather-forecast-column-data__condition-icon_partly-cloudy"></div>
-                <div class="weather-forecast-column-data__condition-title">Partly cloudy</div>
-                <div class="weather-forecast-column-data__daily-temperature">-22</div>
-                <div class="weather-forecast-column-data__night-temperature">-17</div>
-                <div class="weather-forecast-column-data-other">
-                    <div class="weather-forecast-column-data-other-wind">
-                        <div class="weather-forecast-column-data-other-wind__value">4 mph</div>
-                        <div class="weather-forecast-column-data-other-wind__direction">NW</div>
+            <div class="column-data column-data_mostly-cloudy">
+                <div class="column-data__condition-icon column-data__condition-icon_partly-cloudy"></div>
+                <div class="column-data__condition-title">Partly cloudy</div>
+                <div class="column-data__daily-temp">-22</div>
+                <div class="column-data__night-temp">-17</div>
+                <div class="column-data-other">
+                    <div class="column-data-other-wind">
+                        <div class="column-data-other-wind__value">4 mph</div>
+                        <div class="column-data-other-wind__direction">NW</div>
                     </div>
-                    <div class="weather-forecast-column-data-other-moon">
-                        <div class="weather-forecast-column-data-other-moon__label">Moon</div>
-                        <div class="weather-forecast-column-data-other-moon__icon weather-forecast-column-data-other-moon__icon_third-quater"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="weather-forecast-column weather-forecast-column_today">
-            <div class="weather-forecast-column-header">
-                <div class="weather-forecast-column-header__name">Today</div>
-                <div class="weather-forecast-column-header__date">14 / 04 / 2015</div>
-            </div>
-            <div class="weather-forecast-column-data weather-forecast-column-data_snow-fall">
-                <div class="weather-forecast-column-data__condition-icon weather-forecast-column-data__condition-icon_snow-fall"></div>
-                <div class="weather-forecast-column-data__condition-title">Snow fall</div>
-                <div class="weather-forecast-column-data__daily-temperature">-22</div>
-                <div class="weather-forecast-column-data__night-temperature">-17</div>
-                <div class="weather-forecast-column-data-other">
-                    <div class="weather-forecast-column-data-other-wind">
-                        <div class="weather-forecast-column-data-other-wind__value">4 mph</div>
-                        <div class="weather-forecast-column-data-other-wind__direction">NW</div>
-                    </div>
-                    <div class="weather-forecast-column-data-other-moon">
-                        <div class="weather-forecast-column-data-other-moon__label">Moon</div>
-                        <div class="weather-forecast-column-data-other-moon__icon weather-forecast-column-data-other-moon__icon_first-quater"></div>
+                    <div class="column-data-other-moon">
+                        <div class="column-data-other-moon__label">Moon</div>
+                        <div class="column-data-other-moon__icon column-data-other-moon__icon_third-quater"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="weather-forecast-column weather-forecast-column_tomorrow">
-            <div class="weather-forecast-column-header">
-                <div class="weather-forecast-column-header__name">Tomorrow</div>
-                <div class="weather-forecast-column-header__date">15 / 04 / 2015</div>
+        <div class="column column_today">
+            <div class="column-header">
+                <div class="column-header__name">Today</div>
+                <div class="column-header__date">14 / 04 / 2015</div>
             </div>
-            <div class="weather-forecast-column-data weather-forecast-column-data_fog">
-                <div class="weather-forecast-column-data__condition-icon weather-forecast-column-data__condition-icon_fog"></div>
-                <div class="weather-forecast-column-data__condition-title">Fog</div>
-                <div class="weather-forecast-column-data__daily-temperature">-22</div>
-                <div class="weather-forecast-column-data__night-temperature">-17</div>
-                <div class="weather-forecast-column-data-other">
-                    <div class="weather-forecast-column-data-other-wind">
-                        <div class="weather-forecast-column-data-other-wind__value">4 mph</div>
-                        <div class="weather-forecast-column-data-other-wind__direction">NW</div>
+            <div class="column-data column-data_snow-fall">
+                <div class="column-data__condition-icon column-data__condition-icon_snow-fall"></div>
+                <div class="column-data__condition-title">Snow fall</div>
+                <div class="column-data__daily-temp">-22</div>
+                <div class="column-data__night-temp">-17</div>
+                <div class="column-data-other">
+                    <div class="column-data-other-wind">
+                        <div class="column-data-other-wind__value">4 mph</div>
+                        <div class="column-data-other-wind__direction">NW</div>
                     </div>
-                    <div class="weather-forecast-column-data-other-moon">
-                        <div class="weather-forecast-column-data-other-moon__label">Moon</div>
-                        <div class="weather-forecast-column-data-other-moon__icon weather-forecast-column-data-other-moon__icon_waxing-crescent"></div>
+                    <div class="column-data-other-moon">
+                        <div class="column-data-other-moon__label">Moon</div>
+                        <div class="column-data-other-moon__icon column-data-other-moon__icon_first-quater"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column column_tomorrow">
+            <div class="column-header">
+                <div class="column-header__name">Tomorrow</div>
+                <div class="column-header__date">15 / 04 / 2015</div>
+            </div>
+            <div class="column-data column-data_fog">
+                <div class="column-data__condition-icon column-data__condition-icon_fog"></div>
+                <div class="column-data__condition-title">Fog</div>
+                <div class="column-data__daily-temp">-22</div>
+                <div class="column-data__night-temp">-17</div>
+                <div class="column-data-other">
+                    <div class="column-data-other-wind">
+                        <div class="column-data-other-wind__value">4 mph</div>
+                        <div class="column-data-other-wind__direction">NW</div>
+                    </div>
+                    <div class="column-data-other-moon">
+                        <div class="column-data-other-moon__label">Moon</div>
+                        <div class="column-data-other-moon__icon column-data-other-moon__icon_waxing-crescent"></div>
                     </div>
                 </div>
             </div>

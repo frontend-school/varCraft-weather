@@ -1,4 +1,4 @@
-MYAPPLICATION.timeModule = (function () {
+window.MYAPPLICATION.timeModule = (function () {
     var timeAM = "AM",
         timePM = "PM";
 

@@ -1,4 +1,4 @@
-var MYAPPLICATION = MYAPPLICATION || {};
+window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 //= constants.js
 //= helperModule.js

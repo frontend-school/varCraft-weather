@@ -1,4 +1,4 @@
-MYAPPLICATION.CONST = {
+window.MYAPPLICATION.CONST = {
     ID : {
         loginForm : "login-form",
         loginFormName : "name",

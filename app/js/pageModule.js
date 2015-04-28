@@ -1,4 +1,4 @@
-MYAPPLICATION.pageModule = (function () {
+window.MYAPPLICATION.pageModule = (function () {
     return {
         logIn: function () {
             var userName = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.loginFormName).value,

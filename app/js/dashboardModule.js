@@ -1,4 +1,4 @@
-MYAPPLICATION.dashboardModule = (function () {
+window.MYAPPLICATION.dashboardModule = (function () {
     var greeting = "Hello ";
     return {
         hideDashboard: function () {

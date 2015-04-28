@@ -1,4 +1,4 @@
-MYAPPLICATION.formModule = (function () {
+window.MYAPPLICATION.formModule = (function () {
     return {
         hideForm: function () {
             MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.popup).className = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.popup).className.replace

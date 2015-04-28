@@ -10,6 +10,7 @@ MYAPPLICATION.timerModule = (function () {
     return {
         restartTimer: function () {
             stopTimer();
+            MYAPPLICATION.cookieModule.writeCookie(MYAPPLICATION.CONST.cookieName, MYAPPLICATION.cookieModule.readCookie(MYAPPLICATION.CONST.cookieName), MYAPPLICATION.CONST.stayTime);
             startTimer();
         }
     };

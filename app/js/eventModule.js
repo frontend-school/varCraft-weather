@@ -1,4 +1,4 @@
-MYAPPLICATION.eventModule = (function () {
+window.MYAPPLICATION.eventModule = (function () {
     function resetEvent() {
         document.onmousemove = null;
         document.onkeydown = null;

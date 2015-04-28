@@ -1,4 +1,4 @@
-MYAPPLICATION.weatherModule = (function () {
+window.MYAPPLICATION.weatherModule = (function () {
     return {
         httpGet: function (theUrl) {
             var xmlHttp = new XMLHttpRequest();

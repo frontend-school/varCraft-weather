@@ -1,4 +1,4 @@
-MYAPPLICATION.cookieModule = (function () {
+window.MYAPPLICATION.cookieModule = (function () {
     return {
         writeCookie: function (name, value, time) {
             var expires = "",

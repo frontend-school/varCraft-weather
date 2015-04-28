@@ -10,44 +10,44 @@ window.MYAPPLICATION.dateModule = (function () {
             return days[this.getDay()];
         };
     }) ();
+    function _writeDay(currentDate, holder) {
+        var dayValue = currentDate.getDate(),
+            todayMonth = currentDate.getMonth() + 1,
+            todayYear = currentDate.getFullYear(),
+            dayHolder = MYAPPLICATION.helperModule.getElement(holder);
+
+        if (todayMonth < 10) {
+            todayMonth = "0" + todayMonth;
+        }
+
+        dayHolder.textContent = dayValue + " / " + todayMonth + " / " + todayYear;
+    }
+    function _writeTomorrow(currentDate) {
+        currentDate.setDate(currentDate.getDate() + 1);
+        _writeDay(currentDate, MYAPPLICATION.CONST.ID.forecastTomorrow);
+    }
+    function _writeYesterday(currentDate) {
+        currentDate.setDate(currentDate.getDate() - 2);
+        _writeDay(currentDate, MYAPPLICATION.CONST.ID.forecastYesterday);
+    }
+    function _writeWeatherDates(currentDate) {
+        _writeDay(currentDate, MYAPPLICATION.CONST.ID.forecastToday);
+        _writeTomorrow(currentDate);
+        _writeYesterday(currentDate);
+    }
+    function _writeInfoDate(currentDate) {
+        var dayName = currentDate.getDayName(),
+            month = currentDate.getMonthName(),
+            dayValue = currentDate.getDate(),
+            dayHolder = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.infoDay);
+
+        dayHolder.textContent =  dayName + ", " + month + " " + dayValue;
+    }
     return {
-        writeDay: function (currentDate, holder) {
-            var dayValue = currentDate.getDate(),
-                todayMonth = currentDate.getMonth() + 1,
-                todayYear = currentDate.getFullYear(),
-                dayHolder = MYAPPLICATION.helperModule.getElement(holder);
-
-            if (todayMonth < 10) {
-                todayMonth = "0" + todayMonth;
-            }
-
-            dayHolder.textContent = dayValue + " / " + todayMonth + " / " + todayYear;
-        },
-        writeTomorrow: function (currentDate) {
-            currentDate.setDate(currentDate.getDate() + 1);
-            MYAPPLICATION.dateModule.writeDay(currentDate, MYAPPLICATION.CONST.ID.forecastTomorrow);
-        },
-        writeYesterday: function (currentDate) {
-            currentDate.setDate(currentDate.getDate() - 2);
-            MYAPPLICATION.dateModule.writeDay(currentDate, MYAPPLICATION.CONST.ID.forecastYesterday);
-        },
-        writeWeatherDates: function (currentDate) {
-            MYAPPLICATION.dateModule.writeDay(currentDate, MYAPPLICATION.CONST.ID.forecastToday);
-            MYAPPLICATION.dateModule.writeTomorrow(currentDate);
-            MYAPPLICATION.dateModule.writeYesterday(currentDate);
-        },
-        writeInfoDate: function (currentDate) {
-            var dayName = currentDate.getDayName(),
-                month = currentDate.getMonthName(),
-                dayValue = currentDate.getDate(),
-                dayHolder = MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.infoDay);
-
-            dayHolder.textContent =  dayName + ", " + month + " " + dayValue;
-        },
         writeAllDates: function () {
             var currentDate = new Date();
-            MYAPPLICATION.dateModule.writeInfoDate(currentDate);
-            MYAPPLICATION.dateModule.writeWeatherDates(currentDate);
+            _writeInfoDate(currentDate);
+            _writeWeatherDates(currentDate);
         }
     };
 }());

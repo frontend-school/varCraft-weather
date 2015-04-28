@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Weather</title>
     <link rel="stylesheet" href="css/main.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="main-page">
 //= template/popup.html
@@ -30,56 +31,7 @@
     </div>
 
     <div class="forecast">
-        <div class="forecast-item daily-forecast_yesterday">
-            <div class="forecast-item__day">
-                <div class="forecast-item__day-date">
-                    <div class="forecast-item__day-date-header">
-                        Yesterday
-                    </div>
-                    <div class="forecast-item__day-date-value js-forecast_yesterday" id="js-forecast_yesterday">
-                    </div>
-                </div>
-            </div>
-            <div class="weather weather_sleet">
-                <div class="weather__pic">
-                    <div class="weather__pic-status weather__pic-status_sleet">
 
-                    </div>
-                </div>
-                <div class="weather__status">
-                    Fog
-                </div>
-                <div class="weather__temperature">
-                    <div class="weather__temperature-day">
-                        -22
-                    </div>
-                    <div class="weather__temperature-night">
-                        <div class="weather__temperature-night-header">
-                            Night
-                        </div>
-                        <div class="weather__temperature-night-value">
-                            -17
-                        </div>
-                    </div>
-                </div>
-                <div class="weather__additional weather__additional_wind">
-                    <div class="weather__additional-value">
-                        4 mph
-                    </div>
-                    <div class="weather__additional-direction">N</div>
-                    <div class="weather__additional-desc weather__additional-desc_wind weather__additional-desc_wind_n">
-                    </div>
-                </div>
-                <div class="weather__additional weather__additional_moon">
-                    <div class="weather__additional-value">
-                    Moon
-                    </div>
-                    <div class="weather__additional-desc weather__additional-desc_moon weather__additional-desc_moon_mn2">
-
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="forecast-item daily-forecast_tomorrow">
             <div class="forecast-item__day">
                 <div class="forecast-item__day-date">
@@ -176,6 +128,56 @@
                         Moon
                     </div>
                     <div class="weather__additional-desc weather__additional-desc_moon weather__additional-desc_moon_mn0">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="forecast-item daily-forecast_yesterday">
+            <div class="forecast-item__day">
+                <div class="forecast-item__day-date">
+                    <div class="forecast-item__day-date-header">
+                        Yesterday
+                    </div>
+                    <div class="forecast-item__day-date-value js-forecast_yesterday" id="js-forecast_yesterday">
+                    </div>
+                </div>
+            </div>
+            <div class="weather weather_sleet">
+                <div class="weather__pic">
+                    <div class="weather__pic-status weather__pic-status_sleet">
+
+                    </div>
+                </div>
+                <div class="weather__status">
+                    Fog
+                </div>
+                <div class="weather__temperature">
+                    <div class="weather__temperature-day">
+                        -22
+                    </div>
+                    <div class="weather__temperature-night">
+                        <div class="weather__temperature-night-header">
+                            Night
+                        </div>
+                        <div class="weather__temperature-night-value">
+                            -17
+                        </div>
+                    </div>
+                </div>
+                <div class="weather__additional weather__additional_wind">
+                    <div class="weather__additional-value">
+                        4 mph
+                    </div>
+                    <div class="weather__additional-direction">N</div>
+                    <div class="weather__additional-desc weather__additional-desc_wind weather__additional-desc_wind_n">
+                    </div>
+                </div>
+                <div class="weather__additional weather__additional_moon">
+                    <div class="weather__additional-value">
+                        Moon
+                    </div>
+                    <div class="weather__additional-desc weather__additional-desc_moon weather__additional-desc_moon_mn2">
+
                     </div>
                 </div>
             </div>

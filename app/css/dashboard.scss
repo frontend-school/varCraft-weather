@@ -6,12 +6,9 @@
   font-size: $font_size;
   color: $label_color;
   padding: 20px;
-  width:300px;
 
   &__greeting {
     display: inline-block;
-    padding-right: 30px;
-    width:150px;
   }
 
   &_active {

@@ -2,7 +2,9 @@
 @import "fonts.scss";
 @import "var.scss";
 @import "form.scss";
+@import "settings";
 @import "dashboard";
+@import "mobileControl";
 
 .main-page {
   //min-width: 1280px;
@@ -63,6 +65,9 @@
   &__country {
     padding-top: 5px;
     font-size: 0.6em;
+  }
+  &__text{
+    display:none;
   }
 }
 
@@ -378,7 +383,7 @@
 
     &_humidity{
       background: url("../img/humidity.png") no-repeat;
-      padding-top: 33px;
+      margin-top: 27px;
 
       &_hm2{
         background-position: 0 0;
@@ -447,6 +452,9 @@ and (orientation: landscape)
       padding-top: 1px;
       font-size: 0.5em;
     }
+    &__text{
+      display:none;
+    }
   }
 
   .forecast{
@@ -474,6 +482,7 @@ and (orientation: landscape)
 and (min-device-width: 320px)
 and (max-device-width: 568px)
 and (-webkit-min-device-pixel-ratio: 2)
+and (min-resolution: 192dpi)
 and (orientation: portrait) {
   .main-page{
     overflow: hidden;
@@ -483,10 +492,52 @@ and (orientation: portrait) {
     min-height: 568px;
   }
   .dashboard{
-    display: none;
+    position: absolute;
+    top:0;
+    right:0;
+    left:auto;
+    z-index: 200;
+    width:27px;
+
+    &__greeting{
+      display:none;
+    }
   }
+  .settings{
+    display: block;
+  }
+
   .info {
-    display: none;
+    margin:0;
+    width: auto;
+    &__time{
+      display: none;
+    }
+    &__day{
+      display: none;
+    }
+  }
+
+  .location{
+    background: none;
+    padding-left: 0px;
+    padding-top: 15px;
+    position: absolute;
+    left:50px;
+    top:0;
+    display:table-cell;
+    z-index: 100;
+    &__text{
+      display:inline-block;
+    }
+    &__country{
+      display: none;
+    }
+    &__city{
+      display: inline-block;
+      margin-left:auto;
+      margin-right:auto;
+    }
   }
   .forecast{
     float: left;
@@ -504,20 +555,34 @@ and (orientation: portrait) {
   }
   .weather{
     height:100%;
+    width:100%;
+    display: table;
+    padding-top: 80px;
 
     &__additional{
+      padding-left: 15px;
+      padding-right: 15px;
       &_humidity{
         display:inline-block;
       }
     }
-    //&__temperature{
-    //  position: absolute;
-    //  top:0;
-    //  right:0;
-    //}
+    &__temperature{
+      display: table-header-group
+    }
+    &__temperature-day{
+      font-size: 4.8em;
+      font-weight: normal;
+      height: 108px;
+      line-height: 109px;
+    }
+    &__pic{
+    }
   }
 
+  .mobile-control{
+    display:table-cell;
 
+  }
 }
 
 

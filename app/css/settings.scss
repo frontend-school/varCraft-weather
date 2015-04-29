@@ -7,9 +7,10 @@
   z-index: 100;
 
   &__button {
-    width: 27px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     background: url("../img/settings_button.png") no-repeat 0 0;
+    background-size: 24px 24px;
     border: none;
     cursor: pointer;
     margin-right: 5px;

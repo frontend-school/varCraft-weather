@@ -1,3 +1,7 @@
 .header-main{
-  display: none;
+  //display: none;
+  &__info_userinfo{
+    //display: none;
+    visibility: hidden;
+  }
 }

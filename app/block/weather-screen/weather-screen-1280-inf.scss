@@ -28,7 +28,7 @@ $misc-icon-font-size:48px;
   background-image: url('../icons/wind-icon/wind_direction.png');
   //background-size: 48px 67px;
   background-repeat: no-repeat;
-  background-origin: content-box;
+  //background-origin: content-box;
   background-size: cover;
   width: 48px;
   height: 67px;
@@ -97,8 +97,6 @@ $misc-icon-font-size:48px;
 
 .weather{
   &__header{
-    //margin: 0;
-    //padding: 0;
     width: 100%;
     height: 17%;
     min-height: round(($main-font-size + $header-date-font-size)*1.7);
@@ -106,6 +104,9 @@ $misc-icon-font-size:48px;
     position: relative;
     list-style: none;
     text-align: center;
+    &_settings{
+      display: none;
+    }
     &_wrapper{
       @include center-horizontal-and-vertical;
       text-align: left;
@@ -119,6 +120,11 @@ $misc-icon-font-size:48px;
     &_date{
       font-size: $header-date-font-size;
       margin: inherit;
+    }
+  }
+  &__navigation{
+    &_lt,&_gt {
+      display: none;
     }
   }
   @include clearfix('weather__header');
@@ -204,6 +210,9 @@ $misc-icon-font-size:48px;
       &_moon{
         float: right;
         margin: 0 0 0 1px;
+      }
+      &_humidity{
+        display: none;
       }
     }
     @include clearfix('weather__header');

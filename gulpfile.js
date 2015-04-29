@@ -94,7 +94,7 @@ gulp.task('build', function(){
 gulp.task('sass',function(){
     gulp.src(source)
         .pipe(sass({
-            outputStyle: 'nested',
+            outputStyle: 'compressed',
             sourceComments: 'map',
             includePaths: [source],
             errLogToConsole: true

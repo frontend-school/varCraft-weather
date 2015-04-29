@@ -1,14 +1,12 @@
 @import 'normalize.css';
 
-body
-{
+body{
     margin: 0;
     padding: 0;
 }
 
-.login-page
-{
-    font-family: 'Titillium Web';
+.login-page{
+    font-family: 'Titillium Web', serif;
 
     position: relative;
 
@@ -19,8 +17,7 @@ body
     background-color: #262626;
 }
 
-.login-form
-{
+.login-form{
     position: absolute;
     top: 0;
     right: 0;
@@ -33,8 +30,7 @@ body
     width: 300/16 + em;
     height: 234/16 + em;
     margin: auto;
-    &__input
-    {
+    &__input{
         font-size: 1.25em;
 
         display: block;
@@ -49,8 +45,7 @@ body
 
         border: none;
     }
-    &__label
-    {
+    &__label{
         font-size: 1.25em;
         font-weight: 200;
 
@@ -71,9 +66,27 @@ body
           height: 32px;
           float: none;
           margin-right: 5%;
-          background: url('../img/logout.png') no-repeat;
+          background: url('../img/app-icons.png') no-repeat 0 0;
 
           color: #fff ;
         }
     }
+}
+
+@media only screen //this media added for
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait)
+{
+  .login-form{
+    &__submit{
+      &_log-out{
+        position: absolute;
+        top: 24px;
+        right: 21px;
+        z-index: 30;
+        margin-right: 0;
+      }
+    }
+  }
 }

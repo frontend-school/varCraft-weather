@@ -7,6 +7,7 @@
 
 </head>
 <html>
+
     <body>
         <script src="/js/script.min.js"></script>
 
@@ -20,20 +21,12 @@
                 <input type="submit" class="login-form__submit" value="Log in">
             </form>
         </section>
-    
-        <div class="mobile-window">
-            <a href="#"><div class="mobile-window__settings"></div></a>
-            <a href="#"><div class="mobile-window__log-out"></div></a>
 
-            <div class="mobile-window__change-day mobile-window__change-day_previous"></div>
-            <div class="mobile-window__change-day mobile-window__change-day_next"></div>
-            <ul class="mobile-window-day-list">
-                <li class="mobile-window-day-list__item"></li>
-                <li class="mobile-window-day-list__item mobile-window-day-list__item_active"></li>
-                <li class="mobile-window-day-list__item"></li>
-            </ul>
-        </div>
-        
+
+        <div class="mobile-window">
+
+
+
         <section class="main-page hide js-main-page">
 
 
@@ -154,7 +147,21 @@
                     </div>
                 </div>
         </section>
-    
+
+            <a href="#"><div class="mobile-window__settings"></div></a>
+            <form action="post" name="log-out" class="login-out-form">
+                <input type="submit" class="login-form__submit login-form__submit_log-out" value="">
+            </form>
+
+            <div class="mobile-window__change-day mobile-window__change-day_previous"></div>
+            <div class="mobile-window__change-day mobile-window__change-day_next"></div>
+            <ul class="mobile-window-day-list">
+                <li class="mobile-window-day-list__item"></li>
+                <li class="mobile-window-day-list__item mobile-window-day-list__item_active"></li>
+                <li class="mobile-window-day-list__item"></li>
+            </ul>
+        </div>
+
 
     </body>
 </html>

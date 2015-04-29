@@ -28,7 +28,6 @@
 html{
     width: 100%;
     height: 100%;
-
     background-color: $grey;
 }
 
@@ -44,90 +43,23 @@ body{
     display: none;
 }
 
-
-.mobile-window{
-    display: none;
-    position: absolute;
-    z-index: 20;
-
-    width: 320px;
-    height: 568px ;
-    &__settings{
-        position: absolute;
-        top: 24px;
-        left: 21px;
-
-        width: 32px;
-        height: 32px;
-
-      background: url('../img/settings_button.png') no-repeat 0 0;
-    }
-  &__log-out{
-        position: absolute;
-        top: 24px;
-        right: 21px;
-
-        width: 32px;
-        height: 32px;
-        background: url("../img/logout.png") no-repeat 0 0;
-
-        //background: url('../img/app-icons.png') no-repeat;
-    }
-    &__change-day{
-        position: absolute;
-        top: 43%;
-        width: 30px;
-        height: 67px;
- //       margin-top: -55px ;
-        &_previous{
-            left: 5%;
-            background: url('../img/arrows.png') no-repeat 0 0 ;
-            //background: url('../img/app-icons.png') no-repeat 0 0 ;
-
-        }
-        &_next{
-            right: 5%;
-            background: url('../img/arrows.png') no-repeat -40px 0;
-          //background: url('../img/app-icons.png') -90px 0;
-        }
-    }
-    &-day-list{
-      position: absolute;
-      top: 67%;
-      margin: 0 auto;
-        text-align: center;
-        width: 100%;
-        padding: 0;
-        &__item{
-            display: inline-block;
-
-            width: 7px;
-            height: 7px;
-            margin: 0 15px;
-
-            list-style: none ;
-
-            vertical-align: middle;
-
-            border: 4px solid #fff;
-            border-radius: 50%;
-            &_active{
-                width: 12px;
-                height: 12px;
-
-                border: 3px solid #fff;
-            }
-        }
-    }
-}
-
 .main-page{
     width: 100%;
-    //min-width: 1280/16 + em;
     max-width: 1920/16 + em;
     height: 100%;
     min-height: 700/16 + em;
     margin: 0 auto;
+}
+
+.mobile-window{
+  width: 100%;
+  height: 100%;
+  &>.login-out-form{ //to hide log-out button in mobile version
+    display: none;
+  }
+  &-day-list{ // to hide day list in mobile version
+    display: none;
+  }
 }
 
 .user-info{
@@ -144,8 +76,7 @@ body{
 
         color: #fff ;
     }
-    &__time
-    {
+    &__time{
         font-size: 115/16 + em;
 
         position: relative;
@@ -156,8 +87,7 @@ body{
 
         color: #fff;
     }
-    &__day-part
-    {
+    &__day-part{
         font-size: 1/5 + em;
 
         position: absolute;
@@ -170,19 +100,16 @@ body{
 
         color: #fff;
     }
-    &__date
-    {
+    &__date{
         font-size: 20/16 + em;
 
         margin-top: 10% ;
 
         color: #fff;
     }
-    &-location
-    {
+    &-location{
         margin-top: 10%;
-        &__marker
-        {
+        &__marker{
             position: absolute;
 
             float: left;
@@ -193,24 +120,17 @@ body{
 
             background: url('../img/app-icons.png') no-repeat -84px 0;
         }
-        &__city
-        {
+        &__city{
             &_mobile{
               display: none;
             }
-
             font-size: 20/16 + em;
-
             margin-left: 40px;
-
             color: #fff;
         }
-        &__country
-        {
+        &__country{
             font-size: 14/16 + em;
-
             margin-left: 40px ;
-
             color: #fff;
         }
     }
@@ -218,9 +138,7 @@ body{
 
 .forecast{
     position: relative;
-
     float: left;
-
     width: 21%;
     height: 100%;
     //min-height: 700/16 + em ;
@@ -305,22 +223,16 @@ body{
     &-header{
         width: 100%;
         height: 15% ;
-        //min-height: 90/16 + em;
         padding-top: 25px;
-
         background-color: $grey;
         &__day-of-week{
             font-size: 20/16 + em;
-
             text-align: center;
-
             color: #fff;
         }
         &__date{
             font-size: 14/16 + em;
-
             text-align: center;
-
             color: #fff;
         }
     }
@@ -336,19 +248,15 @@ body{
 
             background: url('../img/weather-conditions_horiz.png') no-repeat 0 0;
         }
-        &__description
-        {
+        &__description{
             font-size: 20/16 + em;
-
             margin-top: 30px;
-
             text-align: center;
 
             color: #fff;
         }
     }
-    &-temperature
-    {
+    &-temperature{
         width: 100%;
         height: 15%;
         min-height: 130px ;
@@ -356,16 +264,12 @@ body{
         margin-left: auto ;
 
         text-align: center ;
-        &__at-day
-        {
+        &__at-day{
             font-size: 70/16 + em;
-
             display: inline-block;
-
             color: #fff;
         }
-        &__at-night
-        {
+        &__at-night{
             font-size: 24/16 + em;
 
             position: relative;
@@ -373,18 +277,15 @@ body{
             display: inline-block;
 
             color: #fff;
-            &_title
-            {
+            &_title{
                 font-size: 14/20 + em;
             }
         }
     }
     &-extra-info{
         float: left;
-
         width: 50%;
         height: 10%;
-        //min-height: 100px;
         margin-top: 30/16 + em;
         &_humidity-1{
           display: none;
@@ -393,7 +294,23 @@ body{
           }
         }
 
-        &_wind-n{
+        &_humidity-2{
+          display: none;
+          & .forecast-extra-info__logo {
+            background: url("../img/humid.png") no-repeat -58px 0;
+          }
+        }
+
+        &_humidity-3{
+          display: none;
+          & .forecast-extra-info__logo {
+            background: url("../img/humid.png") no-repeat -116px 0;
+          }
+        }
+
+
+
+      &_wind-n{
           & .forecast-extra-info__logo {
             line-height: 48px;
             background: url('../img/wind-dir-48.png') no-repeat 0 0;
@@ -441,7 +358,8 @@ body{
           background: url('../img/wind-dir-48.png') no-repeat -406px 0;
           }
         }
-        &_moon-1{
+        &_moon-1{ //All other moon states will be added as soon as we will need them. I have not done it yet ,
+                  //because there are thirty of them, and now we use only one of them.
           & .forecast-extra-info__logo {
             background: url('../img/moon-conditions.png') no-repeat  -180px -5px;
           }
@@ -449,14 +367,11 @@ body{
 
         &__title{
             font-size: 1em;
-
             text-align: center;
-
             color: #fff ;
         }
         &__logo{
             font-size: .8em;
-
             width: 48px;
             height: 48px;
             margin-top: 20px;
@@ -467,15 +382,14 @@ body{
             vertical-align: middle;
 
             color: #fff;
-
-
-
         }
     }
 }
 
 //Tablet version 1280 * 720
 @media only screen and (max-width: 1280px)
+        and (orientation: landscape)
+        and (-webkit-min-device-pixel-ratio: 1)
 {
     .main-page{
         width: 100% ;
@@ -518,16 +432,14 @@ body{
         &__date{
             display: none;
         }
-        &-location
-        {
+        &-location{
             float: right;
 
             margin-top: 0 ;
         }
     }
 
-    .forecast
-    {
+    .forecast{
         position: relative;
 
         width: 33.333%;
@@ -536,44 +448,35 @@ body{
         &-weather
         {
             margin-top: 0 ;
-            &__description
-            {
+            &__description{
                 margin-top: 0 ;
             }
-        }
-        &-extra-info
-        {
-            // &_wind{
-            //     margin-right: 0;
-            //     & .forecast-extra-info__title{
-            //     }
-            //     & .forecast-extra-info__logo{
-            //     }
-            //     & .forecast-extra-info__logo{
-            //     }
-            // }
         }
     }
 }
 
 @media only screen
   //and (min-device-width: 320px)
+  //I have decided to do not use this constraint, because I think in that way App will
+  //be more flexible, but I understand, we need such constraint to target Iphone 5.
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait)
 {
     .main-page{
-        //margin-left: -320px ;
-        //overflow: hidden;
+        //margin-left: -320px ; // to see "today" state
+        //margin-left: -640px;  // to see "tomorrow" state
+       // I assume that I will change days by adding such these margins to main-page
+        //Now by default is "yesterday" state
 
         min-width: 960px;
-        //min-height: 100% ;
         min-height: 568px;
-        height:568px;
+        height:100%;
+        width: 300%;
     }
 
     .user-info{
-        display: none;
+      display: none;
         &-location{
           &__city{
             &_mobile{
@@ -583,21 +486,88 @@ body{
         }
     }
 
-    .mobile-window{
-        display: block; //to show extra elements for mobile version
+  .mobile-window{
+    //to show extra elements for mobile version
+    overflow: hidden;
+    min-height: 568px;
+    min-width: 320px;
+    position: absolute;
+    z-index: 20;
+
+    width:100%;
+    height: 100% ;
+    &>.login-out-form{ // to show logout-button for mobile version
+      display: block;
     }
+    &__settings{
+      position: absolute;
+      top: 24px;
+      left: 21px;
+
+      width: 32px;
+      height: 32px;
+
+      background: url('../img/app-icons.png') no-repeat -42px 0;
+    }
+
+    &__change-day{
+      position: absolute;
+      top: 43%;
+      width: 30px;
+      height: 67px;
+
+      &_previous{
+        left: 5%;
+        background: url('../img/arrows.png') no-repeat 0 0 ;
+      }
+      &_next{
+        right: 5%;
+        background: url('../img/arrows.png') no-repeat -40px 0;
+      }
+    }
+    &-day-list{
+      display: block;
+      position: absolute;
+      top: 70%;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+      padding: 0;
+      &__item{
+        display: inline-block;
+
+        width: 7px;
+        height: 7px;
+        margin: 0 15px;
+        list-style: none ;
+        vertical-align: middle;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        &_active{
+          width: 12px;
+          height: 12px;
+
+          border: 3px solid #fff;
+        }
+      }
+    }
+  }
+  
+  
     .forecast{
-        width: auto ;
+        width: 33.333% ;
+        height: 100%;
         min-width: 320px;
         min-height: 568px;
         padding-bottom: 0 ;
         &-header{
             padding-top: 20px;
-
+            height:40%;
             background: none ;
             &__day-of-week{
               font-size: 2em;
-              max-width: 6.5em;
+              min-width: 6.5em;
+              width: 60%;
               max-height: 2.5em;
               overflow: hidden;
               margin: 0 auto;
@@ -610,7 +580,7 @@ body{
         &-weather{
             min-height: 50px;
             margin: 0 ;
-            margin-top: 140px ;
+            height: 25% ;
             &__description{
               font-size: 2em;
             }
@@ -622,7 +592,8 @@ body{
 
         }
 
-      &_sun{
+      &_sun{ //for iphone 5 I use the same image, but I decrease it's view to 100px * 100px from 200px*200px
+        // So we have the same sight on Retina, as on desktop
         & .forecast-weather__logo {
           background-position: -105px 0;
         }

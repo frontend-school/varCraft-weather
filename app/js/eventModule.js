@@ -1,23 +1,23 @@
 window.MYAPPLICATION.eventModule = (function () {
-    function resetEvent() {
+    function _resetEvent() {
         document.onmousemove = null;
         document.onkeydown = null;
     }
 
-    function onEvent() {
+    function _onEvent() {
         MYAPPLICATION.timerModule.restartTimer();
-        resetEvent();
+        _resetEvent();
     }
-    function addMouseEvent() {
-        document.addEventListener("mousemove", onEvent);
+    function _addMouseEvent() {
+        document.addEventListener("mousemove", _onEvent);
     }
-    function addKeyEvent() {
-        document.addEventListener("keydown", onEvent);
+    function _addKeyEvent() {
+        document.addEventListener("keydown", _onEvent);
     }
     return {
         startEventModule : function () {
-            addMouseEvent();
-            addKeyEvent();
+            _addMouseEvent();
+            _addKeyEvent();
         }
     };
 }());

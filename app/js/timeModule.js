@@ -2,7 +2,7 @@ window.MYAPPLICATION.timeModule = (function () {
     var timeAM = "AM",
         timePM = "PM";
 
-    function timeCount () {
+    function timeCount() {
         var currentTime = new Date(),
             diem = timeAM,
             hour = currentTime.getHours(),

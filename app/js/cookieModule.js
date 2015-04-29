@@ -29,7 +29,7 @@ window.MYAPPLICATION.cookieModule = (function () {
             return null;
         },
         eraseCookie: function (name) {
-            writeCookie(name, "", -1);
+            MYAPPLICATION.cookieModule.writeCookie(name, "", -1);
         }
     }
 }());

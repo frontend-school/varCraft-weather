@@ -280,7 +280,12 @@
     padding-left: 8px;
     padding-right: 8px;
     position: relative;
+
+    &_humidity{
+      display:none;
+    }
   }
+
 
   &__additional-direction {
     position: absolute;
@@ -370,6 +375,29 @@
         height: 63px;
       }
     }
+
+    &_humidity{
+      background: url("../img/humidity.png") no-repeat;
+      padding-top: 33px;
+
+      &_hm2{
+        background-position: 0 0;
+        width: 78px;
+        height: 78px;
+      }
+
+      &_hm1{
+        background-position: -199px 0;
+        width: 78px;
+        height: 78px;
+      }
+
+      &_hm0{
+        background-position: -98px 0;
+        width: 78px;
+        height: 78px;
+      }
+    }
   }
 
   &_additional-desc {
@@ -381,12 +409,6 @@
 
 @media screen and (max-width: 1280px)
 and (orientation: landscape)
-  /*
-  @media only screen
-  and (max-device-width: 1280px)
-  and (min-device-width: 768px)
-  */
-//
 {
   .main-page{
     max-height: 720px;
@@ -480,11 +502,22 @@ and (orientation: portrait) {
     position: relative;
     width: 320px;
   }
-  .weather__temperature{
-    position: absolute;
-    top:0;
-    right:0;
+  .weather{
+    height:100%;
+
+    &__additional{
+      &_humidity{
+        display:inline-block;
+      }
+    }
+    //&__temperature{
+    //  position: absolute;
+    //  top:0;
+    //  right:0;
+    //}
   }
+
+
 }
 
 

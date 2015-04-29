@@ -7,9 +7,8 @@
 @import "mobileControl";
 
 .main-page {
-  //min-width: 1280px;
   height:100vh;
-  min-height:720px;
+  min-height:620px;
   box-sizing: border-box;
   background-color: #262626;
   color: $label_color;
@@ -519,13 +518,14 @@ and (orientation: portrait) {
 
   .location{
     background: none;
-    padding-left: 0px;
-    padding-top: 15px;
     position: absolute;
-    left:50px;
+    left:0;
+    right: 0;
     top:0;
-    display:table-cell;
-    z-index: 100;
+    z-index: 200;
+    text-align: center;
+    padding-left: 0;
+    padding-top: 15px;
     &__text{
       display:inline-block;
     }

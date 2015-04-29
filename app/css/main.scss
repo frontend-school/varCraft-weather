@@ -290,7 +290,6 @@
     }
   }
 
-
   &__additional-direction {
     position: absolute;
     left: 33px;
@@ -411,11 +410,12 @@
   }
 }
 
-@media screen and (max-width: 1280px)
-and (orientation: landscape)
+@media screen
+and (max-width: 1280px)
+and (min-width: 568px)
 {
   .main-page{
-    max-height: 720px;
+    min-height: 684px;
     overflow: hidden;
   }
   .info{
@@ -440,7 +440,6 @@ and (orientation: landscape)
 
     &__day{
       display: none;
-
     }
   }
 
@@ -460,6 +459,9 @@ and (orientation: landscape)
     width: 100%;
     box-sizing: border-box;
   }
+  .forecast-item__day {
+    height: 13%;
+  }
 
   .dashboard {
     float: right;
@@ -467,26 +469,21 @@ and (orientation: landscape)
     display: inline-block;
   }
   .weather {
-    height: 85%;
+    height: 80%;
     &__temperature{
       padding: 30px 0;
     }
     &__pic{
-     height: 38%;
+     height: 35%;
     }
   }
 }
 
 @media only screen
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (min-resolution: 192dpi)
-and (orientation: portrait) {
+and (max-width: 568px) {
   .main-page{
     overflow: hidden;
-    max-width: 568px;
-    max-height: 568px;
-    min-width: 320px;
+    min-width: 312px;
     min-height: 568px;
   }
   .dashboard{
@@ -576,9 +573,9 @@ and (orientation: portrait) {
       &:after{
         content: '';
         display: inline-block;
-        width:7px;
-        height:7px;
-        border:1px solid #fff;
+        width:9px;
+        height:9px;
+        border:2px solid #fff;
         border-radius: 50%;
         vertical-align: top;
         margin-left: -35px;
@@ -587,80 +584,87 @@ and (orientation: portrait) {
     &__temperature-night{
       padding-left: 0;
     }
-    &__pic-status{
+  }
+
+  .mobile-control{
+    display:table-cell;
+  }
+}
+
+@media only screen
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (min-resolution: 192dpi) {
+  .weather{
+    &__pic-status {
       background-size: 324px 222px;
 
-      &_fog{
+      &_fog {
         background-position: 0 0;
         width: 71px;
         height: 54px;
       }
 
-      &_snow-fall{
+      &_snow-fall {
         background-position: -80px 0;
         width: 74px;
         height: 61px;
       }
 
-      &_partly-cloudy{
+      &_partly-cloudy {
         background-position: -163px 0;
         width: 85px;
         height: 56px;
       }
 
-      &_sunny{
-        background-position: 0px -150px ;
+      &_sunny {
+        background-position: 0px -150px;
         width: 71px;
         height: 71px;
       }
 
-      &_downpour{
-        background-position: 0 -75px ;
+      &_downpour {
+        background-position: 0 -75px;
         width: 74px;
         height: 50px;
       }
 
-      &_mostly-cloudy{
-        background-position: -80px -75px ;
+      &_mostly-cloudy {
+        background-position: -80px -75px;
         width: 74px;
         height: 45px;
       }
 
-      &_rain-and-sun{
-        background-position: -162px -75px ;
+      &_rain-and-sun {
+        background-position: -162px -75px;
         width: 85px;
         height: 71px;
       }
 
-      &_snow{
-        background-position: -80px -150px ;
+      &_snow {
+        background-position: -80px -150px;
         width: 72px;
         height: 72px;
       }
 
-      &_light-rain{
-        background-position: -162px -150px ;
+      &_light-rain {
+        background-position: -162px -150px;
         width: 74px;
         height: 60px;
       }
 
-      &_rain{
+      &_rain {
         background-position: -250px 0;
         width: 74px;
         height: 60px;
       }
 
-      &_sleet{
-        background-position: -250px -75px ;
+      &_sleet {
+        background-position: -250px -75px;
         width: 74px;
         height: 62px;
       }
     }
-  }
-
-  .mobile-control{
-    display:table-cell;
-
   }
 }
 

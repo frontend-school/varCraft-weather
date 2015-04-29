@@ -20,7 +20,7 @@ $misc-icon-font-size:48px;
 @mixin center-horizontal-and-vertical{
   @include center-vertical;
   left: 50%;
-  margin-right: -50%;
+  //margin-right: -50%;
   transform: translate(-50%,-50%);
 }
 
@@ -97,8 +97,8 @@ $misc-icon-font-size:48px;
 
 .weather{
   &__header{
-    margin: 0;
-    padding: 0;
+    //margin: 0;
+    //padding: 0;
     width: 100%;
     height: 17%;
     min-height: round(($main-font-size + $header-date-font-size)*1.7);

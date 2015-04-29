@@ -8,21 +8,6 @@ function runServer() {
 
     var app = express();
 
-    //var server,
-    //    isListening;
-    //
-    //server.close();
-
-    //var login,
-    //    password,
-    //    refreshedTime,
-    //    appFolder = 'dist/';
-
-    //var router = require('./router')(app);
-
-    //app.use(app.router);
-
-
     require('./router')(app,needReload);
 
     var port = process.env.PORT || 3000;

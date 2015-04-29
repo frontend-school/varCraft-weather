@@ -2,8 +2,7 @@ var gulp = require('gulp'),
     del = require('del'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
-    open = require('gulp-open'),
-    server = require('./server/server');
+    open = require('gulp-open');
 
 var source = "app/**",
     destination = "dist";
@@ -13,16 +12,10 @@ gulp.task('default', function(){
 });
 
 gulp.task('runServer', function (cb) {
-    //server.runServer();
     var exec = require('child_process').exec;
-
-    //gulp.task('task', function (cb) {
-        exec('node server/server.js', function (err){//, stdout, stderr) {
-            //console.log(stdout);
-            //console.log(stderr);
-            cb(err);
-        });
-    //})
+    exec('node server/server.js', function (err){
+        cb(err);
+    });
 });
 
 gulp.task('runIndex', function(){

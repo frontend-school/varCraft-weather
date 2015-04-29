@@ -101,7 +101,7 @@ gulp.task('build', function(){
 gulp.task('sass',function(){
     gulp.src(source)
         .pipe(sass({
-            outputStyle: 'compressed',
+            outputStyle: 'nested',
             sourceComments: 'map',
             includePaths: [source],
             errLogToConsole: true
@@ -116,15 +116,6 @@ gulp.task('watch', function(){
     gulp.watch('app/**', function (event) {
         gulp.start(['build']);
 
-        server.reload();
+        //server.reload();
     });
-});
-
-gulp.task('webserver', function() {
-    gulp.src('app')
-        .pipe(webserver({
-            livereload: true,
-            directoryListing: true,
-            open: true
-        }));
 });

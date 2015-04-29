@@ -1,4 +1,14 @@
-<div class="page">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../general.js" type="text/javascript"></script>
+    <link href="../general.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="main-content">
     <div class="col-1">
         <div class="info__header"></div>
         <div class="info">
@@ -39,14 +49,23 @@
                 </div>
             </div>
             <div class="weather__info_temperature">
-                <div class="weather__info_temperature_wrapper">
-                    <span class="weather__info_temperature_day">-22</span>
+                <!--<div class="weather__info_temperature_wrapper">-->
+                    <table class="weather__info_temperature_wrapper">
+                        <tr>
+                            <td rowspan="2" class="weather__info_temperature_day">-22</tdr>
+                            <td class="weather__info_temperature_caption">Night</td>
+                        </tr>
+                        <tr>
+                            <td class="weather__info_temperature_night">-22</td>
+                        </tr>
+                    </table>
+                    <!--<span class="weather__info_temperature_day">-22</span>-->
 
-                    <div class="weather__info_temperature_washer">
-                        <div class="weather__info_temperature_caption">Night</div>
-                    </div>
-                    <span class="weather__info_temperature_night">-17</span>
-                </div>
+                    <!--<div class="weather__info_temperature_washer">-->
+                        <!--<div class="weather__info_temperature_caption">Night</div>-->
+                    <!--</div>-->
+                    <!--<span class="weather__info_temperature_night">-17</span>-->
+                <!--</div>-->
             </div>
             <div class="weather__info_misc">
                 <div class="weather__info_misc_wrapper">
@@ -79,14 +98,15 @@
                 </div>
             </div>
             <div class="weather__info_temperature">
-                <div class="weather__info_temperature_wrapper">
-                    <span class="weather__info_temperature_day">-22</span>
-
-                    <div class="weather__info_temperature_washer">
-                        <div class="weather__info_temperature_caption">Night</div>
-                    </div>
-                    <span class="weather__info_temperature_night">-17</span>
-                </div>
+                <table class="weather__info_temperature_wrapper">
+                    <tr>
+                        <td rowspan="2" class="weather__info_temperature_day">-22</tdr>
+                        <td class="weather__info_temperature_caption">Night</td>
+                    </tr>
+                    <tr>
+                        <td class="weather__info_temperature_night">-22</td>
+                    </tr>
+                </table>
             </div>
             <div class="weather__info_misc">
                 <div class="weather__info_misc_wrapper">
@@ -119,14 +139,15 @@
                 </div>
             </div>
             <div class="weather__info_temperature">
-                <div class="weather__info_temperature_wrapper">
-                    <span class="weather__info_temperature_day">-22</span>
-
-                    <div class="weather__info_temperature_washer">
-                        <div class="weather__info_temperature_caption">Night</div>
-                    </div>
-                    <span class="weather__info_temperature_night">-17</span>
-                </div>
+                <table class="weather__info_temperature_wrapper">
+                    <tr>
+                        <td rowspan="2" class="weather__info_temperature_day">-22</tdr>
+                        <td class="weather__info_temperature_caption">Night</td>
+                    </tr>
+                    <tr>
+                        <td class="weather__info_temperature_night">-22</td>
+                    </tr>
+                </table>
             </div>
             <div class="weather__info_misc">
                 <div class="weather__info_misc_wrapper">
@@ -143,4 +164,6 @@
         </div>
     </div>
 </div>
-<script>weatherScreen();</script>
+<!--<script>weatherScreen();</script>-->
+</body>
+</html>

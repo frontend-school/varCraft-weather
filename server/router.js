@@ -64,6 +64,7 @@ module.exports = function(app, needReload){
         }
         res.send(result);
         needReload = false;
+        refreshedTime = new Date().getTime();
     });
 
     app.get('/logout', function (req, res) {

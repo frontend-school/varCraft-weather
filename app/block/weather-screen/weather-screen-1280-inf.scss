@@ -26,7 +26,10 @@ $misc-icon-font-size:48px;
 
 @mixin show-wind($direction){
   background-image: url('../icons/wind-icon/wind_direction.png');
-  background-size: 48px 67px;
+  //background-size: 48px 67px;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-size: cover;
   width: 48px;
   height: 67px;
   position: relative;
@@ -39,6 +42,9 @@ $misc-icon-font-size:48px;
 
 @mixin show-moon($phase){
   background-image: url('../icons/moon-state/mn' + $phase + '.png');
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-size: contain;
 }
 
 @mixin clearfix($element){
@@ -62,6 +68,7 @@ $misc-icon-font-size:48px;
 
 .col-1{
   width: 37%;
+  //min-width: 425px;
   padding-left: 5%;
 }
 
@@ -85,6 +92,7 @@ $misc-icon-font-size:48px;
   background-color: #262626;
   margin: 0;
   padding: 0;
+  @include clearfix(main-content);
 }
 
 .weather{
@@ -247,6 +255,7 @@ $misc-icon-font-size:48px;
   &__location {
     height: 33.333%;
     min-height: 160px;
+    position: relative;
     &_wrapper{
       @include center-vertical;
       margin-left: 38px;

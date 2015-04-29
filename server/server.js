@@ -1,5 +1,5 @@
 var needReload = false;
-//runServer();
+runServer();
 function runServer() {
     var express = require('express'),
         bodyParser = require('body-parser'),

@@ -1,7 +1,12 @@
 .header-main{
-  //display: none;
   &__info_userinfo{
-    //display: none;
     visibility: hidden;
   }
+  &__info_logout{
+    width: 75px;
+    height: 75px;
+    font-size: 50px;
+    right: -250px;
+  }
+
 }

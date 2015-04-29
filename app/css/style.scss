@@ -3,16 +3,14 @@
 @import 'login-form.scss';
 @import 'var.scss';
 
-@font-face
-{
+@font-face{
     font-family: Lintel-Regular;
 
     src: local('Lintel-Regular'),
     url(fonts/Lintel-Regular.eot);
 }
 
-@font-face
-{
+@font-face{
     font-family: Lintel-Regular;
 
     src: local('Lintel-Regular'),
@@ -20,24 +18,21 @@
 }
 
 
-*
-{
+*{
     -webkit-box-sizing: border-box ;
        -moz-box-sizing: border-box ;
             box-sizing: border-box ;
 }
 
 
-html
-{
+html{
     width: 100%;
     height: 100%;
 
     background-color: $grey;
 }
 
-body
-{
+body{
     font-family: $main-font;
     font-size: 100%;
 
@@ -45,107 +40,88 @@ body
     height: 100%;
 }
 
-.hide
-{
+.hide{
     display: none;
 }
 
 
-.mobile-window
-{
+.mobile-window{
     display: none;
     position: absolute;
     z-index: 20;
 
     width: 320px;
     height: 568px ;
-    &__settings
-    {
+    &__settings{
         position: absolute;
-        top: 2%;
-        left: 2%;
+        top: 24px;
+        left: 21px;
 
-        width: 55px;
-        height: 55px;
+        width: 32px;
+        height: 32px;
 
-        background: url('../img/app-icons.png') no-repeat;
-        background-color: green ;
-        background-position: -155px 0;
+      background: url('../img/settings_button.png') no-repeat 0 0;
     }
-    &__log-out
-    {
+  &__log-out{
         position: absolute;
-        top: 2%;
-        right: 2%;
+        top: 24px;
+        right: 21px;
 
-        width: 55px;
-        height: 55px;
+        width: 32px;
+        height: 32px;
+        background: url("../img/logout.png") no-repeat 0 0;
 
-        background-color: blue ;
         //background: url('../img/app-icons.png') no-repeat;
-        background-position: -155px 0;
     }
-    &__change-day
-    {
+    &__change-day{
         position: absolute;
-        top: 50%;
-
-        width: 60px;
-        height: 110px;
-        margin-top: -55px ;
-        &_previous
-        {
+        top: 43%;
+        width: 30px;
+        height: 67px;
+ //       margin-top: -55px ;
+        &_previous{
             left: 5%;
+            background: url('../img/arrows.png') no-repeat 0 0 ;
+            //background: url('../img/app-icons.png') no-repeat 0 0 ;
 
-            background-image: url('../img/app-icons.png') ;
-            background-position: 0 0 ;
         }
-        &_next
-        {
+        &_next{
             right: 5%;
-
-            background-image: url('../img/app-icons.png') ;
-            background-position: -90px 0;
+            background: url('../img/arrows.png') no-repeat -40px 0;
+          //background: url('../img/app-icons.png') -90px 0;
         }
     }
-    &-day-list
-    {
-        position: absolute;
-        //min-width: 50%;
-        top: 65%;
-        left: 28%;
-
-        width: 45%;
-        height: 30px;
+    &-day-list{
+      position: absolute;
+      top: 67%;
+      margin: 0 auto;
+        text-align: center;
+        width: 100%;
         padding: 0;
-        &__item
-        {
+        &__item{
             display: inline-block;
 
-            width: 10px;
-            height: 10px;
+            width: 7px;
+            height: 7px;
             margin: 0 15px;
 
             list-style: none ;
 
             vertical-align: middle;
 
-            border: 6px solid #fff;
-            -webkit-border-radius: 50%;
-                    border-radius: 50%;
-            &_active
-            {
-                width: 15px;
-                height: 15px;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            &_active{
+                width: 12px;
+                height: 12px;
 
-                border: px solid #fff;
+                border: 3px solid #fff;
             }
         }
     }
 }
 
-.main-page
-{
+.main-page{
     width: 100%;
     //min-width: 1280/16 + em;
     max-width: 1920/16 + em;
@@ -154,8 +130,7 @@ body
     margin: 0 auto;
 }
 
-.user-info
-{
+.user-info{
     float: left;
 
     width: 37%;
@@ -164,8 +139,7 @@ body
     padding-left: 6em;
 
     background-color: $grey;
-    &-name
-    {
+    &-name{
         font-size: 24/16 + em;
 
         color: #fff ;
@@ -217,10 +191,14 @@ body
             height: 40px;
             margin-right: 5/16 + em;
 
-            background: url('../img/app-icons.png') no-repeat -55px -10px;
+            background: url('../img/app-icons.png') no-repeat -84px 0;
         }
         &__city
         {
+            &_mobile{
+              display: none;
+            }
+
             font-size: 20/16 + em;
 
             margin-left: 40px;
@@ -238,8 +216,7 @@ body
     }
 }
 
-.forecast
-{
+.forecast{
     position: relative;
 
     float: left;
@@ -248,48 +225,98 @@ body
     height: 100%;
     //min-height: 700/16 + em ;
     padding-bottom: 2em ;
-    &_partly-cloudy
-    {
-        background-color: #1d9e48;
-        & .forecast-weather__logo
-        {
-            background-position: -210px -435px;
+
+
+    &_sun{
+      background-color: #F2385A;
+      & .forecast-weather__logo {
+        background-position: -210px 0;
+      }
+    }
+  
+    &_downpour{
+      background-color: #675680;
+      & .forecast-weather__logo {
+        background-position: -420px 0;
+      }
+    }
+
+    &_mostly-cloudy{
+      background-color: #1D9E48;
+      & .forecast-weather__logo {
+        background-position: -630px 0;
+      }
+    }
+    &_partly-cloudy{
+        background-color: #F1854B;
+        & .forecast-weather__logo{
+          background-position: -840px 0;
         }
     }
-    &_snow-fall
-    {
-        background-color: #1a6698;
-        & .forecast-weather__logo
-        {
-            background-position: 0 -620px ;
+  
+    &_rain-and-sun{
+      background-color: #E9B841;
+      & .forecast-weather__logo{
+        background-position: -1050px 0;
+      }
+    }
+  
+    &_light-rain{
+      background-color: #BDA881;
+      & .forecast-weather__logo{
+        background-position: -1260px 0;
+      }
+    }
+
+    &_rain{
+      background-color: #999999;
+      & .forecast-weather__logo{
+        background-position: -1470px 0;
+      }
+    }
+  
+    &_snow{
+      background-color: #375D81;
+      & .forecast-weather__logo{
+        background-position: -1680px 0;
+      }
+    }
+    &_snow-fall{
+        background-color: #82A8C4;
+        & .forecast-weather__logo{
+            background-position: -1890px 0 ;
         }
     }
-    &_fog
-    {
+  
+    &_sleet{
+      background-color: #82A8C4;
+      & .forecast-weather__logo{
+        background-position: -2100px 0;
+      }
+    }
+    &_fog{
         background-color: #75608b;
-        & .forecast-weather__logo
-        {
-            background-position: -425px 0;
+        & .forecast-weather__logo{
+            background-position: -2310px 0;
         }
     }
-    &-header
-    {
+
+
+    &-header{
         width: 100%;
         height: 15% ;
         //min-height: 90/16 + em;
         padding-top: 25px;
 
         background-color: $grey;
-        &__day-of-week
-        {
+        &__day-of-week{
             font-size: 20/16 + em;
 
             text-align: center;
 
             color: #fff;
         }
-        &__date
-        {
+        &__date{
             font-size: 14/16 + em;
 
             text-align: center;
@@ -297,19 +324,17 @@ body
             color: #fff;
         }
     }
-    &-weather
-    {
+    &-weather{
         width: 100%;
         height: 25%;
         min-height: 250px ;
         margin-top: 45px;
-        &__logo
-        {
+        &__logo{
             width: 200px;
             height: 200px;
             margin: 0 auto;
 
-            background: url('../img/weather-conditions.png') no-repeat ;
+            background: url('../img/weather-conditions_horiz.png') no-repeat 0 0;
         }
         &__description
         {
@@ -354,28 +379,82 @@ body
             }
         }
     }
-    &-extra-info
-    {
+    &-extra-info{
         float: left;
 
         width: 50%;
         height: 10%;
         //min-height: 100px;
         margin-top: 30/16 + em;
-        &_humidity
-        {
-            display: none;
+        &_humidity-1{
+          display: none;
+          & .forecast-extra-info__logo {
+            background: url("../img/humid.png") no-repeat 0 0;
+          }
         }
-        &__title
-        {
+
+        &_wind-n{
+          & .forecast-extra-info__logo {
+            line-height: 48px;
+            background: url('../img/wind-dir-48.png') no-repeat 0 0;
+          }
+        }
+        &_wind-ne{
+          & .forecast-extra-info__logo {
+            line-height: 48px;
+            background: url('../img/wind-dir-48.png') no-repeat -58px 0;
+          }
+        }
+        &_wind-e{
+          & .forecast-extra-info__logo {
+            line-height: 48px;
+            background: url('../img/wind-dir-48.png') no-repeat -116px 0;
+          }
+        }
+        &_wind-se{
+          & .forecast-extra-info__logo {
+            line-height: 48px;
+            background: url('../img/wind-dir-48.png') no-repeat -174px 0;
+          }
+        }
+        &_wind-s{
+          & .forecast-extra-info__logo {
+            line-height: 48px;
+            background: url('../img/wind-dir-48.png') no-repeat -232px 0;
+          }
+        }
+        &_wind-sw{
+          & .forecast-extra-info__logo {
+            line-height: 48px;
+            background: url('../img/wind-dir-48.png') no-repeat -290px 0;
+          }
+        }
+        &_wind-w{
+          & .forecast-extra-info__logo {
+            line-height: 48px;
+            background: url('../img/wind-dir-48.png') no-repeat -348px 0;
+          }
+        }
+        &_wind-nw {
+          & .forecast-extra-info__logo {
+          line-height: 48px;
+          background: url('../img/wind-dir-48.png') no-repeat -406px 0;
+          }
+        }
+        &_moon-1{
+          & .forecast-extra-info__logo {
+            background: url('../img/moon-conditions.png') no-repeat  -180px -5px;
+          }
+        }
+
+        &__title{
             font-size: 1em;
 
             text-align: center;
 
             color: #fff ;
         }
-        &__logo
-        {
+        &__logo{
             font-size: .8em;
 
             width: 48px;
@@ -388,58 +467,9 @@ body
             vertical-align: middle;
 
             color: #fff;
-            &_wind-n
-            {
-                line-height: 48px;
 
-                background: url('../img/wind-dir-48.png') no-repeat 0 0;
-            }
-            &_wind-ne
-            {
-                line-height: 48px;
 
-                background: url('../img/wind-dir-48.png') no-repeat -58px 0;
-            }
-            &_wind-e
-            {
-                line-height: 48px;
 
-                background: url('../img/wind-dir-48.png') no-repeat -116px 0;
-            }
-            &_wind-se
-            {
-                line-height: 48px;
-
-                background: url('../img/wind-dir-48.png') no-repeat -174px 0;
-            }
-            &_wind-s
-            {
-                line-height: 48px;
-
-                background: url('../img/wind-dir-48.png') no-repeat -232px 0;
-            }
-            &_wind-sw
-            {
-                line-height: 48px;
-
-                background: url('../img/wind-dir-48.png') no-repeat -290px 0;
-            }
-            &_wind-w
-            {
-                line-height: 48px;
-
-                background: url('../img/wind-dir-48.png') no-repeat -348px 0;
-            }
-            &_wind-nw
-            {
-                line-height: 48px;
-
-                background: url('../img/wind-dir-48.png') no-repeat -406px 0;
-            }
-            &_moon-1
-            {
-                background: url('../img/moon-conditions.png') no-repeat  -180px -5px;
-            }
         }
     }
 }
@@ -447,21 +477,19 @@ body
 //Tablet version 1280 * 720
 @media only screen and (max-width: 1280px)
 {
-    .main-page
-    {
+    .main-page{
         width: 100% ;
         min-height: 720px;
     }
 
-    .user-info
-    {
+    .user-info{
         width: 100%;
         height: 10%;
         min-height: 70px ;
         padding-right: 1em ;
         padding-left: 1em ;
-        &__time
-        {
+
+        &__time{
             font-size: 40/16 + em ;
             line-height: .8em ;
 
@@ -469,18 +497,25 @@ body
 
             margin-top: 0 ;
         }
-        &__day-part
-        {
+        &__day-part{
             top: -30%;
         }
-        &-name
-        {
-            float: left;
-
-            width: 200px;
+      
+        &-location{
+          margin-right: 40px;
         }
-        &__date
-        {
+        &-name{
+            float: right;
+            padding-right: 40px;
+
+            min-width: 150px;
+
+          .login-form__submit_log-out{
+            margin-right: 0;
+          }
+          
+        }
+        &__date{
             display: none;
         }
         &-location
@@ -522,84 +557,166 @@ body
 }
 
 @media only screen
-  and (min-device-width: 320px)
+  //and (min-device-width: 320px)
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait)
 {
-    .main-page
-    {
-        margin-left: -320px ;
+    .main-page{
+        //margin-left: -320px ;
         //overflow: hidden;
 
         min-width: 960px;
         //min-height: 100% ;
-        min-height: 100%;
+        min-height: 568px;
+        height:568px;
     }
 
-    .user-info
-    {
+    .user-info{
         display: none;
+        &-location{
+          &__city{
+            &_mobile{
+              display: inline;
+            }
+          }
+        }
     }
 
-    .mobile-window
-    {
+    .mobile-window{
         display: block; //to show extra elements for mobile version
     }
-    .forecast
-    {
+    .forecast{
         width: auto ;
         min-width: 320px;
         min-height: 568px;
         padding-bottom: 0 ;
-        &-header
-        {
+        &-header{
+            padding-top: 20px;
+
             background: none ;
-        }
-        &-weather
-        {
-            margin: 0 ;
-            margin-top: 70px ;
-        }
-        &-temperature
-        {
-            position: absolute;
-            top: 15%;
+            &__day-of-week{
+              font-size: 2em;
+              max-width: 6.5em;
+              max-height: 2.5em;
+              overflow: hidden;
+              margin: 0 auto;
 
-            min-height: 5%;
-            margin: 0 ;
-            &__at-day
-            {
-                position: relative;
-                &:after
-                {
-                    position: absolute;
-                    bottom: 70%;
-                    left: 100%;
-
-                    display: block;
-
-                    width: 10px;
-                    height: 10px;
-
-                    content: ''  ;
-
-                    border: 2px solid #fff;
-                    -webkit-border-radius: 50%;
-                            border-radius: 50%;
-                }
+            }
+            &__date{
+              display: none;
             }
         }
-        &-extra-info
-        {
+        &-weather{
+            min-height: 50px;
+            margin: 0 ;
+            margin-top: 140px ;
+            &__description{
+              font-size: 2em;
+            }
+            &__logo{
+              width: 100px;
+              height: 100px;
+              background-size: 1465px 100px;
+            }
+
+        }
+
+      &_sun{
+        & .forecast-weather__logo {
+          background-position: -105px 0;
+        }
+      }
+
+      &_downpour{
+        & .forecast-weather__logo {
+          background-position: -210px 0;
+        }
+      }
+
+      &_mostly-cloudy{
+        & .forecast-weather__logo {
+          background-position: -315px 0;
+        }
+      }
+      &_partly-cloudy{
+        & .forecast-weather__logo{
+          background-position: -420px 0;
+        }
+      }
+
+      &_rain-and-sun{
+        & .forecast-weather__logo{
+          background-position: -525px 0;
+        }
+      }
+
+      &_light-rain{
+        & .forecast-weather__logo{
+          background-position: -630px 0;
+        }
+      }
+
+      &_rain{
+        & .forecast-weather__logo{
+          background-position: -735px 0;
+        }
+      }
+
+      &_snow{
+        & .forecast-weather__logo{
+          background-position: -840px 0;
+        }
+      }
+      &_snow-fall{
+        & .forecast-weather__logo{
+          background-position: -945px 0 ;
+        }
+      }
+
+      &_sleet{
+        & .forecast-weather__logo{
+          background-position: -1050px 0;
+        }
+      }
+      &_fog{
+        & .forecast-weather__logo{
+          background-position: -1155px 0;
+        }
+      }
+
+
+      &-temperature{
+        position: absolute;
+        top: 70px;
+        min-height: 5%;
+        margin: 0 ;
+        &__at-day{
+          position: relative;
+          font-size: 9em;
+          &:after{
+            position: absolute;
+            bottom: 70%;
+            left: 110%;
+
+            display: block;
+
+            width: 10px;
+            height: 10px;
+
+            content: ''  ;
+
+            border: 2px solid #fff;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+          }
+        }
+      }
+        &-extra-info{
+          margin-top: 90px;
             width: 33.333%;
-            &_humidity
-            {
+            &_humidity-1{
                 display: block;
-                & .forecast-extra-info__logo
-                {
-                    background-color: blue;
-                }
             }
         }
     }

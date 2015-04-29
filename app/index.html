@@ -7,12 +7,19 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<div class="user">
-    Hello, <span id="username" class="user__name"></span>
-    <button id="log-out" class="user__logout">Log out</button>
-</div>
+
 
 <div class="w">
+
+    <div class="w-user">
+        <span class="w-user__greeting">Hello, </span><span id="username" class="w-user__name"></span>
+        <div id="log-out" class="w-user__logout"></div>
+
+    </div>
+
+    <div class="w__setting"></div>
+    <div class="w__arrow-left"></div>
+    <div class="w__arrow-right"></div>
     <div class="w-info">
         <div class="w-info__time">9:20</div>
         <div class="w-info__midday">AM</div>
@@ -24,21 +31,28 @@
 
     </div>
 
-    <div class="w-forecast">
-        <div class="column column_yesterday">
+    <div class="w-forecast w-forecast_show-today">
+        <div class="column column_yesterday column_mostly-cloudy">
             <div class="column-header">
                 <div class="column-header__name">Yesterday</div>
                 <div class="column-header__date">13 / 04 / 2015</div>
             </div>
-            <div class="column-data column-data_mostly-cloudy">
+            <div class="column-data">
                 <div class="column-data__condition-icon column-data__condition-icon_partly-cloudy"></div>
                 <div class="column-data__condition-title">Partly cloudy</div>
                 <div class="column-data__daily-temp">-22</div>
                 <div class="column-data__night-temp">-17</div>
+                <div class="column-data__active">
+                    <img src="./img/indicator_active.png" alt=""/>
+                    <img src="./img/indicator_passive.png" alt=""/>
+                    <img src="./img/indicator_passive.png" alt=""/>
+                </div>
                 <div class="column-data-other">
+                    <div class="column-data-other__humidity column-data-other__humidity_empty">92%</div>
                     <div class="column-data-other-wind">
                         <div class="column-data-other-wind__value">4 mph</div>
-                        <div class="column-data-other-wind__direction">NW</div>
+                        <div class="column-data-other-wind__direction column-data-other-wind__direction_NW"></div>
+                        <div class="column-data-other-wind__label">NW</div>
                     </div>
                     <div class="column-data-other-moon">
                         <div class="column-data-other-moon__label">Moon</div>
@@ -47,20 +61,27 @@
                 </div>
             </div>
         </div>
-        <div class="column column_today">
+        <div class="column column_today column_snow-fall">
             <div class="column-header">
                 <div class="column-header__name">Today</div>
                 <div class="column-header__date">14 / 04 / 2015</div>
             </div>
-            <div class="column-data column-data_snow-fall">
+            <div class="column-data ">
                 <div class="column-data__condition-icon column-data__condition-icon_snow-fall"></div>
                 <div class="column-data__condition-title">Snow fall</div>
                 <div class="column-data__daily-temp">-22</div>
                 <div class="column-data__night-temp">-17</div>
+                <div class="column-data__active">
+                    <img src="./img/indicator_passive.png" alt=""/>
+                    <img src="./img/indicator_active.png" alt=""/>
+                    <img src="./img/indicator_passive.png" alt=""/>
+                </div>
                 <div class="column-data-other">
+                    <div class="column-data-other__humidity column-data-other__humidity_full">80%</div>
                     <div class="column-data-other-wind">
                         <div class="column-data-other-wind__value">4 mph</div>
-                        <div class="column-data-other-wind__direction">NW</div>
+                        <div class="column-data-other-wind__direction column-data-other-wind__direction_S"></div>
+                        <div class="column-data-other-wind__label">S</div>
                     </div>
                     <div class="column-data-other-moon">
                         <div class="column-data-other-moon__label">Moon</div>
@@ -69,20 +90,27 @@
                 </div>
             </div>
         </div>
-        <div class="column column_tomorrow">
+        <div class="column column_tomorrow column_fog">
             <div class="column-header">
                 <div class="column-header__name">Tomorrow</div>
                 <div class="column-header__date">15 / 04 / 2015</div>
             </div>
-            <div class="column-data column-data_fog">
+            <div class="column-data ">
                 <div class="column-data__condition-icon column-data__condition-icon_fog"></div>
                 <div class="column-data__condition-title">Fog</div>
                 <div class="column-data__daily-temp">-22</div>
                 <div class="column-data__night-temp">-17</div>
+                <div class="column-data__active">
+                    <img src="./img/indicator_passive.png" alt=""/>
+                    <img src="./img/indicator_passive.png" alt=""/>
+                    <img src="./img/indicator_active.png" alt=""/>
+                </div>
                 <div class="column-data-other">
+                    <div class="column-data-other__humidity column-data-other__humidity_empty">92%</div>
                     <div class="column-data-other-wind">
                         <div class="column-data-other-wind__value">4 mph</div>
-                        <div class="column-data-other-wind__direction">NW</div>
+                        <div class="column-data-other-wind__direction column-data-other-wind__direction_E"></div>
+                        <div class="column-data-other-wind__label">E</div>
                     </div>
                     <div class="column-data-other-moon">
                         <div class="column-data-other-moon__label">Moon</div>

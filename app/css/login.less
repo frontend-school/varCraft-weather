@@ -1,11 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:200,400);
 
-@form-width: 300px;
-@form-height: 240px;
-@input-width: 300px;
-@input-height: 40px;
-@login-font-size: 15pt;
-
 @font-face {
   font-family: Lintel;
   src: url(../fonts/Lintel-Regular.otf);
@@ -13,31 +7,31 @@
 
 .font {
   font-family: 'Titillium Web', sans-serif;
-  font-size: @login-font-size;
+  font-size: 15pt;
 }
 
-.user {
-  font-family: Lintel;
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 5px;
-  z-index: 3;
-  height: 20px;
-  margin: 0;
-  padding: 10px;
-  border-bottom: 1px solid white;
-  border-right: 1px solid white;
-  border-radius: 10px;
+.w {
+  &-user {
 
-  &__logout {
     font-family: Lintel;
-    border: none;
-    outline: none;
+    color: white;
+    position: fixed;
 
-    margin-left: 5px;
-    font-size: 10pt;
-    background-color: #6CB0BD;
+    z-index: 3;
+    margin: 0;
+    padding: 10px;
+    font-size: 15pt;
+
+    &__logout {
+      border: none;
+      outline: none;
+
+      margin-left: 5px;
+      background: url("../img/logout.png") no-repeat;
+      background-size: contain;
+      width: 25px;
+      height: 25px;
+    }
   }
 }
 
@@ -57,14 +51,17 @@
 
   &-form {
 
-    width: @form-width;
-    height: @form-height;
+    width: 300px;
+    height: 240px;
 
     .font;
     font-weight: 300;
 
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     margin: auto;
 
     &__label {
@@ -75,8 +72,8 @@
       .font;
       font-weight: 400;
 
-      width: @input-width;
-      height: @input-height;
+      width: 300px;
+      height: 40px;
 
       margin-bottom: 20px;
       margin-top: 5px;
@@ -87,7 +84,7 @@
       font-weight: 400;
       background-color: #6CB0BD;
 
-      height: @input-height;
+      height: 40px;
       width: 70px;
 
       float: right;
@@ -96,3 +93,4 @@
     }
   }
 }
+

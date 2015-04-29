@@ -1,17 +1,824 @@
 
+@media only screen and (max-width: 320px),
+only screen and (max-device-width: 320px) {
+
+    .popup{
+        padding: 5px;
+    }
+
+    .button-log-in-out{
+        border: none;
+        padding: 8px 10px;
+        background-color: #6cb0bd;
+
+        color: #000;
+        line-height: 24px;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+
+        &_log-in{
+            float: right;
+        }
+        &_log-out{
+            float: right;
+
+            background: url('../img/exit.png') 50% 50% no-repeat;
+            line-height: 1px;
+            font-size: 0px;
+        }
+    }
+
+    .sidebar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        overflow: hidden;
+
+        width: 100%;
+        padding: 25px 20px 5px 20px;
+        background: rgba(255, 255, 255, 0);
+
+        z-index: 1;
+
+        &-settings{
+            display: block;
+
+            &_mobile-button {
+                height: 35px;
+                width: 35px;
+                border: none;
+                outline: 0px;
+            }
+
+            &__option-btn{
+                float: left;
+                background: url('../img/settings.png') center center no-repeat;
+                background-size: 80% auto;
+            }
+
+            &__hallo-message{
+                display: none;
+            }
+        }
+
+        &__clock{
+            display: none;
+        }
+
+        &__clock-format{
+            display: none;
+        }
+
+        &__date{
+            display: none;
+        }
+
+        &-location{
+            display: none;
+        }
+    } /* .sidebar */
+
+    .navigation{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+
+        display: block;
+        height: 90px;
+        padding: 5px 20px 0;
+
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 1;
+
+        &__btn{
+            height: 90px;
+            width: 35px;
+            padding: 0;
+            border: none;
+            outline: 0px;
+
+            background: url('../img/spritesheet_arrows.png') no-repeat;
+            background-size: auto 90px;
+
+            &_left{
+                float: left;
+                background-position: 0 0;
+            }
+            &_right{
+                float: right;
+                background-position: -45px 0;
+            }
+        }
+    } /* .navigation */
+
+    .day{
+        display: flex;
+        flex-direction: column;
+
+        position: relative; /* to be covered by sidebar */
+        width: 100%;
+
+        &_yesterday{
+            display: none;
+        }
+        &_tomorrow{
+            display: none;
+        }
+
+        &-title{
+            order: 1;
+
+            &__mob-header{
+                display: block;
+
+                margin: 25px 50px 5px;
+                padding: 0;
+
+                text-align: center;
+                font-size: 35px;
+                line-height: 35px;
+                font-weight: 200;
+                letter-spacing: -0.02em;
+            }
+
+            &__order-day{
+                display: none;
+            }
+            &__date-day{
+                display: none;
+            }
+        }
+    } /* .day */
+
+    .status-weather{
+        order: 3;
+
+        margin: 20px 0 0;
+        padding: 110px 0 25px;
+
+        font-size: 40px;
+        line-height: 40px;
+
+        &_icon-snowfall,
+        &_icon-mostly-cloudly,
+        &_icon-partly-cloudly,
+        &_icon-fog{
+            background-size: 32% auto;
+        }
+    } /* .status-weather */
+
+    .temperature{
+        order: 2;
+
+        &__day-value{
+            position: relative;
+            padding: 0 10px 0 0;
+
+            font-size: 165px;
+            line-height: 130px;
+            letter-spacing: -0.07em;
+            font-weight: 200;
+
+            &_deg-icon{
+                position: absolute;
+                top: 0;
+                left: 100%;
+                display: inline-block;
+                height: 23px;
+                width: 23px;
+                margin: 15px 0 0 5px;
+                padding: 0;
+
+                background: url('../img/degree_icon.png') 0 0 no-repeat;
+                background-size: 80% auto;
+            }
+        }
+
+        &-night{
+            padding: 0;
+
+            &__title{
+                font-size: 20px;
+                line-height: 20px;
+            }
+
+            &__value{
+                padding: 0 0 3px;
+                font-size: 35px;
+                line-height: 45px;
+                letter-spacing: -0.07em;
+                font-weight: 200;
+            }
+        }
+    } /* .temperature */
+
+    .indicator{
+        order: 4;
+
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        line-height: 1px;
+
+        &__item{
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            height: 10px;
+            width: 10px;
+
+            background: url('../img/spritesheet_indicator.png') 0 0 no-repeat;
+            background-size: auto 100%;
+
+            &_active{
+                background-position: 0px 0px;
+            }
+            &_passive{
+                background-position: -10px 0px;
+            }
+        }
+    } /* .indicator */
+
+    .params{
+        order: 5;
+        padding: 20px 0 0;
+
+        &-humidity{
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 200;
+
+            overflow: hidden;
+
+            text-align: center;
+            vertical-align: top;
+
+            &__value{
+                display: block;
+                margin: 0 0 13px;
+                padding: 0;
+            }
+
+            &__scheme{
+                display: block;
+                height: 65px;
+                width: 65px;
+                background: url('../img/humidity.png') 0 50% no-repeat;
+
+                &_low{
+                    background-position: 0px 0px;
+                    background-size: auto 100%;
+                }
+                &_medium{
+                    background-position: -65px 0px;
+                    background-size: auto 100%;
+                }
+                &_high{
+                    background-position: -130px 0;
+                    background-size: auto 100%;
+                }
+            }
+        } /* &-humidity */
+
+        &-wind{
+            margin: 0 30px 0 40px;
+
+            &__speed{
+                margin: 0 0 10px;
+            }
+
+            &__scheme{
+                height: 70px;
+                width: 70px;
+                background: url('../img/wind_direction.png') 50% 0 no-repeat;
+                background-size: auto 100%;
+            }
+
+            &__direction{
+                height: 70px;
+                width: 70px;
+                line-height: 70px;
+                margin: -70px auto 0;
+            }
+        } /* -wind */
+
+    &-moon{
+
+        &__title{
+            margin: 0 0 21px;
+        }
+
+        &__scheme{
+            height: 48px;
+            margin: 12px;
+            width: 48px;
+            background: url('../img/spritesheet_moon48.png') 0 50% no-repeat;
+
+            &_new-moon{
+                background-position: 0px 0px;
+                background-size: auto 100%;
+            }
+            &_waxing-crescent{
+                background-position: -50px 0px;
+                background-size: auto 100%;
+            }
+            &_first-quater{
+                background-position: -100px 0;
+                background-size: auto 100%;
+            }
+            &_waxing-gibbous{
+                background-position: -150px 0;
+                background-size: auto 100%;
+            }
+            &_full-moon{
+                background-position: -200px 0;
+                background-size: auto 100%;
+            }&_waning-gibbous{
+                background-position: -250px 0;
+                background-size: auto 100%;
+            }&_last-quater{
+                background-position: -300px 0;
+                background-size: auto 100%;
+            }&_waning-crescent{
+                background-position: -350px 0;
+                background-size: auto 100%;
+            }
+        }
+        } /* -moon */
+    } /* .params */
+}
+
+@media only screen and (min-width: 321px) and (max-width: 1280px),
+only screen and (min-device-width: 321px) and (max-device-width: 1280px) {
+    .popup{
+        padding: 30px 40px;
+    }
+
+    .button-log-in-out{
+        border: none;
+        padding: 8px 10px;
+        background-color: #6cb0bd;
+
+        color: #000;
+        line-height: 24px;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+
+        &_log-out{
+            float: right;
+
+            background: url('../img/exit.png') 50% 50% no-repeat;
+            line-height: 1px;
+            font-size: 0px;
+        }
+    }
+
+    .sidebar{
+        position: absolute;
+        width: 100%;
+
+        padding: 5px 5px 0;
+
+        z-index: 1;
+
+        &-settings{
+            float: right;
+            margin: 0;
+            padding: 5px;
+
+            &_mobile-button {
+                height: 35px;
+                width: 35px;
+                border: none;
+                outline: 0px;
+            }
+
+            &__option-btn{
+                display: none;
+            }
+
+            &__hallo-message{
+                float: right;
+                padding: 0 15px 5px 15px;
+
+                font-size: 30px;
+                line-height: 30px;
+                font-weight: 200;
+            }
+        }
+
+        &__clock{
+            display: block;
+            float: left;
+            margin: 0 0 0 10px;
+            padding: 0;
+            font-size: 50px;
+            line-height: 50px;
+            font-weight: 300;
+        }
+
+        &__clock-format{
+            display: inline-block;
+            margin-left: -10px;
+            padding: 10px 0 0 0;
+
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 200;
+
+            vertical-align: top;
+        }
+
+        &__date{
+            display: none;
+        }
+
+        &-location{
+            float: right;
+
+            margin: 0;
+            padding: 0 10px 0 46px;
+        }
+    } /* .sidebar */
+
+    .navigation{
+        display: none;
+    }
+
+    .day{
+        position: relative; /* to be covered by sidebar */
+        width: 33.3333%;
+
+        &-title{
+            padding: 30px 0 0;
+            background-color: $bgColor;
+
+            &__mob-header{
+                display: none;
+            }
+
+            &__order-day{
+                padding: 45px 0 0;
+            }
+
+            &__date-day{
+                padding: 5px 0 15px;
+            }
+        }
+    } /* .day */
+
+    .status-weather{
+        padding: 200px 0 25px;
+
+        font-size: 30px;
+        line-height: 30px;
+    } /* .status-weather */
+
+    .temperature{
+
+        &__day-value{
+            padding: 0;
+
+            font-size: 110px;
+            line-height: 80px;
+            font-weight: 300;
+        }
+
+        &-night{
+            padding: 0 0 0 10px;
+
+            &__title{
+                font-size: 18px;
+                line-height: 18px;
+            }
+
+            &__value{
+                padding: 20px 0 3px;
+                font-size: 30px;
+                line-height: 35px;
+
+                font-weight: 300;
+            }
+        }
+    } /* .temperature */
+
+    .indicator{
+        display: none;
+    }
+
+    .params{
+        padding: 40px 0 0;
+
+        &-humidity{
+            display: none;
+        }
+
+        &-wind{
+            margin: 0;
+            margin-right: 30px;
+
+            &__speed{
+                margin: 0;
+            }
+
+            &__scheme{
+                height: 88px;
+                width: 88px;
+                // width: 63px;
+                background: url('../img/wind_direction.png') 50% 0 no-repeat;
+            }
+
+            &__direction{
+                height: 88px;
+                width: 88px;
+                line-height: 88px;
+                margin: -88px auto 0;
+            }
+        } /* -wind */
+
+        &-moon{
+
+            &__title{
+                margin: 0;
+            }
+
+            &__scheme{
+                height: 60px;
+                margin: 14px 0;
+                width: 60px;
+                background: url('../img/spritesheet_moon.png') 0 50% no-repeat;
+
+                &_new-moon{
+                    background-position: 0px 0px;
+                }
+                &_waxing-crescent{
+                    background-position: -62px 0px;
+                }
+                &_first-quater{
+                    background-position: -124px 0;
+                }
+                &_waxing-gibbous{
+                    background-position: -186px 0;
+                }
+                &_full-moon{
+                    background-position: -248px 0;
+                }&_waning-gibbous{
+                    background-position: -310px 0;
+                }&_last-quater{
+                    background-position: -372px 0;
+                }&_waning-crescent{
+                    background-position: -434px 0;
+                }
+            }
+        } /* -moon */
+    } /* .params */
+}
+
+@media only screen and (min-width: 1281px) {
+    .popup{
+        padding: 30px 40px;
+    }
+
+    .button-log-in-out{
+        border: none;
+        padding: 8px 10px;
+        background-color: #6cb0bd;
+
+        color: #000;
+        line-height: 24px;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+
+        &_log-out{
+            float: left;
+        }
+    }
+
+    .sidebar{
+        position: relative;
+        float: left;
+        min-height: 100%;
+        width: 37%;
+
+        padding: 0 0 0 35px;
+
+        &-settings{
+            position: absolute;
+            display: block;
+            margin: 0 0 0 -35px;
+            padding: 5px;
+
+            &__option-btn{
+                display: none;
+            }
+
+            &__hallo-message{
+                float: left;
+                padding: 5px 10px;
+
+                font-size: 30px;
+                line-height: 30px;
+                font-weight: 200;
+            }
+        }
+
+        &__clock{
+            display: block;
+            width: 100%;
+            margin: 100px 0 0;
+            padding: 20px 0 25px;
+            font-size: 160px;
+            line-height: 160px;
+            font-weight: 300;
+        }
+
+        &__clock-format{
+            display: inline;
+            margin-left: -20px;
+
+            font-size: 30px;
+            line-height:90px;
+            font-weight: 200;
+
+            vertical-align: top;
+        }
+
+        &__date{
+            display: block;
+            width: 100%;
+
+            padding: 25px 0;
+
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 200;
+        }
+
+        &-location{
+            display: block;
+
+            margin-top: 25px;
+            padding: 0 0 0 46px;
+        } /* -location */
+    } /* .sidebar */
+
+    .navigation{
+        display: none;
+    }
+
+    .day{
+        width: 21%;
+
+        &-title{
+            padding: 0;
+            background-color: $bgColor;
+
+            &__mob-header{
+                display: none;
+            }
+
+            &__order-day{
+                padding: 25px 0 5px;
+            }
+
+            &__date-day{
+                padding: 5px 0 25px;
+            }
+        }
+    } /* .day */
+
+    .status-weather{
+        padding: 200px 0 25px;
+
+        font-size: 30px;
+        line-height: 30px;
+    } /* .status-weather */
+
+    .temperature{
+
+        &__day-value{
+            padding: 0;
+
+            font-size: 110px;
+            line-height: 80px;
+            font-weight: 300;
+        }
+
+        &-night{
+            padding: 0 0 0 10px;
+
+            &__title{
+                font-size: 18px;
+                line-height: 18px;
+            }
+
+            &__value{
+                padding: 20px 0 3px;
+                font-size: 30px;
+                line-height: 35px;
+
+                font-weight: 300;
+            }
+        } /* -night */
+
+
+    } /* .temperature */
+
+    .indicator{
+        display: none;
+    }
+
+    .params{
+        padding: 40px 0 0;
+
+        &-humidity{
+            display: none;
+        }
+
+        &-wind{
+            margin: 0;
+            margin-right: 30px;
+
+            &__speed{
+                margin: 0;
+            }
+
+            &__scheme{
+                height: 88px;
+                width: 88px;
+                // width: 63px;
+                background: url('../img/wind_direction.png') 50% 0 no-repeat;
+            }
+
+            &__direction{
+                height: 88px;
+                width: 88px;
+                line-height: 88px;
+                margin: -88px auto 0;
+            }
+        } /* -wind */
+
+        &-moon{
+
+            &__title{
+                margin: 0;
+            }
+
+            &__scheme{
+                height: 60px;
+                margin: 14px 0;
+                width: 60px;
+                background: url('../img/spritesheet_moon.png') 0 50% no-repeat;
+
+                &_new-moon{
+                    background-position: 0px 0px;
+                }
+                &_waxing-crescent{
+                    background-position: -62px 0px;
+                }
+                &_first-quater{
+                    background-position: -124px 0;
+                }
+                &_waxing-gibbous{
+                    background-position: -186px 0;
+                }
+                &_full-moon{
+                    background-position: -248px 0;
+                }&_waning-gibbous{
+                    background-position: -310px 0;
+                }&_last-quater{
+                    background-position: -372px 0;
+                }&_waning-crescent{
+                    background-position: -434px 0;
+                }
+            }
+        } /* -moon */
+    } /* .params */
+}
+
 html {
     height: 100%;
 }
 
 .popup__overlay {
-    // display: none;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background: $bgColor;
-    background: rgba(38,38,38,.97);
+
     z-index: 999;
 
     &_show-block{
@@ -32,8 +839,6 @@ html {
     left: 0;
     right: 0;
     margin: auto;
-
-    padding: 30px 40px;
 
     overflow: hidden;
     background-color: $bgColor;
@@ -59,28 +864,11 @@ html {
         color: #000;
         font-weight: 600;
     }
-
-    &__log-in{
-        float: right;
-    }
 }
 
 .button-log-in-out{
-    border: none;
-    padding: 8px 10px;
-    background-color: #6cb0bd;
-
-    color: #000;
-    line-height: 24px;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-
     &_log-in{
         float: right;
-    }
-    &_log-out{
-        float: left;
     }
 }
 
@@ -95,66 +883,13 @@ html {
 }
 
 .sidebar{
-    position: relative;
-    float: left;
-    padding: 0 0 0 35px;
-    width: 37%;
-    min-height: 100%;
     box-sizing: border-box;
 
     &-settings{
-        position: absolute;
-        display: block;
-        margin: 0 0 0 -35px;
-        padding: 5px;
         overflow: hidden;
-
-        &__hallo-message{
-            float: left;
-            padding: 5px 10px;
-
-            font-size: 30px;
-            line-height: 30px;
-            font-weight: 200;
-        }
-    }
-
-    &__clock{
-        width: 100%;
-        margin: 100px 0 0;
-        padding: 20px 0 25px;
-        font-size: 160px;
-        line-height: 160px;
-        font-weight: 300;
-    }
-
-    &__clock-format{
-        display: inline;
-        margin-left: -20px;
-
-        font-size: 30px;
-        line-height:90px;
-        font-weight: 200;
-
-        vertical-align: top;
-    }
-
-    &__date{
-        width: 100%;
-
-        padding: 25px 0;
-
-        font-size: 30px;
-        line-height: 30px;
-        font-weight: 200;
     }
 
     &-location{
-        display: block;
-
-        margin-top: 25px;
-        padding: 0 0 0 46px;
-
         background: url('../img/location_icon.png') 0 0 no-repeat;
 
         &__city{
@@ -180,7 +915,6 @@ html {
 .day{
     position: relative;
     float: left;
-    width: 21%;
     min-height: 100%;
     margin: 0 auto;
 
@@ -209,13 +943,10 @@ html {
     &-title{
         width: 100%;
         margin: 0;
-        padding: 0;
-        background-color: $bgColor;
 
         &__order-day{
             width: 100%;
             margin: 0;
-            padding: 25px 0 5px;
 
             font-size: 30px;
             line-height: 30px;
@@ -225,7 +956,6 @@ html {
         &__date-day{
             width: 100%;
             margin: 0;
-            padding: 5px 0 25px;
 
             font-size: 18px;
             line-height: 18px;
@@ -236,200 +966,149 @@ html {
 
 .status-weather{
     width: auto;
-    padding: 200px 0 25px;
 
     text-align: center;
-
-    font-size: 30px;
-    line-height: 30px;
     font-weight: 200;
 
     &_icon-snowfall{
-        background: url('../img/widget_state_snow_fall.png') center 0 no-repeat;
-        background-origin: padding-box;
-    }
-
-    &_icon-mostly-cloudly{
-        background: url('../img/widget_state_mostly_cloudly.png') center 0 no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-partly-cloudly{
-        background: url('../img/widget_state_partly_cloudly.png') center 0 no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-fog{
-        background: url('../img/widget_state_fog.png') center 0 no-repeat;
-        background-origin: padding-box;
-    }
-}
-
-.temperature{
-    display: block;
-    margin: 0 auto;
-    padding: 20px 0 0;
-
-    text-align: center;
-
-    &__day-value{
-        display: inline-block;
-        margin: 0 auto;
-        padding: 0;
-
-        font-size: 110px;
-        line-height: 80px;
-        font-weight: 300;
-    }
-
-    &-night{
-        display: inline-block;
-        margin: 0 auto;
-        padding: 0 0 0 10px;
-
-        vertical-align: text-bottom; /* !! */
-
-        &__title{
-            margin: 0;
-            padding: 0;
-            text-align: left;
-            font-size: 18px;
-            line-height: 18px;
-            font-weight: 200;
+            background-image: url('../img/widget_state_snow_fall.png');
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
         }
 
-        &__value{
-            margin: 0;
-            padding: 20px 0 3px;
-            font-size: 30px;
-            line-height: 35px;
-            font-weight: 300;
+        &_icon-mostly-cloudly{
+            background: url('../img/widget_state_mostly_cloudly.png');
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
         }
-    } /* -night */
-} /* .temperature */
+        &_icon-partly-cloudly{
+            background: url('../img/widget_state_partly_cloudly.png');
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+        }
+        &_icon-fog{
+            background: url('../img/widget_state_fog.png');
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+        }
+    } /* .status-weather */
 
-
-.weather-params{
-    display: block;
-    margin: 0 auto;
-    padding: 40px 0 0;
-
-    text-align: center;
-
-    &-wind{
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-        margin-right: 30px;
-
-        font-size: 18px;
-        line-height: 18px;
-        font-weight: 200;
-
-        overflow: hidden;
+    .temperature{
+        display: block;
+        margin: 0 auto;
+        padding: 20px 0 0;
 
         text-align: center;
-        vertical-align: top;
 
-        &__speed{
-            display: block;
-            margin: 0;
-            padding: 0;
+        &__day-value{
+            display: inline-block;
+            margin: 0 auto;
         }
 
-        &__scheme{
-            display: block;
-            margin: 0;
-            padding: 0;
-            height: 88px;
-            width: 88px;
-            // width: 63px;
-            background: url('../img/wind_direction.png') 50% 0 no-repeat;
-            transform-origin: 50% 50%;
+        &-night{
+            display: inline-block;
+            margin: 0 auto;
 
-            &_S{
-                transform: rotate(0deg);
-            }
-            &_N{
-                transform: rotate(180deg);
-            }
-            &_E{
-                transform: rotate(-90deg);
-            }
-            &_W{
-                transform: rotate(90deg);
+            vertical-align: text-bottom; /* !! */
+
+            &__title{
+                margin: 0;
+                padding: 0;
+                text-align: left;
+                font-weight: 200;
             }
 
-            &_SE{
-                transform: rotate(-45deg);
-            }
-            &_SW{
-                transform: rotate(45deg);
-            }
-            &_NE{
-                transform: rotate(-135deg);
-            }
-            &_NW{
-                transform: rotate(135deg);
+            &__value{
+                margin: 0;
             }
         }
+    } /* .temperature */
 
-        &__direction{
-            height: 88px;
-            width: 88px;
-            line-height: 88px;
-            margin: -88px auto 0;
-            padding: 0;
-        }
-    } /* -wind */
+    .params{
+        display: block;
+        margin: 0 auto;
 
-    &-moon{
-        display: inline-block;
-        margin: 0;
-        padding: 0;
+        text-align: center;
 
-        vertical-align: top;
-
-        &__title{
-            display: block;
-            margin: 0;
+        &-wind{
+            display: inline-block;
             padding: 0;
 
             font-size: 18px;
             line-height: 18px;
             font-weight: 200;
-        }
 
-        &__scheme{
-            display: block;
-            height: 60px;
-            margin: 14px 0;
-            width: 60px;
-            background: url('../img/spritesheet_moon.png') 0 50% no-repeat;
+            overflow: hidden;
 
-            &_new-moon{
-                background-position: 0px 0px;
-            }
-            &_waxing-crescent{
-                background-position: -62px 0px;
-            }
-            &_first-quater{
-                background-position: -124px 0;
-            }
-            &_waxing-gibbous{
-                background-position: -186px 0;
-            }
-            &_full-moon{
-                background-position: -248px 0;
-            }&_waning-gibbous{
-                background-position: -310px 0;
-            }&_last-quater{
-                background-position: -372px 0;
-            }&_waning-crescent{
-                background-position: -434px 0;
-            }
-        }
-    } /* -moon */
-} /* .weather-params */
+            text-align: center;
+            vertical-align: top;
 
+            &__speed{
+                display: block;
+                padding: 0;
+            }
 
+            &__scheme{
+                display: block;
+                margin: 0;
+                padding: 0;
+                transform-origin: 50% 50%;
 
+                &_S{
+                    transform: rotate(0deg);
+                }
+                &_N{
+                    transform: rotate(180deg);
+                }
+                &_E{
+                    transform: rotate(-90deg);
+                }
+                &_W{
+                    transform: rotate(90deg);
+                }
+                &_SE{
+                    transform: rotate(-45deg);
+                }
+                &_SW{
+                    transform: rotate(45deg);
+                }
+                &_NE{
+                    transform: rotate(-135deg);
+                }
+                &_NW{
+                    transform: rotate(135deg);
+                }
+            }
+
+            &__direction{
+                padding: 0;
+            }
+
+        } /* -wind */
+
+        &-moon{
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+
+            vertical-align: top;
+
+            &__title{
+                display: block;
+                padding: 0;
+
+                font-size: 18px;
+                line-height: 18px;
+                font-weight: 200;
+            }
+
+            &__scheme{
+                display: block;
+            }
+        } /* -moon */
+} /* .params */
 

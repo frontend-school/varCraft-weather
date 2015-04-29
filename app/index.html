@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weather.</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -24,7 +25,7 @@
                 <input type="password" class="js-login-password popup__login-pwd">
             </label>
 
-            <button type="submit" class="js-log-in button-log-in-out button-log-in-out_log-out">Log in</button>
+            <button type="submit" class="js-log-in button-log-in-out button-log-in-out_log-in">Log in</button>
 
         </form> <!-- popup -->
 
@@ -33,10 +34,9 @@
     <div class="sidebar">
 
         <div class="sidebar-settings">
-
-            <button type="submit" class="js-log-out button-log-in-out button-log-in-out_log-out">Log out</button>
-            <span class="sidebar-settings__hallo-message js-hallo-message"><!-- Hallo, [Name]! (Is filled with JS by login name)--></span>
-
+            <button type="submit" class="sidebar-settings__option-btn sidebar-settings_mobile-button"></button>
+            <button type="submit" class="js-log-out button-log-in-out button-log-in-out_log-out sidebar-settings_mobile-button">Log out</button>
+            <span class="sidebar-settings__hallo-message js-hallo-message">wedwedede<!-- Hallo, [Name]! (Is filled with JS by login name)--></span>
         </div>
 
         <div class="sidebar__clock">
@@ -61,7 +61,12 @@
 
     </div> <!-- sidebar -->
 
-    <div class="day day_partly-cloudly"> <!-- yesterday -->
+    <div class="navigation">
+        <button type="submit" class="navigation__btn navigation__btn_left"></button>
+        <button type="submit" class="navigation__btn navigation__btn_right"></button>
+    </div>
+
+    <div class="day day_yesterday day_partly-cloudly"> <!-- yesterday -->
 
         <div class="day-title">
             <p class="day-title__order-day">Yesterday</p>
@@ -89,31 +94,32 @@
 
         <!-- <div class="temperature_after"></div> -->
 
-        <div class="weather-params">
-            <div class="weather-params-wind">
-                <p class="weather-params-wind__speed">
+        <div class="params">
+            <div class="params-wind">
+                <p class="params-wind__speed">
                     4 pmh
                 </p>
-                <div class="weather-params-wind__scheme weather-params-wind__scheme_E">
+                <div class="params-wind__scheme params-wind__scheme_E">
 
                 </div>
-                <p class="weather-params-wind__direction">
+                <p class="params-wind__direction">
                     E
                 </p>
             </div>
-            <div class="weather-params-moon">
-                <p class="weather-params-moon__title">
+            <div class="params-moon">
+                <p class="params-moon__title">
                     Moon
                 </p>
-                <div class="weather-params-moon__scheme weather-params-moon__scheme_waning-gibbous"></div>
+                <div class="params-moon__scheme params-moon__scheme_waning-gibbous"></div>
             </div>
-        </div> <!-- weather-params -->
+        </div> <!-- params -->
 
     </div> <!-- day yesterday -->
 
     <div class="day day_snow"> <!-- today -->
 
         <div class="day-title">
+            <p class="day-title__mob-header">Today in Kiev</p>
             <p class="day-title__order-day">Today</p>
             <p class="day-title__date-day">21/04/2015</p>
         </div>
@@ -125,6 +131,7 @@
         <div class="temperature">
             <p class="temperature__day-value">
                 -22
+                <span class="temperature__day-value_deg-icon"></span>
             </p>
             <div class="temperature-night">
                 <p class="temperature-night__title">
@@ -136,29 +143,43 @@
             </div>
         </div> <!-- temperature -->
 
-        <div class="weather-params">
-            <div class="weather-params-wind">
-                <p class="weather-params-wind__speed">
-                    4 pmh
+        <ul class="indicator">
+            <li class="indicator__item indicator__item_passive"></li>
+            <li class="indicator__item indicator__item_active"></li>
+            <li class="indicator__item indicator__item_passive"></li>
+        </ul>
+
+        <div class="params">
+            <div class="params-humidity">
+                <p class="params-humidity__value">
+                    49%
                 </p>
-                <div class="weather-params-wind__scheme weather-params-wind__scheme_SE">
+                <div class="params-humidity__scheme params-humidity__scheme_medium">
 
                 </div>
-                <p class="weather-params-wind__direction">
+            </div>
+            <div class="params-wind">
+                <p class="params-wind__speed">
+                    4 pmh
+                </p>
+                <div class="params-wind__scheme params-wind__scheme_SE">
+
+                </div>
+                <p class="params-wind__direction">
                     SE
                 </p>
             </div>
-            <div class="weather-params-moon">
-                <p class="weather-params-moon__title">
+            <div class="params-moon">
+                <p class="params-moon__title">
                     Moon
                 </p>
-                <div class="weather-params-moon__scheme weather-params-moon__scheme_last-quater"></div>
+                <div class="params-moon__scheme params-moon__scheme_last-quater"></div>
             </div>
-        </div> <!-- weather-params -->
+        </div> <!-- params -->
 
     </div> <!-- day today -->
 
-    <div class="day day_fog"> <!-- tomorrow -->
+    <div class="day day_tomorrow day_fog"> <!-- tomorrow -->
 
         <div class="day-title">
             <p class="day-title__order-day">Tomorrow</p>
@@ -183,25 +204,25 @@
             </div>
         </div> <!-- temperature -->
 
-        <div class="weather-params">
-            <div class="weather-params-wind">
-                <p class="weather-params-wind__speed">
+        <div class="params">
+            <div class="params-wind">
+                <p class="params-wind__speed">
                     4 pmh
                 </p>
-                <div class="weather-params-wind__scheme weather-params-wind__scheme_NW">
+                <div class="params-wind__scheme params-wind__scheme_NW">
 
                 </div>
-                <p class="weather-params-wind__direction">
+                <p class="params-wind__direction">
                     NW
                 </p>
             </div>
-            <div class="weather-params-moon">
-                <p class="weather-params-moon__title">
+            <div class="params-moon">
+                <p class="params-moon__title">
                     Moon
                 </p>
-                <div class="weather-params-moon__scheme weather-params-moon__scheme_waxing-crescent"></div>
+                <div class="params-moon__scheme params-moon__scheme_waxing-crescent"></div>
             </div>
-        </div> <!-- weather-params -->
+        </div> <!-- params -->
 
     </div> <!-- day tomorrow -->
 

@@ -8,7 +8,7 @@ function runServer() {
 
     var app = express();
 
-    require('./router')(app,needReload);
+    require('./router')(app, needReload);
 
     var port = process.env.PORT || 3000;
     var server = app.listen(port, function () {

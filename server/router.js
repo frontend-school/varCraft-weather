@@ -3,43 +3,78 @@ module.exports = function(app, needReload){
     var express = require('express'),
         bodyParser = require('body-parser'),
         pageConstructor = require('./pageConstructor'),
-        databaseHandler = require('./databaseHandler');
+        databaseHandler = require('./databaseHandler'),
+        passport = require('passport'),
+        LocalStrategy = require('passport-local').Strategy;
 
     var login,
         password,
         refreshedTime,
         appFolder = 'dist/';
 
+    app.configure(function() {
+        app.use(express.static('public'));
+        app.use(express.cookieParser());
+        app.use(express.bodyParser());
+        app.use(express.session({ secret: 'keyboard cat' }));
+        app.use(passport.initialize());
+        app.use(passport.session());
+        app.use(app.router);
+    });
+
+    passport.use(new LocalStrategy(
+        function(username, password, done) {
+            User.findOne({ username: username }, function(err, user) {
+                if (err) { return done(err); }
+                if (!user) {
+                    return done(null, false, { message: 'Incorrect username.' });
+                }
+                if (!user.validPassword(password)) {
+                    return done(null, false, { message: 'Incorrect password.' });
+                }
+                return done(null, user);
+            });
+        }
+    ));
+
     app.use('/dist', express.static('dist'));
     app.use('/block', express.static('block'));
     app.use('/icon', express.static('icon'));
     app.use('/font', express.static('font'));
+    app.use(passport.initialize());
+    app.use(passport.session());
     app.use(bodyParser.urlencoded({extended: false}));
 
-    app.post('/login', function (req, res) {
-        login = req.body.login;
-        password = req.body.password;
-        if(databaseHandler.userExists(login,password))
-        {
-            res.status(200).send('success');
-            res.redirect('/weather');
-        }
-        else
-        {
-            res.status(403).send('failed');
-        }
-    });
+    app.post('/login', passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    }));
+    //
+        //function (req, res) {
+        //login = req.body.login;
+        //password = req.body.password;
+        //if(databaseHandler.userExists(login,password))
+        //{
+        //    res.status(200).send('success');
+        //    res.redirect('/weather');
+        //}
+        //else
+        //{
+        //    res.status(403).send('failed');
+        //}
+    //});
 
     app.get('/login', function (req, res) {
         login = req.query.login;
         password = req.query.password;
         if(databaseHandler.userExists(login,password))
         {
-            res.status(200).redirect('/weather').send('success');
+            res.status(200).redirect('/weather');
         }
         else
         {
-            res.status(403).send('Failed. No such user found.');
+            res.status(403).send('<h1>Error 403</h1><p>No such user found</p>');
         }
     });
 

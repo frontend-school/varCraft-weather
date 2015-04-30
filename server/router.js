@@ -16,24 +16,9 @@ module.exports = function(app, needReload){
     app.use('/font', express.static('font'));
     app.use(bodyParser.urlencoded({extended: false}));
 
-    //app.post('/login', function (req, res) {
-    //    login = req.body.login;
-    //    password = req.body.password;
-    //    if(databaseHandler.userExists(login,password))
-    //    {
-    //        res.status(200).send('success');
-    //        res.redirect('/weather');
-    //    }
-    //    else
-    //    {
-    //        res.status(403).send('failed');
-    //    }
-    //});
-
-    app.get('/login/:login2', function (req, res) {
-        console.log(login2);
-        //login = req.query.login;
-        //password = req.query.password;
+    app.post('/login', function (req, res) {
+        login = req.body.login;
+        password = req.body.password;
         if(databaseHandler.userExists(login,password))
         {
             res.status(200).send('success');
@@ -42,6 +27,19 @@ module.exports = function(app, needReload){
         else
         {
             res.status(403).send('failed');
+        }
+    });
+
+    app.get('/login', function (req, res) {
+        login = req.query.login;
+        password = req.query.password;
+        if(databaseHandler.userExists(login,password))
+        {
+            res.status(200).redirect('/weather').send('success');
+        }
+        else
+        {
+            res.status(403).send('Failed. No such user found.');
         }
     });
 

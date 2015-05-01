@@ -1,6 +1,7 @@
 function main(){
     var loginForm = document.forms[0];
     var loginFormOut = document.forms[1];
+    var loginFormOutMobile = document.forms[2];
     var loginPage = loginForm.parentNode;
     var mainPage = document.querySelector('.js-main-page');
     var userName = mainPage.querySelector('.js-user-name');
@@ -73,6 +74,7 @@ function main(){
 
     loginForm.onsubmit = logIn;
     loginFormOut.onsubmit = logOut;
+    loginFormOutMobile.onsubmit = logOut;
 
 }
 

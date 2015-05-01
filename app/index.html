@@ -1,130 +1,167 @@
 <!DOCTYPE html>
 <head>
-	    <meta charset="utf-8">
-    	<title>varCraft weatherApp</title>
+        <meta charset="utf-8">
+        <title>varCraft weatherApp</title>
         <link rel = "stylesheet" type="text/css" href = "css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <html>
-	<body>
-		<script src="/js/script.min.js"></script>
 
-		<section class="login-page">
+    <body>
+        <script src="/js/script.min.js"></script>
 
-			<form action="" method = "post" class="login-form" name="login-form">
-				<label class="login-form__label" for="login-field">Login:</label>
-				<input type="text" class="login-form__input" name="login" id="login-field">
-				<label for="password-field" name="password-field" class="login-form__label">Password:</label>
-				<input type= "password" class="login-form__input" name="password" id="password-field">
-				<input type="submit" class="login-form__submit" value="Log in">
-			</form>
-		</section>
+        <section class="login-page">
 
-		<section class="main-page hide js-main-page">
-
-
-			<div class="user-info">
-
-				<div class="user-info-name">
-					<form action="post" name="log-out" clas="login-out-form">
-						Hello, <span class="user-info__hello-message js-user-name">user-name</span>!
-							<input type="submit" class="login-form__submit login-form__submit_log-out" value="Log Out">
-				    </form>
-				</div>
+            <form action="" method = "post" class="login-form" name="login-form">
+                <label class="login-form__label" for="login-field">Login:</label>
+                <input type="text" class="login-form__input" name="login" id="login-field">
+                <label for="password-field" name="password-field" class="login-form__label">Password:</label>
+                <input type= "password" class="login-form__input" name="password" id="password-field">
+                <input type="submit" class="login-form__submit" value="Log in">
+            </form>
+        </section>
 
 
-				<div class="user-info__time">9:20<span class="user-info__day-part">AM</span></div>
-				<div class="user-info__date">Wed, September 3</div>
-				<div class="user-info-location">
-					<div class="user-info-location__marker"></div>
-					<span class="user-info-location__city">Kiev</span>
-					<br>
-					<span class="user-info-location__country">Ukraine</span>
-				</div>
-			</div>
-
-				<div class="daily-forecast daily-forecast_partly-cloudy">
-					<div class="daily-forecast-header">
-						<div class="daily-forecast-header__day-of-week">Yesterday</div>
-						<div class="daily-forecast-header__date">30 / 07 / 2013</div>
-					</div>
-
-					<div class="daily-forecast-weather-condition">
-						<div class="daily-forecast-weather-condition__logo daily-forecast-weather-condition__logo_partly-cloudy"></div>
-						<div class="daily-forecast-weather-condition__description">Partly Cloudy</div>
-					</div>
-
-					<div class="daily-forecast-temperature">
-						<span class="daily-forecast-temperature__at-day">-22</span>
-						<span class="daily-forecast-temperature__at-night">-17</span>
-					</div>
-
-					<div class="daily-forecast-additional-info">
-						<div class="daily-forecast-additional-info__title">4mph</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind-n">N</div>
-					</div>
-
-					<div class="daily-forecast-additional-info">
-						<div class="daily-forecast-additional-info__title">Moon</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon-1	"></div>
-					</div>
-				</div>
-
-				<div class="daily-forecast daily-forecast_snow-fall">
-					<div class="daily-forecast-header">
-						<div class="daily-forecast-header__day-of-week">Today</div>
-						<div class="daily-forecast-header__date">30 / 07 / 2013</div>
-					</div>
-
-					<div class="daily-forecast-weather-condition">
-						<div class="daily-forecast-weather-condition__logo daily-forecast-weather-condition__logo_snow-fall"></div>
-						<div class="daily-forecast-weather-condition__description">Snow Fall</div>
-					</div>
-
-					<div class="daily-forecast-temperature">
-						<span class="daily-forecast-temperature__at-day">-22</span>
-						<span class="daily-forecast-temperature__at-night">-17</span>
-					</div>
-
-					<div class="daily-forecast-additional-info">
-						<div class="daily-forecast-additional-info__title">4mph</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind-n">N</div>
-					</div>
-
-					<div class="daily-forecast-additional-info">
-						<div class="daily-forecast-additional-info__title">Moon</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon-1"></div>
-					</div>
-				</div>
-
-				<div class="daily-forecast daily-forecast_fog">
-					<div class="daily-forecast-header">
-						<div class="daily-forecast-header__day-of-week">Tomorrow</div>
-						<div class="daily-forecast-header__date">30 / 07 / 2013</div>
-					</div>
-
-					<div class="daily-forecast-weather-condition">
-						<div class="daily-forecast-weather-condition__logo daily-forecast-weather-condition__logo_fog"></div>
-						<div class="daily-forecast-weather-condition__description">Fog</div>
-					</div>
-
-					<div class="daily-forecast-temperature">
-						<span class="daily-forecast-temperature__at-day">-22</span>
-						<span class="daily-forecast-temperature__at-night">-17</span>
-					</div>
-
-					<div class="daily-forecast-additional-info">
-						<div class="daily-forecast-additional-info__title">4mph</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_wind-n">N</div>
-					</div>
-
-					<div class="daily-forecast-additional-info">
-						<div class="daily-forecast-additional-info__title">Moon</div>
-						<div class="daily-forecast-additional-info__logo daily-forecast-additional-info__logo_moon-1"></div>
-					</div>
-				</div>
-		</section>
+        <div class="mobile-window">
 
 
-	</body>
+
+        <section class="main-page hide js-main-page">
+
+
+            <div class="user-info">
+
+                <div class="user-info-name">
+                    <form action="post" name="log-out" class="login-out-form">
+                        Hello, <span class="user-info__hello-message js-user-name">user-name</span>!
+                            <input type="submit" class="login-form__submit login-form__submit_log-out" value="">
+                    </form>
+                </div>
+
+
+                <div class="user-info__time">9:20<span class="user-info__day-part">AM</span></div>
+                <div class="user-info__date">Wed, September 3</div>
+                <div class="user-info-location">
+                    <div class="user-info-location__marker"></div>
+                    <span class="user-info-location__city">Kiev</span>
+                    <br>
+                    <span class="user-info-location__country">Ukraine</span>
+                </div>
+            </div>
+
+                <div class="forecast forecast_partly-cloudy">
+                    <div class="forecast-header">
+                        <div class="forecast-header__day-of-week">Yesterday<span class="user-info-location__city_mobile"> in Kiev</span></div>
+                        <div class="forecast-header__date">30 / 07 / 2013</div>
+                    </div>
+
+                    <div class="forecast-weather">
+                        <div class="forecast-weather__logo"></div>
+                        <div class="forecast-weather__description">Partly Cloudy</div>
+                    </div>
+
+                    <div class="forecast-temperature">
+                        <span class="forecast-temperature__at-day">-22</span>
+                        <span class="forecast-temperature__at-night"><span class="forecast-temperature__at-night_title">Night</span><br>-17</span>
+                    </div>
+                    
+                    
+
+                    <div class="forecast-extra-info forecast-extra-info_humidity-1">
+                        <div class="forecast-extra-info__title">77%</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_wind-n">
+                        <div class="forecast-extra-info__title">4mph</div>
+                        <div class="forecast-extra-info__logo">N</div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_moon-1">
+                        <div class="forecast-extra-info__title">Moon</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                </div>
+
+                <div class="forecast forecast_snow-fall">
+                    <div class="forecast-header">
+                        <div class="forecast-header__day-of-week">Today<span class="user-info-location__city_mobile"> in Kiev</span></div>
+                        <div class="forecast-header__date">30 / 07 / 2013</div>
+                    </div>
+
+                    <div class="forecast-weather">
+                        <div class="forecast-weather__logo forecast-weather__logo_snow-fall"></div>
+                        <div class="forecast-weather__description">Snow Fall</div>
+                    </div>
+
+                    <div class="forecast-temperature">
+                        <span class="forecast-temperature__at-day">-22</span>
+                        <span class="forecast-temperature__at-night"><span class="forecast-temperature__at-night_title">Night</span><br>-17</span>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_humidity-1">
+                        <div class="forecast-extra-info__title">77%</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_wind-n">
+                        <div class="forecast-extra-info__title">4mph</div>
+                        <div class="forecast-extra-info__logo">N</div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_moon-1">
+                        <div class="forecast-extra-info__title">Moon</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                </div>
+
+                <div class="forecast forecast_fog">
+                    <div class="forecast-header">
+                        <div class="forecast-header__day-of-week">Tomorrow<span class="user-info-location__city_mobile"> in Kiev</span></div>
+                        <div class="forecast-header__date">30 / 07 / 2013</div>
+                    </div>
+
+                    <div class="forecast-weather">
+                        <div class="forecast-weather__logo forecast-weather__logo_fog"></div>
+                        <div class="forecast-weather__description">Fog</div>
+                    </div>
+
+                    <div class="forecast-temperature">
+                        <span class="forecast-temperature__at-day">-22</span>
+                        <span class="forecast-temperature__at-night"><span class="forecast-temperature__at-night_title">Night</span><br>-17</span>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_humidity-1">
+                        <div class="forecast-extra-info__title">77%</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                    <div class="forecast-extra-info forecast-extra-info_wind-n">
+                        <div class="forecast-extra-info__title">4mph</div>
+                        <div class="forecast-extra-info__logo">N</div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info_moon-1">
+                        <div class="forecast-extra-info__title">Moon</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                </div>
+        </section>
+
+            <a href="#"><div class="mobile-window__settings"></div></a>
+            <form action="post" name="log-out" class="login-out-form">
+                <input type="submit" class="login-form__submit login-form__submit_log-out" value="">
+            </form>
+
+            <div class="mobile-window__change-day mobile-window__change-day_previous"></div>
+            <div class="mobile-window__change-day mobile-window__change-day_next"></div>
+            <ul class="mobile-window-day-list">
+                <li class="mobile-window-day-list__item"></li>
+                <li class="mobile-window-day-list__item mobile-window-day-list__item_active"></li>
+                <li class="mobile-window-day-list__item"></li>
+            </ul>
+        </div>
+
+
+    </body>
 </html>

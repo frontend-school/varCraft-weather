@@ -23,19 +23,17 @@
         </section>
 
 
-        <div class="mobile-window">
+    <section class="main-page  js-main-page hide">
 
-
-
-        <section class="main-page hide js-main-page">
+        <div class="main-page-content">
 
 
             <div class="user-info">
 
-                <div class="user-info-name">
-                    <form action="post" name="log-out" class="login-out-form">
-                        Hello, <span class="user-info__hello-message js-user-name">user-name</span>!
-                            <input type="submit" class="login-form__submit login-form__submit_log-out" value="">
+                <div class="user-info-hello">
+                    <form action="post" name="log-out" class="logout-form">
+                        Hello, <span class="user-info-hello__name js-user-name">user-name</span>!
+                            <input type="submit" class="logout-form__submit" value="">
                     </form>
                 </div>
 
@@ -43,7 +41,6 @@
                 <div class="user-info__time">9:20<span class="user-info__day-part">AM</span></div>
                 <div class="user-info__date">Wed, September 3</div>
                 <div class="user-info-location">
-                    <div class="user-info-location__marker"></div>
                     <span class="user-info-location__city">Kiev</span>
                     <br>
                     <span class="user-info-location__country">Ukraine</span>
@@ -65,8 +62,8 @@
                         <span class="forecast-temperature__at-day">-22</span>
                         <span class="forecast-temperature__at-night"><span class="forecast-temperature__at-night_title">Night</span><br>-17</span>
                     </div>
-                    
-                    
+
+
 
                     <div class="forecast-extra-info forecast-extra-info_humidity-1">
                         <div class="forecast-extra-info__title">77%</div>
@@ -146,21 +143,23 @@
                         <div class="forecast-extra-info__logo"></div>
                     </div>
                 </div>
-        </section>
+        </div>
 
-            <a href="#"><div class="mobile-window__settings"></div></a>
-            <form action="post" name="log-out" class="login-out-form">
-                <input type="submit" class="login-form__submit login-form__submit_log-out" value="">
+        <div class="mobile">
+            <a href="#"><div class="mobile__settings"></div></a>
+            <form action="post" name="log-out" class="logout-form logout-form_mobile">
+                <input type="submit" class="logout-form__submit" value="">
             </form>
 
-            <div class="mobile-window__change-day mobile-window__change-day_previous"></div>
-            <div class="mobile-window__change-day mobile-window__change-day_next"></div>
-            <ul class="mobile-window-day-list">
-                <li class="mobile-window-day-list__item"></li>
-                <li class="mobile-window-day-list__item mobile-window-day-list__item_active"></li>
-                <li class="mobile-window-day-list__item"></li>
+            <div class="mobile__change-day mobile__change-day_previous"></div>
+            <div class="mobile__change-day mobile__change-day_next"></div>
+            <ul class="mobile-day-list">
+                <li class="mobile-day-list__item mobile-day-list__item_active"></li>
+                <li class="mobile-day-list__item"></li>
+                <li class="mobile-day-list__item"></li>
             </ul>
         </div>
+    </section>
 
 
     </body>

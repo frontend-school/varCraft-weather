@@ -1,6 +1,7 @@
 @import 'normalize.css';
 @import url('http://fonts.googleapis.com/css?family=Titillium+Web');
 @import 'login-form.scss';
+@import 'logout-form.scss';
 @import 'var.scss';
 
 @font-face{
@@ -44,6 +45,12 @@ body{
 
 
 .main-page{
+  width: 100%;
+  height: 100%;
+
+}
+
+.main-page-content{
     width: 100%;
     max-width: 1920/16 + em;
     height: 100%;
@@ -51,15 +58,8 @@ body{
     margin: 0 auto;
 }
 
-.mobile-window{
-  width: 100%;
-  height: 100%;
-  &>.login-out-form{ //to hide log-out button in mobile version
-    display: none;
-  }
-  &-day-list{ // to hide day list in mobile version
-    display: none;
-  }
+.mobile{
+  display: none; //to hide all buttons of mobile version
 }
 
 .user-info{
@@ -71,7 +71,7 @@ body{
     padding-left: 6em;
 
     background-color: $grey;
-    &-name{
+    &-hello{
         font-size: 24/16 + em;
 
         color: #fff ;
@@ -79,7 +79,7 @@ body{
     &__time{
         font-size: 115/16 + em;
 
-        position: relative;
+        position: relative; // "am/pm" part of time view is positioned abolute
 
         display: inline-block;
 
@@ -109,17 +109,8 @@ body{
     }
     &-location{
         margin-top: 10%;
-        &__marker{
-            position: absolute;
+        background: url('../img/app-icons.png') no-repeat -84px 0;
 
-            float: left;
-
-            width: 40px;
-            height: 40px;
-            margin-right: 5/16 + em;
-
-            background: url('../img/app-icons.png') no-repeat -84px 0;
-        }
         &__city{
             &_mobile{
               display: none;
@@ -137,11 +128,10 @@ body{
 }
 
 .forecast{
-    position: relative;
+    position: relative;// used for changing order of elements in mobile version("temperature" position absolute)
     float: left;
     width: 21%;
     height: 100%;
-    //min-height: 700/16 + em ;
     padding-bottom: 2em ;
 
 
@@ -267,8 +257,6 @@ body{
         &__at-night{
             font-size: 24/16 + em;
 
-            position: relative;
-
             display: inline-block;
 
             color: #fff;
@@ -283,7 +271,7 @@ body{
         height: 10%;
         margin-top: 30/16 + em;
         &_humidity-1{
-          display: none;
+          display: none; //hides "humidity" in desktop and tablet version
           & .forecast-extra-info__logo {
             background: url("../img/humid.png") no-repeat 0 0;
           }
@@ -383,10 +371,11 @@ body{
 
 //Tablet version 1280 * 720
 @media only screen and (max-width: 1280px)
-        and (orientation: landscape)
+      //and (orientation: landscape) // if user has screen height more than 571px and this option is on, browser switch
+      //view to desktop version, even if screen width less than 1280px. So I have turned this option off
         and (-webkit-min-device-pixel-ratio: 1)
 {
-    .main-page{
+    .main-page-content{
         width: 100% ;
         min-height: 720px;
     }
@@ -412,13 +401,13 @@ body{
         &-location{
           margin-right: 40px;
         }
-        &-name{
+        &-hello{
             float: right;
             padding-right: 40px;
 
             min-width: 150px;
 
-          .login-form__submit_log-out{
+          .logout-form__submit{
             margin-right: 0;
           }
         }
@@ -433,8 +422,6 @@ body{
     }
 
     .forecast{
-        position: relative;
-
         width: 33.333%;
         height: 90%;
         min-height: 650px;
@@ -456,11 +443,12 @@ body{
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait)
 {
-    .main-page{
-        //margin-left: -320px ; // to see "today" state
-        //margin-left: -640px;  // to see "tomorrow" state
-       // I assume that I will change days by adding such these margins to main-page
-        //Now by default is "yesterday" state
+    .main-page-content{
+        // margin-left: -320px ; // to see "today" state
+        // margin-left: -640px;  // to see "tomorrow" state
+        // I assume that I will change days by adding margins to main-page
+        // Now by default is "yesterday" state
+        // WORKS ONLY WITH IPHONE 5 screen resolution
 
         min-width: 960px;
         min-height: 568px;
@@ -473,14 +461,13 @@ body{
         &-location{
           &__city{
             &_mobile{
-              display: inline;
+              display: inline; //shows "in Kiev" in  mobile version
             }
           }
         }
     }
 
-  .mobile-window{
-    //to show extra elements for mobile version
+  .main-page{
     overflow: hidden;
     min-height: 568px;
     min-width: 320px;
@@ -489,9 +476,11 @@ body{
 
     width:100%;
     height: 100% ;
-    &>.login-out-form{ // to show logout-button for mobile version
-      display: block;
-    }
+  }
+
+  .mobile{
+    display: block; //to show all extra elements of  mobile version
+
     &__settings{
       position: absolute;
       top: 24px;
@@ -519,7 +508,6 @@ body{
       }
     }
     &-day-list{
-      display: block;
       position: absolute;
       top: 70%;
       margin: 0 auto;
@@ -545,8 +533,8 @@ body{
       }
     }
   }
-  
-  
+
+
     .forecast{
         width: 33.333% ;
         height: 100%;
@@ -671,7 +659,6 @@ body{
             content: ''  ;
 
             border: 2px solid #fff;
-            -webkit-border-radius: 50%;
             border-radius: 50%;
           }
         }
@@ -680,12 +667,8 @@ body{
           margin-top: 90px;
             width: 33.333%;
             &_humidity-1{
-                display: block;
+                display: block;// shows "humidity" in mobile version
             }
         }
     }
-}
-
-@-ms-viewport{
-  width: device-width;
 }

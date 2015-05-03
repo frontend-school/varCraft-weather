@@ -20,7 +20,7 @@ $misc-icon-font-size:48px;
 @mixin center-horizontal-and-vertical{
   @include center-vertical;
   left: 50%;
-  //margin-right: -50%;
+  margin-right: -50%;
   transform: translate(-50%,-50%);
 }
 

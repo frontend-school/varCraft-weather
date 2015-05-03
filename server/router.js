@@ -5,44 +5,47 @@ module.exports = function(app, needReload){
         pageConstructor = require('./pageConstructor'),
         databaseHandler = require('./databaseHandler'),
         passport = require('passport'),
-        LocalStrategy = require('passport-local').Strategy;
+        LocalStrategy = require('passport-local').Strategy,
+        authentication = require('./authentication');
 
     var login,
         password,
         refreshedTime,
         appFolder = 'dist/';
 
-    app.configure(function() {
-        app.use(express.static('public'));
-        app.use(express.cookieParser());
-        app.use(express.bodyParser());
-        app.use(express.session({ secret: 'keyboard cat' }));
-        app.use(passport.initialize());
-        app.use(passport.session());
-        app.use(app.router);
-    });
+    //app.configure(function() {
+    //    app.use(express.static('public'));
+    //    app.use(express.cookieParser());
+    //    app.use(express.bodyParser());
+    //    app.use(express.session({ secret: 'keyboard cat' }));
+    //    app.use(passport.initialize());
+    //    app.use(passport.session());
+    //    app.use(app.router);
+    //});
 
-    passport.use(new LocalStrategy(
-        function(username, password, done) {
-            User.findOne({ username: username }, function(err, user) {
-                if (err) { return done(err); }
-                if (!user) {
-                    return done(null, false, { message: 'Incorrect username.' });
-                }
-                if (!user.validPassword(password)) {
-                    return done(null, false, { message: 'Incorrect password.' });
-                }
-                return done(null, user);
-            });
-        }
-    ));
+    //passport.use(new LocalStrategy(
+    //    function(username, password, done) {
+    //        User.findOne({ username: username }, function(err, user) {
+    //            if (err) { return done(err); }
+    //            if (!user) {
+    //                return done(null, false, { message: 'Incorrect username.' });
+    //            }
+    //            if (!user.validPassword(password)) {
+    //                return done(null, false, { message: 'Incorrect password.' });
+    //            }
+    //            return done(null, user);
+    //        });
+    //    }
+    //));
 
     app.use('/dist', express.static('dist'));
     app.use('/block', express.static('block'));
     app.use('/icon', express.static('icon'));
     app.use('/font', express.static('font'));
-    app.use(passport.initialize());
-    app.use(passport.session());
+    //app.use(passport.initialize());
+    //app.use(passport.session());
+    //app.use(express.cookieDecoder());
+    //app.use(express.session());
     app.use(bodyParser.urlencoded({extended: false}));
 
     app.post('/login', passport.authenticate('local', {
@@ -66,16 +69,23 @@ module.exports = function(app, needReload){
     //});
 
     app.get('/login', function (req, res) {
-        login = req.query.login;
-        password = req.query.password;
-        if(databaseHandler.userExists(login,password))
+        var login = req.query.login;
+        var password = req.query.password;
+        //var status = authentication.addUser(login, password);
+        if(!databaseHandler.userExists(login,password)) return;
+        //if(status === 0)
         {
             res.status(200).redirect('/weather');
         }
-        else
+        //else
         {
-            res.status(403).send('<h1>Error 403</h1><p>No such user found</p>');
+            //res.status(403).send('{status:"fail"}');
         }
+    });
+
+    app.get('/logout', function (req, res) {
+        var status = authentication.removeUser();
+        res.redirect('/');
     });
 
     app.get('/', function (req, res) {
@@ -93,7 +103,7 @@ module.exports = function(app, needReload){
     });
 
     app.get('/weather', function (req, res) {
-        if((databaseHandler.userExists(login, password)) && (login)){
+        //if((databaseHandler.userExists(login, password)) && (login)){
             var content = pageConstructor.constructPage({
                 'index': appFolder + 'index.html',
                 '@content': appFolder + 'block/weather-screen/weather-screen.html',
@@ -102,10 +112,10 @@ module.exports = function(app, needReload){
             });
             res.send(content);
             refreshedTime = new Date().getTime();
-        }
-        else {
-            res.redirect('/logout');
-        }
+        //}
+        //else {
+        //    res.redirect('/logout');
+        //}
     });
 
     app.get('/ask', function(req, res){
@@ -121,12 +131,6 @@ module.exports = function(app, needReload){
         res.send(result);
         needReload = false;
         refreshedTime = new Date().getTime();
-    });
-
-    app.get('/logout', function (req, res) {
-        login = undefined;
-        password = undefined;
-        res.redirect('/');
     });
 };
 

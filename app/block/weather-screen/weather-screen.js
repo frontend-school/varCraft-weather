@@ -3,9 +3,9 @@
 function weatherScreen() {
     //if (!username) return;
 
-    setTimeout(function () {
-        window.location.href = 'http://' + window.location.host;
-    }, 1800100);
+    //setTimeout(function () {
+    //    window.location.href = 'http://' + window.location.host;
+    //}, 1800100);
 
     setDateTime();
     function setDateTime(){

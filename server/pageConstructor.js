@@ -1,4 +1,5 @@
-var fs = require('fs');
+var fs = require('fs'),
+    appFolder='../dist/';
 
 function constructPage(page){
     var currentTemplate = fs.readFileSync(page.index,'utf-8');

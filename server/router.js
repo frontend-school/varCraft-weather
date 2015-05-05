@@ -83,7 +83,9 @@ module.exports = function(app, needReload){
         var sessionUser = authentication.getUser(cookieSid);
         var dt = new Date().getTime();
         if((cookieSid) && (!sessionUser)){
-            res.cookie('sid', dt, {expires: new Date(dt + 100), httpOnly: true});
+            res.clearCookie('sid');
+            res.redirect('/');
+            //res.send('cookie cleared');
         }
     }
 
@@ -198,13 +200,13 @@ module.exports = function(app, needReload){
 
     app.get('/weather', function (req, res) {
         try {
-
-            var cookieSid = req.cookies.sid;
-            var sessionUser = authentication.getUser(cookieSid);
-            var dt = new Date().getTime();
-            if((cookieSid) && (!sessionUser)){
-                res.clearCookie('sid');
-            }
+            clear(req, res);
+            //var cookieSid = req.cookies.sid;
+            //var sessionUser = authentication.getUser(cookieSid);
+            //var dt = new Date().getTime();
+            //if((cookieSid) && (!sessionUser)){
+            //    res.clearCookie('sid');
+            //}
 
             var sid = req.cookies.sid;
             if(sid) {

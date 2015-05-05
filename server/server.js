@@ -10,8 +10,11 @@ function runServer() {
 
     require('./router')(app, needReload);
 
+    console.log('here');
+
     var port = process.env.PORT || 3000;
     var server = app.listen(port, function () {
+
         var host = server.address().address;
         var port = server.address().port;
         console.log('Web application is available at http://%s:%s', host, port);

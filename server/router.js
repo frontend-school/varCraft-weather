@@ -33,16 +33,6 @@ module.exports = function(app, needReload){
         return [status, dt];
     }
 
-    function clear(req, res){
-        var cookieSid = req.cookies.sid;
-        var sessionUser = authentication.getUser(cookieSid);
-        var dt = new Date().getTime();
-        if((cookieSid) && (!sessionUser)){
-            res.clearCookie('sid');
-            res.redirect('/');
-        }
-    }
-
     app.get('/login', function (req, res) {
         var login = req.query.login;
         var password = req.query.password;
@@ -127,6 +117,16 @@ module.exports = function(app, needReload){
             console.log('Error occurred in "/" router');
         }
     });
+
+    function clear(req, res){
+        var cookieSid = req.cookies.sid;
+        var sessionUser = authentication.getUser(cookieSid);
+        var dt = new Date().getTime();
+        if((cookieSid && !sessionUser) || (!cookieSid)){
+            res.clearCookie('sid');
+            res.redirect('/');
+        }
+    }
 
     app.get('/weather', function (req, res) {
         try {

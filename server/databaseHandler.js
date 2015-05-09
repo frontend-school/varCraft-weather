@@ -13,7 +13,7 @@ function userExists(login, password){
     //function checkUser(){
         for(var i = 0; i < users.length; i++)
         {
-            if ((users[i].login == login) &&(users[i].password == password)) {
+            if ((users[i].login === login) &&(users[i].password === password)) {
                 return true;
             }
         }

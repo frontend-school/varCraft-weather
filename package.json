@@ -30,9 +30,7 @@
     "express": "^4.12.3",
     "gulp-concat": "^2.5.2",
     "gulp-open": "^0.3.2",
-    "gulp-run": "^1.6.7",
-    "passport": "^0.2.1",
-    "passport-local": "^1.0.0"
+    "gulp-run": "^1.6.7"
   },
   "keywords": [
     "serverupdate"

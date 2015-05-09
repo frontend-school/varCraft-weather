@@ -8,9 +8,9 @@ function runServer() {
 
     var app = express();
 
+    //To use web service only remove the underlying string and optionally file 'server/router.js'
     require('./router')(app, needReload);
-
-    console.log('here');
+    require('./webService')(app, needReload);
 
     var port = process.env.PORT || 3000;
     var server = app.listen(port, function () {

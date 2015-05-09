@@ -1,4 +1,4 @@
-module.exports = function(app, needReload) {
+module.exports = function(app) {
     var express = require('express'),
         pageConstructor = require('./pageConstructor'),
         databaseHandler = require('./databaseHandler'),
@@ -58,11 +58,11 @@ module.exports = function(app, needReload) {
         try {
             var sid = req.cookies.sid;
             var dt = new Date().getTime();
-            if (dt - sid > 180000) {
+            if((dt - sid > 180000) || (!sid)) {
                 authentication.removeUser(sid);
                 res.status(403).send({
                     status: "fail",
-                    desc: "Session timeout or user is offline",
+                    desc: "Session timeout or user was never loged on",
                     sid: null,
                     login: null
                 });
@@ -77,7 +77,7 @@ module.exports = function(app, needReload) {
             }
         }
         catch(err){
-
+            console.log('asdasdasd');
         }
     });
 };

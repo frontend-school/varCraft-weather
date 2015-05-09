@@ -1,16 +1,14 @@
-var needReload = false;
 runServer();
 function runServer() {
     var express = require('express'),
-        bodyParser = require('body-parser'),
         pageConstructor = require('./pageConstructor'),
         databaseHandler = require('./databaseHandler');
 
     var app = express();
 
     //To use web service only remove the underlying string and optionally file 'server/router.js'
-    require('./router')(app, needReload);
-    require('./webService')(app, needReload);
+    require('./router')(app);
+    require('./webService')(app);
 
     var port = process.env.PORT || 3000;
     var server = app.listen(port, function () {
@@ -21,9 +19,4 @@ function runServer() {
     });
 }
 
-function reload(){
-    needReload = true;
-}
-
 exports.runServer = runServer;
-exports.reload = reload;

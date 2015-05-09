@@ -8,11 +8,15 @@ function User(login,sid){
 }
 
 //setInterval(function(){
-//    for(var i = 0; i < users.length; i++){
-//        if(new Date().getTime() - users[i].sid < 1800000)
-//            removeUser('', i);
-//    }
-//}, 60000);
+//    users = users.map(function(user, index){
+//        showUsers('Removingd as timed out...');
+//        var dt = new Date().getTime();
+//        if(dt - user.sid > 180000){
+//            users.splice(index, 1);
+//            showUsers('Removed as timed out');
+//        }
+//    });
+//}, 600000);
 
 function addUser(login,password,sid){
     if(!databaseHandler.userExists(login, password)) return 1;
@@ -50,7 +54,7 @@ function removeUser(login){
 }
 
 function showUsers(action){
-    console.log(action);
+    console.log(action + ' ' + new Date().toString());
     console.log(users);
 }
 

@@ -5,7 +5,6 @@ module.exports = function(app){
         pageConstructor = require('./pageConstructor'),
         databaseHandler = require('./databaseHandler'),
         cookieParser = require('cookie-parser'),
-        http = require('http'),
         authentication = require('./authentication');
 
     var appFolder = '../dist/';

@@ -1,0 +1,11 @@
+@mixin wind($angle) {
+  content:"";
+  display:block;
+  background: url("../img/wind_direction.png") no-repeat 50%;
+  height: 88px;
+  width: 68px;
+  position:absolute;
+  top:17px;
+  transform-origin: center;
+  transform: rotate($angle);
+}

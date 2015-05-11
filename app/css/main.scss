@@ -1,6 +1,7 @@
 @import "../../bower_components/normalize.css/normalize.css";
 @import "fonts.scss";
 @import "var.scss";
+@import "mixin.scss";
 @import "form.scss";
 @import "settings";
 @import "dashboard";
@@ -281,61 +282,62 @@
     display: inline-block;
     font-size: 0.6em;
     vertical-align: top;
+    text-align: center;
     padding-left: 8px;
     padding-right: 8px;
     position: relative;
+    min-width:68px;
+    min-height:110px;
 
     &_humidity{
       display:none;
     }
   }
 
-  &__additional-direction {
-    position: absolute;
-    left: 33px;
-    top: 75px;
-  }
+  //&__additional-direction {
+  //  position: relative;
+  //  padding-top:50px;
+  //  &:after{
+  //    content:"";
+  //    display:block;
+  //    background: url("../img/wind_direction.png") no-repeat 50%;
+  //    height: 88px;
+  //    width: 88px;
+  //    position:absolute;
+  //    top:17px;
+  //  }
+  //}
 
   &__additional-desc {
     box-sizing: border-box;
     height: 88px;
-    width: 63px;
-    margin-top: 20px;
     background-repeat: no-repeat;
-    &_wind {
-      padding-top: 33px;
-      background-image: url("../img/wind_direction.png");
-      &_n{
-        transform-origin: center;
-        transform: rotate(0deg);
+    &_wind{
+      position: relative;
+      padding-top:50px;
+      &_n:after{
+        @include wind(0deg);
       }
-      &_ne{
-        transform-origin: center;
-        transform: rotate(45deg);
+      &_ne:after{
+        @include wind(45deg);
       }
-      &_e{
-        transform-origin: center;
-        transform: rotate(90deg);
+      &_e:after{
+        @include wind(90deg);
       }
-      &_se{
-        transform-origin: center;
-        transform: rotate(135deg);
+      &_se:after{
+        @include wind(135deg);
       }
-      &_s{
-        transform-origin: center;
-        transform: rotate(180deg);
+      &_s:after{
+        @include wind(180deg);
       }
-      &_sw{
-        transform-origin: center;
-        transform: rotate(225deg);
+      &_sw:after{
+        @include wind(225deg);
       }
-      &_w{
-        transform-origin: center;
-        transform: rotate(270deg);
+      &_w:after{
+        @include wind(270deg);
       }
-      &_nw{
-        transform-origin: center;
-        transform: rotate(315deg);
+      &_nw:after{
+        @include wind(315deg);
       }
     }
 

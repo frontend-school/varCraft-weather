@@ -174,69 +174,47 @@
     display: inline-block;
 
     &_fog{
-      background-position: 0 0;
-      width: 142px;
-      height: 108px;
+      @include weather_pic(0, 0, 142px, 108px);
     }
 
     &_snow-fall{
-      background-position: -160px 0;
-      width: 148px;
-      height: 122px;
+      @include weather_pic(-160px, 0, 148px, 122px);
     }
 
     &_partly-cloudy{
-      background-position: -325px 0;
-      width: 170px;
-      height: 112px;
+      @include weather_pic(-325px, 0, 170px, 112px);
     }
 
     &_sunny{
-      background-position: -1px -300px ;
-      width: 142px;
-      height: 142px;
+      @include weather_pic(-1px, -300px, 142px, 142px);
     }
 
     &_downpour{
-      background-position: 0 -150px ;
-      width: 148px;
-      height: 101px;
+      @include weather_pic(0, -150px, 148px, 101px);
     }
 
     &_mostly-cloudy{
-      background-position: -160px -150px ;
-      width: 148px;
-      height: 90px;
+      @include weather_pic(-160px, -150px, 148px, 90px);
     }
 
     &_rain-and-sun{
-      background-position: -325px -150px ;
-      width: 170px;
-      height: 142px;
+      @include weather_pic(-325px, -150px, 170px, 142px);
     }
 
     &_snow{
-      background-position: -160px -300px ;
-      width: 143px;
-      height: 144px;
+      @include weather_pic(-160px, -300px, 143px, 144px);
     }
 
     &_light-rain{
-      background-position: -325px -300px ;
-      width: 148px;
-      height: 120px;
+      @include weather_pic(-325px, -300px, 148px, 120px);
     }
 
     &_rain{
-      background-position: -500px 0;
-      width: 148px;
-      height: 120px;
+      @include weather_pic(-500px, 0, 148px, 120px);
     }
 
     &_sleet{
-      background-position: -500px -150px ;
-      width: 148px;
-      height: 123px;
+      @include weather_pic(-500px, -150px, 148px, 123px);
     }
   }
 
@@ -570,76 +548,48 @@ and (min-resolution: 192dpi) {
       background-size: 324px 222px;
 
       &_fog {
-        background-position: 0 0;
-        width: 71px;
-        height: 54px;
+        @include weather_pic(0, 0, 71px, 54px);
       }
 
       &_snow-fall {
-        background-position: -80px 0;
-        width: 74px;
-        height: 61px;
+        @include weather_pic(-80px, 0, 74px, 61px);
       }
 
       &_partly-cloudy {
-        background-position: -163px 0;
-        width: 85px;
-        height: 56px;
+        @include weather_pic(-163px, 0, 85px, 56px);
       }
 
       &_sunny {
-        background-position: 0px -150px;
-        width: 71px;
-        height: 71px;
+        @include weather_pic(0px, -150px, 71px, 71px);
       }
 
       &_downpour {
-        background-position: 0 -75px;
-        width: 74px;
-        height: 50px;
+        @include weather_pic(0px, -75px, 74px, 50px);
       }
 
       &_mostly-cloudy {
-        background-position: -80px -75px;
-        width: 74px;
-        height: 45px;
+        @include weather_pic(-80px, -75px, 74px, 45px);
       }
 
       &_rain-and-sun {
-        background-position: -162px -75px;
-        width: 85px;
-        height: 71px;
+        @include weather_pic(-162px, -75px, 85px, 71px);
       }
 
       &_snow {
-        background-position: -80px -150px;
-        width: 72px;
-        height: 72px;
+        @include weather_pic(-80px, -150px, 72px, 72px);
       }
 
       &_light-rain {
-        background-position: -162px -150px;
-        width: 74px;
-        height: 60px;
+        @include weather_pic(-162px, -150px, 74px, 60px);
       }
 
       &_rain {
-        background-position: -250px 0;
-        width: 74px;
-        height: 60px;
+        @include weather_pic(-250px, 0, 74px, 60px);
       }
 
       &_sleet {
-        background-position: -250px -75px;
-        width: 74px;
-        height: 62px;
+        @include weather_pic(-250px, -75px, 74px, 62px);
       }
     }
   }
 }
-
-
-
-
-
-

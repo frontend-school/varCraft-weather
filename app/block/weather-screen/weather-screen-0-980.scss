@@ -139,11 +139,12 @@
         margin: auto;
       }
       &_wrapper{
-        position: relative;
-        left: 0;
+        //position: relative;
+        //left: 0;
         width: auto;
         height: 100px;
-        transform: translate(0,0);
+        //transform: translate(0,0);
+        @include center-horizontal-and-vertical;
       }
       &_humidity{
         position:static;

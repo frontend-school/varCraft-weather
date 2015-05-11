@@ -386,29 +386,17 @@
       margin-top: 27px;
 
       &_hm2{
-        background-position: 0 0;
-        width: 78px;
-        height: 78px;
+        @include humidity(0, 0);
       }
 
       &_hm1{
-        background-position: -199px 0;
-        width: 78px;
-        height: 78px;
+        @include humidity(-199px, 0);
       }
 
       &_hm0{
-        background-position: -98px 0;
-        width: 78px;
-        height: 78px;
+        @include humidity(-98px, 0);
       }
     }
-  }
-
-  &_additional-desc {
-    position: absolute;
-    top: 75px;
-    left: 26px;
   }
 }
 

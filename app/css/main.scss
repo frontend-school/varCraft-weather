@@ -294,20 +294,6 @@
     }
   }
 
-  //&__additional-direction {
-  //  position: relative;
-  //  padding-top:50px;
-  //  &:after{
-  //    content:"";
-  //    display:block;
-  //    background: url("../img/wind_direction.png") no-repeat 50%;
-  //    height: 88px;
-  //    width: 88px;
-  //    position:absolute;
-  //    top:17px;
-  //  }
-  //}
-
   &__additional-desc {
     box-sizing: border-box;
     height: 88px;
@@ -345,39 +331,27 @@
       margin-top: 33px;
       background: url("../img/moon_state.png") no-repeat;
       &_mn0{
-        background-position: 0 0;
-        width: 64px;
-        height: 63px;
+        @include moon(0, 0);
       }
 
       &_mn1{
-        background-position: -72px 0;
-        width: 63px;
-        height: 63px;
+        @include moon(-72px, 0);
       }
 
       &_mn2{
-        background-position: -150px 0;
-        width: 63px;
-        height: 63px;
+        @include moon(-150px, 0);
       }
 
       &_mn3{
-        background-position: -230px 0;
-        width: 63px;
-        height: 63px;
+        @include moon(-230px, 0);
       }
 
       &_mn4{
-        background-position: -300px 0;
-        width: 63px;
-        height: 63px;
+        @include moon(-300px, 0);
       }
 
       &_mn5{
-        background-position: -375px 0;
-        width: 63px;
-        height: 63px;
+        @include moon(-375px, 0);
       }
     }
 

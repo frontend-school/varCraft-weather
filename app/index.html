@@ -9,11 +9,11 @@
 <html>
 
     <body>
-        <script src="/js/script.min.js"></script>
+        <script src="/js/script.js"></script>
 
-        <section class="login-page">
+        <section class="login-page js-login-page">
 
-            <form action="" method = "post" class="login-form" name="login-form">
+            <form action="" method = "get" class="login-form js-login-form" name="login-form">
                 <label class="login-form__label" for="login-field">Login:</label>
                 <input type="text" class="login-form__input" name="login" id="login-field">
                 <label for="password-field" name="password-field" class="login-form__label">Password:</label>
@@ -31,7 +31,7 @@
             <div class="user-info">
 
                 <div class="user-info-hello">
-                    <form action="post" name="log-out" class="logout-form">
+                    <form action="post" name="log-out" class="logout-form js-logout-form">
                         Hello, <span class="user-info-hello__name js-user-name">user-name</span>!
                             <input type="submit" class="logout-form__submit" value="">
                     </form>
@@ -39,7 +39,7 @@
 
 
                 <div class="user-info__time js-time">9:20<span class="user-info__day-part js-dayPart">AM</span></div>
-                <div class="user-info__date js-date">Wed, September 3</div>
+                <div class="user-info__date js-main-date">Wed, September 3</div>
                 <div class="user-info-location">
                     <span class="user-info-location__city">Kiev</span>
                     <br>
@@ -147,8 +147,8 @@
 
         <div class="mobile">
             <a href="#"><div class="mobile__settings"></div></a>
-            <form action="post" name="log-out" class="logout-form logout-form_mobile">
-                <input type="submit" class="logout-form__submit" value="">
+            <form action="" name="log-out" class="logout-form logout-form_mobile js-logout-form_mobile">
+                <input type="submit" class="logout-form__submit" value=""> 
             </form>
 
             <div class="mobile__change-day mobile__change-day_previous"></div>

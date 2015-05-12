@@ -18,7 +18,6 @@ http.createServer(app).listen(config.get('port'), function(){
 app.use(bodyParser()); //req.body
 app.use(cookieParser()); //req.cookies
 
-
 app.use(express.static('dist'));
 
 app.get('/login', function(req, res){

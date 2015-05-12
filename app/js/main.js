@@ -1,166 +1,179 @@
-
-function time(){
-var d = new Date();
-
-var hh = d.getHours();
-
-var dayPart;
-  if(hh <= 12) {
-    dayPart = "am";}
-    else{
-      dayPart = "pm";
-    }
-   if(hh > 12)hh -= 12;
-
-var mm = d.getMinutes();
-  if(mm < 10){
-    mm = "0" + mm;
-  }
-
-console.log(hh + ":" + mm + " " + dayPart);
-}
-
-function dates(){
-  var d = new Date();
-
-  var date = d.getDate();
-  var year = d.getFullYear();
-  var month = d.getMonth();
-  var day = d.getDay();
-
-  switch(month){
-    case 0: month = "January";
-      break;
-    case 1: month = "February";
-      break;
-    case 2: month = "March";
-      break;
-    case 3: month = "April";
-      break;
-    case 4: month = "May";
-      break;
-    case 5: month = "June";
-      break;
-    case 6: month = "July";
-      break;
-    case 7: month = "August";
-      break;
-    case 8: month = "September";
-      break;
-    case 9: month = "October";
-      break;
-    case 10: month = "November";
-      break;
-    case 11: month = "December";
-      break;
-  }
-
-  switch(day){
-    case 0: day = "Sun";
-      break;
-    case 1: day = "Mon";
-      break;
-    case 2: day = "Tue";
-      break;
-    case 3: day = "Wed";
-      break;
-    case 4: day = "Thu";
-      break;
-    case 5: day = "Fri";
-      break;
-    case 6: day = "Sat";
-      break;
-
-  }
-  console.log(date + "." + month + "." + year + "  " + day);
-
-  }
-
-  dates();
-
-
-setInterval(time, 10000);
+//Data User MVC
 
 
 function main(){
-    var loginForm = document.forms[0];
-    var loginFormOut = document.forms[1];
-    var loginFormOutMobile = document.forms[2];
-    var loginPage = loginForm.parentNode;
-    var mainPage = document.querySelector('.js-main-page');
-    var userName = mainPage.querySelector('.js-user-name');
 
-    var dataBase = [{login: "Viktor", password: "1"}, {login: "Maksim", password: "1"}, {login: "Stas", password: "1"}];
-    var cookieOptions = {
-        path: "/",
-        expires: 36000,
-        domain: ""
-    };
+    var viewUserInfo = {
+        insertName: function(name){
+        var userName = document.querySelector('.js-user-name');
+        console.log("это userName",userName);
+        userName.innerHTML = name;
+        },
+        insertDate: function(date){
+        var userDate = document.querySelector('.js-main-date');
+        console.log("это userDate",userDate);
+        userDate.innerHTML = date;
+        },
+        insertTime: function(data){
 
-    var startTime = new Date();
-
-    if(getCookie("login")){
-    var expire30 = setInterval(checkDuration, 500);
-    userName.innerHTML = getCookie("login");
+        var userDayPart = document.querySelector('.js-dayPart');
+        userDayPart.innerHTML = data.dayPart;
+        var userTime = document.querySelector('.js-time');
+        userTime.innerHTML = data.time;
+        userTime.appendChild(userDayPart);
+       
+        }   
     }
 
+    var modelUserInfo = {
+    name:null,
+    getTime: function(){
+        var data = {time:"", dayPart:""};
+
+        var d = new Date();
+
+        var hh = d.getHours();
+
+        var dayPart;
+          if(hh <= 12) {
+            dayPart = "am";}
+            else{
+              dayPart = "pm";
+            }
+           if(hh > 12)hh -= 12;
+
+        var mm = d.getMinutes();
+          if(mm < 10){
+            mm = "0" + mm;
+          }
+
+        data.time += "" + hh + ":" + mm;
+        data.dayPart = "" + dayPart;
+        return data;
+    },
+    getDate: function(){
+        var d = new Date();
+        var result = "";
+        var date = d.getDate();
+        var year = d.getFullYear();
+        var month = d.getMonth();
+        var day = d.getDay();
+
+        switch(month){
+          case 0: month = "January";
+            break;
+          case 1: month = "February";
+            break;
+          case 2: month = "March";
+            break;
+          case 3: month = "April";
+            break;
+          case 4: month = "May";
+            break;
+          case 5: month = "June";
+            break;
+          case 6: month = "July";
+            break;
+          case 7: month = "August";
+            break;
+          case 8: month = "September";
+            break;
+          case 9: month = "October";
+            break;
+          case 10: month = "November";
+            break;
+          case 11: month = "December";
+            break;
+        }
+
+        switch(day){
+          case 0: day = "Sun";
+            break;
+          case 1: day = "Mon";
+            break;
+          case 2: day = "Tue";
+            break;
+          case 3: day = "Wed";
+            break;
+          case 4: day = "Thu";
+            break;
+          case 5: day = "Fri";
+            break;
+          case 6: day = "Sat";
+            break;
+        }
+
+        // Wed, September 3
+        result = "" + day + ", " + month + " " + date;
+        console.log(result);
+        return result;
+
+    }
+};
 
 
-    function logOut(){
+
+var controllerUserInfo = {
+    logIn: function(){
+
+        // startTime = new Date();
+        var login = this.elements.login.value;
+        var password = this.elements.password.value;
+
+        console.log(login, password);
+
+        var loginRequest = new XMLHttpRequest();
+        loginRequest.open('GET', '/login?' + "login=" + login + "&" + "password=" + password, true);
+        loginRequest.send();
+        console.log(loginRequest);
+        console.log(getCookie('login'));
+
+        function fillAll(){
+            modelUserInfo.name = getCookie('login');
+            modelUserInfo.getDate();
+            viewUserInfo.insertDate(modelUserInfo.getDate());
+            viewUserInfo.insertName(modelUserInfo.name);
+            viewUserInfo.insertTime(modelUserInfo.getTime());
+        }
+
+
+        if(getCookie('login')){
+
+        modelUserInfo.name = getCookie('login');
+        // // expire30 = setInterval(checkDuration, 500);
+        fillAll();
+        dom.loginPage.classList.add("hide");
+        dom.mainPage.classList.remove("hide");
+         }
+
+        return false;
+    },
+    logOut: function(){
         var logoutRequest = new XMLHttpRequest();
         logoutRequest.open('GET', '/logout', true);
         logoutRequest.send();
         console.log(logoutRequest);
 
         // deleteCookie("login");
-        mainPage.parentNode.classList.add("hide");
-        mainPage.classList.remove("hide");
+        dom.mainPage.parentNode.classList.add("hide");
+        dom.mainPage.classList.remove("hide");
         window.location.reload();
         return false;
+
     }
+};
 
-    function checkDuration(){
-        var delayBeforeQuit = 1800 * 1000;
-        var curTime = new Date();
-        // console.log("remained time after last action:" +(curTime - startTime)/1000 + " s");
-        if(curTime - startTime > delayBeforeQuit){
-            logOut();
-        }
-    }
+    var dom =  {};
+        dom.loginForm = document.querySelector('.js-login-form');
+        console.log(dom.loginForm);
+        dom.loginPage = document.querySelector('.js-login-page');
+        dom.logoutForm = document.querySelector('.js-logout-form');
+        dom.logoutFormMobile = document.querySelector('.js-logout-form_mobile');
+        dom.mainPage = document.querySelector('.js-main-page');
 
-
-    if(getCookie("login")){
-        loginPage.classList.add("hide");
-        mainPage.classList.remove("hide");
-    }
-
-
-    function logIn(){
-        var loginRequest = new XMLHttpRequest();
-
-        startTime = new Date();
-        var login = this.elements.login.value;
-        var password = this.elements.password.value;
-
-        loginRequest.open('GET', '/login?' + "login=" + login + "&" + "password=" + password, true);
-        loginRequest.send();
-        console.log(loginRequest);
-        console.log(getCookie('login'));
-
-        if(getCookie('login')){
-
-        userName.innerHTML = login;
-        expire30 = setInterval(checkDuration, 500);
-        loginPage.classList.add("hide");
-        mainPage.classList.remove("hide");
-        }
-
-        return false;
-    }
-
-    loginForm.onsubmit = logIn;
-    loginFormOut.onsubmit = logOut;
-    loginFormOutMobile.onsubmit = logOut;
+    dom.loginForm.onsubmit = controllerUserInfo.logIn;
+    dom.logoutForm.onsubmit = controllerUserInfo.logOut;
+    dom.logoutFormMobile.onsubmit = controllerUserInfo.logOut;
 
 }
 

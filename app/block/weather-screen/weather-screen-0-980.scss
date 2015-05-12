@@ -74,7 +74,7 @@
       display: block;
       width: 100px;
       height: 100px;
-      background-image: url("../icons/technical/settings.png");
+      background-image: url("../icons/interface/settings.png");
       background-repeat: no-repeat;
       background-size: cover;
       left: -120%;
@@ -139,11 +139,12 @@
         margin: auto;
       }
       &_wrapper{
-        position: relative;
-        left: 0;
+        //position: relative;
+        //left: 0;
         width: auto;
         height: 100px;
-        transform: translate(0,0);
+        //transform: translate(0,0);
+        @include center-horizontal-and-vertical;
       }
       &_humidity{
         position:static;

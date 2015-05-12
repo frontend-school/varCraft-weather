@@ -7,7 +7,7 @@ module.exports = function(app){
         cookieParser = require('cookie-parser'),
         authentication = require('./authentication');
 
-    var appFolder = '../dist/';
+    var appFolder = 'dist/';
 
     app.use('/dist', express.static('dist'));
     app.use('/block', express.static('block'));
@@ -85,5 +85,10 @@ module.exports = function(app){
         catch(err){
 
         }
+    });
+
+    app.get('/getweather', function (req, res) {
+
+        res.send();
     });
 };

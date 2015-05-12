@@ -123,6 +123,7 @@ gulp.task('livereload', function() {
 
 gulp.task('watcher', ['watch-source', 'watch-components']);
 gulp.task('build', ['html', 'css', 'js', 'img', 'mobile-html']);
-gulp.task("default", ['server', 'build', 'watcher', 'livereload']);
-gulp.task('expbuild',['build', 'express']);
+//gulp.task("default", ['server', 'build', 'watcher', 'livereload']);
+gulp.task("default", ['expbuild']);
+gulp.task('expbuild',['build', 'express', 'watch-source']);
 gulp.task('testAPI', ['build', 'testAPIserver']);

@@ -21,8 +21,7 @@ function main(){
         var userTime = document.querySelector('.js-time');
         userTime.innerHTML = data.time;
         userTime.appendChild(userDayPart);
-       
-        }   
+        }
     }
 
     var modelUserInfo = {

@@ -8,6 +8,7 @@ var rename = require( 'gulp-rename' );
 var jshint = require( 'gulp-jshint' );
 var concat = require('gulp-concat') ;
 var autoprefixer = require('gulp-autoprefixer');
+var express = require('gulp-express');
 
 var source = "app";
 var destination = "dist";
@@ -29,6 +30,11 @@ var filteredDestination = ['dist/css/*.css',
 var appComponents  = "bower_components";
 var runningPage = "index.html";
 var testAPI = "/pages/testAPI.html";
+
+
+gulp.task('express', function () {
+    express.run(['app.js'])
+    });
 
 
 gulp.task('server', function() {
@@ -118,4 +124,5 @@ gulp.task('livereload', function() {
 gulp.task('watcher', ['watch-source', 'watch-components']);
 gulp.task('build', ['html', 'css', 'js', 'img', 'mobile-html']);
 gulp.task("default", ['server', 'build', 'watcher', 'livereload']);
+gulp.task('expbuild',['build', 'express']);
 gulp.task('testAPI', ['build', 'testAPIserver']);

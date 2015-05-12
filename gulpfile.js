@@ -34,8 +34,8 @@ gulp.task('less', function() {
 
 // JS
 gulp.task('js', function() {
-    return gulp.src(source + 'js/*.js')
-        .pipe(watch(source + 'js/*.js'))
+    return gulp.src([source + 'js/*.js', source+'/js/*/*.js'])
+        .pipe(watch([source + 'js/*.js', source+'/js/*/*.js']))
         .pipe(concatC('app.js'))
         .pipe(jshint())
         .pipe(gulp.dest(destination+'js/'));
@@ -72,12 +72,12 @@ gulp.task('bower', function() {
 
 // First build
 gulp.task('copy', function() {
-    return gulp.src([source+'!/js/*.js'], {base: source})
+    return gulp.src([source+'!/js/*.js',source+'/js/vendor/*.js'], {base: source})
         .pipe(gulp.dest(destination));
 });
 
 gulp.task('copyjs', function() {
-    return gulp.src([source+'/js/*.js'], {base: source})
+    return gulp.src([source+'/js/*.js', source+'/js/!vendor/*.js'], {base: source})
         .pipe(concat('app.js'))
         .pipe(gulp.dest(destination+'js'));
 });

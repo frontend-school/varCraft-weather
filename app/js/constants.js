@@ -6,10 +6,18 @@ window.VarCraft.CONST = {
         USER_LOGIN: "#login",
         USER_LOGIN_LABEL: "#username",
         LOGIN_BUTTON: "#log-in",
-        LOGOUT_BUTTON: "#log-out"
+        LOGOUT_BUTTON: "#log-out",
+        TIME: ".js-time",
+        MIDDAY: ".js-midday",
+        DATE: ".js-date"
     },
 
     COOKIES: {
         DURATION: 60*30*1000
+    },
+
+    ACTION: {
+        SET_TIME: "datetime/view:setTime",
+        SET_DATE: "datetime/view:setDate"
     }
 };

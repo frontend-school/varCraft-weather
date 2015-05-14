@@ -29,6 +29,25 @@ window.onload = function() {
 
     })();
 
+    (function () {
+        var elements = {
+            time: window.document.querySelector('.' + window.vCWeather.CONST.CLASSES_DAY_TIME.TIME),
+            timePeriod: window.document.querySelector('.' + window.vCWeather.CONST.CLASSES_DAY_TIME.TIME_PERIOD),
+            day: window.document.querySelector('.' + window.vCWeather.CONST.CLASSES_DAY_TIME.DAY),
+            dayList: {
+                yesterday: window.document.querySelector('.' + window.vCWeather.CONST.CLASSES_DAY_TIME.DAY_LIST.DAY_YESTERDAY),
+                today: window.document.querySelector('.' + window.vCWeather.CONST.CLASSES_DAY_TIME.DAY_LIST.DAY_TODAY),
+                tomorrow: window.document.querySelector('.' + window.vCWeather.CONST.CLASSES_DAY_TIME.DAY_LIST.DAY_TOMORROW)
+            }
+        };
+
+        var dateTimeUpdaterModel = new vCWeather.modules.DateTimeUpdaterModel();
+        var dateTimeUpdaterView = new vCWeather.modules.DateTimeUpdaterView(dateTimeUpdaterModel, elements);
+        var dateTimeUpdaterController = new vCWeather.modules.DateTimeUpdaterController(dateTimeUpdaterModel, dateTimeUpdaterView);
+
+        dateTimeUpdaterController.init();
+    })();
+
 }; /* window.onload */
 
 window.vCWeather = window.vCWeather || {};

@@ -12,8 +12,8 @@
 </head>
 <body class="wrapper">
 
-    <div class="popup__overlay popup__overlay_show-block">
-    <!-- <div class="popup__overlay popup__overlay_hide-block"> -->
+    <!--<div class="popup__overlay popup__overlay_show-block">-->
+     <div class="popup__overlay popup__overlay_hide-block">
 
         <form class="popup" method="POST">
 
@@ -21,7 +21,7 @@
                 <input type="text" class="js-login-name popup__login-pwd">
             </label>
 
-            <label for="password" class="popup__label">Password:
+            <label class="popup__label">Password:
                 <input type="password" class="js-login-password popup__login-pwd">
             </label>
 
@@ -36,17 +36,20 @@
         <div class="sidebar-settings">
             <button type="submit" class="sidebar-settings__option-btn sidebar-settings_mobile-button"></button>
             <button type="submit" class="js-log-out button-log-in-out button-log-in-out_log-out sidebar-settings_mobile-button">Log out</button>
-            <span class="sidebar-settings__hallo-message js-hallo-message">wedwedede<!-- Hallo, [Name]! (Is filled with JS by login name)--></span>
+            <span class="sidebar-settings__hallo-message js-hallo-message"><!-- Hallo, [Name]! (Is filled with JS by login name)--></span>
         </div>
 
-        <div class="sidebar__clock">
-            9:20
-            <span class="sidebar__clock-format">
+        <div class="sidebar-clock">
+            <span class="js-time sidebar-clock__time">
+                9:20
+            </span>
+
+            <span class="js-time-period sidebar-clock__time-period">
                 AM
             </span>
         </div>
 
-        <div class="sidebar__date">
+        <div class="js-day sidebar__date">
             Wed, April 22
         </div>
 
@@ -70,7 +73,7 @@
 
         <div class="day-title">
             <p class="day-title__order-day">Yesterday</p>
-            <p class="day-title__date-day">20/04/2015</p>
+            <p class="js-day-yesterday day-title__date-day">20/04/2015</p>
         </div>
 
         <div class="status-weather status-weather_icon-partly-cloudly">
@@ -121,7 +124,7 @@
         <div class="day-title">
             <p class="day-title__mob-header">Today in Kiev</p>
             <p class="day-title__order-day">Today</p>
-            <p class="day-title__date-day">21/04/2015</p>
+            <p class="js-day-today day-title__date-day">21/04/2015</p>
         </div>
 
         <div class="status-weather status-weather_icon-snowfall">
@@ -183,7 +186,7 @@
 
         <div class="day-title">
             <p class="day-title__order-day">Tomorrow</p>
-            <p class="day-title__date-day">22/04/2015</p>
+            <p class="js-day-tomorrow day-title__date-day">22/04/2015</p>
         </div>
 
         <div class="status-weather status-weather_icon-fog">

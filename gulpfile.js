@@ -6,6 +6,21 @@ var jshint = require('gulp-jshint');
 var sass = require('gulp-ruby-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
+var server = require('gulp-express');
+
+gulp.task('server', function () {
+    // Start the server at the beginning of the task
+    server.run(['server/app.js']);
+
+    // Restart the server when file changes
+    //Event object won't pass down to gulp.watch's callback if there's more than one of them.
+    //So the correct way to use server.notify is as following:
+    /*gulp.watch(['app/scripts/!**!/!*.js'], ['jshint']);
+    gulp.watch(['app/images/!**!/!*'], server.notify);
+    gulp.watch(['app.js', 'routes/!**!/!*.js'], [server.run]);*/
+});
+
+
 var source = 'app';
 var destination = 'dist';
 var tmpDir = 'tmp';
@@ -20,7 +35,7 @@ var path = {
         css: [sourceCSS + '/var.scss', sourceCSS + '/style.scss'],
         cssNormalize: source + '/css/normalize.css',
         scss: sourceCSS + '/**/*.scss',
-        js: source + '/js/*.js',
+        js: source + '/js/**/*.js',
         srcComponents: 'bower_components'
     },
 
@@ -95,5 +110,5 @@ gulp.task('webserver', ['sass', 'js'], function () {
         }));
 });
 
-gulp.task('default', ['watch-sass', 'watch-folders', 'webserver']);
+gulp.task('default', ['watch-sass', 'watch-folders', 'webserver', 'server']);
 

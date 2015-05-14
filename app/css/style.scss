@@ -63,11 +63,7 @@ only screen and (max-device-width: 320px) {
             }
         }
 
-        &__clock{
-            display: none;
-        }
-
-        &__clock-format{
+        &-clock{
             display: none;
         }
 
@@ -417,26 +413,31 @@ only screen and (min-device-width: 321px) and (max-device-width: 1280px) {
             }
         }
 
-        &__clock{
+        &-clock{
             display: block;
             float: left;
             margin: 0 0 0 10px;
             padding: 0;
-            font-size: 50px;
-            line-height: 50px;
-            font-weight: 300;
-        }
 
-        &__clock-format{
-            display: inline-block;
-            margin-left: -10px;
-            padding: 10px 0 0 0;
+            &__time{
+                display: inline;
+                margin: 0 5px 0 0;
+                font-size: 50px;
+                line-height: 50px;
+                font-weight: 300;
+            }
 
-            font-size: 18px;
-            line-height: 18px;
-            font-weight: 200;
+            &__time-period{
+                display: inline-block;
+                margin-left: -10px;
+                padding: 10px 0 0 0;
 
-            vertical-align: top;
+                font-size: 18px;
+                line-height: 18px;
+                font-weight: 200;
+
+                vertical-align: top;
+            }
         }
 
         &__date{
@@ -633,25 +634,31 @@ only screen and (min-device-width: 321px) and (max-device-width: 1280px) {
             }
         }
 
-        &__clock{
+        &-clock{
             display: block;
             width: 100%;
             margin: 100px 0 0;
             padding: 20px 0 25px;
-            font-size: 160px;
-            line-height: 160px;
-            font-weight: 300;
-        }
 
-        &__clock-format{
-            display: inline;
-            margin-left: -20px;
+            &__time{
+                display: inline;
+                margin: 0 15px 0 0;
 
-            font-size: 30px;
-            line-height:90px;
-            font-weight: 200;
+                font-size: 160px;
+                line-height: 160px;
+                font-weight: 300;
+            }
 
-            vertical-align: top;
+            &__time-period{
+                display: inline;
+                margin-left: -20px;
+
+                font-size: 30px;
+                line-height:90px;
+                font-weight: 200;
+
+                vertical-align: top;
+            }
         }
 
         &__date{

@@ -5,18 +5,22 @@ module.exports = function(app) {
         http = require('http'),
         authentication = require('./authentication');
 
-    app.get('/login', function (req, res) {
+    app.all('/login', function (req, res) {
         var login = req.query.login;
         var password = req.query.password;
         var dt = new Date().getTime();
-        var sid = req.cookies.sid;
+        var sid = "";
+        if ((req.cookies) && (req.cookies.sid)) {
+            sid = req.cookies.sid;
+        }
         if((sid) && (!authentication.getUser(login))) {
             res.status(403).send({status: "fail", desc: "Unclosed session was detected from this browser. Perform /logout operation to clear cookies", sid: null, login: null});
             return;
         }
         res.cookie('sid', dt, {expires: new Date(dt + 1800000), httpOnly: true});
         var status = authentication.addUser(login, password, dt);
-
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         if (status === 0) {
             res.status(200).send({status: "success", desc: "Logined", sid: dt, login: login});
         }
@@ -39,10 +43,12 @@ module.exports = function(app) {
         }
     });
 
-    app.get('/logout', function (req, res) {
+    app.all('/logout', function (req, res) {
         var sid = req.cookies.sid;
         var dt = new Date().getTime();
         res.cookie('sid', dt, {expires: new Date(dt + 100), httpOnly: true});
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         if (sid != null) {
             authentication.removeUser(sid);
             res.clearCookie('sid');

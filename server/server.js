@@ -8,7 +8,8 @@ function runServer() {
 
     //To use web service only remove the underlying string and optionally file 'server/router.js'
     require('./router')(app);
-    require('./webService')(app);
+    require('./userWebService')(app);
+    require('./weatherWebService')(app);
 
     var port = process.env.PORT || 3000;
     var server = app.listen(port, function () {

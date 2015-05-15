@@ -34,18 +34,25 @@ module.exports = function(app){
     }
 
     function clear(req, res){
-        var cookieSid = req.cookies.sid;
-        var sessionUser = authentication.getUser(cookieSid);
+        var sid = "";
+        var sessionUser;
+        if ((req.cookies) && (req.cookies.sid)) {
+            sid = req.cookies.sid;
+            sessionUser = authentication.getUser(sid);
+        }
         var dt = new Date().getTime();
-        if((cookieSid) && (!sessionUser)){
+        if((sid) && (!sessionUser)){
             res.clearCookie('sid');
             res.redirect('/');
         }
     }
 
     app.get('/', function (req, res) {
-        try{
-            var sid = req.cookies.sid;
+        //try{
+            var sid = "";
+            if ((req.cookies) && (req.cookies.sid)) {
+                sid = req.cookies.sid;
+            }
             if(sid) {
                 res.redirect('/weather');
             }
@@ -57,9 +64,9 @@ module.exports = function(app){
                 });
                 res.send(content);
             }
-        }
-        catch(err){
-        }
+        //}
+        //catch(err){
+        //}
 
     });
 

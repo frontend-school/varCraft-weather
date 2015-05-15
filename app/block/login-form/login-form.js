@@ -1,7 +1,5 @@
-/**
- * Created by Triplecorpse on 13.05.2015.
- */
-function loginForm(){
+function loginSubmit(){
+    console.log('gfhgfh');
     var login = document.getElementsByName('login')[0].value,
         password = document.getElementsByName('password')[0].value,
         request = 'http://' + window.location.host + '/login?login=' + login + '&password=' + password,
@@ -24,4 +22,8 @@ function loginForm(){
 
     xmlhttp.open("GET", request, true);
     xmlhttp.send()
+}
+
+function loginForm(){
+
 }

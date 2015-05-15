@@ -11,19 +11,6 @@ $night-temp-font-size:$header-day-font-size;
 $night-caption-temp-font-size:$header-date-font-size;
 $misc-icon-font-size:48px;
 
-@mixin center-vertical{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-@mixin center-horizontal-and-vertical{
-  @include center-vertical;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%,-50%);
-}
-
 @mixin show-wind($direction){
   background-image: url('../icons/wind-icon/wind_direction.png');
   //background-size: 48px 67px;
@@ -45,16 +32,6 @@ $misc-icon-font-size:48px;
   background-repeat: no-repeat;
   background-origin: content-box;
   background-size: contain;
-}
-
-@mixin clearfix($element){
-  #{element}:after{
-    content: '';
-    clear: both;
-    visibility: hidden;
-    display: block;
-    height: 0;
-  }
 }
 
 @for $i from 1 through 4{

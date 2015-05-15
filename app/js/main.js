@@ -111,21 +111,38 @@ function main(){
 };
 
 
-
 var controllerUserInfo = {
     logIn: function(){
-
+        var check=3;
         // startTime = new Date();
         var login = this.elements.login.value;
         var password = this.elements.password.value;
 
-        console.log(login, password);
-
         var loginRequest = new XMLHttpRequest();
-        loginRequest.open('GET', '/login?' + "login=" + login + "&" + "password=" + password, true);
+        loginRequest.withCredentials = true;
+        loginRequest.open('GET', 'http://localhost:3000/login?' + "login=" + login + "&" + "password=" + password, true);
+
+
+        loginRequest.onload = function() {
+           console.log(this.responseText);
+           check = JSON.parse(this.responseText);
+           console.dir(check);
+           login = 27;
+
+           if(check.status === "success"){
+
+           modelUserInfo.name = getCookie('login');
+           // // expire30 = setInterval(checkDuration, 500);
+           fillAll();
+           dom.loginPage.classList.add("hide");
+           dom.mainPage.classList.remove("hide");
+
+            }
+            else window.location.reload();
+        };
+
+
         loginRequest.send();
-        console.log(loginRequest);
-        console.log(getCookie('login'));
 
         function fillAll(){
             modelUserInfo.name = getCookie('login');
@@ -135,29 +152,31 @@ var controllerUserInfo = {
             viewUserInfo.insertTime(modelUserInfo.getTime());
         }
 
-
-        if(getCookie('login')){
-
-        modelUserInfo.name = getCookie('login');
-        // // expire30 = setInterval(checkDuration, 500);
-        fillAll();
-        dom.loginPage.classList.add("hide");
-        dom.mainPage.classList.remove("hide");
-         }
+        
 
         return false;
     },
     logOut: function(){
-        var logoutRequest = new XMLHttpRequest();
-        logoutRequest.open('GET', '/logout', true);
-        logoutRequest.send();
-        console.log(logoutRequest);
+        var logoutRequest = new XMLHttpRequest(),
+            checkout;
+        logoutRequest.withCredentials = true;
+        logoutRequest.open('GET', 'http://localhost:3000/logout', true);
 
+        logoutRequest.onload = function() {
+           checkout = JSON.parse(this.responseText);
+           console.log(checkout);
+        };
+
+
+        logoutRequest.send();
+        if(checkout.status === "success"){
         // deleteCookie("login");
         dom.mainPage.parentNode.classList.add("hide");
         dom.mainPage.classList.remove("hide");
-        window.location.reload();
+       // window.location.reload();
+        }
         return false;
+
 
     }
 };

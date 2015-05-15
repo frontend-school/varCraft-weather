@@ -33,7 +33,7 @@ var testAPI = "/pages/testAPI.html";
 
 
 gulp.task('express', function () {
-    express.run(['app.js'])
+    express.run(['app.js']);
     });
 
 
@@ -124,6 +124,7 @@ gulp.task('livereload', function() {
 gulp.task('watcher', ['watch-source', 'watch-components']);
 gulp.task('build', ['html', 'css', 'js', 'img', 'mobile-html']);
 //gulp.task("default", ['server', 'build', 'watcher', 'livereload']);
-gulp.task("default", ['expbuild']);
+gulp.task("default", ['server', 'build', 'watcher', 'livereload', 'express']);
 gulp.task('expbuild',['build', 'express', 'watch-source']);
 gulp.task('testAPI', ['build', 'testAPIserver']);
+gulp.task('2servers',['build', 'server', 'express']);

@@ -18,30 +18,46 @@ http.createServer(app).listen(config.get('port'), function(){
 app.use(bodyParser()); //req.body
 app.use(cookieParser()); //req.cookies
 
-app.use(express.static('dist'));
+//app.use(express.static('dist'));
 
 app.get('/login', function(req, res){
+	res.set('Access-Control-Allow-Origin', 'http://localhost:8080'  );
+	res.set('Access-Control-Allow-Credentials', true);
+	res.set('Content-type', 'application/JSON');
+	
 
 	var parsedUrl = url.parse(req.url, true);
 	var login = parsedUrl.query.login;
 	var password = parsedUrl.query.password;
 	console.log(login, password);
 
+	// Access-Control-Allow-Origin: домен
+	// Access-Control-Allow-Credentials: true
+
 	if(auth(login, password)){
-		console.log(parsedUrl.query.login);
+		console.log(req.headers.host, req.protocol);
+
+		console.log("login: " + parsedUrl.query.login);
+
 		res.statusCode = 200;
 		res.cookie('login', parsedUrl.query.login);
 	    res.json({"status":"success"});
+	    res.end();
     }
     else {
     	console.log(parsedUrl.query.login);
 		res.statusCode = 403;
 	    res.json({"status":"failed"});
+	    res.end();
     }
 });
 
 app.get('/logout', function(req, res){
 		console.log("run '/logout'");
+
+	res.set('Access-Control-Allow-Origin', 'http://localhost:8080'  );//
+	res.set('Access-Control-Allow-Credentials', true);
+	res.set('Content-type', 'application/JSON');
 
 	res.statusCode = 200;
 	res.clearCookie('login');

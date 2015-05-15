@@ -1,29 +1,29 @@
 @mixin wind($angle) {
-  content:"";
-  display:block;
-  background: url("../img/wind_direction.png") no-repeat 50%;
-  height: 88px;
+  content: '';
+  position: absolute;
+  top: 17px;
+  display: block;
   width: 68px;
-  position:absolute;
-  top:17px;
-  transform-origin: center;
+  height: 88px;
   transform: rotate($angle);
+  transform-origin: center;
+  background: url('../img/wind_direction.png') no-repeat 50%;
 }
 
 @mixin humidity($x, $y) {
-  background-position: $x $y;
   width: 78px;
   height: 78px;
+  background-position: $x $y;
 }
 
 @mixin moon($x, $y) {
-  background-position: $x $y;
   width: 64px;
   height: 63px;
+  background-position: $x $y;
 }
 
 @mixin weather_pic($x, $y, $width, $height) {
-  background-position: $x $y;
   width: $width;
   height: $height;
+  background-position: $x $y;
 }

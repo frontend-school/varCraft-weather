@@ -1,48 +1,55 @@
-.mobile-control{
-  display: none;
+.mobile-control {
   position: fixed;
-  left: 0;
+  z-index: 100;
   top: 0;
+  left: 0;
+  display: none;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  z-index: 100;
-  text-align: center;
   padding: 0 20px 0;
-  box-sizing: border-box;
-  &__list{
+  text-align: center;
+
+  &__list {
     display: block;
-    margin-left:auto;
-    margin-right:auto;
+    margin-right: auto;
+    margin-left: auto;
   }
-  &__indicator{
-    background:no-repeat;
-    height:13px;
-    width: 13px;
+
+  &__indicator {
     display: inline-block;
-    &_active{
-      background-image: url("../img/indicator_active.png");
+    width: 13px;
+    height: 13px;
+    background: no-repeat;
+
+    &_active {
+      background-image: url('../img/indicator_active.png');
     }
-    &_passive{
-      background-image: url("../img/indicator_passive.png");
+
+    &_passive {
+      background-image: url('../img/indicator_passive.png');
     }
   }
+
   &__arrows{
     box-sizing: border-box;
+    height: 105px;
     margin: 220px 0 60px;
-    height:105px;
   }
+
   &__arrow{
-    background:no-repeat;
-    height:105px;
     width: 47px;
+    height: 105px;
+    background: no-repeat;
 
     &_left{
-      background-image: url("../img/left_arrow.png");
       float: left;
+      background-image: url('../img/left_arrow.png');
     }
+
     &_right{
-      background-image: url("../img/right_arrow.png");
       float: right;
+      background-image: url('../img/right_arrow.png');
     }
   }
 }

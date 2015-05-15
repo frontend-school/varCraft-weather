@@ -1,18 +1,17 @@
 .settings {
   position: absolute;
-  left:0;
-  top: 0;
-  padding: 15px 20px;
-  display: none;
   z-index: 250;
+  top: 0;
+  left: 0;
+  display: none;
+  padding: 15px 20px;
 
   &__button {
     width: 24px;
     height: 24px;
-    background: url("../img/settings_button.png") no-repeat 0 0;
-    background-size: 24px 24px;
+    margin-right: 5px;
     border: none;
     cursor: pointer;
-    margin-right: 5px;
-  }
+    background: url('../img/settings_button.png') no-repeat 0 0;
+    background-size: 24px 24px;  }
 }

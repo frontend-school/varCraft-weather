@@ -1,11 +1,11 @@
 .dashboard {
   position: absolute;
-  left:0;
+  left: 0;
   top: 0;
+  padding: 20px;
   font-family: $font_family;
   font-size: $font_size;
   color: $label_color;
-  padding: 20px;
 
   &__greeting {
     display: inline-block;
@@ -22,9 +22,9 @@
   &__log-out {
     width: 27px;
     height: 22px;
-    background: url("../img/exit.png") no-repeat 0 0;
-    border: none;
-    cursor: pointer;
     margin-right: 5px;
+    border: none;
+    background: url('../img/exit.png') no-repeat 0 0;
+    cursor: pointer;
   }
 }

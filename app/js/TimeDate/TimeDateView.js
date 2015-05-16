@@ -43,13 +43,18 @@ window.MYAPPLICATION.TimeDateView = (function () {
 
     return {
         writeTime : function (currentDate) {
-            window.MYAPPLICATION.pubsub.subscribe('/timeChange', function () {
-                _writeTime(currentDate);
+            _writeTime(currentDate);
+            window.MYAPPLICATION.pubsub.subscribe('/timeChange', function (date) {
+                _writeTime(date);
             });
         },
         writeAllDates: function (currentDate) {
             _writeInfoDate(currentDate);
             _writeWeatherDates(currentDate);
+            window.MYAPPLICATION.pubsub.subscribe('/dateChange', function (date) {
+                _writeInfoDate(date);
+                _writeWeatherDates(date);
+            });
         }
     };
 }());

@@ -1,20 +1,22 @@
+//view
 function setZ(zYesterday, zToday, zTomorrow){
     document.getElementsByClassName('col-2')[0].style.zIndex = zYesterday;
     document.getElementsByClassName('col-3')[0].style.zIndex = zToday;
     document.getElementsByClassName('col-4')[0].style.zIndex = zTomorrow;
 }
 
+//controller
 function getActive(){
+    var weatherElements = [
+        document.getElementsByClassName('col-2')[0],
+        document.getElementsByClassName('col-3')[0],
+        document.getElementsByClassName('col-4')[0]
+    ];
     if(!document.getElementsByClassName('col-2')[0].style.zIndex) {
         setZ(2,3,4);
     }
-    var elements = [
-            document.getElementsByClassName('col-2')[0],
-            document.getElementsByClassName('col-3')[0],
-            document.getElementsByClassName('col-4')[0]
-        ],
-        biggestIndex;
-    elements.map(function(element, index){
+    var biggestIndex;
+    weatherElements.map(function(element, index){
         if(element.style.zIndex == 4)
         {
             biggestIndex = index;

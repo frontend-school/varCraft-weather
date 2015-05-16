@@ -13,9 +13,7 @@ $misc-icon-font-size:48px;
 
 @mixin show-wind($direction){
   background-image: url('../icons/wind-icon/wind_direction.png');
-  //background-size: 48px 67px;
   background-repeat: no-repeat;
-  //background-origin: content-box;
   background-size: cover;
   width: 48px;
   height: 67px;
@@ -23,8 +21,11 @@ $misc-icon-font-size:48px;
   vertical-align: middle;
   text-align: center;
   font-size: 24px;
-  //display: table-cell;
   transform: rotate($direction+deg);
+
+  .weather__info_misc_direction{
+    transform: translate(-50%, -50%) rotate(-$direction+deg);
+  }
 }
 
 @mixin show-moon($phase){
@@ -278,22 +279,83 @@ $misc-icon-font-size:48px;
     }
   }
 }
+.sunny{
+  background-color: #f2385a;
+  &-icon{
+    background-image: url('../icons/weather-state/weather_state_0.png');
+  }
+}
+.downpour{
+  background-color: #675680;
+  &-icon{
+    background-image: url('../icons/weather-state/weather_state_1.png');
+  }
+}
+.sleet{
+  background-color: #36b1bf;
+  &-icon{
+    background-image: url('../icons/weather-state/weather_state_2.png');
+  }
+}
+.snow-fall{
+   background-color: #82a8c4;
+   &-icon{
+     background-image: url('../icons/weather-state/weather_state_3.png');
+   }
+ }
+.snow{
+  background-color: #375d81;
+  &-icon{
+    background-image: url('../icons/weather-state/weather_state_4.png');
+  }
+}
+.rain{
+  background-color: #999;
+  &-icon{
+    background-image: url('../icons/weather-state/weather_state_5.png');
+  }
+}
+.light-rain{
+  background-color: #bda881;
+  &-icon{
+    background-image: url('../icons/weather-state/weather_state_6.png');
+  }
+}
+.mostly-cloudy{
+   background-color: #1d9e48;
+   &-icon{
+     background-image: url('../icons/weather-state/weather_state_7.png');
+   }
+ }
 .partly-cloudy{
-  background-color: #1d9e48;
+  background-color: #f1854b;
   &-icon{
     background-image: url('../icons/weather-state/weather_state_8.png');
   }
 }
-.snow-fall{
-  background-color: #1a6698;
+
+.rain-and-sun{
+  background-color: #e9b841;
   &-icon{
-    background-image: url('../icons/weather-state/weather_state_3.png');
+    background-image: url('../icons/weather-state/weather_state_9.png');
   }
 }
 .fog{
-  background-color: #75608b;
+  background-color: #e341e9;
   &-icon{
     background-image: url('../icons/weather-state/weather_state_10.png');
+  }
+}
+.something-strange{
+  background-color: #41dfe9;
+  &-icon{
+    background-image: url('../icons/weather-state/weather_state_11.png');
+  }
+}
+.thunderstorm{
+  background-color: #e97041;
+  &-icon{
+    background-image: url('../icons/weather-state/weather_state_12.png');
   }
 }
 

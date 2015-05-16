@@ -37,14 +37,14 @@ html, body{
 
 @import "login-form/login-form.scss";
 @import "header-main/header-main.scss";
-@import "weather-wrapper/weather-wrapper.scss";
-@import "weather-header/weather-header.scss";
+//@import "!weather-wrapper/weather-wrapper.scss";
+//@import "!weather-header/weather-header.scss";
 @import "weather-screen/weather-screen-1280-inf";
 @media screen and (max-width: 1280px) {
   @import "header-main/header-main-0-1280.scss";
   @import "weather-screen/weather-screen-980-1280";
 }
 @media screen and (max-width: 980px) {
-  @import "header-main/header-main-0-1280.scss";
+  @import "header-main/header-main-0-980.scss";
   @import "weather-screen/weather-screen-0-980";
 }

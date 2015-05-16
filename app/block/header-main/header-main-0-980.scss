@@ -1,0 +1,17 @@
+.header-main{
+  &__info_userinfo{
+    display: none;
+  }
+  &__info_logout{
+    background-color: transparent;
+    background-image: url("../icons/interface/exit.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 92px;
+    height: 75px;
+    left: 90%;
+    top: 150%;
+    position: absolute;
+  }
+
+}

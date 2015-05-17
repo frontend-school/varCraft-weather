@@ -1,8 +1,157 @@
 //Data User MVC
+var varCraft = window.varCraft || {};
+
+varCraft.constants = {};
+
+varCraft.DateTimeModel = (function(){
+    var time, dayPart, date;
+    return {
+        setDate: function (newDate){
+            if(newDate){
+                date = newDate
+            };
+        },
+        getDate: function (){
+            return date;
+        },
+
+        setTime: function (newTime){
+            if(newTime){
+                time = newTime;
+            };
+        },
+
+        getTime: function(){
+            return time;
+        },
+
+        setDayPart: function (newDayPart){
+            if(dayPart){
+                dayPart = newDayPart;
+            };
+        },
+
+        getDayPart: function(){
+            return dayPart;
+        }
+
+
+    }
+})();
+
+varCraft.DateTimeView = (function(){
+    function init(){
+        var dateField = document.querySelector('.js-main-date'),
+            timeField = document.querySelector('.js-main-time'),
+            dayPartField = document.querySelector('.js-dayPart');
+
+
+        this.refreshDate = function(date){
+            if(date){
+                dateField.textContent = date;
+                return true;
+            };
+            return false;
+        };
+
+        this.refreshTime = function (time, dayPart){
+            if(time){
+                timeField.textContent = time;
+            };
+
+            if(dayPart){
+                dayPartField.textContent = dayPart;
+            };
+        };
+    }
+
+    return {
+        _init: init,
+        _enable: false
+    }
+
+})();
+
+varCraft.DateTimeController = (function (){
+    var inAction;
+
+    function start(){
+        var curDateTime ;
+
+        inAction = setInterval(function(){
+            curDateTime = new Date(),
+            dateFormated = formatDate(curDateTime),
+            timeFormated = formatTime(curDateTime);
+
+            varCraft.setTime(timeFormated.time);
+            varCraft.setDayPart(timeFormated.dayPart);
+            varCraft.setDate(dateFormated); //maybe better to fire event which will lead model to update attributes???
+
+        }, 60000);
+
+    }
+
+    function stop(){
+        clearInterval(inAction);
+    }
+
+    function formatDate(curDateTime){
+        var dateFormated = "",
+            date = curDateTime.getDate(),
+            year = curDateTime.getFullYear(),
+            monthes = ["January", "February", "March",
+                       "April", "May", "June", "July",
+                       "August", "September", "October",
+                       "November", "December"],
+            days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            month = monthes[curDateTime.getMonth()],
+            day = days[curDateTime.getDay()];
+
+        // Wed, September 3
+        dateFormated = "" + day + ", " + month + " " + date;
+        return dateFormated;
+    }
+
+    function formatTime(curDateTime){
+        var timeFormated = "";
+        var data = {time:"", dayPart:""};
+
+        var curDateTime = new Date();
+
+        var hh = curDateTime.getHours();
+
+        var dayPart;
+          if(hh <= 12) {
+            dayPart = "am";}
+            else{
+              dayPart = "pm";
+            }
+           if(hh > 12)hh -= 12;
+
+        var mm = curDateTime.getMinutes();
+          if(mm < 10){
+            mm = "0" + mm;
+          }
+
+        data.time += "" + hh + ":" + mm;
+        data.dayPart = "" + dayPart;
+        return data;
+    };
+
+    return {
+        start: function(){
+             if(!varCraft.DateTimeView._enable){
+                varCraft.DateTimeView._init();
+             }
+
+             start();
+        }
+    }
+
+})()
 
 
 function main(){
-
     var viewUserInfo = {
         insertName: function(name){
         var userName = document.querySelector('.js-user-name');
@@ -51,56 +200,16 @@ function main(){
         return data;
     },
     getDate: function(){
-        var d = new Date();
-        var result = "";
-        var date = d.getDate();
-        var year = d.getFullYear();
-        var month = d.getMonth();
-        var day = d.getDay();
-
-        switch(month){
-          case 0: month = "January";
-            break;
-          case 1: month = "February";
-            break;
-          case 2: month = "March";
-            break;
-          case 3: month = "April";
-            break;
-          case 4: month = "May";
-            break;
-          case 5: month = "June";
-            break;
-          case 6: month = "July";
-            break;
-          case 7: month = "August";
-            break;
-          case 8: month = "September";
-            break;
-          case 9: month = "October";
-            break;
-          case 10: month = "November";
-            break;
-          case 11: month = "December";
-            break;
-        }
-
-        switch(day){
-          case 0: day = "Sun";
-            break;
-          case 1: day = "Mon";
-            break;
-          case 2: day = "Tue";
-            break;
-          case 3: day = "Wed";
-            break;
-          case 4: day = "Thu";
-            break;
-          case 5: day = "Fri";
-            break;
-          case 6: day = "Sat";
-            break;
-        }
+        var d = new Date(), result = "",
+            date = d.getDate(),
+            year = d.getFullYear(),
+            monthes = ["January", "February", "March",
+                       "April", "May", "June", "July", 
+                       "August", "September", "October",
+                       "November", "December"],
+            days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            month = monthes[d.getMonth()],
+            day = days[d.getDay()];
 
         // Wed, September 3
         result = "" + day + ", " + month + " " + date;

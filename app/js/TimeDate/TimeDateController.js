@@ -1,29 +1,25 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.TimeDateController = (function () {
-    var currentDate = null;
-
     function _timeCount() {
         var model = window.MYAPPLICATION.TimeDateModel;
-        currentDate = model.getDate();
 
-        model.setDate(new Date());//not logic
+        model.setDate(new Date());
         setTimeout(function () {
             _timeCount();
         }, 1000 * 60);
     }
 
-    function _writeDates() {
+    function _startView() {
         var view = window.MYAPPLICATION.TimeDateView;
 
-        view.writeTime(currentDate);
-        view.writeAllDates(currentDate);
+        view.start();
     }
 
     return {
-        timeCount : function () {
+        start : function () {
+            _startView();
             _timeCount();
-            _writeDates(currentDate);
         }
     };
 }());

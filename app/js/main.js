@@ -4,29 +4,50 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 //= helperModule.js
 //= pubsub.js
 //= timeDateFormat.js
-//= dashboardModule.js
-//= formModule.js
 //= cookieModule.js
 //= weatherModule.js
 //= timerModule.js
-//= pageModule.js
 //= eventModule.js
 //= TimeDate/TimeDateController.js
 //= TimeDate/TimeDateView.js
 //= TimeDate/TimeDateModel.js
+//= Logout/LogoutController.js
+//= Logout/LogoutView.js
+//= Logout/LogoutModel.js
+//= Login/LoginController.js
+//= Login/LoginView.js
+//= Login/LoginModel.js
 
 document.onload = (function () {
-    var userName = MYAPPLICATION.cookieModule.readCookie(MYAPPLICATION.CONST.cookieName);
-    window.MYAPPLICATION.TimeDateController.timeCount();
+    var CONST = window.MYAPPLICATION.CONST,
+        cookie = window.MYAPPLICATION.cookieModule,
+        userName = cookie.readCookie(CONST.cookieName),
+        timeDateController = window.MYAPPLICATION.TimeDateController,
+        logoutController = window.MYAPPLICATION.LogoutController,
+        loginController = window.MYAPPLICATION.LoginController,
+        eventModule = window.MYAPPLICATION.eventModule,
+        pubsub = window.MYAPPLICATION.pubsub,
+        timerModule = window.MYAPPLICATION.timerModule;
+
+    timeDateController.start();
     //weatherModule.writeWeather();//for api working example
-    MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.submitButton).addEventListener('click', MYAPPLICATION.pageModule.logIn);
-    MYAPPLICATION.helperModule.getElement(MYAPPLICATION.CONST.ID.logOutButton).addEventListener('click', MYAPPLICATION.pageModule.logOut);
-    MYAPPLICATION.eventModule.startEventModule();
+    //location.writeLocation//for future;
+
+    logoutController.start();
+    loginController.start();
+
     if (userName) {
-        MYAPPLICATION.cookieModule.writeCookie(MYAPPLICATION.CONST.cookieName, userName, MYAPPLICATION.CONST.stayTime);
-        MYAPPLICATION.dashboardModule.showDashboard(userName);
-        MYAPPLICATION.timerModule.restartTimer();
+        cookie.writeCookie(CONST.cookieName, userName, CONST.stayTime);
+        loginController.showDash(userName);//delete
+        timerModule.restartTimer(logoutController.logOut);
     } else {
-        MYAPPLICATION.formModule.showForm();
+        logoutController.logOut();
     }
-})()
+
+    pubsub.subscribe('/active', function () {
+        //rewrite cookie restart timer
+        cookie.writeCookie(CONST.cookieName, cookie.readCookie(CONST.cookieName), CONST.stayTime);
+        timerModule.restartTimer(logoutController.logOut); //reload page by timer
+    });
+    eventModule.startEventModule(); //generate /active
+})();

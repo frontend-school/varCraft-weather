@@ -1,3 +1,5 @@
+window.MYAPPLICATION = window.MYAPPLICATION || {};
+
 window.MYAPPLICATION.cookieModule = (function () {
     return {
         writeCookie: function (name, value, time) {
@@ -33,5 +35,3 @@ window.MYAPPLICATION.cookieModule = (function () {
         }
     }
 }());
-
-

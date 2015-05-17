@@ -1,14 +1,16 @@
+window.MYAPPLICATION = window.MYAPPLICATION || {};
+
 window.MYAPPLICATION.CONST = {
     ID : {
         loginForm : "login-form",
         loginFormName : "name",
         loginFormPassword : "password",
         popup : "popup__overlay",
-        popupHidden : " popup__overlay_hidden",
-        popupActive : " popup__overlay_active",
+        popupHidden : "popup__overlay_hidden",
+        popupActive : "popup__overlay_active",
         dashboard : "dashboard",
-        dashboardHidden : " dashboard_hidden",
-        dashboardActive : " dashboard_active",
+        dashboardHidden : "dashboard_hidden",
+        dashboardActive : "dashboard_active",
         dashboardGreeting : "dashboard-greeting",
         submitButton : "submit-button",
         logOutButton : "log-out-button",
@@ -26,4 +28,4 @@ window.MYAPPLICATION.CONST = {
     apiOther : ",ua&units=metric&APPID=b04a06714afca79362dec1420563b1e7",
     cityTest : "Kiev",
     stayTime : 30 * 60 * 1000
-}
+};

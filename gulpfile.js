@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var sass = require('gulp-ruby-sass');
 var autoprefixer = require('gulp-autoprefixer');
+var rigger = require('gulp-rigger');
 
 var server = require('gulp-express');
 
@@ -36,6 +37,7 @@ var path = {
         cssNormalize: source + '/css/normalize.css',
         scss: sourceCSS + '/**/*.scss',
         js: source + '/js/**/*.js',
+        jsMain: source + '/js/script.js',
         srcComponents: 'bower_components'
     },
 
@@ -88,10 +90,10 @@ gulp.task('watch-sass', function () {
 
 // js
 gulp.task('js', function () {
-    return gulp.src([sourceJS + '/script.js', path.source.js])
+    return gulp.src(path.source.jsMain)
+        .pipe(rigger())
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
-        .pipe(concat('script.js', {newLine: '/*start*/'}))
         .pipe(gulp.dest(path.destination.js));
 });
 

@@ -17,7 +17,7 @@ window.VarCraft.modules.DateTimeModel = (function () {
             item = "0" + item;
         }
         return item;
-    }
+    };
 
     var _setTime = function (date) {
         // create an object with all necessary information

@@ -9,10 +9,10 @@
   "devDependencies": {
     "bower": "^1.4.0",
     "gulp": "^3.8.11",
-    "gulp-concat": "^2.5.2",
-    "gulp-continuous-concat": "^0.1.1",
+    "gulp-express": "^0.3.5",
     "gulp-jshint": "^1.10.0",
     "gulp-less": "^3.0.2",
+    "gulp-rigger": "^0.5.8",
     "gulp-watch": "^4.2.4",
     "gulp-webserver": "^0.9.0",
     "less-plugin-autoprefix": "^1.4.1"

@@ -4,8 +4,8 @@ var webServer = require('gulp-webserver');
 var watch = require('gulp-watch');
 var less = require('gulp-less');
 var jshint = require('gulp-jshint');
-var concatC = require('gulp-continuous-concat');
-var concat = require('gulp-concat');
+var server = require('gulp-express');
+var rigger = require('gulp-rigger');
 
 var LessPluginAutoPrefix = require('less-plugin-autoprefix'),
     autoprefixPlugin = new LessPluginAutoPrefix({browsers: ["last 3 versions"]});
@@ -34,11 +34,14 @@ gulp.task('less', function() {
 
 // JS
 gulp.task('js', function() {
-    return gulp.src([source + 'js/*.js', source+'/js/*/*.js'])
-        .pipe(watch([source + 'js/*.js', source+'/js/*/*.js']))
-        .pipe(concatC('app.js'))
+    return gulp.src(source+'js/app.js')
+        .pipe(rigger())
         .pipe(jshint())
         .pipe(gulp.dest(destination+'js/'));
+});
+
+gulp.task('js-watch', function () {
+    gulp.watch([source + '/js/*.js', source+'/js/*/*.js'], ['js']);
 });
 
 
@@ -76,18 +79,17 @@ gulp.task('copy', function() {
         .pipe(gulp.dest(destination));
 });
 
-gulp.task('copyjs', function() {
-    return gulp.src([source+'/js/*.js', source+'/js/!vendor/*.js'], {base: source})
-        .pipe(concat('app.js'))
-        .pipe(gulp.dest(destination+'js'));
+
+// Run express
+gulp.task('server', function () {
+    server.run(['server/server.js']);
 });
 
-
 // Build into dist folder
-gulp.task('build', ['html', 'css', 'less',  'js', 'images', 'fonts', 'bower']);
+gulp.task('build', ['html', 'css', 'less',  'js-watch', 'images', 'fonts', 'bower', 'server']);
 
 // Add livereload
-gulp.task('webserver', ['copy', 'copyjs'], function() {
+gulp.task('webserver', ['copy', 'js'], function() {
     gulp.src(destination)
         .pipe(webServer({
             host:             'localhost',

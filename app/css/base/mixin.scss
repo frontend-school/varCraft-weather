@@ -7,7 +7,7 @@
   height: 88px;
   transform: rotate($angle);
   transform-origin: center;
-  background: url('../img/wind_direction.png') no-repeat 50%;
+  background: url('../../img/wind_direction.png') no-repeat 50%;
 }
 
 @mixin humidity($x, $y) {

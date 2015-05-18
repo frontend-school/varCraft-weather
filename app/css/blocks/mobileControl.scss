@@ -23,11 +23,11 @@
     background: no-repeat;
 
     &_active {
-      background-image: url('../img/indicator_active.png');
+      background-image: url('../../img/indicator_active.png');
     }
 
     &_passive {
-      background-image: url('../img/indicator_passive.png');
+      background-image: url('../../img/indicator_passive.png');
     }
   }
 
@@ -44,12 +44,12 @@
 
     &_left{
       float: left;
-      background-image: url('../img/left_arrow.png');
+      background-image: url('../../img/left_arrow.png');
     }
 
     &_right{
       float: right;
-      background-image: url('../img/right_arrow.png');
+      background-image: url('../../img/right_arrow.png');
     }
   }
 }

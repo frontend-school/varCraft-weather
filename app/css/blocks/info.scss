@@ -1,0 +1,32 @@
+.info {
+  float:left;
+  width: 35%;
+  margin-top: 170px;
+  padding-left: 1.5%;
+
+  &__time {
+    margin-bottom: 40px;
+  }
+
+  &__time-value {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 5em;
+    line-height: .8em;
+    font-weight: bold;
+  }
+
+  &__time-notation {
+    position: relative;
+    display: inline-block;
+    margin-left: -12px;
+    vertical-align: top;
+    text-transform: uppercase;
+    font-size: .9em;
+    line-height: .9em;
+  }
+
+  &__day {
+    margin: 65px 0;
+  }
+}

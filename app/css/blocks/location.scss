@@ -1,0 +1,21 @@
+.location {
+  padding-left: 40px;
+  background: url('../../img/icon-loc.png') no-repeat;
+
+  &__city {
+    height: 24px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    font-size: 1em;
+    line-height: 25px;
+  }
+
+  &__country {
+    padding-top: 5px;
+    font-size: .6em;
+  }
+
+  &__text {
+    display: none;
+  }
+}

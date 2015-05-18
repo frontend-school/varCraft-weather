@@ -1,0 +1,26 @@
+.forecast-item {
+  float: right;
+  box-sizing: border-box;
+  width: 33.33%;
+  height: 100%;
+
+  &__day {
+    box-sizing: border-box;
+    height: 15%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  &__day-date {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__day-date-header {
+    font-size: 1em;
+  }
+
+  &__day-date-value {
+    font-size: .6em;
+  }
+}

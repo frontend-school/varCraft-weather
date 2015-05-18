@@ -21,7 +21,9 @@ window.MYAPPLICATION.CONST = {
         forecastYesterday : "js-forecast_yesterday",
         forecastTomorrow : "js-forecast_tomorrow",
         weatherStatus : "status",
-        weatherTemp : "temp"
+        weatherTemp : "temp",
+        city: "js-city",
+        country: "js-country"
     },
     cookieName : "testCookie",
     api : "http://api.openweathermap.org/data/2.5/weather?q=",

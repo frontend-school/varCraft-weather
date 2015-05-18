@@ -8,6 +8,7 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 //= weatherModule.js
 //= timerModule.js
 //= eventModule.js
+//= countryFormat.js
 //= TimeDate/TimeDateController.js
 //= TimeDate/TimeDateView.js
 //= TimeDate/TimeDateModel.js
@@ -17,6 +18,9 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 //= Login/LoginController.js
 //= Login/LoginView.js
 //= Login/LoginModel.js
+//= Location/LocationController.js
+//= Location/LocationView.js
+//= Location/LocationModel.js
 
 document.onload = (function () {
     var CONST = window.MYAPPLICATION.CONST,
@@ -27,12 +31,12 @@ document.onload = (function () {
         loginController = window.MYAPPLICATION.LoginController,
         eventModule = window.MYAPPLICATION.eventModule,
         pubsub = window.MYAPPLICATION.pubsub,
-        timerModule = window.MYAPPLICATION.timerModule;
+        timerModule = window.MYAPPLICATION.timerModule,
+        location = window.MYAPPLICATION.LocationController;
 
     timeDateController.start();
     //weatherModule.writeWeather();//for api working example
-    //location.writeLocation//for future;
-
+    location.start();
     logoutController.start();
     loginController.start();
 

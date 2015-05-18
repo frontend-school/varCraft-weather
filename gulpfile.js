@@ -7,7 +7,8 @@ var gulp        = require('gulp'),
     uglify      = require('gulp-uglify'),
     sass        = require('gulp-sass'),
     browserSync = require('browser-sync'),
-    reload      = browserSync.reload;
+    reload      = browserSync.reload,
+    express     = require('gulp-express');
 
 var path = {
     app   : {
@@ -42,8 +43,13 @@ var config = {
     server: {
         baseDir: "./dist"
     },
-    host:   'localhost'
+    host:   'localhost',
+    port:   8080
 };
+
+gulp.task('express', function () {
+    express.run(['server.js']);
+});
 
 
 gulp.task('html:build', function () {
@@ -89,19 +95,19 @@ gulp.task('copy-bower', function () {
 });
 
 gulp.task('watch', function () {
-    watch([path.watch.html], function(event, cb) {
+    watch([path.watch.html], function (event, cb) {
         gulp.start('html:build');
     });
-    watch([path.watch.style], function(event, cb) {
+    watch([path.watch.style], function (event, cb) {
         gulp.start('scss:build');
     });
-    watch([path.watch.js], function(event, cb) {
+    watch([path.watch.js], function (event, cb) {
         gulp.start('js:build');
     });
-    watch([path.watch.img], function(event, cb) {
+    watch([path.watch.img], function (event, cb) {
         gulp.start('image:build');
     });
-    watch([path.watch.fonts], function(event, cb) {
+    watch([path.watch.fonts], function (event, cb) {
         gulp.start('fonts:build');
     });
 });
@@ -121,6 +127,7 @@ gulp.task('build', [
 
 gulp.task('run', [
     'build',
+    'express',
     'webserver'
 ]);
 

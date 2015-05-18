@@ -1,11 +1,11 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LogoutController = (function () {
-    var CONST = window.MYAPPLICATION.CONST,
-        cookie = window.MYAPPLICATION.cookieModule;
+    var CONST = window.MYAPPLICATION.CONST;
 
     function _logOut() {
         var model = window.MYAPPLICATION.LogoutModel,
+            cookie = window.MYAPPLICATION.cookieModule,
             logoutRequest = new XMLHttpRequest();
         logoutRequest.withCredentials = true;
 

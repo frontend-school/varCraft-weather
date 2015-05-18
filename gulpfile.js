@@ -74,7 +74,7 @@ gulp.task('mobile-html', function() {
 })
 
 gulp.task('js', function() {
-   return gulp.src(source + '/js/*.js')
+   return gulp.src(source + '/js/**/*.js')
     .pipe( concat("../js/script.js") )
     .pipe( jshint() )
     .pipe(jshint.reporter('default'))

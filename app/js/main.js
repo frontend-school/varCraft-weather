@@ -20,25 +20,32 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 //= Location/LocationView.js
 //= Location/LocationModel.js
 
-document.onload = (function () {
-    var CONST = window.MYAPPLICATION.CONST,
-        cookie = window.MYAPPLICATION.cookieModule,
+document.onload = (function (exports) {
+    var CONST = exports.CONST,
+        cookie = exports.cookieModule,
         userName = cookie.readCookie(CONST.cookieName),
-        timeDateController = window.MYAPPLICATION.TimeDateController,
-        logoutController = window.MYAPPLICATION.LogoutController,
-        loginController = window.MYAPPLICATION.LoginController,
-        location = window.MYAPPLICATION.LocationController;
+        timeDateController = exports.TimeDateController,
+        logoutController = exports.LogoutController,
+        loginController = exports.LoginController,
+        location = exports.LocationController,
+        pubsub = exports.pubsub;
 
     timeDateController.start();
     //weatherModule.writeWeather();//for api working example
     location.start();
     logoutController.start();
     loginController.start();
+    pubsub.subscribe('/logOut', function () {
+        loginController.showForm();
+    });
+    pubsub.subscribe('/logIn', function (name) {
+        logoutController.showDashboard(name);
+    });
 
     if (userName) {
         cookie.writeCookie(CONST.cookieName, userName, CONST.stayTime);
-        loginController.showDash(userName);//delete
+        logoutController.showDashboard(userName);
     } else {
-        logoutController.logOut();
+        loginController.showForm();
     }
-})();
+})(window.MYAPPLICATION);

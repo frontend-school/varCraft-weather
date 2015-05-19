@@ -2,13 +2,20 @@ var gulp = require('gulp'),
     del = require('del'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
-    open = require('gulp-open');
+    open = require('gulp-open'),
+    uglify = require('gulp-uglify');
 
 var source = "app/**",
     destination = "dist";
 
 gulp.task('default', function(){
     gulp.start(['build', 'runServer', 'runIndex', 'watch']);
+});
+
+gulp.task('compress', function() {
+    return gulp.src(source)
+        .pipe(uglify())
+        .pipe(gulp.dest(destination));
 });
 
 gulp.task('runServer', function (cb) {
@@ -49,6 +56,7 @@ gulp.task('bc-vendor', function(){
 gulp.task('concatScripts',function(){
     return gulp.src(['./app/**/*.js', '!./app/*.js'])
         .pipe(concat('general.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./dist/block/'));
 });
 
@@ -63,8 +71,8 @@ gulp.task('build', function(){
 
     gulp.start(['concatScripts']);
 
-    source = 'app/*.js';
-    runTask('copy');
+    source = 'app/**/*.js';
+    runTask('compress');
 
     source = 'app/**/*.html';
     runTask('copy');
@@ -100,7 +108,6 @@ gulp.task('sass',function(){
             errLogToConsole: true
         }))
         .pipe(gulp.dest(destination));
-
     source = "app/**";
     destination = "dist";
 });
@@ -108,7 +115,5 @@ gulp.task('sass',function(){
 gulp.task('watch', function(){
     gulp.watch('app/**', function (event) {
         gulp.start(['build']);
-
-        //server.reload();
     });
 });

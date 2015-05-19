@@ -29,5 +29,5 @@ window.MYAPPLICATION.CONST = {
     api : "http://api.openweathermap.org/data/2.5/weather?q=",
     apiOther : ",ua&units=metric&APPID=b04a06714afca79362dec1420563b1e7",
     cityTest : "Kiev",
-    stayTime : 30 * 60 * 1000
+    stayTime : 30 * 24 * 60 * 60 * 1000 //for month
 };

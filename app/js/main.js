@@ -6,8 +6,6 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 //= timeDateFormat.js
 //= cookieModule.js
 //= weatherModule.js
-//= timerModule.js
-//= eventModule.js
 //= countryFormat.js
 //= TimeDate/TimeDateController.js
 //= TimeDate/TimeDateView.js
@@ -29,9 +27,6 @@ document.onload = (function () {
         timeDateController = window.MYAPPLICATION.TimeDateController,
         logoutController = window.MYAPPLICATION.LogoutController,
         loginController = window.MYAPPLICATION.LoginController,
-        eventModule = window.MYAPPLICATION.eventModule,
-        pubsub = window.MYAPPLICATION.pubsub,
-        timerModule = window.MYAPPLICATION.timerModule,
         location = window.MYAPPLICATION.LocationController;
 
     timeDateController.start();
@@ -43,15 +38,7 @@ document.onload = (function () {
     if (userName) {
         cookie.writeCookie(CONST.cookieName, userName, CONST.stayTime);
         loginController.showDash(userName);//delete
-        timerModule.restartTimer(logoutController.logOut);
     } else {
         logoutController.logOut();
     }
-
-    pubsub.subscribe('/active', function () {
-        //rewrite cookie restart timer
-        cookie.writeCookie(CONST.cookieName, cookie.readCookie(CONST.cookieName), CONST.stayTime);
-        timerModule.restartTimer(logoutController.logOut); //reload page by timer
-    });
-    eventModule.startEventModule(); //generate /active
 })();

@@ -1,5 +1,4 @@
 function loginSubmit(){
-    console.log('gfhgfh');
     var login = document.getElementsByName('login')[0].value,
         password = document.getElementsByName('password')[0].value,
         request = 'http://' + window.location.host + '/login?login=' + login + '&password=' + password,
@@ -21,7 +20,7 @@ function loginSubmit(){
     }
 
     xmlhttp.open("GET", request, true);
-    xmlhttp.send()
+    xmlhttp.send();
 }
 
 function loginForm(){

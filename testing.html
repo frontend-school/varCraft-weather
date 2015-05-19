@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //cross-origin request testing
+        var request = 'http://localhost:3000/login?login=Victor&password=thebest',
+            result,
+            xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                result = JSON.parse(xmlhttp.responseText);
+                write();
+            }
+        };
+
+        function write() {
+            document.getElementsByTagName('body')[0].innerHTML = result.toString();
+            console.log(result);
+        }
+
+        xmlhttp.open("GET", request, true);
+        xmlhttp.send();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

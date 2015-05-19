@@ -1,22 +1,22 @@
 var databaseHandler = require('./databaseHandler');
 
-var users =[];
-
 function User(login,sid){
     this.login = login;
     this.sid = sid;
 }
 
-//setInterval(function(){
-//    users = users.map(function(user, index){
-//        showUsers('Removingd as timed out...');
-//        var dt = new Date().getTime();
-//        if(dt - user.sid > 180000){
-//            users.splice(index, 1);
-//            showUsers('Removed as timed out');
-//        }
-//    });
-//}, 600000);
+var users =[new User('log', new Date().getTime()), new User('log', new Date().getTime() + 1000)];
+
+removeTimeout();
+function removeTimeout(){
+    for(var i = users.length - 1; i >=0; i--){
+        if(new Date().getTime() - users[i].sid >= 180000){
+            users.splice(i, 1);
+            showUsers('Remover as timeout');
+        }
+    }
+    setTimeout(removeTimeout, 60000);
+}
 
 function addUser(login,password,sid){
     if(!databaseHandler.userExists(login, password)) return 1;

@@ -1,6 +1,5 @@
 module.exports = function(app) {
     var express = require('express'),
-        pageConstructor = require('./pageConstructor'),
         databaseHandler = require('./databaseHandler'),
         http = require('http'),
         authentication = require('./authentication');

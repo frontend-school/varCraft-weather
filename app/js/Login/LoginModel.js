@@ -1,6 +1,6 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.LoginModel = (function () {
+window.MYAPPLICATION.LoginModel = (function (exports) {
     var status = false;
 
     function _getStatus() {
@@ -13,7 +13,7 @@ window.MYAPPLICATION.LoginModel = (function () {
         },
         setStatus : function (user) {
             status = true;
-            window.MYAPPLICATION.pubsub.publish('/logIn', user);
+            exports.pubsub.publish('/logIn', user);
         }
     };
-}());
+}(window.MYAPPLICATION));

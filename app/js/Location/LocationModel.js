@@ -1,6 +1,6 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.LocationModel = (function () {
+window.MYAPPLICATION.LocationModel = (function (exports) {
     var _city = null,
         _country = null;
 
@@ -16,7 +16,7 @@ window.MYAPPLICATION.LocationModel = (function () {
         setGeoData: function (geoData) {
             _city = geoData.city;
             _country = geoData.country;
-            window.MYAPPLICATION.pubsub.publish('/getGeoData', geoData);
+            exports.pubsub.publish('/getGeoData', geoData);
         }
     };
-}());
+}(window.MYAPPLICATION));

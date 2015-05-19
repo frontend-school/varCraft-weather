@@ -1,17 +1,17 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.LoginView = (function () {
+window.MYAPPLICATION.LoginView = (function (exports) {
     var greeting = "Hello ",
-        helperModule = window.MYAPPLICATION.helperModule,
-        CONST = window.MYAPPLICATION.CONST,
-        controller = window.MYAPPLICATION.LoginController;
+        helperModule = exports.helperModule,
+        CONST = exports.CONST,
+        controller = exports.LoginController;
 
     function _hideForm() {
         helperModule.replaceClassName(CONST.ID.popup, CONST.ID.popupActive, CONST.ID.popupHidden);
     }
 
     function _showDashboard(name) {
-        helperModule.getElement(CONST.ID.dashboardGreeting).innerHTML = greeting + name;
+        helperModule.getElement(CONST.ID.dashboardGreeting).textContent = greeting + name;
         helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardHidden, CONST.ID.dashboardActive);
     }
 
@@ -34,12 +34,14 @@ window.MYAPPLICATION.LoginView = (function () {
             _showDashboard(user);
         },
         start: function () {
-            helperModule.getElement(CONST.ID.submitButton).addEventListener('click', controller.logIn);
-            window.MYAPPLICATION.pubsub.subscribe('/logIn', function (user) {
+            helperModule.getElement(CONST.ID.submitButton).addEventListener('click', function() {
+                exports.pubsub.publish('/logInPressed', {});
+            });
+            exports.pubsub.subscribe('/logIn', function (user) {
                 _hideForm();
                 _clearForm();
                 _showDashboard(user);
             });
         }
     };
-}());
+}(window.MYAPPLICATION));

@@ -1,8 +1,8 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.TimeDateController = (function () {
+window.MYAPPLICATION.TimeDateController = (function (exports) {
     function _timeCount() {
-        var model = window.MYAPPLICATION.TimeDateModel;
+        var model = exports.TimeDateModel;
 
         model.setDate(new Date());
         setTimeout(function () {
@@ -11,7 +11,7 @@ window.MYAPPLICATION.TimeDateController = (function () {
     }
 
     function _startView() {
-        var view = window.MYAPPLICATION.TimeDateView;
+        var view = exports.TimeDateView;
 
         view.start();
     }
@@ -22,4 +22,4 @@ window.MYAPPLICATION.TimeDateController = (function () {
             _timeCount();
         }
     };
-}());
+}(window.MYAPPLICATION));

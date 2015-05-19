@@ -1,9 +1,10 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.LogoutView = (function () {
-    var helperModule = window.MYAPPLICATION.helperModule,
-        CONST = window.MYAPPLICATION.CONST,
-        controller = window.MYAPPLICATION.LogoutController;
+window.MYAPPLICATION.LogoutView = (function (exports) {
+    var helperModule = exports.helperModule,
+        CONST = exports.CONST,
+        controller = exports.LogoutController;
+
     function _hideDashboard() {
         helperModule.getElement(CONST.ID.dashboardGreeting).innerHTML = "";
         helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardActive, CONST.ID.dashboardHidden);
@@ -18,11 +19,13 @@ window.MYAPPLICATION.LogoutView = (function () {
             _showForm();
         },
         start: function () {
-            helperModule.getElement(CONST.ID.logOutButton).addEventListener('click', controller.logOut);
-            window.MYAPPLICATION.pubsub.subscribe('/logOut', function () {
+            helperModule.getElement(CONST.ID.logOutButton).addEventListener('click', function() {
+                exports.pubsub.publish('/logOutPressed', {});
+            });
+            exports.pubsub.subscribe('/logOut', function () {
                 _hideDashboard();
                 _showForm();
             });
         }
     };
-}());
+}(window.MYAPPLICATION));

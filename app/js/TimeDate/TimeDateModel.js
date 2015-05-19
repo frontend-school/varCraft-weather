@@ -1,6 +1,6 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.TimeDateModel = (function () {
+window.MYAPPLICATION.TimeDateModel = (function (exports) {
     var date = new Date();
 
     function _getDate() {
@@ -13,10 +13,10 @@ window.MYAPPLICATION.TimeDateModel = (function () {
         },
         setDate : function (newDate) {
             date = newDate;
-            window.MYAPPLICATION.pubsub.publish('/timeChange', _getDate());
+            exports.pubsub.publish('/timeChange', _getDate());
             if (date.getHours() === 0 && date.getHours() === 0) {
-                window.MYAPPLICATION.pubsub.publish('/dateChange', _getDate());
+                exports.pubsub.publish('/dateChange', _getDate());
             }
         }
     };
-}());
+}(window.MYAPPLICATION));

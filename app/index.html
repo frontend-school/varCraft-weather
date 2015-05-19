@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="main-page">
-//= template/popup.html
-//= template/dashboard.html
-//= template/settings.html
-<!-- //= template/weatherSimpleExample.html  for api working example-->
+//= html/popup.html
+//= html/dashboard.html
+//= html/settings.html
+<!-- //= html/weatherSimpleExample.html  for api working example-->
 
     <div class="info">
         <div class="info__time">
@@ -25,10 +25,9 @@
 
             <div class="location__city">
                 <div class="location__text">Today in</div>
-                Kiev
+                <span id="js-city"></span>
             </div>
-            <div class="location__country">
-                Ukraine
+            <div class="location__country" id="js-country">
             </div>
         </div>
     </div>
@@ -207,7 +206,7 @@
             </div>
         </div>
     </div>
-//= template/mobileControl.html
+//= html/mobileControl.html
     <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>

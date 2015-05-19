@@ -1,24 +1,25 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.LocationController = (function () {
+window.MYAPPLICATION.LocationController = (function (exports) {
     function httpGet(theUrl) {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", theUrl, false);
         xmlHttp.send(null);
         return xmlHttp.responseText;
     }
-    function requestLocation() {
+    function _requestLocation() {
         var res = httpGet("http://ipinfo.io/json"),
-            model = window.MYAPPLICATION.LocationModel,
+            model = exports.LocationModel,
             geoData = {};
         geoData.city = JSON.parse(res).city;
         geoData.country = JSON.parse(res).country;
         model.setGeoData(geoData);
     }
+    function _start() {
+        exports.LocationView.start();
+        _requestLocation();
+    }
     return {
-        start: function () {
-            window.MYAPPLICATION.LocationView.start();
-            requestLocation();
-        }
+        start: _start
     };
-}());
+}(window.MYAPPLICATION));

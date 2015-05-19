@@ -1,9 +1,11 @@
 runServer();
 function runServer() {
     var express = require('express'),
-        databaseHandler = require('./databaseHandler');
+        databaseHandler = require('./databaseHandler'),
+        cookieParser = require('cookie-parser');
 
     var app = express();
+    app.use(cookieParser());
 
     require('./userWebService')(app);
 

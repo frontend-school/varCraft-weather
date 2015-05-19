@@ -5,12 +5,13 @@ window.MYAPPLICATION.LocationView = (function (exports) {
         CONST = exports.CONST;
 
     function _writeCity(city) {
-        helperModule.getElement(CONST.ID.city).textContent = city;
+        helperModule.writeInto(CONST.ID.city, city);
     }
 
     function _writeCountry(country) {
         var format = exports.countryFormat;
-        helperModule.getElement(CONST.ID.country).textContent = format.getCountryName(country);
+
+        helperModule.writeInto(CONST.ID.country, format.getCountryName(country));
     }
 
     return {

@@ -1,7 +1,7 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.TimeDateModel = (function (exports) {
-    var date = new Date();
+    var date = null;
 
     function _getDate() {
         return date;
@@ -12,9 +12,10 @@ window.MYAPPLICATION.TimeDateModel = (function (exports) {
             return _getDate();
         },
         setDate : function (newDate) {
+            var prevDate = date;
             date = newDate;
             exports.pubsub.publish('/timeChange', _getDate());
-            if (date.getHours() === 0 && date.getHours() === 0) {
+            if (prevDate === null || (date.getHours() === 0 && date.getMinutes() === 0)) {
                 exports.pubsub.publish('/dateChange', _getDate());
             }
         }

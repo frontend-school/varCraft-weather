@@ -7,24 +7,17 @@ window.MYAPPLICATION.TimeDateView = (function (exports) {
 
     //write info time
     function _writeTime(currentDate) {
-        var myClock = helperModule.getElement(CONST.ID.infoTime),
-            diemHolder = helperModule.getElement(CONST.ID.infoTimeNotation);
-
-        myClock.textContent = timeDateFormat.getTime(currentDate);
-        diemHolder.textContent =  timeDateFormat.getDiem(currentDate);
+        helperModule.writeInto(CONST.ID.infoTime, timeDateFormat.getTime(currentDate));
+        helperModule.writeInto(CONST.ID.infoTimeNotation, timeDateFormat.getDiem(currentDate));
     }
 
     function _writeInfoDate(currentDate) {
-        var dayHolder = helperModule.getElement(CONST.ID.infoDay);
-
-        dayHolder.textContent =  timeDateFormat.getInfoDate(currentDate);
+        helperModule.writeInto(CONST.ID.infoDay, timeDateFormat.getInfoDate(currentDate));
     }
     //****
     //write weather day (remove to weather)
     function _writeDay(currentDate, holder) {
-        var dayHolder = helperModule.getElement(holder);
-
-        dayHolder.textContent = timeDateFormat.getWeatherDate(currentDate);
+        helperModule.writeInto(holder, timeDateFormat.getWeatherDate(currentDate));
     }
 
     function _writeTomorrow(currentDate) {
@@ -45,12 +38,6 @@ window.MYAPPLICATION.TimeDateView = (function (exports) {
 
     //**
     function _start() {
-        var model = exports.TimeDateModel,
-            currentDate = model.getDate();
-
-        _writeInfoDate(currentDate);
-        _writeWeatherDates(currentDate); //move to weather
-
         exports.pubsub.subscribe('/timeChange', function (date) {
             _writeTime(date);
         });

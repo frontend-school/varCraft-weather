@@ -6,11 +6,11 @@ window.MYAPPLICATION.LogoutView = (function (exports) {
         CONST = exports.CONST;
 
     function _hideDashboard() {
-        helperModule.getElement(CONST.ID.dashboardGreeting).innerHTML = "";
+        helperModule.writeInto(CONST.ID.dashboardGreeting, "");
         helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardActive, CONST.ID.dashboardHidden);
     }
     function _showDashboard(name) {
-        helperModule.getElement(CONST.ID.dashboardGreeting).textContent = greeting + name;
+        helperModule.writeInto(CONST.ID.dashboardGreeting, greeting + name);
         helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardHidden, CONST.ID.dashboardActive);
     }
 

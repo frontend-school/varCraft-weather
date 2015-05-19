@@ -21,6 +21,10 @@ window.MYAPPLICATION.helperModule = (function () {
         _addClassName(name, newName);
     }
 
+    function _writeInto(element, content) {
+        var elem = _getElement(element);
+        elem.textContent = content;
+    }
     return {
         getElement: function (name) {
             return _getElement(name);
@@ -33,6 +37,9 @@ window.MYAPPLICATION.helperModule = (function () {
         },
         replaceClassName: function (name, oldName, newName) {
             _replaceClassName(name, oldName, newName);
+        },
+        writeInto: function(element, content) {
+            _writeInto(element, content);
         }
     };
 }());

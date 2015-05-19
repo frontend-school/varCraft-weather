@@ -1,13 +1,13 @@
 var fs = require('fs');
 
 function userExists(login, password){
-    var users = JSON.parse(fs.readFileSync('data/users.json','utf-8'));
-        //exists = false;
+    var users = JSON.parse(fs.readFileSync('server/data/users.json','utf-8'));
+        //var exists = null;
     //console.log(users);
-    //fs.readFile('/data/users.json', function (err, data) {
+    //fs.readFile('server/data/users.json', function (err, data) {
     //    if (err) throw err;
-    //    users = JSON.Parse(data);
-    //    checkUser();
+    //    var users = JSON.Parse(data);
+    //    exists = checkUser();
     //});
 
     //function checkUser(){
@@ -17,7 +17,7 @@ function userExists(login, password){
                 return true;
             }
         }
-    return false;
+       return false;
     //}
 }
 

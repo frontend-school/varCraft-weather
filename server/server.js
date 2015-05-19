@@ -6,7 +6,6 @@ function runServer() {
 
     var app = express();
 
-    //To use web service only remove the underlying string and optionally file 'server/router.js'
     require('./router')(app);
     require('./userWebService')(app);
     require('./weatherWebService')(app);

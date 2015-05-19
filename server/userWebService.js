@@ -2,8 +2,10 @@ module.exports = function(app) {
     var express = require('express'),
         pageConstructor = require('./pageConstructor'),
         databaseHandler = require('./databaseHandler'),
-        http = require('http'),
-        authentication = require('./authentication');
+        authentication = require('./authentication'),
+        cookieParser = require('cookie-parser');
+
+    app.use(cookieParser());
 
     app.all('/login', function (req, res) {
         var login = req.query.login;
@@ -17,7 +19,7 @@ module.exports = function(app) {
             res.status(403).send({status: "fail", desc: "Unclosed session was detected from this browser. Perform /logout operation to clear cookies", sid: null, login: null});
             return;
         }
-        res.cookie('sid', dt, {expires: new Date(dt + 1800000), httpOnly: true});
+        res.cookie('sid', dt, {expires: new Date(dt + 1800000), httpOnly: false});
         var status = authentication.addUser(login, password, dt);
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");

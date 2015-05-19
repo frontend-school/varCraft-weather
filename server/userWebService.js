@@ -19,7 +19,7 @@ module.exports = function(app) {
             res.status(403).send({status: "fail", desc: "Unclosed session was detected from this browser. Perform /logout operation to clear cookies", sid: null, login: null});
             return;
         }
-        res.cookie('sid', dt, {expires: new Date(dt + 1800000), httpOnly: false});
+        res.cookie('sid', dt, {expires: new Date(dt + 1800000), httpOnly: true});
         var status = authentication.addUser(login, password, dt);
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");

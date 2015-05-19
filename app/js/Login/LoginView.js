@@ -1,18 +1,15 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LoginView = (function (exports) {
-    var greeting = "Hello ",
-        helperModule = exports.helperModule,
-        CONST = exports.CONST,
-        controller = exports.LoginController;
+    var helperModule = exports.helperModule,
+        CONST = exports.CONST;
 
     function _hideForm() {
         helperModule.replaceClassName(CONST.ID.popup, CONST.ID.popupActive, CONST.ID.popupHidden);
     }
 
-    function _showDashboard(name) {
-        helperModule.getElement(CONST.ID.dashboardGreeting).textContent = greeting + name;
-        helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardHidden, CONST.ID.dashboardActive);
+    function _showForm() {
+        helperModule.replaceClassName(CONST.ID.popup, CONST.ID.popupHidden, CONST.ID.popupActive);
     }
 
     function _getFormInfo() {
@@ -30,17 +27,13 @@ window.MYAPPLICATION.LoginView = (function (exports) {
         getFormInfo: function () {
             return _getFormInfo();
         },
-        showDash: function (user) {
-            _showDashboard(user);
+        showForm: function () {
+            _showForm();
         },
         start: function () {
-            helperModule.getElement(CONST.ID.submitButton).addEventListener('click', function() {
-                exports.pubsub.publish('/logInPressed', {});
-            });
-            exports.pubsub.subscribe('/logIn', function (user) {
+            exports.pubsub.subscribe('/logIn', function () {
                 _hideForm();
                 _clearForm();
-                _showDashboard(user);
             });
         }
     };

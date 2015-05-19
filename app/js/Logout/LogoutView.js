@@ -1,30 +1,26 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LogoutView = (function (exports) {
-    var helperModule = exports.helperModule,
-        CONST = exports.CONST,
-        controller = exports.LogoutController;
+    var greeting = "Hello ",
+        helperModule = exports.helperModule,
+        CONST = exports.CONST;
 
     function _hideDashboard() {
         helperModule.getElement(CONST.ID.dashboardGreeting).innerHTML = "";
         helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardActive, CONST.ID.dashboardHidden);
     }
-
-    function _showForm() {
-        helperModule.replaceClassName(CONST.ID.popup, CONST.ID.popupHidden, CONST.ID.popupActive);
+    function _showDashboard(name) {
+        helperModule.getElement(CONST.ID.dashboardGreeting).textContent = greeting + name;
+        helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardHidden, CONST.ID.dashboardActive);
     }
+
     return {
-        loadPage: function () {
-            _hideDashboard();
-            _showForm();
+        showDashboard: function (name) {
+            _showDashboard(name);
         },
         start: function () {
-            helperModule.getElement(CONST.ID.logOutButton).addEventListener('click', function() {
-                exports.pubsub.publish('/logOutPressed', {});
-            });
             exports.pubsub.subscribe('/logOut', function () {
                 _hideDashboard();
-                _showForm();
             });
         }
     };

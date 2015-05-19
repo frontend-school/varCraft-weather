@@ -1,7 +1,8 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LogoutController = (function (exports) {
-    var CONST = exports.CONST;
+    var CONST = exports.CONST,
+        helperModule = exports.helperModule;
 
     function _logOut() {
         var model = exports.LogoutModel,
@@ -19,15 +20,16 @@ window.MYAPPLICATION.LogoutController = (function (exports) {
         logoutRequest.open('GET', 'http://localhost:3000/logout', true);
         logoutRequest.send();
     }
+    function _showDashboard(name) {
+        exports.LogoutView.showDashboard(name);
+    }
     function _start() {
-        exports.pubsub.subscribe('/logOutPressed', function () {
-            _logOut();
-        });
         exports.LogoutView.start();
+        helperModule.getElement(CONST.ID.logOutButton).addEventListener('click', _logOut);
     }
     return {
-        logOut: function () {
-            _logOut();
+        showDashboard: function (name) {
+            _showDashboard(name);
         },
         start: _start
     };

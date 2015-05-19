@@ -1,16 +1,12 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LoginController = (function (exports) {
-    var CONST = exports.CONST;
+    var CONST = exports.CONST,
+        helperModule = exports.helperModule;
 
     function _start() {
-        exports.pubsub.subscribe('/logInPressed', function () {
-            _logIn();
-        });
         exports.LoginView.start();
-    }
-    function _showDash(user) {
-        exports.LoginModel.setStatus(user);
+        helperModule.getElement(CONST.ID.submitButton).addEventListener('click', _logIn);
     }
     function _logIn() {
         var user = exports.LoginView.getFormInfo(),
@@ -29,10 +25,13 @@ window.MYAPPLICATION.LoginController = (function (exports) {
         loginRequest.open('GET', 'http://localhost:3000/login', true);
         loginRequest.send();
     }
+    function _showForm() {
+        exports.LoginView.showForm();
+    }
     return {
         logIn: _logIn,
-        showDash: function (user) {
-            _showDash(user);
+        showForm: function () {
+            _showForm();
         },
         start: _start
     };

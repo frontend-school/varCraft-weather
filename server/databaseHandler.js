@@ -4,10 +4,10 @@ function userExists(login, password){
     var users = JSON.parse(fs.readFileSync('server/data/users.json','utf-8'));
         //var exists = null;
     //console.log(users);
-    //fs.readFile('server/data/users.json', function (err, data) {
+    //fs.readFile('/data/users.json', function (err, data) {
     //    if (err) throw err;
-    //    var users = JSON.Parse(data);
-    //    exists = checkUser();
+    //    users = JSON.Parse(data);
+    //    checkUser();
     //});
 
     //function checkUser(){

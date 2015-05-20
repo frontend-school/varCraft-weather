@@ -2,37 +2,47 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LoginView = (function (exports) {
     var facadeDOM = exports.facadeDOM,
-        CONST = exports.CONST;
+        CONST = exports.CONST,
+        popup = CONST.ID.popup,
+        popupActive = CONST.ID.popupActive,
+        popupHidden = CONST.ID.popupHidden,
+        loginFormName = CONST.ID.loginFormName,
+        loginFormPassword = CONST.ID.loginFormPassword,
+        loginForm = CONST.ID.loginForm;
 
     function _hideForm() {
-        facadeDOM.replaceClassName(CONST.ID.popup, CONST.ID.popupActive, CONST.ID.popupHidden);
+        facadeDOM.replaceClassName(popup, popupActive, popupHidden);
     }
 
     function _showForm() {
-        facadeDOM.replaceClassName(CONST.ID.popup, CONST.ID.popupHidden, CONST.ID.popupActive);
+        facadeDOM.replaceClassName(popup, popupHidden, popupActive);
     }
 
     function _getFormInfo() {
         var user = {};
 
-        user.login = facadeDOM.getValue(CONST.ID.loginFormName);
-        user.password = facadeDOM.getValue(CONST.ID.loginFormPassword);
+        user.login = facadeDOM.getValue(loginFormName);
+        user.password = facadeDOM.getValue(loginFormPassword);
 
         return user;
     }
 
     function _clearForm() {
-        facadeDOM.getElement(CONST.ID.loginForm).reset();
+        facadeDOM.reset(loginForm);
+    }
+
+    function _logIn() {
+        _hideForm();
+        _clearForm();
+    }
+
+    function _start() {
+        exports.pubsub.subscribe('/logIn', _logIn);
     }
 
     return {
         getFormInfo: _getFormInfo,
         showForm: _showForm,
-        start: function () {
-            exports.pubsub.subscribe('/logIn', function () {
-                _hideForm();
-                _clearForm();
-            });
-        }
+        start: _start
     };
 }(window.MYAPPLICATION));

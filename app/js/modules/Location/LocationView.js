@@ -8,18 +8,20 @@ window.MYAPPLICATION.LocationView = (function (exports) {
         facadeDOM.writeInto(CONST.ID.city, city);
     }
 
-    function _writeCountry(country) {
-        var format = exports.countryFormat;
+    function _writeCountry(country, format) {
+        var formattedCountry = format(country);
 
-        facadeDOM.writeInto(CONST.ID.country, format.getCountryName(country));
+        facadeDOM.writeInto(CONST.ID.country, formattedCountry);
+    }
+
+    function _start(format) {
+        exports.pubsub.subscribe('/getGeoData', function (geoData) {
+            _writeCity(geoData.city);
+            _writeCountry(geoData.country, format);
+        });
     }
 
     return {
-        start: function () {
-            exports.pubsub.subscribe('/getGeoData', function (geoData) {
-                _writeCity(geoData.city);
-                _writeCountry(geoData.country);
-            });
-        }
+        start: _start
     };
 }(window.MYAPPLICATION));

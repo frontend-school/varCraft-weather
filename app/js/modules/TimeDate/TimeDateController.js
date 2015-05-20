@@ -10,15 +10,15 @@ window.MYAPPLICATION.TimeDateController = (function (exports) {
         }, 1000 * 60);
     }
 
-    function _startView() {
+    function _startView(formatTime, formatDiem, formatDate, formatWeatherDate) {
         var view = exports.TimeDateView;
 
-        view.start();
+        view.start(formatTime, formatDiem, formatDate, formatWeatherDate);
     }
 
     return {
-        start : function () {
-            _startView();
+        start : function (formatTime, formatDiem, formatDate, formatWeatherDate) {
+            _startView(formatTime, formatDiem, formatDate, formatWeatherDate);
             _timeCount();
         }
     };

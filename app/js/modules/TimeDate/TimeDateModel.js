@@ -8,9 +8,7 @@ window.MYAPPLICATION.TimeDateModel = (function (exports) {
     }
 
     return {
-        getDate : function () {
-            return _getDate();
-        },
+        getDate : _getDate,
         setDate : function (newDate) {
             var prevDate = date;
             date = newDate;

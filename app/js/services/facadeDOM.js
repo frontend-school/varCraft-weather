@@ -30,12 +30,22 @@ window.MYAPPLICATION.facadeDOM = (function () {
         return _getElement(id).value;
     }
 
+    function _reset(id) {
+        _getElement(id).reset();
+    }
+
+    function _addEventListener(id, event, callback) {
+        _getElement(id).addEventListener(event, callback);
+    }
+
     return {
         getElement: _getElement,
         addClassName: _addClassName,
         removeClassName: _removeClassName,
         replaceClassName: _replaceClassName,
         writeInto: _writeInto,
-        getValue: _getValue
+        getValue: _getValue,
+        reset: _reset,
+        addEventListener: _addEventListener
     };
 }());

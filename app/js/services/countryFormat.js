@@ -254,6 +254,7 @@ window.MYAPPLICATION.countryFormat = (function () {
             if (isoCountries.hasOwnProperty(countryCode)) {
                 return isoCountries[countryCode];
             }
+
             return countryCode;
         }
     };

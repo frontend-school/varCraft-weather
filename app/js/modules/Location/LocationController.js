@@ -1,27 +1,28 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LocationController = (function (exports) {
-    var view = exports.LocationView;
-
-    function httpGet(theUrl) {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", theUrl, false);
-        xmlHttp.send(null);
-
-        return xmlHttp.responseText;
-    }
+    var view = exports.LocationView,
+        request = exports.facadeRequest,
+        locationApiUrl = "http://ipinfo.io/json";
 
     function _requestLocation() {
-        var res = httpGet("http://ipinfo.io/json"),
-            model = exports.LocationModel,
-            geoData = {};
-        geoData.city = JSON.parse(res).city;
-        geoData.country = JSON.parse(res).country;
-        model.setGeoData(geoData);
+        var model = exports.LocationModel,
+            geoData = {},
+            xmlHttp = new XMLHttpRequest();
+
+        xmlHttp.onload = function () {
+            res = xmlHttp.responseText;
+            geoData.city = JSON.parse(res).city;
+            geoData.country = JSON.parse(res).country;
+            model.setGeoData(geoData);
+        };
+
+        xmlHttp.open("GET", locationApiUrl, true);
+        xmlHttp.send(null);
     }
 
-    function _start() {
-        view.start();
+    function _start(format) {
+        view.start(format);
         _requestLocation();
     }
 

@@ -3,8 +3,10 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 //= constants.js
 //= services/facadeDOM.js
 //= services/pubsub.js
-//= services/timeDateFormat.js
+//= services/infoDateFormat.js
 //= services/cookieModule.js
+//= services/facadeRequest.js
+//= services/weatherDateFormat.js
 //= weatherModule.js
 //= services/countryFormat.js
 //= modules/TimeDate/TimeDateController.js
@@ -20,6 +22,7 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 //= modules/Location/LocationModel.js
 //= modules/Location/LocationController.js
 
+
 document.onload = (function (exports) {
     var CONST = exports.CONST,
         cookie = exports.cookieModule,
@@ -28,17 +31,28 @@ document.onload = (function (exports) {
         logoutController = exports.LogoutController,
         loginController = exports.LoginController,
         location = exports.LocationController,
-        pubsub = exports.pubsub;
+        pubsub = exports.pubsub,
+        countryFormat = exports.countryFormat.getCountryName,
+        infoDateFormat = exports.infoDateFormat,
+        timeFormat = infoDateFormat.getTime,
+        diemFormat = infoDateFormat.getDiem,
+        dateFormat = infoDateFormat.getInfoDate,
+        weatherDateFormat = exports.weatherDateFormat.format;
 
-    timeDateController.start();
+    timeDateController.start(timeFormat, diemFormat, dateFormat, weatherDateFormat);
     //weatherController.start();//for api working example
-    location.start();
+    location.start(countryFormat);
+
     logoutController.start();
     loginController.start();
+
     pubsub.subscribe('/logOut', function () {
+        cookie.eraseCookie(CONST.cookieName);
         loginController.showForm();
     });
+
     pubsub.subscribe('/logIn', function (name) {
+        cookie.writeCookie(CONST.cookieName, name, CONST.stayTime);
         logoutController.showDashboard(name);
     });
 

@@ -1,6 +1,6 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.timeDateFormat = (function () {
+window.MYAPPLICATION.infoDateFormat = (function () {
     function time(currentDate) {
         var timeAM = "AM",
             timePM = "PM",
@@ -35,15 +35,19 @@ window.MYAPPLICATION.timeDateFormat = (function () {
             'August', 'September', 'October',
             'November', 'December'
         ];
+
         return months[currentDate.getMonth()];
     }
+
     function _getDayName(currentDate) {
         var days = [
             'Sun', 'Mon', 'Tue',
             'Wed', 'Thu', 'Fri', 'Sat'
         ];
+
         return days[currentDate.getDay()];
     }
+
     return {
         getInfoDate: function (currentDate) {
             var dayName = _getDayName(currentDate),
@@ -51,17 +55,6 @@ window.MYAPPLICATION.timeDateFormat = (function () {
                 dayValue = currentDate.getDate();
 
             return dayName + ", " + month + " " + dayValue;
-        },
-        getWeatherDate: function (currentDate) {
-            var dayValue = currentDate.getDate(),
-                todayMonth = currentDate.getMonth() + 1,
-                todayYear = currentDate.getFullYear();
-
-            if (todayMonth < 10) {
-                todayMonth = "0" + todayMonth;
-            }
-
-            return dayValue + " / " + todayMonth + " / " + todayYear;
         },
         getTime: function (currentDate) {
             return time(currentDate).getTime();

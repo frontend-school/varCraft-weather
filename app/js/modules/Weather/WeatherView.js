@@ -1,3 +1,5 @@
-/**
- * Created by Саша on 20.05.2015.
- */
+window.MYAPPLICATION = window.MYAPPLICATION || {};
+
+window.MYAPPLICATION.WeatherView = (function (exports) {
+
+}(window.MYAPPLICATION));

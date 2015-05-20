@@ -1,7 +1,7 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 //= constants.js
-//= services/helperModule.js
+//= services/facadeDOM.js
 //= services/pubsub.js
 //= services/timeDateFormat.js
 //= services/cookieModule.js
@@ -16,9 +16,9 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 //= modules/Login/LoginView.js
 //= modules/Login/LoginModel.js
 //= modules/Login/LoginController.js
-//= modules/Location/LocationController.js
 //= modules/Location/LocationView.js
 //= modules/Location/LocationModel.js
+//= modules/Location/LocationController.js
 
 document.onload = (function (exports) {
     var CONST = exports.CONST,
@@ -31,7 +31,7 @@ document.onload = (function (exports) {
         pubsub = exports.pubsub;
 
     timeDateController.start();
-    //weatherModule.writeWeather();//for api working example
+    //weatherController.start();//for api working example
     location.start();
     logoutController.start();
     loginController.start();

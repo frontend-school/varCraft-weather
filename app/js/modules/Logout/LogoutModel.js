@@ -8,9 +8,7 @@ window.MYAPPLICATION.LogoutModel = (function (exports) {
     }
 
     return {
-        getStatus : function () {
-            return _getStatus();
-        },
+        getStatus :  _getStatus,
         setStatus : function () {
             status = false;
             exports.pubsub.publish('/logOut', {});

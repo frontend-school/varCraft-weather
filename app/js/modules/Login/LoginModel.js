@@ -8,9 +8,7 @@ window.MYAPPLICATION.LoginModel = (function (exports) {
     }
 
     return {
-        getStatus : function () {
-            return _getStatus();
-        },
+        getStatus :  _getStatus,
         setStatus : function (user) {
             status = true;
             exports.pubsub.publish('/logIn', user);

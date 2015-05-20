@@ -2,14 +2,17 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LoginController = (function (exports) {
     var CONST = exports.CONST,
-        helperModule = exports.helperModule;
+        facadeDOM = exports.facadeDOM,
+        view = exports.LoginView,
+        model = exports.LoginModel;
 
     function _start() {
-        exports.LoginView.start();
-        helperModule.getElement(CONST.ID.submitButton).addEventListener('click', _logIn);
+        view.start();
+        facadeDOM.getElement(CONST.ID.submitButton).addEventListener('click', _logIn);
     }
+
     function _logIn() {
-        var user = exports.LoginView.getFormInfo(),
+        var user = view.getFormInfo(),
             loginRequest = new XMLHttpRequest();
         loginRequest.withCredentials = true;
 
@@ -18,21 +21,21 @@ window.MYAPPLICATION.LoginController = (function (exports) {
         }
         loginRequest.onload = function () {
             if (loginRequest.status === 200) {
-                exports.LoginModel.setStatus(user.login);
+                model.setStatus(user.login);
                 exports.cookieModule.writeCookie(CONST.cookieName, user.login, CONST.stayTime);//remove to mediator by pubsub
             }
         };
         loginRequest.open('GET', 'http://localhost:3000/login', true);
         loginRequest.send();
     }
+
     function _showForm() {
-        exports.LoginView.showForm();
+        view.showForm();
     }
+
     return {
         logIn: _logIn,
-        showForm: function () {
-            _showForm();
-        },
+        showForm: _showForm,
         start: _start
     };
 }(window.MYAPPLICATION));

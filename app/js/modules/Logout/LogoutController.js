@@ -2,7 +2,8 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LogoutController = (function (exports) {
     var CONST = exports.CONST,
-        helperModule = exports.helperModule;
+        facadeDOM = exports.facadeDOM,
+        view = exports.LogoutView;
 
     function _logOut() {
         var model = exports.LogoutModel,
@@ -20,13 +21,16 @@ window.MYAPPLICATION.LogoutController = (function (exports) {
         logoutRequest.open('GET', 'http://localhost:3000/logout', true);
         logoutRequest.send();
     }
+
     function _showDashboard(name) {
-        exports.LogoutView.showDashboard(name);
+        view.showDashboard(name);
     }
+
     function _start() {
-        exports.LogoutView.start();
-        helperModule.getElement(CONST.ID.logOutButton).addEventListener('click', _logOut);
+        view.start();
+        facadeDOM.getElement(CONST.ID.logOutButton).addEventListener('click', _logOut);
     }
+
     return {
         showDashboard: function (name) {
             _showDashboard(name);

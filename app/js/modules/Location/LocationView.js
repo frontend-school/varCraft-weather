@@ -1,17 +1,17 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LocationView = (function (exports) {
-    var helperModule = exports.helperModule,
+    var facadeDOM = exports.facadeDOM,
         CONST = exports.CONST;
 
     function _writeCity(city) {
-        helperModule.writeInto(CONST.ID.city, city);
+        facadeDOM.writeInto(CONST.ID.city, city);
     }
 
     function _writeCountry(country) {
         var format = exports.countryFormat;
 
-        helperModule.writeInto(CONST.ID.country, format.getCountryName(country));
+        facadeDOM.writeInto(CONST.ID.country, format.getCountryName(country));
     }
 
     return {

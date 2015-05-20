@@ -1,23 +1,23 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.TimeDateView = (function (exports) {
-    var helperModule = exports.helperModule,
+    var facadeDOM = exports.facadeDOM,
         CONST = exports.CONST,
         timeDateFormat = exports.timeDateFormat;
 
     //write info time
     function _writeTime(currentDate) {
-        helperModule.writeInto(CONST.ID.infoTime, timeDateFormat.getTime(currentDate));
-        helperModule.writeInto(CONST.ID.infoTimeNotation, timeDateFormat.getDiem(currentDate));
+        facadeDOM.writeInto(CONST.ID.infoTime, timeDateFormat.getTime(currentDate));
+        facadeDOM.writeInto(CONST.ID.infoTimeNotation, timeDateFormat.getDiem(currentDate));
     }
 
     function _writeInfoDate(currentDate) {
-        helperModule.writeInto(CONST.ID.infoDay, timeDateFormat.getInfoDate(currentDate));
+        facadeDOM.writeInto(CONST.ID.infoDay, timeDateFormat.getInfoDate(currentDate));
     }
     //****
     //write weather day (remove to weather)
     function _writeDay(currentDate, holder) {
-        helperModule.writeInto(holder, timeDateFormat.getWeatherDate(currentDate));
+        facadeDOM.writeInto(holder, timeDateFormat.getWeatherDate(currentDate));
     }
 
     function _writeTomorrow(currentDate) {

@@ -1,12 +1,16 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LocationController = (function (exports) {
+    var view = exports.LocationView;
+
     function httpGet(theUrl) {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", theUrl, false);
         xmlHttp.send(null);
+
         return xmlHttp.responseText;
     }
+
     function _requestLocation() {
         var res = httpGet("http://ipinfo.io/json"),
             model = exports.LocationModel,
@@ -15,10 +19,12 @@ window.MYAPPLICATION.LocationController = (function (exports) {
         geoData.country = JSON.parse(res).country;
         model.setGeoData(geoData);
     }
+
     function _start() {
-        exports.LocationView.start();
+        view.start();
         _requestLocation();
     }
+
     return {
         start: _start
     };

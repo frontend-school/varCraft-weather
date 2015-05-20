@@ -2,16 +2,16 @@ window.MYAPPLICATION = window.MYAPPLICATION || {};
 
 window.MYAPPLICATION.LogoutView = (function (exports) {
     var greeting = "Hello ",
-        helperModule = exports.helperModule,
+        facadeDOM = exports.facadeDOM,
         CONST = exports.CONST;
 
     function _hideDashboard() {
-        helperModule.writeInto(CONST.ID.dashboardGreeting, "");
-        helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardActive, CONST.ID.dashboardHidden);
+        facadeDOM.writeInto(CONST.ID.dashboardGreeting, "");
+        facadeDOM.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardActive, CONST.ID.dashboardHidden);
     }
     function _showDashboard(name) {
-        helperModule.writeInto(CONST.ID.dashboardGreeting, greeting + name);
-        helperModule.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardHidden, CONST.ID.dashboardActive);
+        facadeDOM.writeInto(CONST.ID.dashboardGreeting, greeting + name);
+        facadeDOM.replaceClassName(CONST.ID.dashboard, CONST.ID.dashboardHidden, CONST.ID.dashboardActive);
     }
 
     return {

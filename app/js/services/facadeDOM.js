@@ -1,6 +1,6 @@
 window.MYAPPLICATION = window.MYAPPLICATION || {};
 
-window.MYAPPLICATION.helperModule = (function () {
+window.MYAPPLICATION.facadeDOM = (function () {
     function _getElement(name) {
         return document.getElementById(name);
     }
@@ -25,21 +25,17 @@ window.MYAPPLICATION.helperModule = (function () {
         var elem = _getElement(element);
         elem.textContent = content;
     }
+
+    function _getValue(id) {
+        return _getElement(id).value;
+    }
+
     return {
-        getElement: function (name) {
-            return _getElement(name);
-        },
-        addClassName: function (name, className) {
-            _addClassName(name, className);
-        },
-        removeClassName: function (name, className) {
-            _removeClassName(name, className);
-        },
-        replaceClassName: function (name, oldName, newName) {
-            _replaceClassName(name, oldName, newName);
-        },
-        writeInto: function(element, content) {
-            _writeInto(element, content);
-        }
+        getElement: _getElement,
+        addClassName: _addClassName,
+        removeClassName: _removeClassName,
+        replaceClassName: _replaceClassName,
+        writeInto: _writeInto,
+        getValue: _getValue
     };
 }());

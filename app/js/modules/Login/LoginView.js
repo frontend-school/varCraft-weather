@@ -14,11 +14,13 @@ window.MYAPPLICATION.LoginView = (function (exports) {
 
     function _getFormInfo() {
         var user = {};
-        user.login = facadeDOM.getElement(CONST.ID.loginFormName).value;
-        user.password = facadeDOM.getElement(CONST.ID.loginFormPassword).value;
+
+        user.login = facadeDOM.getValue(CONST.ID.loginFormName);
+        user.password = facadeDOM.getValue(CONST.ID.loginFormPassword);
 
         return user;
     }
+
     function _clearForm() {
         facadeDOM.getElement(CONST.ID.loginForm).reset();
     }

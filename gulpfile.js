@@ -21,7 +21,6 @@ gulp.task('server', function () {
     gulp.watch(['app.js', 'routes/!**!/!*.js'], [server.run]);*/
 });
 
-
 var source = 'app';
 var destination = 'dist';
 var tmpDir = 'tmp';

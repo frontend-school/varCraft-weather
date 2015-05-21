@@ -1,34 +1,63 @@
+window.vCWeather = window.vCWeather || {};
+window.vCWeather.modules = window.vCWeather.modules || {};
+
+//= Constants.js
+
+//= StorageController.js
+//= Timer.js
+
+//= Event.js
+//= DateTimeUpdater/DateTimeModel.js
+//= DateTimeUpdater/DateTimeView.js
+//= DateTimeUpdater/DateTimeController.js
+
+//= PubSub.js
+
+//= Login/LoginModel.js
+//= Login/LoginView.js
+//= Login/LoginController.js
+
+//= Logout/LogoutModel.js
+//= Logout/LogoutView.js
+//= Logout/LogoutController.js
+
+//= Mediator.js
 
 window.onload = function() {
-    var timer = new Timer();
-    timer.setLogoutController( new LogoutController() );
+
+    var mediator = new window.vCWeather.modules.Mediator();
+
+    var timer = new window.vCWeather.modules.Timer();
+    /*timer.setLogoutController( new LogoutController() );
 
     var loginController = new LoginController(timer);
     var logoutController = new LogoutController(timer);
 
     // adding button listeners
     (function () {
-        var LOGGING_BTN_CLASSES = window.vCWeather.CONST.CLASSES_BUTTONS;
+        var LOGGING_CONTROLS_CLASSES = window.vCWeather.CONST.CLASSES_LOGGING_CONTROLS;
 
-        var elements = document.getElementsByClassName(LOGGING_BTN_CLASSES.LOG_IN);
-        if (elements.length)
-            elements[0].addEventListener( 'click', function(ev){ loginController.logIn(ev, false); } );
-
-        elements = document.getElementsByClassName(LOGGING_BTN_CLASSES.LOG_OUT);
-        if (elements.length)
-            elements[0].addEventListener('click', function(ev){ logoutController.logOut(ev, false); } );
-
-    }());
+        var elements = document.getElementsByClassName(LOGGING_CONTROLS_CLASSES.LOG_OUT);
+        if (elements.length) {
+            elements[0].addEventListener('click', function (ev) {
+                window.vCWeather.sendRequestToServer('/logout', {}, function () {
+                    logoutController.logOut(ev, false);
+                });
+            });
+        }
+    }());*/
 
     // search logging in sessionStorage
-    (function () {
+    /*(function () {
 
         var storageController = new StorageController();
-        if (storageController.isLogged())
-            loginController.logIn( null, true, storageController.getLoggedName() );
+        if (storageController.isLogged()) {
+            loginController.logIn(null, true, storageController.getLoggedName());
+        }
 
-    })();
+    })();*/
 
+    // DateTimeUpdater to display the current time
     (function () {
         var elements = {
             time: window.document.querySelector('.' + window.vCWeather.CONST.CLASSES_DAY_TIME.TIME),
@@ -62,5 +91,42 @@ window.vCWeather.replaceClassName = function (nameToRemove, nameToAdd) {
         elem.className = elem.className.replace(nameToRemove, '');
         elem.className = elem.className.replace(/^ | $/gi, '');
         elem.className = elem.className + ' ' + nameToAdd;
+    }
+};
+
+window.vCWeather.sendRequestToServer = function (uri, params, successCallback) {
+    var request = new XMLHttpRequest();
+
+    var paramsInString = '';
+
+    params = params || {};
+    for (var paramKey in params) {
+        paramsInString = paramsInString + /*( (paramsInString === '') ? '' : '&') +*/
+            '&' + paramKey + '=' + params[paramKey];
+    }
+    paramsInString = paramsInString.replace("&","?");
+
+    request.open('GET', window.vCWeather.CONST.SERVER.ADDRESS + uri + paramsInString, true);
+    request.onreadystatechange = processReqChange;
+    request.send();
+
+    function processReqChange()
+    {
+        //try {
+            if (request.readyState === 4) {
+                if (request.status === 200) {
+                    console.log('Your request ', request);
+
+                    successCallback();
+                } else {
+                    alert('Getting data failed: ' + request.statusText);
+                }
+            }
+        //}
+        //catch( e ) {
+        //    alert('Error: ' + e.description);
+        //
+        //    console.log(e);
+        //}
     }
 };

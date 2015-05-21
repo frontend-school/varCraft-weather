@@ -3,7 +3,7 @@ var watch = require('gulp-watch');
 var webserver = require('gulp-webserver');
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var rigger = require('gulp-rigger');
 
@@ -72,10 +72,10 @@ gulp.task('sass-concat', function () {
 
 gulp.task('sass', ['sass-concat'], function () {
 
-    return sass(tmpDir, {style: 'expanded'})
-        .on('error', function (err) {
+    return gulp.src(tmpDir + '/**/*.scss')
+        .pipe(sass().on('error', function (err) {
             console.error('Error!', err.message);
-        })
+        }))
         .pipe(autoprefixer({
             browsers: ['last 3 versions'],
             cascade: false

@@ -8,18 +8,18 @@
 }
 
 .info{
-  //position: relative;
+
   display: none;
   @include clearfix('info');
   &__header{
     display: none;
   }
   &__datetime{
-    //position: relative;
-    //height: 100%;
-    //min-height: 0;
-    //width: 30%;
-    //float: left;
+
+
+
+
+
     display: none;
     &_time{
       font-size: 48px;
@@ -32,9 +32,9 @@
         top: 8px;
       }
       &_wrapper{
-        //@include center-vertical;
+
         position: relative;
-        //display: inline-block;
+
         width: auto;
         height: 100%
       }
@@ -78,7 +78,7 @@
     }
     &_header {
       font-size: 100px;
-      //background-color: #1d9e48;
+
     }
     &_date{
       display: none;
@@ -131,34 +131,32 @@
         font-size: 80px;
       }
       &_icon{
-        //@include center-horizontal-and-vertical;\
-        //position: relative;
         top: 150%;
         width: 100px;
         height: 140px;
         margin: auto;
       }
       &_wrapper{
-        //position: relative;
-        //left: 0;
+
+
         width: auto;
         height: 100px;
-        //transform: translate(0,0);
+
         @include center-horizontal-and-vertical;
       }
       &_humidity{
-        //position:static;
+
         float: left;
         display: block; //for humidity display (default is nome)
         margin-right: 100px;
       }
       &_wind{
-        //position:static;
+
         float: left;
         margin-right: 100px;
       }
       &_moon{
-        //position: static;
+
         float: left;
       }
     }

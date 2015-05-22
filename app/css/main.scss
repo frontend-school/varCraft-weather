@@ -204,10 +204,10 @@ and (max-width: 568px) {
     &__additional {
       padding-right: 15px;
       padding-left: 15px;
+    }
 
-      &_humidity {
-        display: inline-block;
-      }
+    &__humidity {
+      display: inline-block;
     }
 
     &__temperature {

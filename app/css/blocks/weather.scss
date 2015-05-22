@@ -114,22 +114,22 @@
 
   &__temperature {
     padding: 55px 0;
-  }
 
-  &__temperature-day {
-    display: inline-block;
-    height: 73px;
-    vertical-align: bottom;
-    font-size: 3.1em;
-    line-height: 74px;
-    font-weight: bold;
-  }
+    &_day {
+      display: inline-block;
+      height: 73px;
+      vertical-align: bottom;
+      font-size: 3.1em;
+      line-height: 74px;
+      font-weight: bold;
+    }
 
-  &__temperature-night {
-    display: inline-block;
-    padding-left: 14px;
-    text-align: left;
-    vertical-align: bottom;
+    &_night {
+      display: inline-block;
+      padding-left: 14px;
+      text-align: left;
+      vertical-align: bottom;
+    }
   }
 
   &__temperature-night-value {
@@ -159,98 +159,99 @@
     text-align: center;
     vertical-align: top;
     font-size: .6em;
+  }
 
-    &_humidity {
-      display: none;
+  &__humidity {
+    display: none;
+  }
+
+  &__humidity-icon {
+    margin-top: 27px;
+    background: url('../../img/humidity.png') no-repeat;
+
+    &_hm2 {
+      @include humidity(0, 0);
+    }
+
+    &_hm1 {
+      @include humidity(-199px, 0);
+    }
+
+    &_hm0 {
+      @include humidity(-98px, 0);
     }
   }
 
-  &__additional-desc {
+  &__wind-icon {
+    position: relative;
+    padding-top:50px;
+
+    &_n:after {
+      @include wind(0deg);
+    }
+
+    &_ne:after {
+      @include wind(45deg);
+    }
+
+    &_e:after {
+      @include wind(90deg);
+    }
+
+    &_se:after {
+      @include wind(135deg);
+    }
+
+    &_s:after {
+      @include wind(180deg);
+    }
+
+    &_sw:after {
+      @include wind(225deg);
+    }
+
+    &_w:after {
+      @include wind(270deg);
+    }
+
+    &_nw:after {
+      @include wind(315deg);
+    }
+  }
+
+  &__moon-icon {
+    margin-top: 33px;
+    background: url('../../img/moon_state.png') no-repeat;
+
+    &_mn0 {
+      @include moon(0, 0);
+    }
+
+    &_mn1 {
+      @include moon(-72px, 0);
+    }
+
+    &_mn2 {
+      @include moon(-150px, 0);
+    }
+
+    &_mn3 {
+      @include moon(-230px, 0);
+    }
+
+    &_mn4 {
+      @include moon(-300px, 0);
+    }
+
+    &_mn5 {
+      @include moon(-375px, 0);
+    }
+  }
+
+
+  &__additional-icon {
     box-sizing: border-box;
     height: 88px;
     background-repeat: no-repeat;
-
-    &_wind {
-      position: relative;
-      padding-top:50px;
-
-      &_n:after {
-        @include wind(0deg);
-      }
-
-      &_ne:after {
-        @include wind(45deg);
-      }
-
-      &_e:after {
-        @include wind(90deg);
-      }
-
-      &_se:after {
-        @include wind(135deg);
-      }
-
-      &_s:after {
-        @include wind(180deg);
-      }
-
-      &_sw:after {
-        @include wind(225deg);
-      }
-
-      &_w:after {
-        @include wind(270deg);
-      }
-
-      &_nw:after {
-        @include wind(315deg);
-      }
-    }
-
-    &_moon {
-      margin-top: 33px;
-      background: url('../../img/moon_state.png') no-repeat;
-
-      &_mn0 {
-        @include moon(0, 0);
-      }
-
-      &_mn1 {
-        @include moon(-72px, 0);
-      }
-
-      &_mn2 {
-        @include moon(-150px, 0);
-      }
-
-      &_mn3 {
-        @include moon(-230px, 0);
-      }
-
-      &_mn4 {
-        @include moon(-300px, 0);
-      }
-
-      &_mn5 {
-        @include moon(-375px, 0);
-      }
-    }
-
-    &_humidity {
-      margin-top: 27px;
-      background: url('../../img/humidity.png') no-repeat;
-
-      &_hm2 {
-        @include humidity(0, 0);
-      }
-
-      &_hm1 {
-        @include humidity(-199px, 0);
-      }
-
-      &_hm0 {
-        @include humidity(-98px, 0);
-      }
-    }
   }
 }

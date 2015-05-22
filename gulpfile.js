@@ -56,7 +56,7 @@ gulp.task('bc-vendor', function(){
 gulp.task('concatScripts',function(){
     return gulp.src(['./app/**/*.js', '!./app/*.js'])
         .pipe(concat('general.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('./dist/block/'));
 });
 

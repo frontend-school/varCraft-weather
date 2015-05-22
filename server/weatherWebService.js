@@ -34,7 +34,7 @@ function CreateWeather(){
     function randomizeWind(){
         return {
             speed: (Math.random() * 100).toFixed(0),
-            direction: (Math.random() * 100 % 8).toFixed(0)
+            direction: (Math.random() * 100 % 7).toFixed(0)
         };
     }
     function randomizeMoon(){

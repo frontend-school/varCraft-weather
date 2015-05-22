@@ -17,7 +17,7 @@ $misc-icon-font-size:48px;
   background-size: cover;
   width: 48px;
   height: 67px;
-  position: relative;
+  //position: relative;
   vertical-align: middle;
   text-align: center;
   font-size: 24px;
@@ -79,7 +79,7 @@ $misc-icon-font-size:48px;
     height: 17%;
     min-height: round(($main-font-size + $header-date-font-size)*1.7);
     min-width: 230px;
-    position: relative;
+    position: relative; //to center absolute positioned headers
     list-style: none;
     text-align: center;
     &_settings{
@@ -110,36 +110,36 @@ $misc-icon-font-size:48px;
     margin: 0;
     padding: 0;
     height: 83%;
-    position: relative;
+    //position: relative;
     min-width: 230px;
     text-align: center;
     &_state{
       font-size: $state-icon-font-size;
-      position: relative;
+      position: relative; //to center absolute positioned elements
       height: 33.333%;
       min-height: 250px;
       &_icon{
         @include center-horizontal-and-vertical;
-        display: inline-block;
+        //display: inline-block;
         width: 170px;
         height: 170px;
       }
     }
     &_caption{
-      position: absolute;
+      position: absolute; //to display on right place
       font-size: $state-caption-font-size;
       bottom: 0;
       text-align: center;
       width: 100%;
     }
     &_temperature{
-      position: relative;
+      position: relative; //to center absolute positioned elements
       height: 33.333%;
       min-height: 160px;
       font-size: 0;
       &_wrapper{
         @include center-horizontal-and-vertical;
-        display: inline-block;
+        //display: inline-block;
         width: 100%;
       }
       &_day{
@@ -152,22 +152,22 @@ $misc-icon-font-size:48px;
         height: 70px;
         width: 15px;
         display: inline-block;
-        position: relative;
+        position: relative; //to display night properly
       }
       &_caption
       {
         font-size: $night-caption-temp-font-size;
-        position: absolute;
+        position: absolute; //to display on right place
         left: 100%;
       }
     }
     &_misc{
       height: 20%;
       min-height: 160px;
-      position: relative;
+      position: relative; //to center absolute positioned elements
       &_wrapper{
         @include center-horizontal-and-vertical;
-        display: inline-block;
+        //display: inline-block;
         width: 50%;
         min-width: 126px;
         font-size: $night-caption-temp-font-size;
@@ -175,7 +175,7 @@ $misc-icon-font-size:48px;
       }
       &_icon{
         font-size: $misc-icon-font-size;
-        position: relative;
+        //position: relative;
         width: 48px;
         height: 48px;
        }
@@ -205,7 +205,7 @@ $misc-icon-font-size:48px;
   margin: 0;
   padding: 0;
   height: 83%;
-  position: relative;
+  //position: relative;
   min-width: 230px;
   &__header{
     margin: 0;
@@ -213,50 +213,50 @@ $misc-icon-font-size:48px;
     width: 100%;
     height: 17%;
     min-height: round(($main-font-size + $header-date-font-size)*1.7);
-    position: relative;
+    //position: relative;
   }
   &__datetime{
-    position: relative;
+    position: relative; //to display absolute positioned elements
     height: 33.333%;
     min-height: 250px;
     &_time{
       font-size: 150px;
-      position: absolute;
+      position: absolute; //to display on right place
       bottom: -13px;
-      display: inline-block;
+      //display: inline-block;
       &_midday{
         font-size: $main-font-size;
-        position: absolute;
+        position: absolute; //to display on right place
         right: -55px;
         top: 30px;
       }
       &_wrapper{
         @include center-vertical;
-        display: inline-block;
+        //display: inline-block;
         width: 170px;
         height: 170px;
       }
     }
     &_date{
       font-size: $state-caption-font-size;
-      position: absolute;
+      position: absolute; //to display on right place
       bottom: 0;
     }
   }
   &__location {
     height: 33.333%;
     min-height: 160px;
-    position: relative;
+    position: relative; //to display absolute positioned elements
     &_wrapper{
       @include center-vertical;
       margin-left: 38px;
-      display: inline-block;
+      //display: inline-block;
       text-align: center;
       &:before{
         content: '';
         background-image: url('../icons/marker/marker.png');
         background-size: 48px 48px;
-        display: block;
+        //display: block;
         position: absolute;
         margin: 0;
         padding: 0;
@@ -268,11 +268,11 @@ $misc-icon-font-size:48px;
     }
     &_city{
       margin: auto;
-      display: inline-block;
+      display: inline-block; //necessary  for correct city display
     }
     &_country{
       margin: 0 auto;
-      display: inline-block;
+      //display: inline-block;
       font-size: $night-caption-temp-font-size;
       position: absolute;
       left: 0;

@@ -10,7 +10,7 @@ var users =[new User('log', new Date().getTime()), new User('log', new Date().ge
 removeTimeout();
 function removeTimeout(){
     for(var i = users.length - 1; i >=0; i--){
-        if(new Date().getTime() - users[i].sid >= 180000){
+        if(new Date().getTime() - users[i].sid >= 1800000){
             users.splice(i, 1);
             showUsers('Remover as timeout');
         }

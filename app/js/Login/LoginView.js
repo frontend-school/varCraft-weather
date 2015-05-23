@@ -1,4 +1,4 @@
-window.varCraft = window.varCraft || {}; 
+window.varCraft = window.varCraft || {};
 window.varCraft.loginView =  window.varCraft.loginView || {};
 varCraft.login = varCraft.login || {};
 varCraft.login.pubsub = varCraft.login.pubsub || new CreatePubSub();

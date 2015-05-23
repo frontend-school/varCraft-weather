@@ -1,5 +1,3 @@
-//!!!Login Model
-
 
 window.varCraft.loginModel =  window.varCraft.loginModel || {};
 varCraft.login = varCraft.login || {};

@@ -30,10 +30,11 @@ var filteredDestination = ['dist/css/*.css',
 var appComponents  = "bower_components";
 var runningPage = "index.html";
 var testAPI = "/pages/testAPI.html";
+var expressServer = source + "/server/rest.js";
 
 
 gulp.task('express', function () {
-    express.run(['app.js']);
+    express.run([expressServer]);
     });
 
 

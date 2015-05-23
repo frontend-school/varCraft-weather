@@ -9,10 +9,4 @@ varCraft.logoutController = (function(){
 })();
 
 //main part starting here
-function ready(fn) {
-  if (document.readyState != 'loading'){
-    fn();
-  } else {
-    window.onload = fn;
-  }
-}
+

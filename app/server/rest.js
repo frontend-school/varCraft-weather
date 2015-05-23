@@ -1,11 +1,11 @@
 var express = require('express');
-var config = require('./config');
+var config = require('./lib/config');
 var http = require('http');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var url = require('url');
 var fs = require('fs');
-var auth = require('./auth');
+var auth = require('./lib/auth');
 
 var app = express();
 
@@ -24,7 +24,6 @@ app.get('/login', function(req, res){
 	res.set('Access-Control-Allow-Origin', 'http://localhost:8080'  );
 	res.set('Access-Control-Allow-Credentials', true);
 	res.set('Content-type', 'application/JSON');
-	
 
 	var parsedUrl = url.parse(req.url, true);
 	var login = parsedUrl.query.login;
@@ -33,6 +32,7 @@ app.get('/login', function(req, res){
 
 	// Access-Control-Allow-Origin: домен
 	// Access-Control-Allow-Credentials: true
+
 
 	if(auth(login, password)){
 		console.log(req.headers.host, req.protocol);

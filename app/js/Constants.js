@@ -31,5 +31,10 @@ window.vCWeather.CONST = {
     },
     SERVER: {
         ADDRESS: 'http://localhost:3000'
-    }
+    },
+    CLASSES_LOCATION: {
+        CITY: '.js-city',
+        COUNTRY: '.js-country'
+    },
+    LOCATION_SERVICE_ADDR: 'http://ip-api.com/json'
 };

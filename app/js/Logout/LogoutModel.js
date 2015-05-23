@@ -1,7 +1,6 @@
 (function (namespace) {
     function LogoutModel(storageService) {
-
-        this.getLoggingName = function () {
+        this.getLoggedName = function () {
             return storageService.getLoggedName();
         };
         this.clearData = function () {
@@ -10,5 +9,4 @@
     }
 
     namespace.LogoutModel = LogoutModel;
-
 })(window.vCWeather.modules);

@@ -5,19 +5,20 @@
         this._model = model;
         this._elements = elements;
 
-        var self = this;
+        /*var self = this;
         this._model.loggingNameChanged.attach(function () {
             self.setHelloMessage();
-        });
+        });*/
     }
-    LoginView.prototype.setHelloMessage = function () {
-        var loggingName = this._model.getLoggingName();
-        this._elements.login.halloMessage.innerHTML = 'Hallo, ' + ( (loggingName) ? (loggingName) : ('unnamed') ) + '!';
-    };
-    LoginView.prototype.setLoggingName = function () {
+    //LoginView.prototype.setHelloMessage = function () {
+    //    var loggingName = this._model.getLoggingName();
+    //    this._elements.login.halloMessage.innerHTML = 'Hallo, ' + ( (loggingName) ? (loggingName) : ('unnamed') ) + '!';
+    //};
+    /*Moved to LOgOut View*/
+    /*LoginView.prototype.setLoggingName = function () {
         var loggingName = this._model.getLoggingName();
         this._elements.login.halloMessage.value = loggingName;
-    };
+    };*/
     LoginView.prototype.hideLoggingForm = function () {
         var CLASSES_LOGGING = window.vCWeather.CONST.CLASSES_LOGGING;
 

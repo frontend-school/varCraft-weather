@@ -1,19 +1,16 @@
 
-window.vCWeather = window.vCWeather || {};
-window.vCWeather.modules = window.vCWeather.modules || {};
-
 (function (namespace) {
     function DateTimeUpdaterView(model, elements) {
         this._model = model;
         this._elements = elements;
 
-        var _this = this;
+        var self = this;
 
         this._model.timeChanged.attach(function (args) {
-            _this.updateTime(args.date);
+            self.updateTime(args.date);
         });
         this._model.dayChanged.attach(function (args) {
-            _this.updateDays(args.date);
+            self.updateDays(args.date);
         });
     }
     DateTimeUpdaterView.prototype = {

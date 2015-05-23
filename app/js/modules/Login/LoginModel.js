@@ -1,9 +1,7 @@
-
 window.varCraft.loginModel =  window.varCraft.loginModel || {};
 varCraft.login = varCraft.login || {};
-varCraft.login.pubsub = varCraft.login.pubsub || new CreatePubSub();
 
-varCraft.loginModel = (function(){
+window.varCraft.loginModel = (function(){
     var logStatus,
         userName;
     return {
@@ -24,20 +22,7 @@ varCraft.loginModel = (function(){
             return userName;
         }
     };
-})();
+})(window.varCraft);
 
 
-//!!!Login Controller
-window.varCraft = window.varCraft || {};
-window.varCraft = window.varCraft || {};
-window.varCraft.loginController =  window.varCraft.loginController || {};
-
-varCraft.loginController = (function(){
-    varCraft.login.pubsub.subscribe("loginSuccess", varCraft.loginModel.setLogStatus);
-    varCraft.login.pubsub.subscribe("loginSuccess", varCraft.loginModel.setUserName);
-
-    return {
-    };
-
-})();
 

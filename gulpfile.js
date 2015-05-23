@@ -1,28 +1,29 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var bowerSrc = require('gulp-bower-src');
-var sass = require( 'gulp-sass' );
-var uglify = require( 'gulp-uglify' );
-var clean = require('gulp-clean');
-var rename = require( 'gulp-rename' );
-var jshint = require( 'gulp-jshint' );
-var concat = require('gulp-concat') ;
-var autoprefixer = require('gulp-autoprefixer');
-var express = require('gulp-express');
+var gulp = require('gulp'),
+    browserSync = require('browser-sync'),
+    bowerSrc = require('gulp-bower-src'),
+    sass = require( 'gulp-sass' ),
+    uglify = require( 'gulp-uglify' ),
+    clean = require('gulp-clean'),
+    rename = require( 'gulp-rename' ),
+    jshint = require( 'gulp-jshint' ),
+    concat = require('gulp-concat') ,
+    autoprefixer = require('gulp-autoprefixer'),
+    express = require('gulp-express'),
+    reload = browserSync.reload;
 
 var source = "app";
 var destination = "dist";
 var filteredSource = [source + '/css/**/*.css',
                       source + '/css/**/*.scss',
                       source + '/css/fonts/*.*',
-                      source + '/js/*.js',
+                      source + '/js/**/*.js',
                       source + '/img/**/*.*',
                       source + '/index.html',
                       source + '/pages/*.*'];
 
 var filteredDestination = ['dist/css/*.css',
                             'dist/css/fonts/*.*',
-                            'dist/js/*.js',
+                            'dist/js/**/*.js',
                             'dist/*.html',
                             'dist/img/*.*',
                             'dist/pages/*.html'];

@@ -1,7 +1,6 @@
 window.varCraft = window.varCraft || {};
 window.varCraft.services = window.varCraft.services || {};
 window.varCraft.services.cookie = window.varCraft.services.cookie || {};
-window.varCraft.services.Event = window.varCraft.services.Event || {};
 
 varCraft.services.cookie.getCookie= function(name) {
       var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -46,25 +45,22 @@ varCraft.services.cookie.deleteCookie = function(name) {
 };
 
 
-varCraft.services.Event = {
-  add: function(elem, type, handler){
-        if (elem.addEventListener){
-          elem.addEventListener(type, handler, false)
-        }
-        else {
-          elem.attachEvent("on"+type, handler)
-        }
-      },
-  remove: function(elem, type, handler){
-        if (elem.removeEventListener){
-          elem.addEventListener(type, handler, false)
-        }
-        else {
-          elem.removeEvent("on"+type, handler)
-        }
-      }
+// varCraft.services.Event = {
+//   add: function(elem, type, handler){
+//         if (elem.addEventListener){
+//           elem.addEventListener(type, handler, false)
+//         }
+//         else {
+//           elem.attachEvent("on"+type, handler)
+//         }
+//       },
+//   remove: function(elem, type, handler){
+//         if (elem.removeEventListener){
+//           elem.addEventListener(type, handler, false)
+//         }
+//         else {
+//           elem.removeEvent("on"+type, handler)
+//         }
+//       }
 
-}
-
-varCraft.services.DOM = {
-}
+// }

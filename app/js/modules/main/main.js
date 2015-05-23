@@ -18,8 +18,8 @@ function main(){
 
     varCraft.mediator.installTo(varCraft.loginController);
     varCraft.mediator.subscribe("login", varCraft.DateTimeController._start);
-    varCraft.loginView._init();
-    varCraft.logoutView._init();
+    varCraft.loginController._start();
+    varCraft.logoutController._start();
 }
 
 ready(main);

@@ -1,5 +1,3 @@
-window.vCWeather = window.vCWeather || {};
-window.vCWeather.modules = window.vCWeather.modules || {};
 
 (function (namespace) {
     function PubSub() {
@@ -57,6 +55,6 @@ window.vCWeather.modules = window.vCWeather.modules || {};
         }
     };
 
-    namespace.pubsub = new PubSub();
-    namespace.PubSub = PubSub;
-})(window.vCWeather.modules);
+    namespace.objects.pubsub = new PubSub();
+    namespace.modules.PubSub = PubSub;
+})(window.vCWeather);

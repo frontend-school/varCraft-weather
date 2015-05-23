@@ -2,13 +2,16 @@ window.vCWeather = window.vCWeather || {};
 window.vCWeather.CONST = window.vCWeather.CONST || {};
 window.vCWeather.modules = window.vCWeather.modules || {};
 window.vCWeather.objects = window.vCWeather.objects || {};
+window.vCWeather.services = window.vCWeather.services || {};
 
 //= Constants.js
 
 //= StorageController.js
 //= PubSub.js
-
 //= Event.js
+
+//= Services/sendRequestToServer.js
+
 //= DateTimeUpdater/DateTimeModel.js
 //= DateTimeUpdater/DateTimeView.js
 //= DateTimeUpdater/DateTimeController.js
@@ -21,13 +24,16 @@ window.vCWeather.objects = window.vCWeather.objects || {};
 //= Logout/LogoutView.js
 //= Logout/LogoutController.js
 
-//= Mediator.js
+//= Location/LocationModel.js
+//= Location/LocationView.js
+//= Location/LocationController.js
 
 window.onload = function() {
 
     var CONST = window.vCWeather.CONST;
     var modules = window.vCWeather.modules;
     var objects = window.vCWeather.objects;
+    var services = window.vCWeather.services;
 
     //var mediator = new window.vCWeather.modules.Mediator();
     //var pubsub = new namespace.PubSub();
@@ -72,10 +78,19 @@ window.onload = function() {
         var dateTimeUpdaterController = new modules.DateTimeUpdaterController(dateTimeUpdaterModel, dateTimeUpdaterView);
     })();
 
+    (function () {
+        var elements = {
+            city: window.document.querySelector(CONST.CLASSES_LOCATION.CITY),
+            country: window.document.querySelector(CONST.CLASSES_LOCATION.COUNTRY)
+        };
+        var locationModel = new modules.LocationModel();
+        var locationView = new modules.LocationView(locationModel, elements);
+        var locationController = new modules.LocationController(locationModel, locationView);
+    })();
+
     if (storageService.isLogged()) {
         loginController.execLoggingActions();
     }
-
 }; /* window.onload */
 
 // Searches elements containing value of 'nameToRemove' in their with classes
@@ -92,38 +107,4 @@ window.vCWeather.replaceClassName = function (nameToRemove, nameToAdd) {
     }
 };
 
-window.vCWeather.sendRequestToServer = function (address, params, successCallback) {
-    var request = new XMLHttpRequest();
 
-    var paramsInString = '';
-
-    params = params || {};
-    for (var paramKey in params) {
-        paramsInString = paramsInString + /*( (paramsInString === '') ? '' : '&') +*/
-            '&' + paramKey + '=' + params[paramKey];
-    }
-    paramsInString = paramsInString.replace("&","?"); // first match only
-
-    request.open('GET', address + paramsInString, true);
-    request.onreadystatechange = processReqChange;
-    request.send();
-
-    function processReqChange() {
-        //try {
-            if (request.readyState === 4) {
-                if (request.status === 200) {
-                    console.log('Your request: ', request);
-
-                    successCallback(request.responseText);
-                } else {
-                    console.log('Getting data failed: ' + request.statusText);
-                }
-            }
-        //}
-        //catch( e ) {
-        //    alert('Error: ' + e.description);
-        //
-        //    console.log(e);
-        //}
-    }
-};

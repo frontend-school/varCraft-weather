@@ -18,9 +18,14 @@ function main(){
 
     varCraft.mediator.installTo(varCraft.loginController);
     varCraft.mediator.installTo(varCraft.logoutController);
+    varCraft.mediator.installTo(varCraft.weatherController);
+
     varCraft.mediator.subscribe("login", varCraft.DateTimeController._start);
     varCraft.loginController._start();
     varCraft.logoutController._start();
+    varCraft.weatherController._start();
+    varCraft.weatherController.subscribe("login", varCraft.weatherController.changeForecast);
+    varCraft.weatherController.changeForecast();
 }
 
 ready(main);

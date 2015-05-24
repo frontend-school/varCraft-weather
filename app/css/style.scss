@@ -272,6 +272,7 @@ body{
         width: 50%;
         height: 10%;
         margin-top: 30/16 + em;
+
         &_humidity-1{
           display: none; //hides "humidity" in desktop and tablet version
           & .forecast-extra-info__logo {
@@ -293,56 +294,63 @@ body{
           }
         }
 
+      &__wind{
+          & .forecast-extra-info__logo {
+            text-transform: uppercase ;
+            line-height: 48px;
+            background: url('../img/wind-dir-48.png') no-repeat;
+          }
+
+          &_n{
+            & .forecast-extra-info__logo {
+              background-position: 0 0;
+            }
+          }
+
+          &_ne{
+            & .forecast-extra-info__logo {
+              background-position: -58px 0;
+            }
+          }
+
+          &_e{
+            & .forecast-extra-info__logo {
+              background-position: -116px 0;
+            }
+          }
+
+          &_se{
+            & .forecast-extra-info__logo {
+              background-position: -174px 0;
+            }
+          }
+
+          &_s{
+            & .forecast-extra-info__logo {
+              background-position: -232px 0;
+            }
+          }
+
+          &_sw{
+            & .forecast-extra-info__logo {
+              background-position: -290px 0;
+            }
+          }
+
+          &_w{
+            & .forecast-extra-info__logo {
+              background-position: -348px 0;
+            }
+          }
+
+          &_nw{
+            & .forecast-extra-info__logo {
+              background-position: -406px 0;
+            }
+          }
+      }
 
 
-      &_wind-n{
-          & .forecast-extra-info__logo {
-            line-height: 48px;
-            background: url('../img/wind-dir-48.png') no-repeat 0 0;
-          }
-        }
-        &_wind-ne{
-          & .forecast-extra-info__logo {
-            line-height: 48px;
-            background: url('../img/wind-dir-48.png') no-repeat -58px 0;
-          }
-        }
-        &_wind-e{
-          & .forecast-extra-info__logo {
-            line-height: 48px;
-            background: url('../img/wind-dir-48.png') no-repeat -116px 0;
-          }
-        }
-        &_wind-se{
-          & .forecast-extra-info__logo {
-            line-height: 48px;
-            background: url('../img/wind-dir-48.png') no-repeat -174px 0;
-          }
-        }
-        &_wind-s{
-          & .forecast-extra-info__logo {
-            line-height: 48px;
-            background: url('../img/wind-dir-48.png') no-repeat -232px 0;
-          }
-        }
-        &_wind-sw{
-          & .forecast-extra-info__logo {
-            line-height: 48px;
-            background: url('../img/wind-dir-48.png') no-repeat -290px 0;
-          }
-        }
-        &_wind-w{
-          & .forecast-extra-info__logo {
-            line-height: 48px;
-            background: url('../img/wind-dir-48.png') no-repeat -348px 0;
-          }
-        }
-        &_wind-nw {
-          & .forecast-extra-info__logo {
-          line-height: 48px;
-          background: url('../img/wind-dir-48.png') no-repeat -406px 0;
-          }
-        }
         &_moon-1{ //All other moon states will be added as soon as we will need them. I have not done it yet ,
                   //because there are thirty of them, and now we use only one of them.
           & .forecast-extra-info__logo {

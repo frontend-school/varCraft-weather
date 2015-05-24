@@ -183,11 +183,9 @@ only screen and (max-device-width: 320px) {
             &_deg-icon{
                 position: absolute;
                 top: 0;
-                left: 100%;
-                display: inline-block;
                 height: 23px;
                 width: 23px;
-                margin: 15px 0 0 5px;
+                margin: 35px 0 0 5px;
                 padding: 0;
 
                 background: url('../img/degree_icon.png') 0 0 no-repeat;
@@ -338,13 +336,16 @@ only screen and (max-device-width: 320px) {
             &_full-moon{
                 background-position: -200px 0;
                 background-size: auto 100%;
-            }&_waning-gibbous{
+            }
+            &_waning-gibbous{
                 background-position: -250px 0;
                 background-size: auto 100%;
-            }&_last-quater{
+            }
+            &_last-quater{
                 background-position: -300px 0;
                 background-size: auto 100%;
-            }&_waning-crescent{
+            }
+            &_waning-crescent{
                 background-position: -350px 0;
                 background-size: auto 100%;
             }
@@ -977,145 +978,207 @@ html {
     text-align: center;
     font-weight: 200;
 
-    &_icon-snowfall{
-            background-image: url('../img/widget_state_snow_fall.png');
-            background-position: center 0;
-            background-repeat: no-repeat;
-            background-origin: padding-box;
-        }
+    &_icon-snowfall {
+        background-image: url('../img/widget_state_snow_fall.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-snow {
+        background: url('../img/widget_state_snow.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-sleet {
+        background: url('../img/widget_state_sleet.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-mostly-cloudly {
+        background: url('../img/widget_state_mostly_cloudly.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-partly-cloudly {
+        background: url('../img/widget_state_partly_cloudly.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-fog {
+        background: url('../img/widget_state_fog.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
 
-        &_icon-mostly-cloudly{
-            background: url('../img/widget_state_mostly_cloudly.png');
-            background-position: center 0;
-            background-repeat: no-repeat;
-            background-origin: padding-box;
-        }
-        &_icon-partly-cloudly{
-            background: url('../img/widget_state_partly_cloudly.png');
-            background-position: center 0;
-            background-repeat: no-repeat;
-            background-origin: padding-box;
-        }
-        &_icon-fog{
-            background: url('../img/widget_state_fog.png');
-            background-position: center 0;
-            background-repeat: no-repeat;
-            background-origin: padding-box;
-        }
-    } /* .status-weather */
+    &_icon-sunny {
+        background: url('../img/widget_state_sunny.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-rain-and-sun {
+        background: url('../img/widget_state_rain_and_sun.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-light-rain {
+        background: url('../img/widget_state_light_rain.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-rain {
+        background: url('../img/widget_state_rain.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-downpour {
+        background: url('../img/widget_state_downpour.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-lightning-storm {
+        background: url('../img/widget_state_lightning_storm.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-hurricane {
+        background: url('../img/widget_state_hurricane.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
 
-    .temperature{
-        display: block;
+    &_icon-error {
+        background: url('../img/widget_state_error.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+} /* .status-weather */
+
+.temperature {
+    position: relative; /* to place inner absolute elements */
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0 0;
+
+    text-align: center;
+
+    &__day-value {
+        display: inline-block;
         margin: 0 auto;
-        padding: 20px 0 0;
+    }
+
+    &-night {
+        display: inline-block;
+        margin: 0 auto;
+
+        vertical-align: text-bottom; /* !! */
+
+        &__title {
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            font-weight: 200;
+        }
+
+        &__value {
+            margin: 0;
+        }
+    }
+} /* .temperature */
+
+.params {
+    display: block;
+    margin: 0 auto;
+
+    text-align: center;
+
+    &-wind {
+        display: inline-block;
+        padding: 0;
+
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 200;
+
+        overflow: hidden;
 
         text-align: center;
+        vertical-align: top;
 
-        &__day-value{
-            display: inline-block;
-            margin: 0 auto;
+        &__speed {
+            display: block;
+            padding: 0;
         }
 
-        &-night{
-            display: inline-block;
-            margin: 0 auto;
+        &__scheme {
+            display: block;
+            margin: 0;
+            padding: 0;
+            transform-origin: 50% 50%;
 
-            vertical-align: text-bottom; /* !! */
-
-            &__title{
-                margin: 0;
-                padding: 0;
-                text-align: left;
-                font-weight: 200;
+            &_S {
+                transform: rotate(0deg);
             }
-
-            &__value{
-                margin: 0;
+            &_N {
+                transform: rotate(180deg);
+            }
+            &_E {
+                transform: rotate(-90deg);
+            }
+            &_W {
+                transform: rotate(90deg);
+            }
+            &_SE {
+                transform: rotate(-45deg);
+            }
+            &_SW {
+                transform: rotate(45deg);
+            }
+            &_NE {
+                transform: rotate(-135deg);
+            }
+            &_NW {
+                transform: rotate(135deg);
             }
         }
-    } /* .temperature */
 
-    .params{
-        display: block;
-        margin: 0 auto;
+        &__direction {
+            padding: 0;
+        }
 
-        text-align: center;
+    } /* -wind */
 
-        &-wind{
-            display: inline-block;
+    &-moon {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+
+        vertical-align: top;
+
+        &__title {
+            display: block;
             padding: 0;
 
             font-size: 18px;
             line-height: 18px;
             font-weight: 200;
+        }
 
-            overflow: hidden;
-
-            text-align: center;
-            vertical-align: top;
-
-            &__speed{
-                display: block;
-                padding: 0;
-            }
-
-            &__scheme{
-                display: block;
-                margin: 0;
-                padding: 0;
-                transform-origin: 50% 50%;
-
-                &_S{
-                    transform: rotate(0deg);
-                }
-                &_N{
-                    transform: rotate(180deg);
-                }
-                &_E{
-                    transform: rotate(-90deg);
-                }
-                &_W{
-                    transform: rotate(90deg);
-                }
-                &_SE{
-                    transform: rotate(-45deg);
-                }
-                &_SW{
-                    transform: rotate(45deg);
-                }
-                &_NE{
-                    transform: rotate(-135deg);
-                }
-                &_NW{
-                    transform: rotate(135deg);
-                }
-            }
-
-            &__direction{
-                padding: 0;
-            }
-
-        } /* -wind */
-
-        &-moon{
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-
-            vertical-align: top;
-
-            &__title{
-                display: block;
-                padding: 0;
-
-                font-size: 18px;
-                line-height: 18px;
-                font-weight: 200;
-            }
-
-            &__scheme{
-                display: block;
-            }
-        } /* -moon */
+        &__scheme {
+            display: block;
+        }
+    } /* -moon */
 } /* .params */
 

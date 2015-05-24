@@ -24,9 +24,9 @@ window.vCWeather.CONST = {
         TIME_PERIOD: '.js-time-period',
         DAY: '.js-day',
         DAY_LIST: {
-            DAY_YESTERDAY: '.js-day-yesterday',
-            DAY_TODAY: '.js-day-today',
-            DAY_TOMORROW: '.js-day-tomorrow'
+            DATE_YESTERDAY: '.js-date-yesterday',
+            DATE_TODAY: '.js-date-today',
+            DATE_TOMORROW: '.js-date-tomorrow'
         }
     },
     SERVER: {
@@ -36,5 +36,22 @@ window.vCWeather.CONST = {
         CITY: '.js-city',
         COUNTRY: '.js-country'
     },
-    LOCATION_SERVICE_ADDR: 'http://ip-api.com/json'
+    LOCATION_SERVICE_ADDR: 'http://ip-api.com/json',
+    WEATHER: {
+        DAY_YESTERDAY: '.js-day-yesterday',
+        DAY_TODAY: '.js-day-today',
+        DAY_TOMORROW: '.js-day-tomorrow',
+        DAY_HEADER: '.js-day-header',
+        DAY_DATE: '.js-day-date',
+        TEMPERATURE_DAY: '.js-temperature-day',
+        TEMPERATURE_NIGHT: '.js-temperature-night',
+        STATUS: '.js-status',
+        //DAY_INDICATOR_ITEM: '.js-indicator-item',
+        HUMIDITY_SCHEME: '.js-humidity-scheme',
+        HUMIDITY_VALUE: '.js-humidity-value',
+        WIND_SPEED: '.js-wind-speed',
+        WIND_DIRECTION: '.js-wind-direction',
+        WIND_SCHEME: '.js-wind-scheme',
+        MOON_SCHEME: '.js-moon-scheme'
+    }
 };

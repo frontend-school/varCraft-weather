@@ -67,9 +67,9 @@ window.onload = function() {
             day: window.document.querySelector(CONST.CLASSES_DAY_TIME.DAY),
 
             dayList: {
-                yesterday: window.document.querySelector(CONST.CLASSES_DAY_TIME.DAY_LIST.DAY_YESTERDAY),
-                today: window.document.querySelector(CONST.CLASSES_DAY_TIME.DAY_LIST.DAY_TODAY),
-                tomorrow: window.document.querySelector(CONST.CLASSES_DAY_TIME.DAY_LIST.DAY_TOMORROW)
+                yesterday: window.document.querySelector(CONST.CLASSES_DAY_TIME.DAY_LIST.DATE_YESTERDAY),
+                today: window.document.querySelector(CONST.CLASSES_DAY_TIME.DAY_LIST.DATE_TODAY),
+                tomorrow: window.document.querySelector(CONST.CLASSES_DAY_TIME.DAY_LIST.DATE_TOMORROW)
             }
         };
 

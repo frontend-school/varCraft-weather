@@ -69,43 +69,58 @@
         <button type="submit" class="navigation__btn navigation__btn_right"></button>
     </div>
 
-    <div class="day day_yesterday day_partly-cloudly"> <!-- yesterday -->
+    <div class="js-day-yesterday day day_yesterday day_partly-cloudly"> <!-- yesterday -->
 
         <div class="day-title">
+            <p class="js-day-header day-title__mob-header">Yesterday in Kiev</p>
             <p class="day-title__order-day">Yesterday</p>
-            <p class="js-day-yesterday day-title__date-day">20/04/2015</p>
+            <p class="js-date-yesterday js-day-date day-title__date-day">20/04/2015</p>
         </div>
 
-        <div class="status-weather status-weather_icon-partly-cloudly">
+        <div class="js-status status-weather status-weather_icon-partly-cloudly">
             Partly Cloudly
         </div>
 
         <div class="temperature">
-            <p class="temperature__day-value">
+            <p class="js-temperature-day temperature__day-value">
                 -22
             </p>
+            <span class="temperature__day-value_deg-icon"></span>
+
             <div class="temperature-night">
                 <!-- Night -->
                 <p class="temperature-night__title">
                     Night
                 </p>
-                <p class="temperature-night__value temperature-night__value_bold">
+                <p class="js-temperature-night temperature-night__value temperature-night__value_bold">
                     -17
                 </p>
             </div>
         </div> <!-- temperature -->
 
-        <!-- <div class="temperature_after"></div> -->
+        <ul class="indicator">
+            <li class="indicator__item indicator__item_active"></li>
+            <li class="indicator__item indicator__item_passive"></li>
+            <li class="indicator__item indicator__item_passive"></li>
+        </ul>
 
         <div class="params">
-            <div class="params-wind">
-                <p class="params-wind__speed">
-                    4 pmh
+            <div class="params-humidity">
+                <p class="js-humidity-value params-humidity__value">
+                    49%
                 </p>
-                <div class="params-wind__scheme params-wind__scheme_E">
+                <div class="js-humidity-scheme params-humidity__scheme params-humidity__scheme_medium">
 
                 </div>
-                <p class="params-wind__direction">
+            </div>
+            <div class="params-wind">
+                <p class="js-wind-speed params-wind__speed">
+                    4 pmh
+                </p>
+                <div class="js-wind-scheme params-wind__scheme params-wind__scheme_E">
+
+                </div>
+                <p class="js-wind-direction params-wind__direction">
                     E
                 </p>
             </div>
@@ -113,34 +128,35 @@
                 <p class="params-moon__title">
                     Moon
                 </p>
-                <div class="params-moon__scheme params-moon__scheme_waning-gibbous"></div>
+                <div class="js-moon-scheme params-moon__scheme params-moon__scheme_waning-gibbous"></div>
             </div>
         </div> <!-- params -->
 
     </div> <!-- day yesterday -->
 
-    <div class="day day_snow"> <!-- today -->
+    <div class="js-day-today day day_snow"> <!-- today -->
 
         <div class="day-title">
-            <p class="day-title__mob-header">Today in Kiev</p>
+            <p class="js-day-header day-title__mob-header">Today in Kiev</p>
             <p class="day-title__order-day">Today</p>
-            <p class="js-day-today day-title__date-day">21/04/2015</p>
+            <p class="js-date-today js-day-date day-title__date-day">21/04/2015</p>
         </div>
 
-        <div class="status-weather status-weather_icon-snowfall">
+        <div class="js-status status-weather status-weather_icon-snowfall">
             Snowfall
         </div>
 
         <div class="temperature">
-            <p class="temperature__day-value">
-                -22
-                <span class="temperature__day-value_deg-icon"></span>
+            <p class="js-temperature-day temperature__day-value">
+                -23
             </p>
+            <span class="temperature__day-value_deg-icon"></span>
+
             <div class="temperature-night">
                 <p class="temperature-night__title">
                     Night
                 </p>
-                <p class="temperature-night__value temperature-night__value_bold">
+                <p class="js-temperature-night temperature-night__value temperature-night__value_bold">
                     -17
                 </p>
             </div>
@@ -154,21 +170,21 @@
 
         <div class="params">
             <div class="params-humidity">
-                <p class="params-humidity__value">
+                <p class="js-humidity-value params-humidity__value">
                     49%
                 </p>
-                <div class="params-humidity__scheme params-humidity__scheme_medium">
+                <div class="js-humidity-scheme params-humidity__scheme params-humidity__scheme_medium">
 
                 </div>
             </div>
             <div class="params-wind">
-                <p class="params-wind__speed">
+                <p class="js-wind-speed params-wind__speed">
                     4 pmh
                 </p>
-                <div class="params-wind__scheme params-wind__scheme_SE">
+                <div class="js-wind-scheme params-wind__scheme params-wind__scheme_SE">
 
                 </div>
-                <p class="params-wind__direction">
+                <p class="js-wind-direction params-wind__direction">
                     SE
                 </p>
             </div>
@@ -176,46 +192,63 @@
                 <p class="params-moon__title">
                     Moon
                 </p>
-                <div class="params-moon__scheme params-moon__scheme_last-quater"></div>
+                <div class="js-moon-scheme params-moon__scheme params-moon__scheme_last-quater"></div>
             </div>
         </div> <!-- params -->
 
     </div> <!-- day today -->
 
-    <div class="day day_tomorrow day_fog"> <!-- tomorrow -->
+    <div class="js-day-tomorrow day day_tomorrow day_fog"> <!-- tomorrow -->
 
         <div class="day-title">
+            <p class="js-day-header day-title__mob-header">Tomorrow in Kiev</p>
             <p class="day-title__order-day">Tomorrow</p>
-            <p class="js-day-tomorrow day-title__date-day">22/04/2015</p>
+            <p class="js-date-tomorrow js-day-date day-title__date-day">22/04/2015</p>
         </div>
 
-        <div class="status-weather status-weather_icon-fog">
+        <div class="js-status status-weather status-weather_icon-fog">
             Fog
         </div>
 
         <div class="temperature">
-            <p class="temperature__day-value">
+            <p class="js-temperature-day temperature__day-value">
                 -22
             </p>
+            <span class="temperature__day-value_deg-icon"></span>
+
             <div class="temperature-night">
                 <p class="temperature-night__title">
                     Night
                 </p>
-                <p class="temperature-night__value temperature-night__value_bold">
+                <p class="js-temperature-night temperature-night__value temperature-night__value_bold">
                     -17
                 </p>
             </div>
         </div> <!-- temperature -->
 
+        <ul class="indicator">
+            <li class="indicator__item indicator__item_passive"></li>
+            <li class="indicator__item indicator__item_passive"></li>
+            <li class="indicator__item indicator__item_active"></li>
+        </ul>
+
         <div class="params">
-            <div class="params-wind">
-                <p class="params-wind__speed">
-                    4 pmh
+            <div class="params-humidity">
+                <p class="js-humidity-value params-humidity__value">
+                    49%
                 </p>
-                <div class="params-wind__scheme params-wind__scheme_NW">
+                <div class="js-humidity-scheme params-humidity__scheme params-humidity__scheme_medium">
 
                 </div>
-                <p class="params-wind__direction">
+            </div>
+            <div class="params-wind">
+                <p class="js-wind-speed params-wind__speed">
+                    4 pmh
+                </p>
+                <div class="js-wind-scheme params-wind__scheme params-wind__scheme_NW">
+
+                </div>
+                <p class="js-wind-direction params-wind__direction">
                     NW
                 </p>
             </div>
@@ -223,7 +256,7 @@
                 <p class="params-moon__title">
                     Moon
                 </p>
-                <div class="params-moon__scheme params-moon__scheme_waxing-crescent"></div>
+                <div class="js-moon-scheme params-moon__scheme params-moon__scheme_waxing-crescent"></div>
             </div>
         </div> <!-- params -->
 

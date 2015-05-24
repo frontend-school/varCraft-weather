@@ -1,6 +1,9 @@
 (function (namespace) {
-    var CONST = window.vCWeather.CONST;
-    var pubsub = window.vCWeather.objects.pubsub;
+    var CONST = namespace.CONST;
+    var modules = namespace.modules;
+    var services = namespace.services;
+
+    var pubsub = namespace.objects.pubsub;
 
     function LoginController(model, view) {
         this._model = model;
@@ -10,8 +13,6 @@
         this._view._elements.login.loggingForm.addEventListener('submit', function (ev) {
             self.logIn(ev);
         });
-
-
     }
     LoginController.prototype.logIn = function (ev) {
         var params = {
@@ -20,7 +21,7 @@
         };
 
         var self = this;
-        window.vCWeather.sendRequestToServer(CONST.SERVER.ADDRESS + '/login', params, function () {
+        services.sendRequestToServer(CONST.SERVER.ADDRESS + '/login', params, function () {
             self._model.setLoggedName(params.login);
 
             self.execLoggingActions(params.login);
@@ -34,5 +35,5 @@
         pubsub.publish('userLoggedIn', loggedName);
     };
 
-    namespace.LoginController = LoginController;
-})(window.vCWeather.modules);
+    modules.LoginController = LoginController;
+})(window.vCWeather);

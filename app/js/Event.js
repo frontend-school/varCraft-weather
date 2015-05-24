@@ -1,7 +1,4 @@
 
-window.vCWeather = window.vCWeather || {};
-window.vCWeather.modules = window.vCWeather.modules || {};
-
 (function (namespace) {
     function Event() {
         this._listeners = [];
@@ -18,5 +15,5 @@ window.vCWeather.modules = window.vCWeather.modules || {};
             }
         }
     };
-    namespace.Event = Event;
-})(window.vCWeather.modules);
+    namespace.modules.Event = Event;
+})(window.vCWeather);

@@ -1,5 +1,7 @@
 
 (function (namespace) {
+    var modules = namespace.modules;
+
     function DateTimeUpdaterView(model, elements) {
         this._model = model;
         this._elements = elements;
@@ -34,5 +36,5 @@
         }
     };
 
-    namespace.DateTimeUpdaterView = DateTimeUpdaterView;
-})(window.vCWeather.modules);
+    modules.DateTimeUpdaterView = DateTimeUpdaterView;
+})(window.vCWeather);

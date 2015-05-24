@@ -1,6 +1,9 @@
 (function (namespace) {
-    var pubsub = window.vCWeather.objects.pubsub;
-    var CONST = window.vCWeather.CONST;
+    var CONST = namespace.CONST;
+    var modules = namespace.modules;
+    var services = namespace.services;
+
+    var pubsub = namespace.objects.pubsub;
 
     function LogoutController(model, view) {
         this._model = model;
@@ -16,13 +19,12 @@
             view.setHelloMessage();
         });
     }
-
     LogoutController.prototype.logOut = function (ev, skipPreventing) {
         // 1. show block, restore login; 2. stop timer; 3. clear logs; 4. remove handlers
         /*_setLoggingName(_storageController.getLoggedName()); // covers case if reload was
         */
         var self = this;
-        window.vCWeather.sendRequestToServer(CONST.SERVER.ADDRESS + '/logout', {}, function () {
+        services.sendRequestToServer(CONST.SERVER.ADDRESS + '/logout', {}, function () {
             self._view.showLoggingForm();
             self._view.showLoggedName();
 
@@ -35,5 +37,5 @@
          ev.preventDefault();*/
     };
 
-    namespace.LogoutController = LogoutController;
-})(window.vCWeather.modules);
+    modules.LogoutController = LogoutController;
+})(window.vCWeather);

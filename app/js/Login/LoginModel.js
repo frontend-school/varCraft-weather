@@ -1,5 +1,8 @@
 
 (function (namespace) {
+    var CONST = namespace.CONST;
+    var modules = namespace.modules;
+
     function LoginModel(storageService) {
         //this.loggingNameChanged = new namespace.Event();
 
@@ -13,6 +16,6 @@
         //};
     }
 
-    namespace.LoginModel = LoginModel;
+    modules.LoginModel = LoginModel;
 
-})(window.vCWeather.modules);
+})(window.vCWeather);

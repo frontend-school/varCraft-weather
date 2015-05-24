@@ -1,7 +1,9 @@
 
 (function (namespace) {
-    var CONST = window.vCWeather.CONST;
-    var pubsub = window.vCWeather.objects.pubsub;
+    var CONST = namespace.CONST;
+    var modules = namespace.modules;
+
+    var pubsub = namespace.objects.pubsub;
 
     function DateTimeUpdaterController(model, view) {
         this._model = model;
@@ -30,5 +32,5 @@
         }
     };
 
-    namespace.DateTimeUpdaterController = DateTimeUpdaterController;
-})(window.vCWeather.modules);
+    modules.DateTimeUpdaterController = DateTimeUpdaterController;
+})(window.vCWeather);

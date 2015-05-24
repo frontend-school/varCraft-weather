@@ -1,6 +1,7 @@
 
 (function (namespace) {
-    var CONST = window.vCWeather.CONST;
+    var CONST = namespace.CONST;
+    var modules = namespace.modules;
 
     /* View knows about elements: logout button */
     function LogoutView(model, elements) {
@@ -17,10 +18,10 @@
         this._elements.login.loggingName.value = this._model.getLoggedName();
     };
     LogoutView.prototype.showLoggingForm = function () {
-        var CLASSES_LOGGING = window.vCWeather.CONST.CLASSES_LOGGING;
+        var CLASSES_LOGGING = CONST.CLASSES_LOGGING;
 
-        window.vCWeather.replaceClassName(CONST.CLASSES_LOGGING.TO_HIDE_BLOCK, CONST.CLASSES_LOGGING.TO_SHOW_BLOCK);
+        window.vCWeather.replaceClassName(CLASSES_LOGGING.TO_HIDE_BLOCK, CLASSES_LOGGING.TO_SHOW_BLOCK);
     };
 
-    namespace.LogoutView = LogoutView;
-})(window.vCWeather.modules);
+    modules.LogoutView = LogoutView;
+})(window.vCWeather);

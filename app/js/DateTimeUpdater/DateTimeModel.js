@@ -1,13 +1,13 @@
 
 (function (namespace) {
-    var CONST = window.vCWeather.CONST;
-    var modules = window.vCWeather.modules;
+    var CONST = namespace.CONST;
+    var modules = namespace.modules;
 
     function DateTimeUpdaterModel() {
         this._date = new Date();
 
-        this.dayChanged = new namespace.Event();
-        this.timeChanged = new namespace.Event();
+        this.dayChanged = new modules.Event();
+        this.timeChanged = new modules.Event();
     }
 
     DateTimeUpdaterModel.prototype = {
@@ -24,5 +24,5 @@
         }
     };
 
-    namespace.DateTimeUpdaterModel = DateTimeUpdaterModel;
-})(window.vCWeather.modules);
+    modules.DateTimeUpdaterModel = DateTimeUpdaterModel;
+})(window.vCWeather);

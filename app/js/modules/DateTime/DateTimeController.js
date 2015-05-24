@@ -5,7 +5,7 @@ varCraft.DateTime.pubsub = varCraft.DateTime.pubsub || new CreatePubSub();
 
 
 
-varCraft.DateTimeController = (function (){
+varCraft.DateTimeController = (function (namespace){
     var running;
 
     function start(){
@@ -17,12 +17,13 @@ varCraft.DateTimeController = (function (){
             return function(curDateTime){
                 if( previousValue !== curDateTime.getDate()){
                     var formatedDate = formatDate(curDateTime);
-                    varCraft.DateTime.pubsub.publish("ControllerDateUpdate", formatedDate);
+                    //namespace.DateTime.pubsub.publish("ControllerDateUpdate", formatedDate);
+                    namespace.DateTimeModel.setDate(formatedDate);
+                    namespace.DateTimeView.refreshDate(namespace.DateTimeModel.getDate());
                     previousValue = curDateTime.getDate();
                 }
                 else {
                     previousValue = curDateTime.getDate();
-
                 }
             };
         })();
@@ -31,19 +32,27 @@ varCraft.DateTimeController = (function (){
             var previousValue;
             return function(curDateTime){
                 var formatedDayPart = formatDayPart(curDateTime);
-                varCraft.DateTime.pubsub.publish("ControllerDayPartUpdate", formatedDayPart);
+                namespace.DateTimeModel.setDayPart(formatedDayPart);
+                namespace.DateTimeView.refreshDayPart(namespace.DateTimeModel.getDayPart());
+                //namespace.DateTime.pubsub.publish("ControllerDayPartUpdate", formatedDayPart);
             };
         })();
 
         function updateTime(curDateTime){
             formatedTime = formatTime(curDateTime);
-            varCraft.DateTime.pubsub.publish("ControllerTimeUpdate", formatedTime);
+            namespace.DateTimeModel.setTime(formatedTime);
+            namespace.DateTimeView.refreshTime(namespace.DateTimeModel.getTime());
+            //namespace.DateTime.pubsub.publish("ControllerTimeUpdate", formatedTime);
         }
 
         curDateTime = new Date();
         updateTime(curDateTime);
         updateDayPart(curDateTime);
         updateDate(curDateTime);
+
+        if(running){
+            clearInterval(running);
+        }
 
         running = setInterval(function(){
             var curDateTime = new Date();
@@ -70,7 +79,6 @@ varCraft.DateTimeController = (function (){
             month = monthes[curDateTime.getMonth()],
             day = days[curDateTime.getDay()];
 
-        // Wed, September 3
         formatedDate = "" + day + ", " + month + " " + date;
         return formatedDate;
     }
@@ -104,21 +112,21 @@ varCraft.DateTimeController = (function (){
 
     return {
         _start: function(){
-             if(!varCraft.DateTimeView._enable){
-                varCraft.DateTimeView._init();
-             }
+             //if(!namespace.DateTimeView._enable){
+                namespace.DateTimeView._init();
+             // }
 
-             varCraft.DateTime.pubsub.subscribe("ControllerTimeUpdate", varCraft.DateTimeModel.setTime);
-             varCraft.DateTime.pubsub.subscribe("ControllerDateUpdate", varCraft.DateTimeModel.setDate);
-             varCraft.DateTime.pubsub.subscribe("ControllerDayPartUpdate", varCraft.DateTimeModel.setDayPart);
+             // namespace.DateTime.pubsub.subscribe("ControllerTimeUpdate", namespace.DateTimeModel.setTime);
+             // namespace.DateTime.pubsub.subscribe("ControllerDateUpdate", namespace.DateTimeModel.setDate);
+             // namespace.DateTime.pubsub.subscribe("ControllerDayPartUpdate", namespace.DateTimeModel.setDayPart);
 
-             varCraft.DateTime.pubsub.subscribe("ModelTimeChanged", varCraft.DateTimeView.refreshTime);
-             varCraft.DateTime.pubsub.subscribe("ModelDayPartChanged", varCraft.DateTimeView.refreshDayPart);
-             varCraft.DateTime.pubsub.subscribe("ModelDateChanged", varCraft.DateTimeView.refreshDate);
+             // namespace.DateTime.pubsub.subscribe("ModelTimeChanged", namespace.DateTimeView.refreshTime);
+             // namespace.DateTime.pubsub.subscribe("ModelDayPartChanged", namespace.DateTimeView.refreshDayPart);
+             // namespace.DateTime.pubsub.subscribe("ModelDateChanged", namespace.DateTimeView.refreshDate);
 
              start();
         },
         _stop: stop
     };
 
-})();
+})(window.varCraft);

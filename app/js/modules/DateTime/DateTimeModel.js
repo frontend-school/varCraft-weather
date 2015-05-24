@@ -1,15 +1,15 @@
 window.varCraft = window.varCraft || {}; 
 window.varCraft.DateTimeModel = window.varCraft.DateTimeModel || {};
-varCraft.DateTime = varCraft.DateTime || {};
-varCraft.DateTime.pubsub = varCraft.DateTime.pubsub || new CreatePubSub();
+// varCraft.DateTime = varCraft.DateTime || {};
+// varCraft.DateTime.pubsub = varCraft.DateTime.pubsub || new CreatePubSub();
 
-varCraft.DateTimeModel = (function(){
+varCraft.DateTimeModel = (function(namespace){
     var time, dayPart, date;
     return {
         setDate: function (newDate){
             if(newDate){
                 date = newDate;
-                varCraft.DateTime.pubsub.publish("ModelDateChanged", date);
+                namespace.DateTime.pubsub.publish("ModelDateChanged", date);
             }
         },
         getDate: function (){
@@ -18,7 +18,7 @@ varCraft.DateTimeModel = (function(){
         setTime: function (newTime){
             if(newTime){
                 time = newTime;
-                varCraft.DateTime.pubsub.publish("ModelTimeChanged", time);
+                namespace.DateTime.pubsub.publish("ModelTimeChanged", time);
             }
         },
         getTime: function(){
@@ -27,11 +27,11 @@ varCraft.DateTimeModel = (function(){
         setDayPart: function (newDayPart){
             if(newDayPart){
                 dayPart = newDayPart;
-                varCraft.DateTime.pubsub.publish("ModelDayPartChanged", dayPart);
+                namespace.DateTime.pubsub.publish("ModelDayPartChanged", dayPart);
             }
         },
         getDayPart: function(){
             return dayPart;
         }
     };
-})();
+})(window.varCraft);

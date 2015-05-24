@@ -76,7 +76,7 @@ body{
 
         color: #fff ;
     }
-    &__time{
+    &-time{
         font-size: 115/16 + em;
 
         position: relative; // "am/pm" part of time view is positioned abolute
@@ -86,8 +86,7 @@ body{
         margin-top: .5em;
 
         color: #fff;
-    }
-    &__day-part{
+        &__day-part{
         font-size: 1/5 + em;
 
         position: absolute;
@@ -99,7 +98,9 @@ body{
         text-transform: uppercase ;
 
         color: #fff;
+        }
     }
+
     &__date{
         font-size: 20/16 + em;
 
@@ -133,6 +134,7 @@ body{
     width: 21%;
     height: 100%;
     padding-bottom: 2em ;
+    background-color: #333;
 
 
     &_sun{

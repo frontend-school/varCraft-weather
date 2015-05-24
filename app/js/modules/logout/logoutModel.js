@@ -1,9 +1,7 @@
 window.varCraft = window.varCraft || {};
 window.varCraft.logoutModel =  window.varCraft.logoutModel || {};
-varCraft.logout = varCraft.logout || {};
-varCraft.logout.pubsub = varCraft.logout.pubsub || new CreatePubSub();
 
-varCraft.logoutModel = (function(){
+varCraft.logoutModel = (function(namespace){
     var logStatus;
     return {
         setLogStatus: function(newStatus){
@@ -15,4 +13,4 @@ varCraft.logoutModel = (function(){
             return logStatus;
         }
     };
-})();
+})(window.varCraft);

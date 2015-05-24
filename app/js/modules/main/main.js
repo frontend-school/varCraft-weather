@@ -17,6 +17,7 @@ function main(){
            varCraft.domElems.userName = document.querySelector('.js-user-name');
 
     varCraft.mediator.installTo(varCraft.loginController);
+    varCraft.mediator.installTo(varCraft.logoutController);
     varCraft.mediator.subscribe("login", varCraft.DateTimeController._start);
     varCraft.loginController._start();
     varCraft.logoutController._start();

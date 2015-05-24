@@ -24,5 +24,5 @@ window.varCraft.services.dom = (function(namespace){
         };
 
         return dom;
-})(window.varCraft)
+})(window.varCraft);
 

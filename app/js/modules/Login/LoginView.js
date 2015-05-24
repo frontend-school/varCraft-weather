@@ -1,6 +1,5 @@
 window.varCraft = window.varCraft || {};
 window.varCraft.loginView =  window.varCraft.loginView || {};
-varCraft.login = varCraft.login || {};
 
 varCraft.loginView = (function(namespace){
     function init(){
@@ -31,9 +30,9 @@ varCraft.loginView = (function(namespace){
                 password = this.elements.password.value;
                 this.elements.login.value = "";
                 this.elements.password.value = "";
-            namespace.services.Event.preventDefault(e);
+                namespace.services.Event.preventDefault(e);
 
-            namespace.services.xhr.getAsync('http://localhost:3000/login?' + "login=" + login + "&" + "password=" + password, function(){
+                namespace.services.xhr.getAsync('http://localhost:3000/login?' + "login=" + login + "&" + "password=" + password, function(){
                 console.log(this.responseText);
                 response = JSON.parse(this.responseText);
 
@@ -44,7 +43,7 @@ varCraft.loginView = (function(namespace){
                      switchView();
                 }
                 else window.location.reload();
-            })
+            });
         }
 
         namespace.services.Event.addEvent(loginForm, "submit", LoginCallback );

@@ -20,6 +20,6 @@ window.varCraft.services.xhr = (function(exports){
             xhr.open('GET', url, false);
             xhr.send();
         }
-    }
+    };
 
 })(window.varCraft);

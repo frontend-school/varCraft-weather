@@ -76,7 +76,6 @@ window.varCraft.weatherView = (function(namespace){
             when.forecastDescription.innerHTML = newForecast.weatherCondition;
             when.forecastDayTemp.innerHTML = newForecast.temperatureAtDay;
             when.forecastNightTemp.innerHTML = newForecast.temperatureAtNight;
-            when.forecast
             console.log(when.forecast.className);
             when.forecastWind.className = when.forecastWind.className.replace(namespace.CONSTANTS.regExps.wind, windDirections[newForecast.windDirection] + " ");
             when.forecastWindSpeed.innerHTML = newForecast.windSpeed;

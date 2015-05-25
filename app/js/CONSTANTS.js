@@ -10,6 +10,9 @@ window.varCraft.CONSTANTS.cssNames = {
     userNameField: ".js-user-name",
     timeDigitsField: ".js-main-time-digits",
     timeDayPartField: ".js-main-time-dayPart",
+    cityField: ".js-location-city",
+    cityFieldMobile: ".js-location-city-mobile",
+    countryField: ".js-location-country",
     yesterday: {
             forecastField: ".js-yesterday-forecast",
             forecastDateField: ".js-yesterday-forecast-date",
@@ -47,7 +50,7 @@ window.varCraft.CONSTANTS.cssNames = {
         forecastWindField: ".js-tomorrow-forecast-wind",
         forecastWindSpeedField: ".js-tomorrow-forecast-wind-speed",
         forecastWindDirectionField: ".js-tomorrow-wind-direction",
-        forecastMoonField: ".js-tomorrow-forecast-moon"
+        forecastMoonField: "j.s-tomorrow-forecast-moon"
     }
 };
 

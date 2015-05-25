@@ -2,7 +2,7 @@ window.varCraft = window.varCraft || {};
 window.varCraft.services = window.varCraft.services || {};
 window.varCraft.services.xhr = window.varCraft.services.xhr || {};
 
-window.varCraft.services.xhr = (function(exports){
+window.varCraft.services.xhr = (function(namespace){
     return {
         getAsync: function(url, callback){
             var xhr = new XMLHttpRequest();

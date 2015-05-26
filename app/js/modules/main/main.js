@@ -6,17 +6,6 @@ function ready(fn) {
   }
 }
 
-// function geo(obj){
-//   console.log(obj.response.GeoObjectCollection.featureMember[0].GeoObject.description);
-//   console.dir(obj);
-// }
-
-// function addScript(src) {
-//   var elem = document.createElement("script");
-//   elem.src = src;
-//   document.head.appendChild(elem);
-// }
-
 
 
 function main(){
@@ -35,10 +24,11 @@ function main(){
     varCraft.mediator.installTo(varCraft.locationController);
 
     varCraft.locationController._start();
+    varCraft.mobileController._start();
 
     varCraft.mediator.subscribe("login", varCraft.DateTimeController._start);
     varCraft.locationController.subscribe("login", varCraft.locationController.getLocation);
-    
+
     varCraft.logoutController._start();
     varCraft.weatherController._start();
     varCraft.weatherController.subscribe("login", varCraft.weatherController.changeForecast);

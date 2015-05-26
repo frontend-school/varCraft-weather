@@ -13,6 +13,17 @@ window.varCraft.CONSTANTS.cssNames = {
     cityField: ".js-location-city",
     cityFieldMobile: ".js-location-city-mobile",
     countryField: ".js-location-country",
+    mobilePreviousState: ".js-mobile-previous",
+    mobileNextState: ".js-mobile-next",
+    mobileDayList: ".js-mobile-day-list",
+    mobileDay0: ".js-mobile-list-day-0",
+    mobileDay1: ".js-mobile-list-day-1",
+    mobileDay2: ".js-mobile-list-day-2",
+    mobileSettings: ".js-mobile-settings",
+    activeForecast: "m-forecast_active",
+    activeDayIndicator: "mobile-day-list__item_active",
+    unactiveArrow: "mobile__change-day_hide",
+
     yesterday: {
             forecastField: ".js-yesterday-forecast",
             forecastDateField: ".js-yesterday-forecast-date",

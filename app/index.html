@@ -3,7 +3,7 @@
         <meta charset="utf-8">
         <title>varCraft weatherApp</title>
         <link rel = "stylesheet" type="text/css" href = "css/style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 </head>
 <html>
@@ -146,17 +146,17 @@
         </div>
 
         <div class="mobile">
-            <a href="#"><div class="mobile__settings"></div></a>
+            <a href="#"><div class="mobile__settings js-mobile-settings"></div></a>
             <form action="" method="get" name="log-out" class="logout-form logout-form_mobile js-logout-form_mobile">
                 <input type="submit" class="logout-form__submit" value=""> 
             </form>
 
-            <div class="mobile__change-day mobile__change-day_previous"></div>
-            <div class="mobile__change-day mobile__change-day_next"></div>
-            <ul class="mobile-day-list">
-                <li class="mobile-day-list__item mobile-day-list__item_active"></li>
-                <li class="mobile-day-list__item"></li>
-                <li class="mobile-day-list__item"></li>
+            <div class="mobile__change-day mobile__change-day_previous js-mobile-previous"></div>
+            <div class="mobile__change-day mobile__change-day_next js-mobile-next"></div>
+            <ul class="mobile-day-list js-mobile-day-list">
+                <li class="mobile-day-list__item js-mobile-list-day-0"></li>
+                <li class="mobile-day-list__item mobile-day-list__item_active js-mobile-list-day-1"></li>
+                <li class="mobile-day-list__item js-mobile-list-day-2"></li>
             </ul>
         </div>
     </section>

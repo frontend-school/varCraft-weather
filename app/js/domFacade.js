@@ -23,6 +23,10 @@ window.varCraft.services.dom = (function(namespace){
                 elem.classList.add(className);
         };
 
+        dom.checkClass = function(elem, className){
+                return elem.classList.contains(className);
+        }
+
         return dom;
 })(window.varCraft);
 

@@ -451,7 +451,7 @@ body{
   //be more flexible, but I understand, we need such constraint to target Iphone 5.
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait)
+  //and (orientation: portrait)
 {
     .main-page-content{
         // margin-left: -320px ; // to see "today" state
@@ -463,7 +463,7 @@ body{
         min-width: 960px;
         min-height: 568px;
         height:100%;
-        width: 300%;
+        width: 100%;
     }
 
     .user-info{
@@ -493,6 +493,7 @@ body{
 
     &__settings{
       position: absolute;
+      z-index: 30;
       top: 24px;
       left: 21px;
 
@@ -504,6 +505,7 @@ body{
 
     &__change-day{
       position: absolute;
+      z-index: 30; //to show navigation arrows under content
       top: 43%;
       width: 30px;
       height: 67px;
@@ -516,9 +518,15 @@ body{
         right: 5%;
         background: url('../img/arrows.png') no-repeat -40px 0;
       }
+
+      &_hide{
+        display: none;
+      }
+      
     }
     &-day-list{
       position: absolute;
+      z-index: 30;
       top: 70%;
       margin: 0 auto;
       text-align: center;
@@ -546,11 +554,14 @@ body{
 
 
     .forecast{
-        width: 33.333% ;
+        position: absolute;
+        z-index: 10;
+        width: 100% ;
         height: 100%;
         min-width: 320px;
         min-height: 568px;
         padding-bottom: 0 ;
+
         &-header{
             padding-top: 20px;
             height:40%;
@@ -582,6 +593,7 @@ body{
             }
 
         }
+
 
       &_sun{ //for iphone 5 I use the same image, but I decrease it's view to 100px * 100px from 200px*200px
         // So we have the same sight on Retina, as on desktop
@@ -679,6 +691,18 @@ body{
             &_humidity-1{
                 display: block;// shows "humidity" in mobile version
             }
+
+            &_humidity-2{
+                display: block;// shows "humidity" in mobile version
+            }
+
+            &_humidity-3{
+                display: block;// shows "humidity" in mobile version
+            }
         }
     }
 }
+
+.m-forecast_active{
+          z-index: 20;
+        }

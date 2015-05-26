@@ -14,6 +14,7 @@ window.varCraft.logoutView = (function(namespace){
             function logoutCallback(e){
                 namespace.services.xhr.getAsync('http://localhost:3000/logout', function(){
                     var check = JSON.parse(this.responseText);
+                    console.log(check);
                     namespace.logoutController.setLogStatus(false);
                     switchView();
                 });

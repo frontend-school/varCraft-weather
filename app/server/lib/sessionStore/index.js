@@ -1,0 +1,2 @@
+var store = {};
+exports = store;

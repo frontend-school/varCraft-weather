@@ -70,4 +70,5 @@ window.varCraft.CONSTANTS.regExps = {
         wind: /forecast-extra-info__wind_.+\s/,
         humidity: /forecast-extra-info_humidity.+\s/,
         moon: /forecast-extra-info_/
+        //forecast_[^\s]+
 }

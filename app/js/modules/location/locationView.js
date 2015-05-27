@@ -6,9 +6,9 @@ window.varCraft.locationView = window.varCraft.locationView || {};
 
 window.varCraft.locationView = (function(namespace){
     function init(){
-        var city = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.cityField),
-            cityMobile = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.cityFieldMobile),
-            country = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.countryField);
+        var city = namespace.dom.getElem(namespace.CONST.cityField),
+            cityMobile = namespace.dom.getElem(namespace.CONST.cityFieldMobile),
+            country = namespace.dom.getElem(namespace.CONST.countryField);
 
 
         this.refreshCity = function(newCity){

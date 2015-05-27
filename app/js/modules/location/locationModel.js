@@ -1,5 +1,5 @@
 window.varCraft = window.varCraft || {};
-window.varCraft.locationModel = window.varCraft.CONSTANTS || {};
+window.varCraft.locationModel = window.varCraft.CONST || {};
 
 window.varCraft.locationModel = (function(namespace){
     var city = "World", country = "Earth";

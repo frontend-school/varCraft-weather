@@ -3,24 +3,24 @@ window.varCraft.loginView =  window.varCraft.loginView || {};
 
 varCraft.loginView = (function(namespace){
     function init(){
-        var mainPage = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.mainPage),
-            loginPage = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.loginPage),
-            loginForm = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.loginForm),
-            userNameField = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.userNameField);
+        var mainPage = namespace.dom.getElem(namespace.CONST.mainPage),
+            loginPage = namespace.dom.getElem(namespace.CONST.loginPage),
+            loginForm = namespace.dom.getElem(namespace.CONST.loginForm),
+            userNameField = namespace.dom.getElem(namespace.CONST.userNameField);
 
         function loginSuccess(){
-            var userName = namespace.services.cookie.getCookie("login");
+            var userName = namespace.cookie.getCookie("login");
             namespace.loginController.setUserName(userName);
             namespace.loginController.publish("login");
-            namespace.services.dom.changeContent(userNameField, userName);
+            namespace.dom.changeContent(userNameField, userName);
         }
 
         function switchView(){
-            namespace.services.dom.removeClass(mainPage, "hide");
-            namespace.services.dom.addClass(loginPage, "hide");
+            namespace.dom.removeClass(mainPage, "hide");
+            namespace.dom.addClass(loginPage, "hide");
         }
 
-        if(namespace.services.cookie.getCookie("login")){
+        if(namespace.cookie.getCookie("login")){
             loginSuccess();
             switchView();
         }
@@ -30,9 +30,9 @@ varCraft.loginView = (function(namespace){
                 password = this.elements.password.value;
                 this.elements.login.value = "";
                 this.elements.password.value = "";
-                namespace.services.Event.preventDefault(e);
+                namespace.Event.preventDefault(e);
 
-                namespace.services.xhr.getAsync('http://localhost:3000/login?' + "login=" + login + "&" + "password=" + password, function(){
+                namespace.xhr.getAsync('http://localhost:3000/login?' + "login=" + login + "&" + "password=" + password, function(){
                 console.log(this.responseText);
                 response = JSON.parse(this.responseText);
 
@@ -46,7 +46,7 @@ varCraft.loginView = (function(namespace){
             });
         }
 
-        namespace.services.Event.addEvent(loginForm, "submit", LoginCallback );
+        namespace.Event.addEvent(loginForm, "submit", LoginCallback );
     }
 
     return {

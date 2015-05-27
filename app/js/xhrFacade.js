@@ -1,8 +1,8 @@
 window.varCraft = window.varCraft || {};
-window.varCraft.services = window.varCraft.services || {};
-window.varCraft.services.xhr = window.varCraft.services.xhr || {};
+window.varCraft = window.varCraft || {};
+window.varCraft.xhr = window.varCraft.xhr || {};
 
-window.varCraft.services.xhr = (function(namespace){
+window.varCraft.xhr = (function(namespace){
     return {
         getAsync: function(url, callback){
             var xhr = new XMLHttpRequest();

@@ -1,7 +1,7 @@
 window.varCraft = window.varCraft || {};
-window.varCraft.CONSTANTS = window.varCraft.CONSTANTS || {};
+window.varCraft.CONST = window.varCraft.CONST || {};
 
-window.varCraft.CONSTANTS.cssNames = {
+window.varCraft.CONST = {
     mainPage: ".js-main-page",
     loginPage: ".js-login-page",
     loginForm: ".js-login-form",
@@ -25,47 +25,47 @@ window.varCraft.CONSTANTS.cssNames = {
     unactiveArrow: "mobile__change-day_hide",
 
     yesterday: {
-            forecastField: ".js-yesterday-forecast",
-            forecastDateField: ".js-yesterday-forecast-date",
-            forecastDescriptionField: ".js-yesterday-forecast-description",
-            forecastDayTempField: ".js-yesterday-forecast-dayTemp",
-            forecastNightTempField: ".js-yesterday-forecast-nightTemp",
-            forecastHumidityField: ".js-yesterday-forecast-humidity",
-            forecastHumidityTitleField: ".js-yesterday-forecast-humidity-title",
-            forecastWindField: ".js-yesterday-forecast-wind",
-            forecastWindSpeedField: ".js-yesterday-forecast-wind-speed",
-            forecastWindDirectionField: ".js-yesterday-wind-direction",
-            forecastMoonField: ".js-yesterday-forecast-moon"
+            forecast: ".js-yesterday-forecast",
+            forecastDate: ".js-yesterday-forecast-date",
+            forecastDescription: ".js-yesterday-forecast-description",
+            forecastDayTemp: ".js-yesterday-forecast-dayTemp",
+            forecastNightTemp: ".js-yesterday-forecast-nightTemp",
+            forecastHumidity: ".js-yesterday-forecast-humidity",
+            forecastHumidityTitle: ".js-yesterday-forecast-humidity-title",
+            forecastWind: ".js-yesterday-forecast-wind",
+            forecastWindSpeed: ".js-yesterday-forecast-wind-speed",
+            forecastWindDirection: ".js-yesterday-wind-direction",
+            forecastMoon: ".js-yesterday-forecast-moon"
     },
     today: {
-        forecastField: ".js-today-forecast",
-        forecastDateField: ".js-today-forecast-date",
-        forecastDescriptionField: ".js-today-forecast-description",
-        forecastDayTempField: ".js-today-forecast-dayTemp",
-        forecastNightTempField: ".js-today-forecast-nightTemp",
-        forecastHumidityField: ".js-today-forecast-humidity",
-        forecastHumidityTitleField: ".js-today-forecast-humidity-title",
-        forecastWindField: ".js-today-forecast-wind",
-        forecastWindSpeedField: ".js-today-forecast-wind-speed",
-        forecastWindDirectionField: ".js-today-wind-direction",
-        forecastMoonField: ".js-today-forecast-moon"
+        forecast: ".js-today-forecast",
+        forecastDate: ".js-today-forecast-date",
+        forecastDescription: ".js-today-forecast-description",
+        forecastDayTemp: ".js-today-forecast-dayTemp",
+        forecastNightTemp: ".js-today-forecast-nightTemp",
+        forecastHumidity: ".js-today-forecast-humidity",
+        forecastHumidityTitle: ".js-today-forecast-humidity-title",
+        forecastWind: ".js-today-forecast-wind",
+        forecastWindSpeed: ".js-today-forecast-wind-speed",
+        forecastWindDirection: ".js-today-wind-direction",
+        forecastMoon: ".js-today-forecast-moon"
     },
     tomorrow: {
-        forecastField: ".js-tomorrow-forecast",
-        forecastDateField: ".js-tomorrow-forecast-date",
-        forecastDescriptionField: ".js-tomorrow-forecast-description",
-        forecastDayTempField: ".js-tomorrow-forecast-dayTemp",
-        forecastNightTempField: ".js-tomorrow-forecast-nightTemp",
-        forecastHumidityField: ".js-tomorrow-forecast-humidity",
-        forecastHumidityTitleField: ".js-tomorrow-forecast-humidity-title",
-        forecastWindField: ".js-tomorrow-forecast-wind",
-        forecastWindSpeedField: ".js-tomorrow-forecast-wind-speed",
-        forecastWindDirectionField: ".js-tomorrow-wind-direction",
-        forecastMoonField: "j.s-tomorrow-forecast-moon"
+        forecast: ".js-tomorrow-forecast",
+        forecastDate: ".js-tomorrow-forecast-date",
+        forecastDescription: ".js-tomorrow-forecast-description",
+        forecastDayTemp: ".js-tomorrow-forecast-dayTemp",
+        forecastNightTemp: ".js-tomorrow-forecast-nightTemp",
+        forecastHumidity: ".js-tomorrow-forecast-humidity",
+        forecastHumidityTitle: ".js-tomorrow-forecast-humidity-title",
+        forecastWind: ".js-tomorrow-forecast-wind",
+        forecastWindSpeed: ".js-tomorrow-forecast-wind-speed",
+        forecastWindDirection: ".js-tomorrow-wind-direction",
+        forecastMoon: "j.s-tomorrow-forecast-moon"
     }
 };
 
-window.varCraft.CONSTANTS.regExps = {
+window.varCraft.CONST.regExps = {
         forecast: /forecast_.+\s/,
         wind: /forecast-extra-info__wind_.+\s/,
         humidity: /forecast-extra-info_humidity.+\s/,

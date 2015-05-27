@@ -4,26 +4,26 @@ window.varCraft.logoutView =  window.varCraft.logoutView || {};
 window.varCraft.logoutView = (function(namespace){
 
         function init(){
-            var mainPage = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.mainPage),
-                loginPage = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.loginPage),
-                logoutForm = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.logoutForm),
-                logoutFormMobile = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.logoutFormMobile);
-                namespace.services.Event.addEvent(logoutForm, "submit", logoutCallback);
-                namespace.services.Event.addEvent(logoutFormMobile, "submit", logoutCallback);
+            var mainPage = namespace.dom.getElem(namespace.CONST.mainPage),
+                loginPage = namespace.dom.getElem(namespace.CONST.loginPage),
+                logoutForm = namespace.dom.getElem(namespace.CONST.logoutForm),
+                logoutFormMobile = namespace.dom.getElem(namespace.CONST.logoutFormMobile);
+                namespace.Event.addEvent(logoutForm, "submit", logoutCallback);
+                namespace.Event.addEvent(logoutFormMobile, "submit", logoutCallback);
 
             function logoutCallback(e){
-                namespace.services.xhr.getAsync('http://localhost:3000/logout', function(){
+                namespace.xhr.getAsync('http://localhost:3000/logout', function(){
                     var check = JSON.parse(this.responseText);
                     console.log(check);
                     namespace.logoutController.setLogStatus(false);
                     switchView();
                 });
-                namespace.services.Event.preventDefault(e);
+                namespace.Event.preventDefault(e);
             }
 
             function switchView(){
-                namespace.services.dom.addClass(mainPage, "hide");
-                namespace.services.dom.removeClass(loginPage, "hide");
+                namespace.dom.addClass(mainPage, "hide");
+                namespace.dom.removeClass(loginPage, "hide");
             }
         }
         return {

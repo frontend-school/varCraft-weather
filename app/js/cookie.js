@@ -1,14 +1,14 @@
 window.varCraft = window.varCraft || {};
-window.varCraft.services = window.varCraft.services || {};
-window.varCraft.services.cookie = window.varCraft.services.cookie || {};
+window.varCraft = window.varCraft || {};
+window.varCraft.cookie = window.varCraft.cookie || {};
 
-varCraft.services.cookie.getCookie= function(name) {
+varCraft.cookie.getCookie= function(name) {
       var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
       ));
       return matches ? decodeURIComponent(matches[1]) : undefined;
     };
 
-varCraft.services.cookie.setCookie = function(name, value, options) {
+varCraft.cookie.setCookie = function(name, value, options) {
   options = options || {};
 
   var expires = options.expires;
@@ -38,14 +38,14 @@ varCraft.services.cookie.setCookie = function(name, value, options) {
   document.cookie = updatedCookie;
 };
 
-varCraft.services.cookie.deleteCookie = function(name) {
-  varCraft.services.cookie.setCookie(name, "", {
+varCraft.cookie.deleteCookie = function(name) {
+  varCraft.cookie.setCookie(name, "", {
     expires: -1
   });
 };
 
 
-// varCraft.services.Event = {
+// varCraft.Event = {
 //   add: function(elem, type, handler){
 //         if (elem.addEventListener){
 //           elem.addEventListener(type, handler, false)

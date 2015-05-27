@@ -9,13 +9,6 @@ function ready(fn) {
 
 
 function main(){
-    window.varCraft.domElems =  {};
-           varCraft.domElems.loginForm = document.querySelector('.js-login-form');
-           varCraft.domElems.loginPage = document.querySelector('.js-login-page');
-           varCraft.domElems.logoutForm = document.querySelector('.js-logout-form');
-           varCraft.domElems.logoutFormMobile = document.querySelector('.js-logout-form_mobile');
-           varCraft.domElems.mainPage = document.querySelector('.js-main-page');
-           varCraft.domElems.userName = document.querySelector('.js-user-name');
 
     console.log(varCraft);
     varCraft.mediator.installTo(varCraft.loginController);

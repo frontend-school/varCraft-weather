@@ -1,7 +1,7 @@
 window.varCraft.mobileModel =  window.varCraft.mobileModel || {};
 
 window.varCraft.mobileModel = (function(namespace){
-    var curState = 1;
+    var curState = 1, statesAmount = 3;
 
     return {
         setState: function(newState){
@@ -17,6 +17,10 @@ window.varCraft.mobileModel = (function(namespace){
 
         getState: function(){
             return curState;
+        },
+
+        getStatesAmount: function(){
+            return statesAmount;
         }
     }
 

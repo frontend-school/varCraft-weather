@@ -7,13 +7,13 @@ varCraft.DateTime = varCraft.DateTime || {};
 varCraft.DateTimeView = (function(namespace){
     function init(){
         var dateField = document.querySelector('.js-main-date'),
-            timeField = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.timeDigitsField);
-            dayPartField = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.timeDayPartField);
+            timeField = namespace.dom.getElem(namespace.CONST.timeDigitsField);
+            dayPartField = namespace.dom.getElem(namespace.CONST.timeDayPartField);
 
 
         this.refreshDate = function(date){
             if(date){
-                namespace.services.dom.changeContent(dateField, date);
+                namespace.dom.changeContent(dateField, date);
                 console.log("[DateTimeView dateRefresh]" + date);
                 return true;
             }
@@ -23,7 +23,7 @@ varCraft.DateTimeView = (function(namespace){
         this.refreshTime = function (time, dayPart){
             if(time){
                 console.log("[DateTimeView timeRefresh]" + time);
-                namespace.services.dom.changeContent(timeField, time);
+                namespace.dom.changeContent(timeField, time);
                 //timeField.innerHTML = time;
                 return true;
             }
@@ -32,7 +32,7 @@ varCraft.DateTimeView = (function(namespace){
 
         this.refreshDayPart = function(dayPart){
             if(dayPart){
-                namespace.services.dom.changeContent(dayPartField, dayPart);
+                namespace.dom.changeContent(dayPartField, dayPart);
                 //dayPartField.innerHTML = dayPart;
                 console.log("[DateTimeView dayPartRefresh]" + dayPart);
 

@@ -1,8 +1,8 @@
 window.varCraft = window.varCraft || {};
-window.varCraft.services = window.varCraft.services || {};
-window.varCraft.services.dom = window.varCraft.services.dom || {};
+window.varCraft = window.varCraft || {};
+window.varCraft.dom = window.varCraft.dom || {};
 
-window.varCraft.services.dom = (function(namespace){
+window.varCraft.dom = (function(namespace){
         var dom = {};
         dom.getElem = function(className){
             return document.querySelector(className);

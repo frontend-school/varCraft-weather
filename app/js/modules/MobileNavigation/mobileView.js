@@ -2,92 +2,96 @@ window.varCraft.mobileView =  window.varCraft.mobileView || {};
 
 window.varCraft.mobileView = (function(namespace){
     function init(){
-        var days = [namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.yesterday.forecastField),
-                    namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.today.forecastField),
-                    namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.tomorrow.forecastField)
+        var days = [namespace.dom.getElem(namespace.CONST.yesterday.forecast),
+                    namespace.dom.getElem(namespace.CONST.today.forecast),
+                    namespace.dom.getElem(namespace.CONST.tomorrow.forecast)
             ];
 
-        var dayIndicators = [namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.mobileDay0),
-                                namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.mobileDay1),
-                                namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.mobileDay2)
+        var dayIndicators = [namespace.dom.getElem(namespace.CONST.mobileDay0),
+                                namespace.dom.getElem(namespace.CONST.mobileDay1),
+                                namespace.dom.getElem(namespace.CONST.mobileDay2)
             ];
 
 
-        var next = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.mobileNextState),
-            previous = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.mobilePreviousState),
-            mainPage = namespace.services.dom.getElem(namespace.CONSTANTS.cssNames.mainPage);
+        var next = namespace.dom.getElem(namespace.CONST.mobileNextState),
+            previous = namespace.dom.getElem(namespace.CONST.mobilePreviousState),
+            mainPage = namespace.dom.getElem(namespace.CONST.mainPage);
 
         var curDay = days[namespace.mobileModel.getState()];
         var curDayIndicator = dayIndicators[namespace.mobileModel.getState()];
-        var active = namespace.CONSTANTS.cssNames.activeForecast;
-        var activeIndicator = namespace.CONSTANTS.cssNames.activeDayIndicator;
-        var unactiveArrow = namespace.CONSTANTS.cssNames.unactiveArrow;
+        var active = namespace.CONST.activeForecast;
+        var activeIndicator = namespace.CONST.activeDayIndicator;
+        var unactiveArrow = namespace.CONST.unactiveArrow;
+
+        var statesAmount = namespace.mobileModel.getStatesAmount(),
+            firstState = 0,
+            lastState = statesAmount - 1;
 
 
-        if(!namespace.services.dom.checkClass(curDay, active)){
-            namespace.services.dom.addClass(curDay, active);
+        if(!namespace.dom.checkClass(curDay, active)){
+            namespace.dom.addClass(curDay, active);
         }
 
-        if(!namespace.services.dom.checkClass(curDayIndicator, activeIndicator)){
-            namespace.services.dom.addClass(curDayIndicator, activeIndicator);
+        if(!namespace.dom.checkClass(curDayIndicator, activeIndicator)){
+            namespace.dom.addClass(curDayIndicator, activeIndicator);
         }
 
 
         function slideNext(e){
             var curState = namespace.mobileModel.getState();
-            if(curState < 2){
-                if(curState === 0 && namespace.services.dom.checkClass(previous, unactiveArrow)){
-                    namespace.services.dom.removeClass(previous, unactiveArrow);
+            if(curState < lastState){
+                if(curState === firstState && namespace.dom.checkClass(previous, unactiveArrow)){
+                    namespace.dom.removeClass(previous, unactiveArrow);
                 }
 
                 var newState = curState + 1;
                 namespace.mobileModel.setState(newState);
-                namespace.services.dom.removeClass(days[curState], active);
-                namespace.services.dom.addClass(days[newState], active);
+                namespace.dom.removeClass(days[curState], active);
+                namespace.dom.addClass(days[newState], active);
 
-                namespace.services.dom.removeClass(dayIndicators[curState], activeIndicator);
-                namespace.services.dom.addClass(dayIndicators[newState], activeIndicator);
+                namespace.dom.removeClass(dayIndicators[curState], activeIndicator);
+                namespace.dom.addClass(dayIndicators[newState], activeIndicator);
 
-                if(newState === 2){
-                    namespace.services.dom.addClass(next, unactiveArrow);
+                if(newState === lastState){
+                    namespace.dom.addClass(next, unactiveArrow);
                 }
             }
         }
 
         function slidePrevious(e){
             var curState = namespace.mobileModel.getState();
-            if(curState > 0){
-                if(curState === 2 && namespace.services.dom.checkClass(next, unactiveArrow)){
-                    namespace.services.dom.removeClass(next, unactiveArrow);
+            if(curState > firstState){
+                if(curState === lastState && namespace.dom.checkClass(next, unactiveArrow)){
+                    namespace.dom.removeClass(next, unactiveArrow);
                 }
 
                 var newState = curState - 1;
                 namespace.mobileModel.setState(newState);
-                namespace.services.dom.removeClass(days[curState], active);
-                namespace.services.dom.addClass(days[newState], active);
+                namespace.dom.removeClass(days[curState], active);
+                namespace.dom.addClass(days[newState], active);
 
-                namespace.services.dom.removeClass(dayIndicators[curState], activeIndicator);
-                namespace.services.dom.addClass(dayIndicators[newState], activeIndicator);
+                namespace.dom.removeClass(dayIndicators[curState], activeIndicator);
+                namespace.dom.addClass(dayIndicators[newState], activeIndicator);
 
-                if(newState === 0){
-                    namespace.services.dom.addClass(previous, unactiveArrow);
+                if(newState === firstState){
+                    namespace.dom.addClass(previous, unactiveArrow);
                 }
             }
         }
 
-        namespace.services.Event.addEvent(next, "touchstart", slideNext);
-        namespace.services.Event.addEvent(previous, "touchstart", slidePrevious);
+        namespace.Event.addEvent(next, "touchstart", slideNext);
+        namespace.Event.addEvent(previous, "touchstart", slidePrevious);
 
         //swipe
          var startX, endX;
 
-        namespace.services.Event.addEvent(mainPage, "touchstart", function(e){
+        namespace.Event.addEvent(mainPage, "touchstart", function(e){
             var touch = e.changedTouches[0];
                 startX = touch.clientX;
                 console.log("[touch Start]:", startX);
         });
 
-        namespace.services.Event.addEvent(mainPage, "touchmove", function(e){
+        namespace.Event.addEvent(mainPage, "touchmove", function(e){
             var touch = e.changedTouches[0];
                 endX = touch.clientX;
                 console.log("[touch end]:", endX);

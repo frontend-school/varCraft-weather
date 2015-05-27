@@ -7,7 +7,7 @@ window.varCraft.weatherController = (function(namespace){
 
 
 		this.changeForecast = function(){
-                namespace.services.xhr.getAsync("http://localhost:3000/weather", function(){
+                namespace.xhr.getAsync("http://localhost:3000/weather", function(){
                         var resp = JSON.parse(this.responseText);
                         console.log(resp);
 

@@ -1,6 +1,6 @@
 window.varCraft = window.varCraft || {};
 
-window.varCraft.services.Event = (function(){
+window.varCraft.Event = (function(){
     return {
         addEvent: function(el, type, fn){
             if (window.addEventListener) {

@@ -1,2 +1,2 @@
 var store = {};
-exports = store;
+module.exports = store;

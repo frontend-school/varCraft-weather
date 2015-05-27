@@ -31,4 +31,4 @@ var newForecast1 = {}, newForecast2 = {}, newForecast3 = {};
         newForecast3.humidityTitle = "60%";
 
 var response = {"yesterday": newForecast1, "today": newForecast2, "tomorrow": newForecast3};
-exports = {"opop": "toptop"};
+module.exports = response;

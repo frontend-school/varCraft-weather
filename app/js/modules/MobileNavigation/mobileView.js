@@ -79,22 +79,29 @@ window.varCraft.mobileView = (function(namespace){
         namespace.services.Event.addEvent(previous, "touchstart", slidePrevious);
 
         //swipe
-        // var startX, endX;
+         var startX, endX;
 
-        // namespace.services.Event.addEvent(mainPage, "touchstart", function(e){
-        //     var touch = e.changedTouches[0];
-        //         startX = touch.clientX;
-        // });
+        namespace.services.Event.addEvent(mainPage, "touchstart", function(e){
+            var touch = e.changedTouches[0];
+                startX = touch.clientX;
+                console.log("[touch Start]:", startX);
+        });
 
-        // namespace.services.Event.addEvent(mainPage, "touchend", function(e){
-        //     var touch = e.changedTouches[0];
-        //         endX = touch.clientX;
-        //         console.log(endX);
-        //         var delta = startX - endX;
-        //         if( delta > 0 && Math.abs(delta) >= window.screen.width / 3 ){
-        //             slideNext(e);
-        //         }
-        // });
+        namespace.services.Event.addEvent(mainPage, "touchmove", function(e){
+            var touch = e.changedTouches[0];
+                endX = touch.clientX;
+                console.log("[touch end]:", endX);
+                var diff = startX - endX;
+                if( diff > 0 && Math.abs(diff) >= window.screen.width / 3 ){
+                    slideNext(e);
+                    startX = undefined;
+                }
+
+                if(diff < 0 && Math.abs(diff) >= window.screen.width/ 3){
+                    slidePrevious(e);
+                    startX = undefined;
+                }
+        });
 
 
     }

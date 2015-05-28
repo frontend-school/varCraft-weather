@@ -503,33 +503,42 @@ only screen and (max-device-width: 320px) {
         position: relative; /* to be covered by sidebar */
         width: 100%;
 
-        &_yesterday{
-            display: none;
-        }
-        &_tomorrow{
-            display: none;
+        //&_yesterday{
+        //    //display: flex;
+        //}
+        //&_today{
+        //    //display: flex;
+        //}
+        //&_tomorrow{
+        //    //display: flex;
+        //}
+        &_out-of-screen{
+            margin-left: -100%;
         }
 
         &-title{
             order: 1;
 
             &__mob-header{
+                position: absolute; ////
+
                 display: block;
                 overflow: hidden;
 
-                margin: 25px 50px 5px;
+                margin: 25px 40px 5px 60px;
                 padding: 0;
 
                 text-align: center;
-                font-size: 35px;
+                font-size: 30px;
                 line-height: 35px;
                 font-weight: 200;
                 letter-spacing: -0.02em;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                &:hover {
-                    white-space: normal; /* Usua */
-                }
+                //white-space: nowrap;
+                //text-overflow: ellipsis;
+                //&:hover {
+                //    white-space: normal; /* Usua */
+                //}
+                width: 200px;
             }
 
             &__order-day{
@@ -551,15 +560,26 @@ only screen and (max-device-width: 320px) {
         line-height: 40px;
 
         &_icon-snowfall,
+        &_icon-snow,
+        &_icon-sleet,
         &_icon-mostly-cloudly,
         &_icon-partly-cloudly,
-        &_icon-fog{
+        &_icon-fog,
+        &_icon-sunny,
+        &_icon-rain-and-sun,
+        &_icon-light-rain,
+        &_icon-rain,
+        &_icon-downpour,
+        &_icon-lightning-storm,
+        &_icon-hurricane,
+        &_icon-error {
             background-size: 32% auto;
         }
     } /* .status-weather */
 
     .temperature{
         order: 2;
+        margin: 60px auto -10px;
 
         &__day-value{
             position: relative;

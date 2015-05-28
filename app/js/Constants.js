@@ -114,5 +114,10 @@ window.vCWeather.CONST = {
             'NW': 'params-wind__scheme_NW'
         },
         WIND_SPEED_SCALE: 'mph'
+    },
+    MOBILE_CONTROL: {
+        CLASS_OUT_OF_SCREEN: 'day_out-of-screen',
+        CLASS_MOVE_LEFT: '.js-move-left',
+        CLASS_MOVE_RIGHT: '.js-move-right'
     }
 };

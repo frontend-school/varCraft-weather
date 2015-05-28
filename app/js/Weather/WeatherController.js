@@ -13,17 +13,19 @@
         this._view = view;
 
         view.humidityChanged.attach(function () {
-            var params = arguments[0];
+            var params = arguments[0],
+                humidityValue = parseInt(params.value, 10);
+
             var humidityLevel = 'low';
-            if (params.value > 45) {
-                if (params.value <= 85) {
+            if (humidityValue > 45) {
+                if (humidityValue <= 85) {
                     humidityLevel = 'medium';
                 } else {
                     humidityLevel = 'high';
                 }
             }
 
-            services.updateClassModificator(params.element, params, params.collection);
+            services.updateClassModificator(params.element, params.collection[humidityLevel], params.collection);
         });
         view.statusChanged.attach(function () {
             var params = arguments[0];
@@ -61,17 +63,17 @@
             dayKey = daysInOrder[c1];
             dayData = weatherData[c1];
 
-            view.showHeader(dayKey, 'Kharkiv'); // FIX
+            view.showHeader(dayKey, 'Kiev');
             view.showDate(dayKey, new Date(dayData.dateTimeISO));
             view.showDayTemperature(dayKey, dayData.avgTempDayC);
             view.showNightTemperature(dayKey, dayData.avgTempNightC);
 
-            view.showWeatherStatus(dayKey, dayData.weather); // NOTIFY
+            view.showWeatherStatus(dayKey, dayData.weather);
 
-            view.showHumidity(dayKey, dayData.humidity+'%'); // NOTIFY
+            view.showHumidity(dayKey, dayData.humidity+'%');
             view.showWindSpeed(dayKey, dayData.windSpeedMPH + ' ' + CONST.WEATHER.WIND_SPEED_SCALE);
-            view.showWindDirection(dayKey, dayData.windDirMax); // NOTIFY
-            view.showMoonPhase(dayKey, dayData.moonPhaseName); // NOTIFY
+            view.showWindDirection(dayKey, dayData.windDirMax);
+            view.showMoonPhase(dayKey, dayData.moonPhaseName);
         }
     };
 

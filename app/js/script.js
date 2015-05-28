@@ -103,11 +103,62 @@ window.onload = function() {
         loginController.execLoggingActions();
     }
 
-    var self = this;
-    services.sendRequestToServer(CONST.SERVER.ADDRESS + '/weather', {}, function (respText) {
-        var w = JSON.parse(respText);
-        console.log('res ', w);
-    });
+    (function () {
+        var CLASSES_DAY_LIST = CONST.WEATHER.CLASSES_DAY_LIST;
+        var MOBILE_CONTROL = CONST.MOBILE_CONTROL;
+
+        var btnMoveLeft = document.querySelector(MOBILE_CONTROL.CLASS_MOVE_LEFT);
+        var btnMoveRight = document.querySelector(MOBILE_CONTROL.CLASS_MOVE_RIGHT);
+
+        var elemDays = [document.querySelector(CLASSES_DAY_LIST.DAY_YESTERDAY),
+            document.querySelector(CLASSES_DAY_LIST.DAY_TODAY),
+            document.querySelector(CLASSES_DAY_LIST.DAY_TOMORROW)];
+
+        var shownDayInd = 0;
+        moveDay(1);
+
+        function moveDay(step) {
+            var resultDayInd = shownDayInd + step;
+            if (resultDayInd < 0 || resultDayInd >= elemDays.length) {
+                return;
+            }
+
+            for (var c1 = 0; c1 < elemDays.length; c1++) {
+                hideDay(c1);
+            }
+            for (var c2 = resultDayInd; c2 < elemDays.length; c2++) {
+                showDay(c2);
+            }
+            shownDayInd = resultDayInd;
+        }
+
+        function hideDay(ind) {
+            var classes = elemDays[ind].className.split(' ');
+            var indOf = classes.indexOf(MOBILE_CONTROL.CLASS_OUT_OF_SCREEN);
+            if (indOf === -1) {
+                elemDays[ind].className = elemDays[ind].className +
+                    ' ' + MOBILE_CONTROL.CLASS_OUT_OF_SCREEN;
+            }
+        }
+
+        function showDay(ind) {
+            var classes = elemDays[ind].className.split(' ');
+            var indOf = classes.indexOf(MOBILE_CONTROL.CLASS_OUT_OF_SCREEN);
+            if (indOf !== -1) {
+                classes.splice(indOf, 1);
+            }
+            elemDays[ind].className = classes.join(' ');
+        }
+
+        btnMoveLeft.addEventListener('click', function () {
+            moveDay(-1);
+        });
+        btnMoveRight.addEventListener('click', function () {
+            moveDay(1);
+        });
+
+
+    })();
 
 
 }; /* window.onload */

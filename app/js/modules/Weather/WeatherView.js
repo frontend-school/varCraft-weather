@@ -71,16 +71,17 @@ window.varCraft.weatherView = (function(namespace){
         var humidity = ["forecast-extra-info_humidity-1","forecast-extra-info_humidity-2", "forecast-extra-info_humidity-3"];
 
         function fillForecast(when, newForecast){
-            when.forecast.className = when.forecast.className.replace(namespace.CONST.regExps.forecast, weatherConditions[newForecast.weatherCondition] + " ");  
+            namespace.dom.substituteClass(when.forecast, namespace.CONST.regExps.forecast, weatherConditions[newForecast.weatherCondition]);
             when.forecastDate.innerHTML = newForecast.date;
             when.forecastDescription.innerHTML = newForecast.weatherCondition;
             when.forecastDayTemp.innerHTML = newForecast.temperatureAtDay;
             when.forecastNightTemp.innerHTML = newForecast.temperatureAtNight;
             console.log(when.forecast.className);
-            when.forecastWind.className = when.forecastWind.className.replace(namespace.CONST.regExps.wind, windDirections[newForecast.windDirection] + " ");
+            namespace.dom.substituteClass(when.forecastWind, namespace.CONST.regExps.wind, windDirections[newForecast.windDirection]);
+            console.log("[wind :]",when.forecastWind);
             when.forecastWindSpeed.innerHTML = newForecast.windSpeed;
             when.forecastWindDirection.innerHTML = newForecast.windDirection;
-            when.forecastHumidity.className = when.forecastHumidity.className.replace(namespace.CONST.regExps.humidity, humidity[newForecast.humidity] + " ");
+            namespace.dom.substituteClass(when.forecastHumidity, namespace.CONST.regExps.humidity, humidity[newForecast.humidity]);
             when.forecastHumidityTitle.innerHTML = newForecast.humidityTitle;
             console.log(newForecast.humidityTitle);
         }

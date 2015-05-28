@@ -397,17 +397,18 @@ body{
         padding-right: 1em ;
         padding-left: 1em ;
 
-        &__time{
+        &-time{
             font-size: 40/16 + em ;
             line-height: .8em ;
 
             float: left;
 
             margin-top: 0 ;
+            &__day-part{
+                 top: -30%;
+            }
         }
-        &__day-part{
-            top: -30%;
-        }
+
         &-location{
           margin-right: 40px;
         }

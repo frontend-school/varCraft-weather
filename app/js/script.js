@@ -11,6 +11,8 @@ window.vCWeather.services = window.vCWeather.services || {};
 //= Event.js
 
 //= Services/sendRequestToServer.js
+//= Services/getElementsTree.js
+//= Services/updateClassModificator.js
 
 //= DateTimeUpdater/DateTimeModel.js
 //= DateTimeUpdater/DateTimeView.js
@@ -28,6 +30,10 @@ window.vCWeather.services = window.vCWeather.services || {};
 //= Location/LocationView.js
 //= Location/LocationController.js
 
+//= Weather/WeatherModel.js
+//= Weather/WeatherView.js
+//= Weather/WeatherController.js
+
 window.onload = function() {
 
     var CONST = window.vCWeather.CONST;
@@ -44,7 +50,8 @@ window.onload = function() {
             'loggingPassword': document.querySelector(CONST.CLASSES_LOGGING_CONTROLS.LOGGING_PASSWORD),
             'loggingForm': document.querySelector(CONST.CLASSES_LOGGING_CONTROLS.LOGGING_FORM),
             'halloMessage': document.querySelector(CONST.CLASSES_LOGGING_CONTROLS.HALLO_MESSAGE)
-        }, logout: {
+        },
+        logout: {
             'logoutBtn': document.querySelector(CONST.CLASSES_LOGGING_CONTROLS.LOG_OUT)
         }
     };
@@ -88,9 +95,21 @@ window.onload = function() {
         var locationController = new modules.LocationController(locationModel, locationView);
     })();
 
+    var weatherModel = new modules.WeatherModel();
+    var weatherView = new modules.WeatherView(weatherModel);
+    var weatherController = new modules.WeatherController(weatherModel, weatherView);
+
     if (storageService.isLogged()) {
         loginController.execLoggingActions();
     }
+
+    var self = this;
+    services.sendRequestToServer(CONST.SERVER.ADDRESS + '/weather', {}, function (respText) {
+        var w = JSON.parse(respText);
+        console.log('res ', w);
+    });
+
+
 }; /* window.onload */
 
 // Searches elements containing value of 'nameToRemove' in their with classes

@@ -1,4 +1,388 @@
 
+html {
+    height: 100%;
+}
+
+.popup__overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $bgColor;
+
+    z-index: 999;
+
+    &_show-block{
+        display: block;
+    }
+
+    &_hide-block{
+        display: none;
+    }
+}
+
+.popup{
+    position: absolute;
+    width: 300px;
+    height: 234px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    overflow: hidden;
+    background-color: $bgColor;
+
+    color: #000;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+
+    &__label{
+        display: block;
+        color: #fff;
+        font-weight: 200;
+    }
+
+    &__login-pwd{
+        display: block;
+        width: 100%;
+        height: 40px;
+        margin: 5px 0 21px 0;
+        border: none;
+        padding: 0;
+
+        color: #000;
+        font-weight: 600;
+    }
+}
+
+.button-log-in-out{
+    &_log-in{
+        float: right;
+    }
+}
+
+.wrapper{
+    height: 100%;
+    background-color: $bgColor;
+
+    color: #fff;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.sidebar{
+    box-sizing: border-box;
+
+    &-settings{
+        overflow: hidden;
+    }
+
+    &-location{
+        background: url('../img/location_icon.png') 0 0 no-repeat;
+
+        &__city{
+            display: block;
+            margin: 0;
+            padding: 5px 0 0;
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 200;
+        }
+
+        &__country{
+            display: block;
+            margin: 5px 0 0 -5px;
+
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 200;
+        }
+    } /* -location */
+} /* .sidebar */
+
+.day{
+    position: relative;
+    float: left;
+    min-height: 100%;
+    margin: 0 auto;
+
+    text-align: center;
+
+    &_snowfall{
+        background-color: #82A8C4;
+    }
+    &_snow{
+        background-color: #375d81
+    }
+    &_sleet{
+        background-color: #36B1BF
+    }
+    &_mostly-cloudly{
+        background-color: #1D9E48;
+    }
+    &_partly-cloudly{
+        background-color: #F1854B;
+    }
+    &_fog{
+        background-color: #75608b;
+    }
+    &_sunny{
+        background-color: #F2385A;
+    }
+    &_rain-and-sun{
+        background-color: #E9B841;
+    }
+    &_light-rain{
+        background-color: #BDA881;
+    }
+    &_rain{
+        background-color: #999999;
+    }
+    &_downpour{
+        background-color: #675680;
+    }
+    &_error{
+        background-color: #000000;
+    }
+
+    &-title{
+        width: 100%;
+        margin: 0;
+
+        &__order-day{
+            width: 100%;
+            margin: 0;
+
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 200;
+        }
+
+        &__date-day{
+            width: 100%;
+            margin: 0;
+
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 200;
+        }
+    }
+} /* .day */
+
+.status-weather{
+    width: auto;
+
+    text-align: center;
+    font-weight: 200;
+
+    &_icon-snowfall {
+        background-image: url('../img/widget_state_snow_fall.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-snow {
+        background: url('../img/widget_state_snow.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-sleet {
+        background: url('../img/widget_state_sleet.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-mostly-cloudly {
+        background: url('../img/widget_state_mostly_cloudly.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-partly-cloudly {
+        background: url('../img/widget_state_partly_cloudly.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-fog {
+        background: url('../img/widget_state_fog.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+
+    &_icon-sunny {
+        background: url('../img/widget_state_sunny.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-rain-and-sun {
+        background: url('../img/widget_state_rain_and_sun.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-light-rain {
+        background: url('../img/widget_state_light_rain.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-rain {
+        background: url('../img/widget_state_rain.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-downpour {
+        background: url('../img/widget_state_downpour.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-lightning-storm {
+        background: url('../img/widget_state_lightning_storm.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+    &_icon-hurricane {
+        background: url('../img/widget_state_hurricane.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+
+    &_icon-error {
+        background: url('../img/widget_state_error.png');
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-origin: padding-box;
+    }
+} /* .status-weather */
+
+.temperature {
+    position: relative; /* to place inner absolute elements */
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0 0;
+
+    text-align: center;
+
+    &__day-value {
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    &-night {
+        display: inline-block;
+        margin: 0 auto;
+
+        vertical-align: text-bottom; /* !! */
+
+        &__title {
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            font-weight: 200;
+        }
+
+        &__value {
+            margin: 0;
+        }
+    }
+} /* .temperature */
+
+.params {
+    display: block;
+    margin: 0 auto;
+
+    text-align: center;
+
+    &-wind {
+        display: inline-block;
+        padding: 0;
+
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 200;
+
+        overflow: hidden;
+
+        text-align: center;
+        vertical-align: top;
+
+        &__speed {
+            display: block;
+            padding: 0;
+        }
+
+        &__scheme {
+            display: block;
+            margin: 0;
+            padding: 0;
+            transform-origin: 50% 50%;
+
+            &_S {
+                transform: rotate(0deg);
+            }
+            &_N {
+                transform: rotate(180deg);
+            }
+            &_E {
+                transform: rotate(-90deg);
+            }
+            &_W {
+                transform: rotate(90deg);
+            }
+            &_SE {
+                transform: rotate(-45deg);
+            }
+            &_SW {
+                transform: rotate(45deg);
+            }
+            &_NE {
+                transform: rotate(-135deg);
+            }
+            &_NW {
+                transform: rotate(135deg);
+            }
+        }
+
+        &__direction {
+            padding: 0;
+        }
+
+    } /* -wind */
+
+    &-moon {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+
+        vertical-align: top;
+
+        &__title {
+            display: block;
+            padding: 0;
+
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 200;
+        }
+
+        &__scheme {
+            display: block;
+        }
+    } /* -moon */
+} /* .params */
+
 @media only screen and (max-width: 320px),
 only screen and (max-device-width: 320px) {
 
@@ -131,6 +515,7 @@ only screen and (max-device-width: 320px) {
 
             &__mob-header{
                 display: block;
+                overflow: hidden;
 
                 margin: 25px 50px 5px;
                 padding: 0;
@@ -140,6 +525,11 @@ only screen and (max-device-width: 320px) {
                 line-height: 35px;
                 font-weight: 200;
                 letter-spacing: -0.02em;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                &:hover {
+                    white-space: normal; /* Usua */
+                }
             }
 
             &__order-day{
@@ -815,370 +1205,5 @@ only screen and (min-device-width: 321px) and (max-device-width: 1280px) {
     } /* .params */
 }
 
-html {
-    height: 100%;
-}
 
-.popup__overlay {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: $bgColor;
-
-    z-index: 999;
-
-    &_show-block{
-        display: block;
-    }
-
-    &_hide-block{
-        display: none;
-    }
-}
-
-.popup{
-    position: absolute;
-    width: 300px;
-    height: 234px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-
-    overflow: hidden;
-    background-color: $bgColor;
-
-    color: #000;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 20px;
-
-    &__label{
-        display: block;
-        color: #fff;
-        font-weight: 200;
-    }
-
-    &__login-pwd{
-        display: block;
-        width: 100%;
-        height: 40px;
-        margin: 5px 0 21px 0;
-        border: none;
-        padding: 0;
-
-        color: #000;
-        font-weight: 600;
-    }
-}
-
-.button-log-in-out{
-    &_log-in{
-        float: right;
-    }
-}
-
-.wrapper{
-    height: 100%;
-    background-color: $bgColor;
-
-    color: #fff;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 30px;
-    font-weight: 300;
-}
-
-.sidebar{
-    box-sizing: border-box;
-
-    &-settings{
-        overflow: hidden;
-    }
-
-    &-location{
-        background: url('../img/location_icon.png') 0 0 no-repeat;
-
-        &__city{
-            display: block;
-            margin: 0;
-            padding: 5px 0 0;
-            font-size: 30px;
-            line-height: 30px;
-            font-weight: 200;
-        }
-
-        &__country{
-            display: block;
-            margin: 5px 0 0 -5px;
-
-            font-size: 18px;
-            line-height: 18px;
-            font-weight: 200;
-        }
-    } /* -location */
-} /* .sidebar */
-
-.day{
-    position: relative;
-    float: left;
-    min-height: 100%;
-    margin: 0 auto;
-
-    text-align: center;
-
-    &_snowfall{
-        background-color: #82a8c4;
-    }
-
-    &_snow{
-        background-color: #375d81
-    }
-
-    &_mostly-cloudly{
-        background-color: #1d9e48;
-    }
-
-    &_partly-cloudly{
-        background-color: #1d9e48;
-    }
-
-    &_fog{
-        background-color: #75608b;
-    }
-
-    &-title{
-        width: 100%;
-        margin: 0;
-
-        &__order-day{
-            width: 100%;
-            margin: 0;
-
-            font-size: 30px;
-            line-height: 30px;
-            font-weight: 200;
-        }
-
-        &__date-day{
-            width: 100%;
-            margin: 0;
-
-            font-size: 18px;
-            line-height: 18px;
-            font-weight: 200;
-        }
-    }
-} /* .day */
-
-.status-weather{
-    width: auto;
-
-    text-align: center;
-    font-weight: 200;
-
-    &_icon-snowfall {
-        background-image: url('../img/widget_state_snow_fall.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-snow {
-        background: url('../img/widget_state_snow.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-sleet {
-        background: url('../img/widget_state_sleet.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-mostly-cloudly {
-        background: url('../img/widget_state_mostly_cloudly.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-partly-cloudly {
-        background: url('../img/widget_state_partly_cloudly.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-fog {
-        background: url('../img/widget_state_fog.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-
-    &_icon-sunny {
-        background: url('../img/widget_state_sunny.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-rain-and-sun {
-        background: url('../img/widget_state_rain_and_sun.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-light-rain {
-        background: url('../img/widget_state_light_rain.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-rain {
-        background: url('../img/widget_state_rain.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-downpour {
-        background: url('../img/widget_state_downpour.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-lightning-storm {
-        background: url('../img/widget_state_lightning_storm.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-    &_icon-hurricane {
-        background: url('../img/widget_state_hurricane.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-
-    &_icon-error {
-        background: url('../img/widget_state_error.png');
-        background-position: center 0;
-        background-repeat: no-repeat;
-        background-origin: padding-box;
-    }
-} /* .status-weather */
-
-.temperature {
-    position: relative; /* to place inner absolute elements */
-    display: block;
-    margin: 0 auto;
-    padding: 20px 0 0;
-
-    text-align: center;
-
-    &__day-value {
-        display: inline-block;
-        margin: 0 auto;
-    }
-
-    &-night {
-        display: inline-block;
-        margin: 0 auto;
-
-        vertical-align: text-bottom; /* !! */
-
-        &__title {
-            margin: 0;
-            padding: 0;
-            text-align: left;
-            font-weight: 200;
-        }
-
-        &__value {
-            margin: 0;
-        }
-    }
-} /* .temperature */
-
-.params {
-    display: block;
-    margin: 0 auto;
-
-    text-align: center;
-
-    &-wind {
-        display: inline-block;
-        padding: 0;
-
-        font-size: 18px;
-        line-height: 18px;
-        font-weight: 200;
-
-        overflow: hidden;
-
-        text-align: center;
-        vertical-align: top;
-
-        &__speed {
-            display: block;
-            padding: 0;
-        }
-
-        &__scheme {
-            display: block;
-            margin: 0;
-            padding: 0;
-            transform-origin: 50% 50%;
-
-            &_S {
-                transform: rotate(0deg);
-            }
-            &_N {
-                transform: rotate(180deg);
-            }
-            &_E {
-                transform: rotate(-90deg);
-            }
-            &_W {
-                transform: rotate(90deg);
-            }
-            &_SE {
-                transform: rotate(-45deg);
-            }
-            &_SW {
-                transform: rotate(45deg);
-            }
-            &_NE {
-                transform: rotate(-135deg);
-            }
-            &_NW {
-                transform: rotate(135deg);
-            }
-        }
-
-        &__direction {
-            padding: 0;
-        }
-
-    } /* -wind */
-
-    &-moon {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-
-        vertical-align: top;
-
-        &__title {
-            display: block;
-            padding: 0;
-
-            font-size: 18px;
-            line-height: 18px;
-            font-weight: 200;
-        }
-
-        &__scheme {
-            display: block;
-        }
-    } /* -moon */
-} /* .params */
 

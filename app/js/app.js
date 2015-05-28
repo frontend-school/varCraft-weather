@@ -1,19 +1,25 @@
 //= constants.js
-//= AJAXRequestBuilder.js
+//= AJAXRequest.js
 //= cookies.js
+//= DateTimeFormat.js
 
 //= DateTime/DateTimeView.js
 //= Login/LoginView.js
 //= Logout/LogoutView.js
+//= Location/LocationView.js
+//= Weather/WeatherView.js
 
 //= DateTime/DateTimeModel.js
 //= Login/LoginModel.js
 //= Logout/LogoutModel.js
+//= Location/LocationModel.js
+//= Weather/WeatherModel.js
 
 //= DateTime/DateTimeController.js
 //= Login/LoginController.js
 //= Logout/LogoutController.js
-
+//= Location/LocationController.js
+//= Weather/WeatherController.js
 
 function Main() {
     var CONST = window.VarCraft.CONST,
@@ -27,7 +33,6 @@ function Main() {
         }
 
         var userCookie = {
-            'cookies': CONST.COOKIES.DURATION,
             'login': user.login
         };
 
@@ -45,9 +50,11 @@ function Main() {
     window.modules.pubsub.subscribe(CONST.ACTION.LOGGED_OUT, _logout);
 
     // start modules
-    window.VarCraft.modules.DateTimeController.start();
     window.VarCraft.modules.LogoutController.start();
     window.VarCraft.modules.LoginController.start();
+    window.VarCraft.modules.LocationController.start();
+    window.VarCraft.modules.DateTimeController.start();
+    window.VarCraft.modules.WeatherController.start();
 
     // check if login
     if (cookies.get("login")) {

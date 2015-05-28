@@ -1,7 +1,6 @@
 window.VarCraft = window.VarCraft || {};
 window.VarCraft.modules = window.VarCraft.modules || {};
 
-// view
 window.VarCraft.modules.LogoutModel = (function () {
     // false - log in
     // true - log out

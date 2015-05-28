@@ -11,19 +11,13 @@ window.VarCraft.modules.DateTimeModel = (function () {
     var _currentTime = {},
         _currentDate = {};
 
-    // format time
-    var _checkTime = function (item) {
-        if (item < 10) {
-            item = "0" + item;
-        }
-        return item;
-    };
+
 
     var _setTime = function (date) {
         // create an object with all necessary information
         _currentTime = {
-            hours: _checkTime(date.getHours() % 12 || 12),
-            minutes: _checkTime(date.getMinutes()),
+            hours: window.VarCraft.DateTimeFormat.checkDateTime(date.getHours() % 12 || 12),
+            minutes: window.VarCraft.DateTimeFormat.checkDateTime(date.getMinutes()),
             midday: date.getHours() < 12 ? "AM" : "PM"
         };
         // notify view

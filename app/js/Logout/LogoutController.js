@@ -11,7 +11,7 @@ window.VarCraft.modules.LogoutController = (function () {
     // Callbacks
     var _logoutSuccess = function () {
         _logOutByTimer(0);
-        _model.setState();
+        _model.setState(true);
         window.modules.pubsub.publish(CONST.ACTION.LOGGED_OUT);
         return true;
     };
@@ -36,7 +36,7 @@ window.VarCraft.modules.LogoutController = (function () {
 
     // AJAX request
     var _serverRequest = function () {
-        var xhr = new AJAXRequest('GET', CONST.URL.LOGIN_WEBSERVICE + 'logout', true);
+        var xhr = new window.VarCraft.AJAXRequest('GET', CONST.URL.LOGIN_WEBSERVICE + 'logout', true);
         xhr.send(_logoutSuccess, _logoutError);
     };
 
@@ -48,12 +48,11 @@ window.VarCraft.modules.LogoutController = (function () {
 
     var _loginLabel = function (user) {
         _view.setUsername(user);
-        _model.setState(false);
     };
 
-    var _autoLogout = function (obj) {
-        _logOutByTimer(obj.cookies);
+    var _autoLogin = function (obj) {
         _loginLabel(obj);
+        _model.setState(false);
     };
 
     var _start = function () {
@@ -62,7 +61,7 @@ window.VarCraft.modules.LogoutController = (function () {
         logoutButton.addEventListener('click', _logoutListener, false);
 
         // autoLogOut
-        window.modules.pubsub.subscribe(CONST.ACTION.LOGIN_STATE, _autoLogout);
+        window.modules.pubsub.subscribe(CONST.ACTION.LOGIN_STATE, _autoLogin);
     };
 
     return {

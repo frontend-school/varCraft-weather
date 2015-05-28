@@ -1,0 +1,46 @@
+{
+  "weather": [
+    {
+      "periods":
+      {
+        "weather": "Mostly cloudy",
+        "avgTempC": 26,
+        "nightTempC": 15,
+        "windSpeedMPH": 6,
+        "windDirMax": "SE",
+        "humidity": 81
+      },
+      "phase": {
+        "name": "first quater"
+      }
+    },
+    {
+      "periods":
+      {
+        "weather": "Sunny",
+        "avgTempC": 23,
+        "nightTempC": 17,
+        "windSpeedMPH": 8,
+        "windDirMax": "S",
+        "humidity": 60
+      },
+      "phase": {
+        "name": "first quater"
+      }
+    },
+    {
+      "periods":
+      {
+        "weather": "Mostly cloudy",
+        "avgTempC": 30,
+        "nightTempC": 20,
+        "windSpeedMPH": 3,
+        "windDirMax": "NW",
+        "humidity": 59
+      },
+      "phase": {
+        "name": "first quater"
+      }
+    }
+  ]
+}

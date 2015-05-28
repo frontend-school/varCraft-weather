@@ -8,6 +8,7 @@
   src: url(../fonts/Lintel-Regular.otf);
 }
 
+
 .font {
   font-family: Lintel;
   color: #FFFFFF;
@@ -15,35 +16,35 @@
 }
 
 html, body {
-  margin: 0;
   height: 100%;
+  margin: 0;
 }
 
 .w {
   .font;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  z-index: 2;
+  position: relative;
   width: @weather-width;
   height: @weather-height;
   min-height: @weather-height;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  z-index: 2;
   background-color: #262626;
-  position: relative;
 
   &__arrow-left, &__arrow-right {
-    display: none;
-    width: 55px;
-    height: 70px;
-    background-size: contain;
-    background-repeat: no-repeat;
     position: absolute;
     top: 250px;
+    display: none;
+    height: 70px;
+    width: 55px;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   &-forecast {
+    position: absolute;
     height: @weather-height;
     width: @weather-width;
-    position: absolute;
     float: right;
     right: 0;
   }
@@ -55,8 +56,8 @@ html, body {
 
   &-header {
     height: 100px;
-    text-align: center;
     background-color: #262626;
+    text-align: center;
 
     &__name {
       padding-top: 30px;
@@ -108,18 +109,18 @@ html, body {
 
   &-data {
     height: 85%;
-    text-align: center;
     padding-top: 12%;
+    text-align: center;
 
     &__active {
       display: none;
     }
 
     &__condition-icon {
-      background-size: cover;
       width: 140px;
       height: 140px;
       margin: 0 auto 20px auto;
+      background-size: cover;
 
       &_partly-cloudy {
         background-image: url(../img/weather_partly_cloudy.png);
@@ -167,38 +168,39 @@ html, body {
     }
 
     &__condition-title {
-      font-size: 20pt;
       padding-bottom: 40px;
+      font-size: 20pt;
     }
 
     &__daily-temp {
+      width: 60%;
+      float: left;
       text-align: right;
       font-size: 60pt;
-      float: left;
-      width: 60%;
     }
 
     &__night-temp {
-      font-size: 22pt;
+      position: relative;
+      width: 40%;
       float: right;
       margin-top: 32pt;
-      width: 40%;
-      position: relative;
+      font-size: 22pt;
     }
 
     &__night-temp:after {
-      visibility: hidden;
-      display: block;
       content: "";
-      clear: both;
+      display: block;
       height: 0;
+      clear: both;
+      visibility: hidden;
     }
 
     &__night-temp:before {
       content: 'Night';
-      font-size: 12pt;
       position: absolute;
       top: -18px;
+      left: 50px;
+      font-size: 12pt;
     }
 
     &-other {
@@ -210,26 +212,26 @@ html, body {
       }
 
       &-wind {
+        position: relative;
         float: left;
         width: 50%;
-        position: relative;
 
         &__label {
           position: absolute;
           top: 0;
-          margin: 37px auto;
-          width: 100%;
           height: 100%;
+          width: 100%;
+          margin: 37px auto;
         }
 
         &__direction {
           top: 0;
-          margin: 0 auto;
-          background: url("../img/wind_direction.png") center no-repeat;
-          background-size: contain;
-          padding-top: 18px;
           width: 42px;
           height: 38px;
+          margin: 0 auto;
+          padding-top: 18px;
+          background: url("../img/wind_direction.png") center no-repeat;
+          background-size: contain;
 
           &_N {
           }
@@ -269,10 +271,10 @@ html, body {
         width: 50%;
 
         &__icon {
-          margin: 3px auto;
-          background-size: auto;
           width: 48px;
           height: 48px;
+          margin: 3px auto;
+          background-size: auto;
           background: center no-repeat;
 
           &_full {
@@ -316,13 +318,13 @@ html, body {
 
   .w {
     .font;
-    overflow-y: hidden;
-    z-index: 2;
-    width: 100%;
-    min-height: @weather-height;
-    height: 100%;
-    background-color: #262626;
     position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: @weather-height;
+    z-index: 2;
+    overflow-y: hidden;
+    background-color: #262626;
 
     &-user {
       top: 0;
@@ -334,9 +336,9 @@ html, body {
     }
 
     &-info {
+      position: absolute;
       width: @weather-width/4;
       height: @weather-height;
-      position: absolute;
       float: left;
       left: 0;
       padding-left: 40px;
@@ -347,29 +349,29 @@ html, body {
       }
 
       &__midday {
-        margin-top: -125px;
-        float: right;
         height: 84pt;
+        float: right;
+        margin-top: -125px;
         font-size: 15pt;
       }
 
       &__midday:after {
-        visibility: hidden;
-        display: block;
         content: "";
-        clear: both;
+        display: block;
         height: 0;
+        clear: both;
+        visibility: hidden;
       }
 
       &__date {
-        font-size: 15pt;
         margin: 30px 0 50px 0;
+        font-size: 15pt;
       }
 
       &-location {
+        padding-left: 25px;
         background: url("../img/loc.png") no-repeat left top;
         background-size: 17px 22px;
-        padding-left: 25px;
 
         &__city {
           font-size: 16pt;
@@ -382,9 +384,9 @@ html, body {
     }
 
     &-forecast {
+      position: absolute;
       width: @weather-width*3/4;
       height: @weather-height;
-      position: absolute;
       float: right;
       right: 0;
     }
@@ -430,25 +432,25 @@ html, body {
       padding-left: 10px;
 
       &__time {
+        width: 130px;
         float: left;
         font-size: 50pt;
-        width: 130px;
       }
 
       &__midday {
+        width: 5px;
+        float: left;
         padding-left: 15px;
         padding-top: 12px;
-        float: left;
         font-size: 16pt;
-        width: 5px;
       }
 
       &__midday:after {
-        visibility: hidden;
-        display: block;
         content: "";
-        clear: both;
+        display: block;
         height: 0;
+        clear: both;
+        visibility: hidden;
       }
 
       &__date {
@@ -456,11 +458,11 @@ html, body {
       }
 
       &-location {
-        background: url("../img/loc.png") no-repeat left center;
-        background-size: 25px 37px;
-        padding-left: 32px;
         float: right;
         margin-right: 80px;
+        padding-left: 32px;
+        background: url("../img/loc.png") no-repeat left center;
+        background-size: 25px 37px;
         text-align: right;
 
         &__city {
@@ -537,12 +539,13 @@ html, body {
     min-zoom: 1;
   }
 
+
   .w {
     &-user {
-      border-bottom: none;
-      border-right: none;
       width: 100%;
       top: 0;
+      border-bottom: none;
+      border-right: none;
 
       &__greeting, &__name {
         display: none;
@@ -556,13 +559,13 @@ html, body {
     }
 
     &__setting {
-      background-image: url("../img/settings.png");
-      background-size: contain;
+      position: absolute;
       width: 30px;
       height: 30px;
-      position: absolute;
       top: 20px;
       left: 20px;
+      background-image: url("../img/settings.png");
+      background-size: contain;
     }
 
     &-info {
@@ -587,24 +590,24 @@ html, body {
 
     &__arrow-left {
       display: block;
-      background-image: url(../img/left_arrow.png);
       left: 20px;
+      background-image: url(../img/left_arrow.png);
     }
 
     &__arrow-right {
       display: block;
+      right: 20px;
       background-image: url(../img/left_arrow.png);
       transform: rotate(180deg);
-      right: 20px;
     }
   }
 
   .column {
-    z-index: -1;
-    margin-top: 0;
     position: absolute;
+    margin-top: 0;
     width: @weather-forecast-column-width;
     height: @weather-height;
+    z-index: -1;
 
     &_yesterday {
       right: 2*@weather-forecast-column-width;
@@ -657,15 +660,15 @@ html, body {
       }
 
       &__condition-icon {
-        order: 1;
         width: 70px;
         height: 70px;
         margin-bottom: 0;
+        order: 1;
       }
 
       &__condition-title {
-        order: 2;
         width: 100%;
+        order: 2;
         padding-bottom: 0;
       }
 
@@ -677,13 +680,13 @@ html, body {
 
       &-other {
         width: 100%;
-        order: 4;
         margin-top: 0;
+        order: 4;
 
         &__humidity {
           display: block;
-          width: 100%/3;
           float: left;
+          width: 100%/3;
           height: 96px;
           background-size: auto;
           background: center no-repeat;

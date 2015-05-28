@@ -28,7 +28,7 @@ window.VarCraft.modules.LoginController = (function () {
 
     // AJAX request
     var _serverRequest = function (user) {
-        var xhr = new AJAXRequest('GET', CONST.URL.LOGIN_WEBSERVICE + 'login', true);
+        var xhr = new window.VarCraft.AJAXRequest('GET', CONST.URL.LOGIN_WEBSERVICE + 'login', true);
         xhr.setGetParams(user);
         xhr.send(_loginSuccess, _loginError);
     };
@@ -48,7 +48,6 @@ window.VarCraft.modules.LoginController = (function () {
         window.modules.pubsub.subscribe(CONST.ACTION.LOGIN_STATE, _login);
         // for changing state
         window.modules.pubsub.subscribe(CONST.ACTION.LOGOUT_STATE, _logout);
-
     };
 
     return {

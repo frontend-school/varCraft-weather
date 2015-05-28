@@ -9,7 +9,7 @@ window.varCraft.weatherController = (function(namespace){
 		this.changeForecast = function(){
                 namespace.xhr.getAsync("http://localhost:3000/weather", function(){
                         var resp = JSON.parse(this.responseText);
-                        console.log(resp);
+                        //console.log(resp);
 
                         namespace.weatherModel.setWeather("yesterday", resp.yesterday);
                         namespace.weatherView.refreshForecast("yesterday", namespace.weatherModel.getWeather("yesterday"));
@@ -23,9 +23,9 @@ window.varCraft.weatherController = (function(namespace){
 
 		};
 
-	};
+	}
 
     return {
         _start: start
-    }
+    };
 })(window.varCraft);

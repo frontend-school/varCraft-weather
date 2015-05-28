@@ -29,7 +29,7 @@ window.varCraft.dom = (function(namespace){
 
         dom.checkClass = function(elem, className){
                 return elem.classList.contains(className);
-        }
+        };
 
         return dom;
 })(window.varCraft);

@@ -7,7 +7,7 @@ window.varCraft.mobileController = (function(namespace){
 
     return {
         _start: start
-    }
+    };
 })(window.varCraft);
 
 

@@ -17,19 +17,19 @@ window.varCraft.locationView = (function(namespace){
                 cityMobile.innerHTML = newCity;
                 return true;
             }
-        }
+        };
 
         this.refreshCountry = function(newCountry){
             if(newCountry && typeof newCountry === "string"){
                 country.innerHTML = newCountry;
                 return true;
             }
-        }
+        };
     }
 
     return {
         _init: init
-    }
+    };
 
 })(window.varCraft);
 

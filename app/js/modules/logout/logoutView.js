@@ -14,7 +14,7 @@ window.varCraft.logoutView = (function(namespace){
             function logoutCallback(e){
                 namespace.xhr.getAsync('http://localhost:3000/logout', function(){
                     var check = JSON.parse(this.responseText);
-                    console.log(check);
+                    //console.log(check);
                     namespace.logoutController.setLogStatus(false);
                     switchView();
                 });
@@ -24,6 +24,7 @@ window.varCraft.logoutView = (function(namespace){
             function switchView(){
                 namespace.dom.addClass(mainPage, "hide");
                 namespace.dom.removeClass(loginPage, "hide");
+                namespace.logoutController.publish("logout");
             }
         }
         return {

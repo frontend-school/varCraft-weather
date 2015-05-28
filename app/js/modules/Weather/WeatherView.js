@@ -89,15 +89,15 @@ window.varCraft.weatherView = (function(namespace){
         this.refreshForecast = function(day, newForecast){
             if(day == "yesterday"){
                 fillForecast(yesterday, newForecast);
-            };
+            }
 
             if(day == "today"){
                 fillForecast(today, newForecast);
-            };
+            }
 
             if(day == "tomorrow"){
                 fillForecast(tomorrow, newForecast);
-            };
+            }
 
         };
     }

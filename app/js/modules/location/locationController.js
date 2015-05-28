@@ -8,16 +8,16 @@ window.varCraft.locationController = (function(namespace){
         this.geoParse = function(obj){
                     var description = obj.response.GeoObjectCollection.featureMember[0].GeoObject.description;
                     var locations = description.split(", ");
-                    console.log(locations);
+                    //console.log(locations);
                     namespace.locationModel.setCity(locations[0]);
                     namespace.locationModel.setCountry(locations[1]);
 
-                    console.log(namespace.locationModel.getCity());
-                    console.log(namespace.locationModel.getCountry());
+                    //console.log(namespace.locationModel.getCity());
+                    //console.log(namespace.locationModel.getCountry());
 
                     namespace.locationView.refreshCity(namespace.locationModel.getCity());
                     namespace.locationView.refreshCountry(namespace.locationModel.getCountry());
-        }
+        };
 
         this.getLocation = function(){
                     function geoSuccess(position) {
@@ -27,13 +27,13 @@ window.varCraft.locationController = (function(namespace){
                     }
 
                      navigator.geolocation.getCurrentPosition(geoSuccess);
-        }
+        };
 
     }
 
     return {
         _start: start
-    }
+    };
 
 })(window.varCraft);
 

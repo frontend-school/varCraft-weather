@@ -88,13 +88,13 @@ window.varCraft.mobileView = (function(namespace){
         namespace.Event.addEvent(mainPage, "touchstart", function(e){
             var touch = e.changedTouches[0];
                 startX = touch.clientX;
-                console.log("[touch Start]:", startX);
+                //console.log("[touch Start]:", startX);
         });
 
         namespace.Event.addEvent(mainPage, "touchmove", function(e){
             var touch = e.changedTouches[0];
                 endX = touch.clientX;
-                console.log("[touch end]:", endX);
+                //console.log("[touch end]:", endX);
                 var diff = startX - endX;
                 if( diff > 0 && Math.abs(diff) >= window.screen.width / 3 ){
                     slideNext(e);
@@ -112,7 +112,7 @@ window.varCraft.mobileView = (function(namespace){
 
     return {
         _init: init
-    }
+    };
 
 
 })(window.varCraft);

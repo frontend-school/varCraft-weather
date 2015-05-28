@@ -33,13 +33,13 @@ varCraft.loginView = (function(namespace){
                 namespace.Event.preventDefault(e);
 
                 namespace.xhr.getAsync('http://localhost:3000/login?' + "login=" + login + "&" + "password=" + password, function(){
-                console.log(this.responseText);
+                //console.log(this.responseText);
                 response = JSON.parse(this.responseText);
 
                 if(response.status === "success"){
                      loginSuccess();
-                     console.log(mainPage);
-                     console.log(loginPage);
+                     //console.log(mainPage);
+                     //console.log(loginPage);
                      switchView();
                 }
                 else window.location.reload();

@@ -22,6 +22,6 @@ window.varCraft.mobileModel = (function(namespace){
         getStatesAmount: function(){
             return statesAmount;
         }
-    }
+    };
 
 })(window.varCraft);

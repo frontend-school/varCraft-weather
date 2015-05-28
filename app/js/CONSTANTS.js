@@ -70,5 +70,9 @@ window.varCraft.CONST.regExps = {
         wind: /forecast-extra-info__wind_[^\s]+/,
         humidity: /forecast-extra-info_humidity[^\s]+/,
         moon: /forecast-extra-info_/
-        //forecast_[^\s]+
-}
+};
+
+window.varCraft.CONST.hashStates = {
+    "weather": "/weather",
+    "login": "/login"
+};

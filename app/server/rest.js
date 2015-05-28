@@ -21,7 +21,7 @@ http.createServer(app).listen(config.get('port'), function(){
 
 //app.use(bodyParser()); //req.body
 app.use(cookieParser()); //req.cookies
-app.use(session({ secret: 'your secret here', cookie: { secure: false }} ));
+//app.use(session({ secret: 'your secret here', cookie: { secure: false }} ));
 //app.use(express.static('dist'));
 
 app.get('/login', function(req, res, next){
@@ -29,11 +29,11 @@ app.get('/login', function(req, res, next){
 	res.set('Access-Control-Allow-Credentials', true);
 	res.set('Content-type', 'application/JSON');
 
-	console.log( req.session);
+	//console.log( req.session);
 
-	if(req.session.sid){
-		console.log("we are logged in", req.session.sid, "userName :", sessionStore[req.session.sid]);
-	}
+	// if(req.session.sid){
+	// 	console.log("we are logged in", req.session.sid, "userName :", sessionStore[req.session.sid]);
+	// }
 
 	var parsedUrl = url.parse(req.url, true);
 	var login = parsedUrl.query.login;
@@ -50,12 +50,12 @@ app.get('/login', function(req, res, next){
 		//console.log(req.headers.host, req.protocol);
 
 		var sid = +(new Date());
-    	req.session.sid = sid;
-    	sessionStore[sid] = {};
-    	sessionStore[sid].login = parsedUrl.query.login;
-    	console.log(req.session);
+    	// req.session.sid = sid;
+    	// sessionStore[sid] = {};
+    	// sessionStore[sid].login = parsedUrl.query.login;
+    	// console.log(req.session);
 
-		console.log("login: " + parsedUrl.query.login);
+		//console.log("login: " + parsedUrl.query.login);
 		res.statusCode = 200;
 		res.cookie('login', parsedUrl.query.login);
 
@@ -63,7 +63,7 @@ app.get('/login', function(req, res, next){
 	    res.end();
     }
     else {
-    	console.log(parsedUrl.query.login);
+    	//console.log(parsedUrl.query.login);
 		res.statusCode = 403;
 	    res.json({"status":"failed"});
 	    res.end();
@@ -71,7 +71,7 @@ app.get('/login', function(req, res, next){
 });
 
 app.get('/logout', function(req, res, next){
-		console.log("run '/logout'");
+		//console.log("run '/logout'");
 
 	res.set('Access-Control-Allow-Origin', 'http://localhost:8080'  );//
 	res.set('Access-Control-Allow-Credentials', true);
@@ -89,11 +89,11 @@ app.get('/weather', function(req, res){
 	if(req.cookies.login){
 
 	// console.log(typeof cookies);
-	console.log("run /weather");
+	//console.log("run /weather");
 	res.set('Access-Control-Allow-Origin', 'http://localhost:8080'  );//
 	res.set('Access-Control-Allow-Credentials', true);
 	res.set('Content-type', 'application/JSON');
-	console.log("Cookie: ", typeof req.cookies);
+	//console.log("Cookie: ", typeof req.cookies);
 	res.statusCode = 200;
 
 	res.json(weatherResponse);
@@ -118,63 +118,3 @@ app.use(function(req,res,next){
 });
 
 
-// app.use(function(req,res,next){
-// 	if(req.url == '/'){
-// 	console.log("run '/'");
-// 	var file = new fs.ReadStream('./dist/index.html');
-// 	sendFile(file, res);
-
-//     }
-//     else{
-//     	next();
-//     }
-// });
-
-// function sendFile(file, res){
-// 	file.pipe(res);
-
-// 	file.on('error', function(err){
-// 		res.statusCode = 500;
-// 		res.end('server Error');
-// 		console.log(err);
-// 	});
-
-// 	file.on('close', function(){
-// 		file.destroy();
-// 	})
-// }
-
-
-
-
-
-
-
-// app.use(function(req, res){
-// 	res.send('404', 'page not found');
-// });
-
-// app.use(function(req, res, next){
-// 	if(req.url == '/'){
-// 	res.end('Hello!');}
-// 	else next();
-// });
-
-// app.use(function(req, res, next){
-// 	if(req.url == '/test'){
-// 		res.end('test!');}
-// 	else next();
-// });
-
-// app.use(function(req, res){
-// 	res.send('404', 'page not found');
-// });
-
-// app.use(function(req, res){
-// 	if(req.url == '/forbidden'){
-// 		next(new Error("oops!"));
-// 	}
-// })
-
-
-//MiddleWare обработчик серверного запроса

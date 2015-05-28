@@ -24,5 +24,5 @@ window.varCraft.locationModel = (function(namespace){
         getCountry: function(){
             return country;
         }
-    }
+    };
 })(window.varCraft);

@@ -37,16 +37,6 @@ window.varCraft.weatherModel = (function(nameSpace){
     forecast.tomorrow.humidity = 1;
     forecast.tomorrow.humidityTitle = "";
 
-    // newForecast.yesterday.date = "24 / 05 / 2015";
-    // newForecast.yesterday.weatherCondition = 1;
-    // newForecast.yesterday.weatherDescription = "Partly Cloudy";
-    // newForecast.yesterday.temperatureAtDay = "+25";
-    // newForecast.yesterday.temperatureAtNight = "+13";
-    // newForecast.yesterday.windSpeed = "7mph";
-    // newForecast.yesterday.windDirection = "se";
-    // newForecast.yesterday.moonPhase = "2";
-
-
     return {
         setWeather: function(day, newForecast){
             if(forecast[day] && typeof newForecast === "object"){
@@ -59,7 +49,7 @@ window.varCraft.weatherModel = (function(nameSpace){
                 forecast[day].moonPhase = newForecast.moonPhase;
                 forecast[day].humidity = newForecast.humidity;
                 forecast[day].humidityTitle = newForecast.humidityTitle;
-                console.log(forecast[day]);
+                //console.log(forecast[day]);
             }
         },
         getWeather: function(day){

@@ -1,3 +1,16 @@
+var pubsubNormal = {
+    topics:{
+        //'name':[func, func, ..., func]
+    },
+    publish: function (stream) {
+        this.topics[stream] = new Array();
+        console.log(this.topics)
+    },
+    subscribe: function (stream, cb) {
+        this.topics[stream].push(cb);
+    }
+};
+pubsubNormal.publish('ololo');
 function Topic(subject, text){
     if(typeof subject === 'string') {
         this.subject = subject;

@@ -5,7 +5,7 @@ function User(login,sid){
     this.sid = sid;
 }
 
-var users =[new User('log', new Date().getTime()), new User('log', new Date().getTime() + 1000)];
+var users =[];
 
 removeTimeout();
 function removeTimeout(){

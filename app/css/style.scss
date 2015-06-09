@@ -1,28 +1,18 @@
 @import 'normalize.css';
 @import url('http://fonts.googleapis.com/css?family=Titillium+Web');
-@import 'login-form.scss';
-@import 'logout-form.scss';
-@import 'var.scss';
+@import 'elements/fonts';
+@import 'core/var';
+@import 'elements/login-form';
+@import 'elements/logout-form';
 
-@font-face{
-    font-family: Lintel-Regular;
 
-    src: local('Lintel-Regular'),
-    url(fonts/Lintel-Regular.eot);
-}
-
-@font-face{
-    font-family: Lintel-Regular;
-
-    src: local('Lintel-Regular'),
-    url(fonts/Lintel-Regular.otf);
-}
 
 *{
     -webkit-box-sizing: border-box ;
        -moz-box-sizing: border-box ;
             box-sizing: border-box ;
 }
+
 
 
 html{
@@ -256,13 +246,13 @@ body{
             display: inline-block;
             color: #fff;
         }
-        &__at-night{
+        &-at-night{
             font-size: 24/16 + em;
 
             display: inline-block;
 
             color: #fff;
-            &_title{
+            &__title{
                 font-size: 14/20 + em;
             }
         }
@@ -705,5 +695,4 @@ body{
 }
 
 .m-forecast_active{
-          z-index: 20;
-        }
+          z-index: 20;    }

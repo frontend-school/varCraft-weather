@@ -11,10 +11,15 @@ function ready(fn) {
 function main(){
 
     location.hash = window.varCraft.CONST.hashStates.login;
+
     window.onhashchange = function(){
-        if(location.hash !== curHash){
+        console.log("before change: ", location.hash);
+
+        //if(location.hash !== curHash){
             location.hash = curHash;
-        }
+        //}
+        console.log("after change: ", location.hash);
+
     };
 
     var curHash;

@@ -1,0 +1,147 @@
+@include breakpoint(desktop){
+    .user-info{
+        float: left;
+
+        width: 37%;
+        height: 100%;
+        padding-top: 1%;
+        padding-left: 6em;
+
+        background-color: $grey;
+        &-hello{
+            font-size: 24/16 + em;
+
+            color: #fff ;
+        }
+        &-time{
+            font-size: 115/16 + em;
+
+            position: relative; // "am/pm" part of time view is positioned abolute
+
+            display: inline-block;
+
+            margin-top: .5em;
+
+            color: #fff;
+            &__day-part{
+            font-size: 1/5 + em;
+
+            position: absolute;
+            top: 17%;
+            left: 100%;
+
+            height: 10%;
+
+            text-transform: uppercase ;
+
+            color: #fff;
+            }
+        }
+
+        &__date{
+            font-size: 20/16 + em;
+
+            margin-top: 10% ;
+
+            color: #fff;
+        }
+        &-location{
+            margin-top: 10%;
+            background: url('../img/app-icons.png') no-repeat -84px 0;
+
+            &__city{
+                &_mobile{
+                  display: none;
+                }
+                font-size: 20/16 + em;
+                margin-left: 40px;
+                color: #fff;
+            }
+            &__country{
+                font-size: 14/16 + em;
+                margin-left: 40px ;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@include breakpoint(tablet){
+  .user-info{
+    float: left;
+
+    width: 100%;
+    height: 10%;
+    min-height: 70px ;
+
+    padding-right: 1em ;
+    padding-left: 1em ;
+    padding-top: 1%;
+
+    background-color: $grey;
+    &-hello{
+        float: right;
+        min-width: 150px;
+
+        font-size: 24/16 + em;
+        color: #fff ;
+
+        padding-right: 40px;
+
+      .logout-form__submit{
+        margin-right: 0;
+      }
+    }
+
+    &-time{
+        position: relative;
+        display: inline-block;
+        float: left;
+
+        font-size: 40/16 + em ;
+        line-height: .8em ;
+        color:#fff;
+
+        margin-top: 0 ;
+        &__day-part{
+            font-size: 1/5 + em;
+
+            position: absolute;
+            top: -30%;
+            left: 100%;
+
+            height: 10%;
+
+            text-transform: uppercase ;
+
+            color: #fff;
+        }
+    }
+
+    &__date{
+        display: none;
+    }
+
+    &-location{
+      float: right;
+      margin-right: 40px;
+      margin-top: 0 ;
+
+      background: url('../img/app-icons.png') no-repeat -84px 0;
+
+      &__city{
+          &_mobile{
+            display: none;
+          }
+          font-size: 20/16 + em;
+          margin-left: 40px;
+          color: #fff;
+      }
+      &__country{
+          font-size: 14/16 + em;
+          margin-left: 40px ;
+          color: #fff;
+      }
+    }
+  }
+}

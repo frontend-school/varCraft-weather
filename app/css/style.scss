@@ -11,89 +11,9 @@
 @import 'blocks/login-form';
 @import 'blocks/logout-form';
 @import 'blocks/main-page';
+@import 'blocks/user-info';
 
 
-// .main-page{
-//   width: 100%;
-//   height: 100%;
-//   &-content{
-//     width: 100%;
-//     max-width: 1920/16 + em;
-//     height: 100%;
-//     min-height: 700/16 + em;
-//     margin: 0 auto;
-//   }
-// }
-
-// .mobile{
-//   display: none; //to hide all buttons of mobile version
-// }
-
-.user-info{
-    float: left;
-
-    width: 37%;
-    height: 100%;
-    padding-top: 1%;
-    padding-left: 6em;
-
-    background-color: $grey;
-    &-hello{
-        font-size: 24/16 + em;
-
-        color: #fff ;
-    }
-    &-time{
-        font-size: 115/16 + em;
-
-        position: relative; // "am/pm" part of time view is positioned abolute
-
-        display: inline-block;
-
-        margin-top: .5em;
-
-        color: #fff;
-        &__day-part{
-        font-size: 1/5 + em;
-
-        position: absolute;
-        top: 17%;
-        left: 100%;
-
-        height: 10%;
-
-        text-transform: uppercase ;
-
-        color: #fff;
-        }
-    }
-
-    &__date{
-        font-size: 20/16 + em;
-
-        margin-top: 10% ;
-
-        color: #fff;
-    }
-    &-location{
-        margin-top: 10%;
-        background: url('../img/app-icons.png') no-repeat -84px 0;
-
-        &__city{
-            &_mobile{
-              display: none;
-            }
-            font-size: 20/16 + em;
-            margin-left: 40px;
-            color: #fff;
-        }
-        &__country{
-            font-size: 14/16 + em;
-            margin-left: 40px ;
-            color: #fff;
-        }
-    }
-}
 
 .forecast{
     position: relative;// used for changing order of elements in mobile version("temperature" position absolute)
@@ -352,52 +272,7 @@
       //view to desktop version, even if screen width less than 1280px. So I have turned this option off
         and (-webkit-min-device-pixel-ratio: 1)
 {
-    // .main-page-content{
-    //     width: 100% ;
-    //     min-height: 720px;
-    // }
 
-    .user-info{
-        width: 100%;
-        height: 10%;
-        min-height: 70px ;
-        padding-right: 1em ;
-        padding-left: 1em ;
-
-        &-time{
-            font-size: 40/16 + em ;
-            line-height: .8em ;
-
-            float: left;
-
-            margin-top: 0 ;
-            &__day-part{
-                 top: -30%;
-            }
-        }
-
-        &-location{
-          margin-right: 40px;
-        }
-        &-hello{
-            float: right;
-            padding-right: 40px;
-
-            min-width: 150px;
-
-          .logout-form__submit{
-            margin-right: 0;
-          }
-        }
-        &__date{
-            display: none;
-        }
-        &-location{
-            float: right;
-
-            margin-top: 0 ;
-        }
-    }
 
     .forecast{
         width: 33.333%;

@@ -1,56 +1,33 @@
 @import 'normalize.css';
 @import url('http://fonts.googleapis.com/css?family=Titillium+Web');
-@import 'elements/fonts';
+//core
 @import 'core/var';
-@import 'elements/login-form';
-@import 'elements/logout-form';
+@import 'core/mixin';
+@import 'core/common';
+@import 'core/fonts';
 
 
-
-*{
-    -webkit-box-sizing: border-box ;
-       -moz-box-sizing: border-box ;
-            box-sizing: border-box ;
-}
+//blocks
+@import 'blocks/login-form';
+@import 'blocks/logout-form';
+@import 'blocks/main-page';
 
 
+// .main-page{
+//   width: 100%;
+//   height: 100%;
+//   &-content{
+//     width: 100%;
+//     max-width: 1920/16 + em;
+//     height: 100%;
+//     min-height: 700/16 + em;
+//     margin: 0 auto;
+//   }
+// }
 
-html{
-    width: 100%;
-    height: 100%;
-    background-color: $grey;
-}
-
-body{
-    font-family: $main-font;
-    font-size: 100%;
-
-    width: 100% ;
-    height: 100%;
-}
-
-.hide{
-    display: none;
-}
-
-
-.main-page{
-  width: 100%;
-  height: 100%;
-
-}
-
-.main-page-content{
-    width: 100%;
-    max-width: 1920/16 + em;
-    height: 100%;
-    min-height: 700/16 + em;
-    margin: 0 auto;
-}
-
-.mobile{
-  display: none; //to hide all buttons of mobile version
-}
+// .mobile{
+//   display: none; //to hide all buttons of mobile version
+// }
 
 .user-info{
     float: left;
@@ -375,10 +352,10 @@ body{
       //view to desktop version, even if screen width less than 1280px. So I have turned this option off
         and (-webkit-min-device-pixel-ratio: 1)
 {
-    .main-page-content{
-        width: 100% ;
-        min-height: 720px;
-    }
+    // .main-page-content{
+    //     width: 100% ;
+    //     min-height: 720px;
+    // }
 
     .user-info{
         width: 100%;
@@ -444,18 +421,6 @@ body{
   and (-webkit-min-device-pixel-ratio: 2)
   //and (orientation: portrait)
 {
-    .main-page-content{
-        // margin-left: -320px ; // to see "today" state
-        // margin-left: -640px;  // to see "tomorrow" state
-        // I assume that I will change days by adding margins to main-page
-        // Now by default is "yesterday" state
-        // WORKS ONLY WITH IPHONE 5 screen resolution
-
-        min-width: 960px;
-        min-height: 568px;
-        height:100%;
-        width: 100%;
-    }
 
     .user-info{
       display: none;
@@ -468,80 +433,6 @@ body{
         }
     }
 
-  .main-page{
-    overflow: hidden;
-    min-height: 568px;
-    min-width: 320px;
-    position: absolute;
-    z-index: 20;
-
-    width:100%;
-    height: 100% ;
-  }
-
-  .mobile{
-    display: block; //to show all extra elements of  mobile version
-
-    &__settings{
-      position: absolute;
-      z-index: 30;
-      top: 24px;
-      left: 21px;
-
-      width: 32px;
-      height: 32px;
-
-      background: url('../img/app-icons.png') no-repeat -42px 0;
-    }
-
-    &__change-day{
-      position: absolute;
-      z-index: 30; //to show navigation arrows under content
-      top: 43%;
-      width: 30px;
-      height: 67px;
-
-      &_previous{
-        left: 5%;
-        background: url('../img/arrows.png') no-repeat 0 0 ;
-      }
-      &_next{
-        right: 5%;
-        background: url('../img/arrows.png') no-repeat -40px 0;
-      }
-
-      &_hide{
-        display: none;
-      }
-        
-    }
-    &-day-list{
-      position: absolute;
-      z-index: 30;
-      top: 70%;
-      margin: 0 auto;
-      text-align: center;
-      width: 100%;
-      padding: 0;
-      &__item{
-        display: inline-block;
-
-        width: 7px;
-        height: 7px;
-        margin: 0 15px;
-        list-style: none ;
-        vertical-align: middle;
-        border: 4px solid #fff;
-        border-radius: 50%;
-        &_active{
-          width: 12px;
-          height: 12px;
-
-          border: 3px solid #fff;
-        }
-      }
-    }
-  }
 
 
     .forecast{

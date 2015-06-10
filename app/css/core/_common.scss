@@ -1,0 +1,24 @@
+*{
+    -webkit-box-sizing: border-box ;
+       -moz-box-sizing: border-box ;
+            box-sizing: border-box ;
+}
+
+
+html{
+    width: 100%;
+    height: 100%;
+    background-color: $grey;
+}
+
+body{
+    font-family: $main-font;
+    font-size: 100%;
+
+    width: 100% ;
+    height: 100%;
+}
+
+.hide{
+    display: none;
+}

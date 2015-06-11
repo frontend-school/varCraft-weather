@@ -72,7 +72,7 @@ window.varCraft.CONST.regExps = {
         moon: /forecast-extra-info_/
 };
 
-window.varCraft.CONST.hashStates = {
-    "weather": "/weather",
-    "login": "/login"
+window.varCraft.CONST.hash = {
+    "mainPage": "/weather",
+    "loginPage": "/login"
 };

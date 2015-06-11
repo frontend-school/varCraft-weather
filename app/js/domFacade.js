@@ -1,5 +1,4 @@
 window.varCraft = window.varCraft || {};
-window.varCraft = window.varCraft || {};
 window.varCraft.dom = window.varCraft.dom || {};
 
 window.varCraft.dom = (function(namespace){

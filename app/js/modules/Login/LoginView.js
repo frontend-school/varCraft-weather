@@ -22,7 +22,7 @@ varCraft.loginView = (function(namespace){
 
         if(namespace.cookie.getCookie("login")){
             loginSuccess();
-            switchView();
+            //switchView();
         }
 
         function LoginCallback(e){
@@ -40,7 +40,7 @@ varCraft.loginView = (function(namespace){
                      loginSuccess();
                      //console.log(mainPage);
                      //console.log(loginPage);
-                     switchView();
+                     //switchView();
                 }
                 else window.location.reload();
             });

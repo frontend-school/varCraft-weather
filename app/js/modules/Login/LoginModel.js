@@ -6,9 +6,8 @@ window.varCraft.loginModel = (function(){
         userName;
     return {
         setLogStatus: function(newStatus){
-            if(newStatus){
                 logStatus = newStatus;
-            }
+                console.log("[loginModel logStatus]:", logStatus);
         },
         getLogStatus: function(){
             return logStatus;

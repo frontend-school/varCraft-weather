@@ -22,8 +22,8 @@ window.varCraft.logoutView = (function(namespace){
             }
 
             function switchView(){
-                namespace.dom.addClass(mainPage, "hide");
-                namespace.dom.removeClass(loginPage, "hide");
+                //namespace.dom.addClass(mainPage, "hide");
+                //namespace.dom.removeClass(loginPage, "hide");
                 namespace.logoutController.publish("logout");
             }
         }

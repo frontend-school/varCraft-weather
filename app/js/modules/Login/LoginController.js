@@ -14,6 +14,11 @@ window.varCraft.loginController = (function(namespace){
                 namespace.loginModel.setUserName(userName);
                 namespace.loginModel.setLogStatus(true);
             }
+        },
+        deleteUserName: function(){
+            console.log("[loginController fire!]");
+            namespace.loginModel.setUserName("userName");
+            namespace.loginModel.setLogStatus(false);
         }
     };
 

@@ -1,3 +1,5 @@
+window.varCraft = window.varCraft || {};
+
 function ready(fn) {
   if (document.readyState != 'loading'){
     fn();
@@ -6,23 +8,29 @@ function ready(fn) {
   }
 }
 
-
-
 function main(){
-
-    location.hash = window.varCraft.CONST.hashStates.login;
-
-    window.onhashchange = function(){
-        console.log("before change: ", location.hash);
-
-        //if(location.hash !== curHash){
-            location.hash = curHash;
-        //}
-        console.log("after change: ", location.hash);
-
+    var pages = {
+        loginPage: varCraft.dom.getElem(varCraft.CONST.loginPage),
+        mainPage: varCraft.dom.getElem(varCraft.CONST.mainPage)
     };
 
-    var curHash;
+    varCraft.router._add(varCraft.CONST.hash.loginPage, pages.loginPage, function(){
+        if(! varCraft.loginModel.getLogStatus()){
+            return true;
+        }
+        else return false;
+    });
+
+    varCraft.router._add(varCraft.CONST.hash.mainPage, pages.mainPage, function(){
+        if(varCraft.loginModel.getLogStatus()){
+            return true;
+        }
+        else return false;
+    });
+
+    console.log(varCraft.router.routes);
+    varCraft.router._listen();
+
 
     varCraft.mediator.installTo(varCraft.loginController);
     varCraft.mediator.installTo(varCraft.logoutController);
@@ -31,16 +39,22 @@ function main(){
 
     varCraft.locationController._start();
     varCraft.mobileController._start();
-
-    varCraft.mediator.subscribe("login", function(){location.hash = window.varCraft.CONST.hashStates.weather; curHash = location.hash;});
-    varCraft.mediator.subscribe("login", varCraft.DateTimeController._start);
-    varCraft.locationController.subscribe("login", varCraft.locationController.getLocation);
-    varCraft.mediator.subscribe("logout", function(){location.hash = window.varCraft.CONST.hashStates.login; curHash = location.hash;});
-
     varCraft.logoutController._start();
     varCraft.weatherController._start();
+
+    varCraft.mediator.subscribe("login", varCraft.DateTimeController._start);
+    varCraft.mediator.subscribe("login", function(){
+        varCraft.router._switchRoute(varCraft.CONST.hash.mainPage);
+    });
+    varCraft.locationController.subscribe("login", varCraft.locationController.getLocation);
     varCraft.weatherController.subscribe("login", varCraft.weatherController.changeForecast);
-    varCraft.loginController._start();
+
+    varCraft.loginController.subscribe("logout", varCraft.loginController.deleteUserName);
+    varCraft.mediator.subscribe("logout", function(){
+        varCraft.router._switchRoute(varCraft.CONST.hash.loginPage);
+    });
+
+    varCraft.loginController._start(); //this one os here because for page refresh proper work, believe me
 }
 
 ready(main);

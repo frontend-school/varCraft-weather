@@ -1,5 +1,4 @@
 window.varCraft = window.varCraft || {};
-window.varCraft = window.varCraft || {};
 window.varCraft.cookie = window.varCraft.cookie || {};
 
 varCraft.cookie.getCookie= function(name) {

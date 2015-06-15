@@ -3,6 +3,7 @@
         <meta charset="utf-8">
         <title>varCraft weatherApp</title>
         <link rel = "stylesheet" type="text/css" href = "css/style.css">
+        <link rel="Shortcut Icon" type="image/x-icon" href="/img/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 </head>
@@ -49,7 +50,7 @@
 
                 <div class="forecast forecast_partly-cloudy js-yesterday-forecast">
                     <div class="forecast-header">
-                        <div class="forecast-header__day-of-week">Yesterday<span class="user-info-location__city_mobile"> in <span class="js-location-city-mobile">Kiev</span></span></div>
+                        <div class="forecast-header__day-of-week">Yesterday<span class="user-info-location__city_mobile"> in <span class="js-yesterday-location-city-mobile"></span></span></div>
                         <div class="forecast-header__date js-yesterday-forecast-date">30 / 07 / 2013</div>
                     </div>
 
@@ -83,7 +84,7 @@
 
                 <div class="forecast forecast_snow-fall js-today-forecast">
                     <div class="forecast-header">
-                        <div class="forecast-header__day-of-week">Today<span class="user-info-location__city_mobile"> in Kiev</span></div>
+                        <div class="forecast-header__day-of-week">Today<span class="user-info-location__city_mobile"> in <span class="js-today-location-city-mobile"></span></span></div>
                         <div class="forecast-header__date js-today-forecast-date">30 / 07 / 2013</div>
                     </div>
 
@@ -115,7 +116,7 @@
 
                 <div class="forecast forecast_fog js-tomorrow-forecast">
                     <div class="forecast-header">
-                        <div class="forecast-header__day-of-week">Tomorrow<span class="user-info-location__city_mobile"> in Kiev</span></div>
+                        <div class="forecast-header__day-of-week">Tomorrow<span class="user-info-location__city_mobile"> in <span class="js-tomorrow-location-city-mobile"></span></span></div>
                         <div class="forecast-header__date js-tomorrow-forecast-date">30 / 07 / 2013</div>
                     </div>
 
@@ -146,7 +147,7 @@
         </div>
 
         <div class="mobile">
-            <a href="#"><div class="mobile__settings js-mobile-settings"></div></a>
+            <a href="#/settings"><div class="mobile__settings js-mobile-settings"></div></a>
             <form action="" method="get" name="log-out" class="logout-form logout-form_mobile js-logout-form_mobile">
                 <input type="submit" class="logout-form__submit" value=""> 
             </form>

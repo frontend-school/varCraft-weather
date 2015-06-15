@@ -21,6 +21,14 @@
 	    }
 	  }
 
+	  //the same as downpour picture
+	  &_hail{
+  		 background-color: #008080 ;
+  		 & .forecast-weather__logo{
+  	        background-position: -420px 0;
+	  	 }
+	  }
+
 	  &_mostly-cloudy{
 	    background-color: #1D9E48;
 	    & .forecast-weather__logo {
@@ -75,6 +83,19 @@
 	      & .forecast-weather__logo{
 	          background-position: -2310px 0;
 	      }
+	  }
+	  &_waterspouts{
+	  	 background-color: #c5718b ;
+	  	 & .forecast-weather__logo{
+	          background-position: -2520px 0;
+	     }
+	  }
+
+	  &_thunderstorm{
+	  	 background-color: #214f87 ;
+	  	 & .forecast-weather__logo{
+	          background-position: -2730px 0;
+	     }
 	  }
 
 
@@ -280,6 +301,13 @@
 	    }
 	  }
 
+	  &_hail{
+  		 background-color: #008080 ;
+  		 & .forecast-weather__logo{
+  	        background-position: -420px 0;
+	  	 }
+	  }
+
 	  &_mostly-cloudy{
 	    background-color: #1D9E48;
 	    & .forecast-weather__logo {
@@ -334,6 +362,20 @@
 	      & .forecast-weather__logo{
 	          background-position: -2310px 0;
 	      }
+	  }
+
+	  &_waterspouts{
+	  	 background-color: #c5718b ;
+	  	 & .forecast-weather__logo{
+	          background-position: -2520px 0;
+	     }
+	  }
+
+	  &_thunderstorm{
+	  	 background-color: #214f87;
+	  	 & .forecast-weather__logo{
+	          background-position: -2730px 0;
+	     }
 	  }
 
 	  &-header{
@@ -537,6 +579,13 @@
 	    }
 	  }
 
+	  &_hail{
+  		 background-color: #008080 ;
+  		 & .forecast-weather__logo{
+  	        background-position: -210px 0;
+	  	 }
+	  }
+
 	  &_mostly-cloudy{
 	    background-color: #1D9E48;
 	    & .forecast-weather__logo {
@@ -591,6 +640,20 @@
 	      & .forecast-weather__logo{
 	          background-position: -1155px 0;
 	      }
+	  }
+
+	  &_waterspouts{
+	  	 background-color: #c5718b ;
+	  	 & .forecast-weather__logo{
+	          background-position: -1260px 0;
+	     }
+	  }
+
+	  &_thunderstorm{
+	  	 background-color: #214f87 ;
+	  	 & .forecast-weather__logo{
+	          background-position: -1365px 0;
+	     }
 	  }
 
 	  &-header{

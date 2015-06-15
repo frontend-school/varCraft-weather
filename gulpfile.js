@@ -19,7 +19,7 @@ var filteredSource = [source + '/css/**/*.css',
                       source + '/js/**/*.js',
                       source + '/img/**/*.*',
                       source + '/index.html',
-                      source + '/pages/*.*'];
+                      source + '/pages/*.html'];
 
 var filteredDestination = ['dist/css/*.css',
                             'dist/css/fonts/*.*',

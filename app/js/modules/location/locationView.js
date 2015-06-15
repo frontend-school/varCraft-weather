@@ -7,14 +7,18 @@ window.varCraft.locationView = window.varCraft.locationView || {};
 window.varCraft.locationView = (function(namespace){
     function init(){
         var city = namespace.dom.getElem(namespace.CONST.cityField),
-            cityMobile = namespace.dom.getElem(namespace.CONST.cityFieldMobile),
+            cityMobileYesterday = namespace.dom.getElem(namespace.CONST.cityFieldMobileYesterday),
+            cityMobileToday = namespace.dom.getElem(namespace.CONST.cityFieldMobileToday),
+            cityMobileTomorrow = namespace.dom.getElem(namespace.CONST.cityFieldMobileTomorrow),
             country = namespace.dom.getElem(namespace.CONST.countryField);
 
 
         this.refreshCity = function(newCity){
             if(newCity && typeof newCity === "string"){
                 city.innerHTML = newCity;
-                cityMobile.innerHTML = newCity;
+                cityMobileYesterday.innerHTML = newCity;
+                cityMobileToday.innerHTML = newCity;
+                cityMobileTomorrow.innerHTML = newCity;
                 return true;
             }
         };

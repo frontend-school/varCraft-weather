@@ -46,6 +46,7 @@ window.varCraft.weatherView = (function(namespace){
         var weatherConditions = {
             "Sun" : "forecast_sun",
             "Downpour": "forecast_downpour",
+            "Hail": "forecast_hail",
             "Mostly Cloudy": "forecast_mostly-cloudy",
             "Partly Cloudy": "forecast_partly-cloudy",
             "Rain and Sun": "forecast_rain-and-sun",
@@ -54,7 +55,9 @@ window.varCraft.weatherView = (function(namespace){
             "Snow":"forecast_snow",
             "Snow Fall": "forecast_snow-fall",
             "Sleet": "forecast_sleet",
-            "Fog": "forecast_fog"
+            "Fog": "forecast_fog",
+            "Waterspouts": "forecast_waterspouts",
+            "Thunderstorm": "forecast_thunderstorm"
         };
 
         var windDirections = {

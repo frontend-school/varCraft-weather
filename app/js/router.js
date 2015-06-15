@@ -22,7 +22,7 @@ window.varCraft.router = (function(namespace){
                     return i;
                 }
             }
-           console.log("[main Router]: Route ", route, " doesn't exist");
+           //console.log("[main Router]: Route ", route, " doesn't exist");
            return;
         }
 

@@ -16,12 +16,10 @@ var endpoints = {
 
 
 
-function analyzeWeatherCode(cloudCode, weatherCode){
-    //cloudsCoded: "SC"
-    //weatherPrimaryCoded: "PA::F"
+function analyzeWeatherCode(cloudCode, complexWeatherCode){
+
 
     var weatherConditions = {
-
         "Sun" : "forecast_sun",
         "Mostly Cloudy": "forecast_mostly-cloudy",
         "Partly Cloudy": "forecast_partly-cloudy",
@@ -117,7 +115,7 @@ function analyzeWeatherCode(cloudCode, weatherCode){
         }
 
     }
-    var weatherCodeParsed = weatherCode.split(":");
+    var weatherCodeParsed = complexWeatherCode.split(":");
     var coverageCode = weatherCodeParsed[0];
     var intensityCode = weatherCodeParsed[1];
     var weatherCode = weatherCodeParsed[2];
@@ -283,6 +281,7 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
     function setDaySample(){
         this.date = "";
         this.weatherCondition = "";
+        this.weatherConditionCoverage = "";
         this.temperatureAtDay = "";
         this.temperatureAtNight = "";
         this.windSpeed = ""; //mph
@@ -300,6 +299,7 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
                  location:location,
                  options:[]},
                  weatherAPI, true);
+    console.log(reqTodayTomorrow);
 
     //AJAX request sending
     var options = {
@@ -331,7 +331,7 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
                                                                  location:location,
                                                                  options:[]},
                                                                  weatherAPI, true);
-                console.log(reqYesterday);
+                //console.log(reqYesterday);
           }
 
           fillYesterday(yesterday, accurateCurDay, location);
@@ -339,40 +339,38 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
           var forecastResp = forecast.response.responses[1].response[0];
           var startNumber = 0;
           var forecastZeroElemDate = forecastResp.periods[startNumber].dateTimeISO.split("T")[0]
-          console.log(forecastZeroElemDate);
+          //console.log(foforecastZeroElemDate);
 
           if(accurateCurDay !== forecastZeroElemDate){
             startNumber += 1; // first element in periods array showing us forecast for yesterday night
+            var todayDayNumber = startNumber;
+            var todayNightNumber = todayDayNumber + 1;
+            var tomorrowDayNumber = todayNightNumber + 1;
+            var tomorrowNightNumber = tomorrowDayNumber + 1;
+          }
+          else if(!forecastResp.periods[startNumber].maxTempC){// we need it for API responses after 20:00
+            //cause periods[0] in this case : "cur night temp"
+            var todayDayNumber = startNumber;
+            var todayNightNumber = startNumber;
+            var tomorrowDayNumber = todayNightNumber + 1;
+            var tomorrowNightNumber = todayNightNumber + 2;
           }
 
+          console.log("[accuaret Cur Day]:", accurateCurDay);
+          console.log("[forecastZeroElemDate]: ", forecastZeroElemDate);
+          console.log(accurateCurDay === forecastZeroElemDate);
           // In /forecast&filter=daynight request, first elem in periods array it's forecast for current DAY
           // next - for current NIGHT and etc
 
           //Now we need to fill today object
-          var todayDayNumber = startNumber;
-          var todayNightNumber = todayDayNumber + 1;
-          var tomorrowDayNumber = todayNightNumber + 1;
-          var tomorrowNightNumber = tomorrowDayNumber + 1;
+          
 
 
           function fillDay(day, forecastResp, moonPhaseResp, dayNumber, nightNumber){
             //today date
             var date = forecastResp.periods[dayNumber].dateTimeISO.split("T")[0].split("-");
             day.date = date[2] + " / " + date[1] +" / "+ date[0];
-            console.log(day.date);
-
-            //day day temp
-            day.temperatureAtDay = forecastResp.periods[dayNumber].maxTempC;
-            if(day.temperatureAtDay > 0){
-              day.temperatureAtDay = "+" + day.temperatureAtDay;
-            }
-            else if(day.temperatureAtDay < 0){
-                      day.temperatureAtDay = "-" + day.temperatureAtDay ;
-                 }
-                 else {
-                  day.temperatureAtDay = day.temperatureAtDay;
-                 }
-            console.log(day.temperatureAtDay);
+            console.log("[date]:", day.date);
 
             // night temp
             day.temperatureAtNight = forecastResp.periods[nightNumber].minTempC;
@@ -385,14 +383,34 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
                  else {
                   day.temperatureAtNight = day.temperatureAtNight;
                  }
-            console.log(day.temperatureAtNight);
+
+            console.log("[night Temp]:",day.temperatureAtNight);
+
+            //day day temp
+            if(forecastResp.periods[dayNumber].maxTempC){
+                day.temperatureAtDay = forecastResp.periods[dayNumber].maxTempC;
+                if(day.temperatureAtDay > 0){
+                  day.temperatureAtDay = "+" + day.temperatureAtDay;
+                }
+                else if(day.temperatureAtDay < 0){
+                          day.temperatureAtDay = "-" + day.temperatureAtDay ;
+                     }
+                     else {
+                      day.temperatureAtDay = day.temperatureAtDay;
+                     }
+
+            }
+            else {
+                day.temperatureAtDay = day.temperatureAtNight;
+            }
+            console.log("[dayTemp:]", day.temperatureAtDay);
 
             //day Weather condition
             var dayWeatherCode = forecastResp.periods[dayNumber].weatherPrimaryCoded;
             var dayCloudCode = forecastResp.periods[dayNumber].cloudsCoded;
 
             day.weatherCondition = analyzeWeatherCode(dayCloudCode, dayWeatherCode);
-            console.log(day.weatherCondition);
+            console.log("[weather condition]:",day.weatherCondition);
 
             //day humidity
             day.humidity = forecastResp.periods[dayNumber].humidity;
@@ -409,12 +427,10 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
             }
             day.humidity += "%";
 
-            console.log(day.humidity, day.humidityTitle);
+            console.log("[humidity]:",day.humidity, day.humidityTitle);
 
             //day wind direction
             var windDirDEG = forecastResp.periods[dayNumber].windDirDEG;
-
-            //var windDirDEG = 270;
 
             console.log(windDirDEG);
             if(windDirDEG <= 22){
@@ -449,28 +465,31 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
               day.windDirection = "NW";
             }
 
-            console.log(day.windDirection);
+            console.log("[wind dir]:", day.windDirection);
 
             //day wind Speed
 
             day.windSpeed = forecastResp.periods[dayNumber].windSpeedMPH + "mph";
-            console.log(day.windSpeed)
+            console.log("[wind speed]:", day.windSpeed)
 
             // MoonPhase
             if(nightNumber <= 2){ // Here we check are we filling tomorrow or not cause tomorrow nightNumber always > 2
                 day.moonPhase = Math.round(moonPhaseResp.moon.phase.age);
-                console.log(day.moonPhase);
             }
             else{
                 var d = day.date.split(" / ");
                 day.moonPhase = moonPhase(d[2], d[1], d[0]);
-                console.log(day.moonPhase);
 
             }
+
+            console.log("[moon phase]:", day.moonPhase);
+
           }
 
           fillDay(today, forecastResp, moonPhaseResp, todayDayNumber, todayNightNumber);
+          console.log("[todayDayNumber and Night Number]",todayDayNumber, todayNightNumber);
           fillDay(tomorrow, forecastResp, moonPhaseResp, tomorrowDayNumber, tomorrowNightNumber)
+          console.log("[tomorrowDayNumber and Night Number]",tomorrowDayNumber, tomorrowNightNumber);
 
         });
 

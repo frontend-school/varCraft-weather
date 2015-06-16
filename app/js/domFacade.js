@@ -15,7 +15,14 @@ window.varCraft.dom = (function(namespace){
         };
 
         dom.substituteClass = function(elem, regExp, newClass){
-            elem.className = elem.className.replace(regExp, newClass);
+            console.log("[substituteClass]:", newClass);
+                if(elem.className.match(regExp)){
+                    elem.className = elem.className.replace(regExp, newClass);
+                }
+                else{
+                    elem.classList.add(newClass);
+                }
+
         };
 
         dom.removeClass = function(elem, className){

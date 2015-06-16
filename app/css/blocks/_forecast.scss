@@ -138,7 +138,8 @@
 	      }
 	  }
 
-
+	 
+	  
 	  &-temperature{
 	      width: 100%;
 	      height: 15%;
@@ -169,26 +170,24 @@
 	    width: 50%;
 	    height: 10%;
 	    margin-top: 30/16 + em;
-	    &_humidity-1{
-	      display: none; //hides "humidity" in desktop and tablet version
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat 0 0;
-	      }
+	    &__humidity{
+	    	display: none;
+	    	& .forecast-extra-info__logo {
+	    		background: url("../img/humid.png") no-repeat;
+	    	}
+
+	    	&_low .forecast-extra-info__logo {
+	    		background-position: 0 0;
+	    	}
+	    	&_mid .forecast-extra-info__logo {
+	    		background-position: -58px 0 ;
+	    	}
+	    	&_high .forecast-extra-info__logo {
+	    		background-position: -116px 0 ;
+	    	}
 	    }
 
-	    &_humidity-2{
-	      display: none;
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat -58px 0;
-	      }
-	    }
 
-	    &_humidity-3{
-	      display: none;
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat -116px 0;
-	      }
-	    }
 
 	    &__wind{
 	      & .forecast-extra-info__logo {
@@ -246,12 +245,22 @@
 	      }
 	    }
 
-	    &_moon-1{//mistake maybe here!!!!
-	      & .forecast-extra-info__logo {
-	        background: url('../img/moon-conditions.png') no-repeat  -180px -5px;
-	      }
-	    }
 
+		&__moon{
+			& .forecast-extra-info__logo {
+				background: url('../img/moon_states.png') no-repeat;
+			}
+
+			@for $i from 0 through 30{
+				&_#{$i} .forecast-extra-info__logo{
+					background-position: $i*(-58px) 0;
+				}
+			}
+		}
+
+
+		
+		
 	    &__title{
 	        font-size: 1em;
 	        text-align: center;
@@ -446,26 +455,24 @@
 	    width: 50%;
 	    height: 10%;
 	    margin-top: 30/16 + em;
-	    &_humidity-1{
-	      display: none; //hides "humidity" in desktop and tablet version
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat 0 0;
-	      }
+	    &__humidity{
+	    	display: none;
+	    	& .forecast-extra-info__logo {
+	    		background: url("../img/humid.png") no-repeat;
+	    	}
+
+	    	&_low .forecast-extra-info__logo {
+	    		background-position: 0 0;
+	    	}
+	    	&_mid .forecast-extra-info__logo {
+	    		background-position: -58px 0 ;
+	    	}
+	    	&_high .forecast-extra-info__logo {
+	    		background-position: -116px 0 ;
+	    	}
 	    }
 
-	    &_humidity-2{
-	      display: none;
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat -58px 0;
-	      }
-	    }
-
-	    &_humidity-3{
-	      display: none;
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat -116px 0;
-	      }
-	    }
+	    
 
 	    &__wind{
 	      & .forecast-extra-info__logo {
@@ -523,11 +530,17 @@
 	      }
 	    }
 
-	    &_moon-1{//mistake maybe here!!!!
-	      & .forecast-extra-info__logo {
-	        background: url('../img/moon-conditions.png') no-repeat  -180px -5px;
-	      }
-	    }
+	    &__moon{
+			& .forecast-extra-info__logo {
+				background: url('../img/moon_states.png') no-repeat;
+			}
+
+			@for $i from 0 through 30{
+				&_#{$i} .forecast-extra-info__logo{
+					background-position: $i*(-58px) 0;
+				}
+			}
+		}
 
 	    &__title{
 	        font-size: 1em;
@@ -749,25 +762,21 @@
 	    width: 33.333%;
 	    height: 10%;
 	    margin-top: 90px;
-	    &_humidity-1{
-	      display: block; //hides "humidity" in desktop and tablet version
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat 0 0;
-	      }
-	    }
+	    &__humidity{
+	    	display: block;
+	    	& .forecast-extra-info__logo {
+	    		background: url("../img/humid.png") no-repeat;
+	    	}
 
-	    &_humidity-2{
-	      display: block;
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat -58px 0;
-	      }
-	    }
-
-	    &_humidity-3{
-	      display: block;
-	      & .forecast-extra-info__logo {
-	        background: url("../img/humid.png") no-repeat -116px 0;
-	      }
+	    	&_low .forecast-extra-info__logo {
+	    		background-position: 0 0;
+	    	}
+	    	&_mid .forecast-extra-info__logo {
+	    		background-position: -58px 0 ;
+	    	}
+	    	&_high .forecast-extra-info__logo {
+	    		background-position: -116px 0 ;
+	    	}
 	    }
 
 	    &__wind{
@@ -826,11 +835,17 @@
 	      }
 	    }
 
-	    &_moon-1{//mistake maybe here!!!!
-	      & .forecast-extra-info__logo {
-	        background: url('../img/moon-conditions.png') no-repeat  -180px -5px;
-	      }
-	    }
+	    &__moon{
+			& .forecast-extra-info__logo {
+				background: url('../img/moon_states.png') no-repeat;
+			}
+
+			@for $i from 0 through 30{
+				&_#{$i} .forecast-extra-info__logo{
+					background-position: $i*(-58px) 0;
+				}
+			}
+		}
 
 	    &__title{
 	        font-size: 1em;
@@ -856,6 +871,6 @@
 	 }
 }
 
-.m-forecast_active{
+.m-forecast-active{
           z-index: 20;    }
 //I need to find better place for it

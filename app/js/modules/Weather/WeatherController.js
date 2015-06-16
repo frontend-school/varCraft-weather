@@ -27,6 +27,11 @@ window.varCraft.weatherController = (function(namespace){
             namespace.weatherModel.setLocation(newLocation);
         };
 
+        this.setDefault = function(){
+            namespace.weatherView.refreshForecast("default");
+            console.log("[weatherController]: setDefault run")
+        }
+
 	}
 
     return {

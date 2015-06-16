@@ -52,8 +52,7 @@ function main(){
     varCraft.mediator.subscribe("logout", function(){
         varCraft.router._switchRoute(varCraft.CONST.hash.loginPage);
     });
-
-    
+    varCraft.weatherController.subscribe("logout", varCraft.weatherController.setDefault); //removes all data from DOM    
 
     varCraft.loginController._start(); //this one os here because for page refresh proper work, believe me
 }

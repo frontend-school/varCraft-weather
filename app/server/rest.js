@@ -103,14 +103,16 @@ app.get('/weather', function(req, res){
 	console.log("[location]:", location);
 
 	var weatherResponse = getWeather(location);
-	
 
 	function delay(){
-		res.json(weatherResponse);
-		console.log("[rest]:", weatherResponse);
+		if(weatherResponse.today.success&&weatherResponse.yesterday.success&&weatherResponse.tomorrow.success){
+			res.json(weatherResponse);
+			console.log("[rest]:", weatherResponse);
+			clearInterval(answerCheck);
+	    }
 	}
 
-	setTimeout(delay, 2000);
+	var answerCheck = setInterval(function(){delay();}, 30);
 
 	}
 	else{

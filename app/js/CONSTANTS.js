@@ -22,7 +22,7 @@ window.varCraft.CONST = {
     mobileDay1: ".js-mobile-list-day-1",
     mobileDay2: ".js-mobile-list-day-2",
     mobileSettings: ".js-mobile-settings",
-    activeForecast: "m-forecast_active",
+    activeForecast: "m-forecast-active",
     activeDayIndicator: "mobile-day-list__item_active",
     unactiveArrow: "mobile__change-day_hide",
 
@@ -63,7 +63,7 @@ window.varCraft.CONST = {
         forecastWind: ".js-tomorrow-forecast-wind",
         forecastWindSpeed: ".js-tomorrow-forecast-wind-speed",
         forecastWindDirection: ".js-tomorrow-wind-direction",
-        forecastMoon: "j.s-tomorrow-forecast-moon"
+        forecastMoon: ".js-tomorrow-forecast-moon"
     }
 };
 
@@ -71,7 +71,7 @@ window.varCraft.CONST.regExps = {
         forecast: /forecast_[^\s]+/,
         wind: /forecast-extra-info__wind_[^\s]+/,
         humidity: /forecast-extra-info_humidity[^\s]+/,
-        moon: /forecast-extra-info_/
+        moon: /forecast-extra-info__moon_[^\s]+/
 };
 
 window.varCraft.CONST.hash = {

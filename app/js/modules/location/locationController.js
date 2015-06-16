@@ -24,6 +24,9 @@ window.varCraft.locationController = (function(namespace){
                     function geoSuccess(position) {
                           var latitude = position.coords.latitude;
                           var longitude = position.coords.longitude;
+                          //var latitude = 40.4251;
+                          //var longitude = 74.0021;
+
                           namespace.locationModel.setLatitude(latitude);
                           namespace.locationModel.setLongitude(longitude);
 

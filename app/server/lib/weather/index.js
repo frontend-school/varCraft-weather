@@ -291,8 +291,9 @@ function sendReqToAPI(location){
         this.windSpeed = ""; //mph
         this.windDirection = ""; //N NE
         this.moonPhase = 0; //0-30
-        this.humidity = 0; //0,1,2
-        this.humidityTitle = "60%"; //60%
+        this.humidity = ""; //0,1,2
+        this.humidityTitle = ""; //60%
+        this.success = false;
     }
 
     //objects we will return filled with actual data
@@ -411,17 +412,17 @@ function sendReqToAPI(location){
             console.log("[weather condition]:",day.weatherCondition);
 
             //day humidity
-            day.humidityTitle = forecastResp.periods[dayNumber].humidity;
+            day.humidityTitle = +forecastResp.periods[dayNumber].humidity;
             if(day.humidityTitle <= 33.333){
-                day.humidity = 1;
+                day.humidity = "low";
             }
 
             if(day.humidityTitle > 33.333 && day.humidityTitle <= 66.666){
-                day.humidityTitle = 2;
+                day.humidity = "mid";
             }
 
             if(day.humidityTitle > 66.666){
-                day.humidityTitle = 3;
+                day.humidity = "high";
             }
             day.humidityTitle += "%";
 
@@ -432,35 +433,35 @@ function sendReqToAPI(location){
 
             console.log(windDirDEG);
             if(windDirDEG <= 22){
-              day.windDirection = "N";
+              day.windDirection = "n";
             }
 
             if(windDirDEG >= 23 && windDirDEG <= 67){
-              day.windDirection = "NE";
+              day.windDirection = "ne";
             }
 
             if(windDirDEG >= 68 && windDirDEG <= 112){
-              day.windDirection = "E";
+              day.windDirection = "e";
             }
 
             if(windDirDEG >= 113 && windDirDEG <= 157){
-              day.windDirection = "SE";
+              day.windDirection = "se";
             }
 
             if(windDirDEG >= 158 && windDirDEG <= 202){
-              day.windDirection = "S";
+              day.windDirection = "s";
             }
 
             if(windDirDEG >= 203 && windDirDEG <= 247){
-              day.windDirection = "SW";
+              day.windDirection = "sw";
             }
 
             if(windDirDEG >= 248 && windDirDEG <= 292){
-              day.windDirection = "W";
+              day.windDirection = "w";
             }
 
             if(windDirDEG >= 293 && windDirDEG <= 359){
-              day.windDirection = "NW";
+              day.windDirection = "nw";
             }
 
             console.log("[wind dir]:", day.windDirection);
@@ -481,6 +482,8 @@ function sendReqToAPI(location){
             }
 
             console.log("[moon phase]:", day.moonPhase);
+            day.success = true;
+            console.log("[day success]", day.success);
 
           };
 
@@ -544,15 +547,15 @@ function sendReqToAPI(location){
                 //humidity
                 day.humidityTitle = observationsArchiveResp.periods[dayPeriodNumber].ob.humidity;
                 if(day.humidityTitle <= 33.333){
-                    day.humidity = 1;
+                    day.humidity = "low";
                 }
 
                 if(day.humidityTitle > 33.333 && day.humidityTitle <= 66.666){
-                    day.humidity = 2;
+                    day.humidity = "mid";
                 }
 
-                if(day.humidityTitle > 66.666){
-                    day.humidity = 3;
+                if(day.humidityTitle > 66.666){ 
+                    day.humidity = "high";
                 }
                 day.humidityTitle += "%";
 
@@ -562,35 +565,35 @@ function sendReqToAPI(location){
                 var windDirDEG = observationsArchiveResp.periods[dayPeriodNumber].ob.windDirDEG;
 
                 if(windDirDEG <= 22){
-                  day.windDirection = "N";
+                  day.windDirection = "n";
                 }
 
                 if(windDirDEG >= 23 && windDirDEG <= 67){
-                  day.windDirection = "NE";
+                  day.windDirection = "ne";
                 }
 
                 if(windDirDEG >= 68 && windDirDEG <= 112){
-                  day.windDirection = "E";
+                  day.windDirection = "e";
                 }
 
                 if(windDirDEG >= 113 && windDirDEG <= 157){
-                  day.windDirection = "SE";
+                  day.windDirection = "se";
                 }
 
                 if(windDirDEG >= 158 && windDirDEG <= 202){
-                  day.windDirection = "S";
+                  day.windDirection = "s";
                 }
 
                 if(windDirDEG >= 203 && windDirDEG <= 247){
-                  day.windDirection = "SW";
+                  day.windDirection = "sw";
                 }
 
                 if(windDirDEG >= 248 && windDirDEG <= 292){
-                  day.windDirection = "W";
+                  day.windDirection = "w";
                 }
 
                 if(windDirDEG >= 293 && windDirDEG <= 359){
-                  day.windDirection = "NW";
+                  day.windDirection = "nw";
                 }
 
                 console.log("[yesterday wind dir]:", day.windDirection);
@@ -603,6 +606,7 @@ function sendReqToAPI(location){
                 var d = day.date.split(" / ");
                 day.moonPhase = moonPhase(d[2], d[1], d[0]);
                 console.log("[yesterday moonPhase]",day.moonPhase);
+                day.success = true;
 
           }
 

@@ -3,7 +3,7 @@ window.varCraft.weatherView =  window.varCraft.weatherView || {};
 
 window.varCraft.weatherView = (function(namespace){
     function init(){
-        var yesterday = {}, today = {}, tomorrow = {};
+        var yesterday = {}, today = {}, tomorrow = {}, defaultSettings = {};
 
         yesterday.forecast = namespace.dom.getElem(namespace.CONST.yesterday.forecast);
         yesterday.forecastDate = namespace.dom.getElem(namespace.CONST.yesterday.forecastDate);
@@ -57,7 +57,8 @@ window.varCraft.weatherView = (function(namespace){
             "Sleet": "forecast_sleet",
             "Fog": "forecast_fog",
             "Waterspouts": "forecast_waterspouts",
-            "Thunderstorm": "forecast_thunderstorm"
+            "Thunderstorm": "forecast_thunderstorm",
+            "unspecified": ""
         };
 
         var windDirections = {
@@ -68,12 +69,34 @@ window.varCraft.weatherView = (function(namespace){
             s: "forecast-extra-info__wind_s",
             sw: "forecast-extra-info__wind_sw",
             w: "forecast-extra-info__wind_w",
-            nw:"forecast-extra-info__wind_nw"
+            nw:"forecast-extra-info__wind_nw",
+            "unspecified": ""
         };
 
-        var humidity = ["forecast-extra-info_humidity-1","forecast-extra-info_humidity-2", "forecast-extra-info_humidity-3"];
+        var humidity = {
+            "low": "forecast-extra-info__humidity_low",
+            "mid": "forecast-extra-info__humidity_mid", 
+            "high":"forecast-extra-info__humidity_high",
+            "unspecified": ""
+        };
+
+        var moon = {"moonClass":"forecast-extra-info__moon_",
+                    "unspecified": ""};
+
+        defaultSettings.date = "00 / 00 / 0000";
+        defaultSettings.weatherCondition = "unspecified";
+        defaultSettings.weatherConditionCoverage = "";
+        defaultSettings.temperatureAtDay = "00";
+        defaultSettings.temperatureAtNight = "00";
+        defaultSettings.windSpeed = "00"; //mph
+        defaultSettings.windDirection = ""; //N NE
+        defaultSettings.moonPhase = 0; //0-30
+        defaultSettings.humidity = ""; //0,1,2
+        defaultSettings.humidityTitle = "00"; //60%
+        defaultSettings.success = false;
 
         function fillForecast(when, newForecast){
+            console.log("[weatherView]:", newForecast.weatherCondition, weatherConditions[newForecast.weatherCondition]);
             namespace.dom.substituteClass(when.forecast, namespace.CONST.regExps.forecast, weatherConditions[newForecast.weatherCondition]);
             when.forecastDate.innerHTML = newForecast.date;
             when.forecastDescription.innerHTML = newForecast.weatherCondition;
@@ -84,9 +107,10 @@ window.varCraft.weatherView = (function(namespace){
             console.log("[wind :]",when.forecastWind);
             when.forecastWindSpeed.innerHTML = newForecast.windSpeed;
             when.forecastWindDirection.innerHTML = newForecast.windDirection;
-            //namespace.dom.substituteClass(when.forecastHumidity, namespace.CONST.regExps.humidity, humidity[newForecast.humidity]);
+            namespace.dom.substituteClass(when.forecastHumidity, namespace.CONST.regExps.humidity, humidity[newForecast.humidity]);
             when.forecastHumidityTitle.innerHTML = newForecast.humidityTitle;
             console.log(newForecast.humidityTitle);
+            namespace.dom.substituteClass(when.forecastMoon, namespace.CONST.regExps.moon, moon.moonClass + newForecast.moonPhase);
         }
 
         this.refreshForecast = function(day, newForecast){
@@ -100,6 +124,12 @@ window.varCraft.weatherView = (function(namespace){
 
             if(day == "tomorrow"){
                 fillForecast(tomorrow, newForecast);
+            }
+
+            if(day == "default"){
+                fillForecast(yesterday, defaultSettings);
+                fillForecast(today, defaultSettings);
+                fillForecast(tomorrow, defaultSettings);
             }
 
         };

@@ -256,10 +256,17 @@ function moonPhase(year, month, day){
     return Conway(year, month, day);
 };
 
-var location="50.4631632,30.3571629";
-sendReqToAPI(location, createReqString, analyzeWeatherCode);
+//var location="50.4631632,30.3571629";
+//var answer = sendReqToAPI(location);
+// function cons(){
+//     console.log("[after req sending]", answer);
+// }
 
-function sendReqToAPI(location, createReqString, analyzeWeatherCode){
+//setTimeout(cons, 900);
+
+module.exports = sendReqToAPI;
+
+function sendReqToAPI(location){
 
     var weatherAPI = {
         api: "api.aerisapi.com",
@@ -292,6 +299,7 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
     var yesterday = new setDaySample();
     var today = new setDaySample();
     var tomorrow = new setDaySample();
+    // var RESP = {yesterday, today, tommorrow};
 
     var reqTodayTomorrow = createReqString({
                  endpoint: [endpoints.sunmoon,endpoints.forecasts,endpoints.observations,endpoints.observationsArchive],
@@ -300,7 +308,7 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
                  weatherAPI, true);
     console.log(reqTodayTomorrow);
 
-    //AJAX request sending for today tommorrow data 
+    //AJAX request sending for yesterday today tommorrow data 
     var options = {
       host: weatherAPI.api,
       port: '80',
@@ -315,27 +323,15 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
         });
 
         res.on('end', function() {
+          //console.log("[req]:", req);
           var forecast = JSON.parse(body);
           var moonPhaseResp = forecast.response.responses[0].response[0];
           var observationsResp = forecast.response.responses[2].response;
           var observationsArchiveResp = forecast.response.responses[3].response;
 
+
           var accurateCurDay = observationsResp.ob.dateTimeISO.split("T")[0]; // get "2015-06-15" date
           console.log("[accurateCurDay]:",accurateCurDay);
-
-          // function fillYesterday(yesterday, accurateCurDay, location) {
-          //       // 6/14/2015
-          //       accurateCurDay = accurateCurDay.replace(/-/g, "/");
-          //      // console.log("[acc ur date]:",accurateCurDay);
-          //       var reqYesterday = createReqString({endpoint: ["/observations/summary" + "%3Ffrom=" + accurateCurDay,
-          //                                                      "/observations/archive" + "%3Ffrom=" + accurateCurDay],
-          //                                                        location:location,
-          //                                                        options:[]},
-          //                                                        weatherAPI, true);
-          //       //console.log(reqYesterday);
-          // }
-
-          //fillYesterday(yesterday, accurateCurDay, location);
 
           var forecastResp = forecast.response.responses[1].response[0];
           var startNumber = 0;
@@ -350,12 +346,18 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
             var tomorrowNightNumber = tomorrowDayNumber + 1;
           }
           else if(!forecastResp.periods[startNumber].maxTempC){// we need it for API responses after 20:00
-            //cause periods[0] in this case : "cur night temp"
-            var todayDayNumber = startNumber;
-            var todayNightNumber = startNumber;
-            var tomorrowDayNumber = todayNightNumber + 1;
-            var tomorrowNightNumber = todayNightNumber + 2;
-          }
+                    //cause periods[0] in this case : "cur night temp"
+                    var todayDayNumber = startNumber;
+                    var todayNightNumber = startNumber;
+                    var tomorrowDayNumber = todayNightNumber + 1;
+                    var tomorrowNightNumber = todayNightNumber + 2;
+                }
+                else {
+                    var todayDayNumber = startNumber;
+                    var todayNightNumber = todayDayNumber + 1;
+                    var tomorrowDayNumber = todayNightNumber + 1;
+                    var tomorrowNightNumber = tomorrowDayNumber + 1;
+                }
 
           // console.log("[accuaret Cur Day]:", accurateCurDay);
           // console.log("[forecastZeroElemDate]: ", forecastZeroElemDate);
@@ -409,19 +411,19 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
             console.log("[weather condition]:",day.weatherCondition);
 
             //day humidity
-            day.humidity = forecastResp.periods[dayNumber].humidity;
-            if(day.humidity <= 33.333){
-                day.humidityTitle = 0;
+            day.humidityTitle = forecastResp.periods[dayNumber].humidity;
+            if(day.humidityTitle <= 33.333){
+                day.humidity = 1;
             }
 
-            if(day.humidity > 33.333 && day.humidity <= 66.666){
-                day.humidityTitle = 1;
-            }
-
-            if(day.humidity > 66.666){
+            if(day.humidityTitle > 33.333 && day.humidityTitle <= 66.666){
                 day.humidityTitle = 2;
             }
-            day.humidity += "%";
+
+            if(day.humidityTitle > 66.666){
+                day.humidityTitle = 3;
+            }
+            day.humidityTitle += "%";
 
             console.log("[humidity]:",day.humidity, day.humidityTitle);
 
@@ -480,7 +482,9 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
 
             console.log("[moon phase]:", day.moonPhase);
 
-          }
+          };
+
+          console.log("[forecastResp before call]", forecastResp, todayDayNumber);
 
           fillDay(today, forecastResp, moonPhaseResp, todayDayNumber, todayNightNumber);
           //console.log("[todayDayNumber and Night Number]",todayDayNumber, todayNightNumber);
@@ -491,8 +495,9 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
 
           fillYesterday(today.date, yesterday, observationsArchiveResp, 30, 45);
 
+
           function fillYesterday(todayDate, day, observationsArchiveResp, dayPeriodNumber, nightPeriodNumber){
-                //date 
+                //date
                 var buf = todayDate.split(" / ");
                 var todayDD = buf[0];
                 var todayMM = buf[1];
@@ -537,19 +542,19 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
                 console.log("[weather condition]:", day.weatherCondition);
 
                 //humidity
-                day.humidity = observationsArchiveResp.periods[dayPeriodNumber].ob.humidity;
-                if(day.humidity <= 33.333){
-                    day.humidityTitle = 0;
+                day.humidityTitle = observationsArchiveResp.periods[dayPeriodNumber].ob.humidity;
+                if(day.humidityTitle <= 33.333){
+                    day.humidity = 1;
                 }
 
-                if(day.humidity > 33.333 && day.humidity <= 66.666){
-                    day.humidityTitle = 1;
+                if(day.humidityTitle > 33.333 && day.humidityTitle <= 66.666){
+                    day.humidity = 2;
                 }
 
-                if(day.humidity > 66.666){
-                    day.humidityTitle = 2;
+                if(day.humidityTitle > 66.666){
+                    day.humidity = 3;
                 }
-                day.humidity += "%";
+                day.humidityTitle += "%";
 
                 console.log("[yesterday humidity]:",day.humidity, day.humidityTitle);
                 //yesterday wind dir
@@ -605,6 +610,9 @@ function sendReqToAPI(location, createReqString, analyzeWeatherCode){
 
     });
 
+    return {"yesterday": yesterday, "today": today, "tomorrow": tomorrow};
+
+    
 }
 
 
@@ -644,4 +652,4 @@ var newForecast1 = {}, newForecast2 = {}, newForecast3 = {};
         newForecast3.humidityTitle = "60%";
 
 var response = {"yesterday": newForecast1, "today": newForecast2, "tomorrow": newForecast3};
-module.exports = response;
+//module.exports = response;

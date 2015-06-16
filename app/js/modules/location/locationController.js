@@ -17,12 +17,16 @@ window.varCraft.locationController = (function(namespace){
 
                     namespace.locationView.refreshCity(namespace.locationModel.getCity());
                     namespace.locationView.refreshCountry(namespace.locationModel.getCountry());
+                    namespace.locationController.publish("gotLocation", namespace.locationModel.getLatitude()+","+namespace.locationModel.getLongitude());
         };
 
         this.getLocation = function(){
                     function geoSuccess(position) {
                           var latitude = position.coords.latitude;
                           var longitude = position.coords.longitude;
+                          namespace.locationModel.setLatitude(latitude);
+                          namespace.locationModel.setLongitude(longitude);
+
                           jsonp("http://geocode-maps.yandex.ru/1.x/?format=json&lang=en_US&geocode=" + longitude + "," + latitude + "&callback=varCraft.locationController.geoParse");
                     }
 

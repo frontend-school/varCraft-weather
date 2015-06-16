@@ -84,7 +84,7 @@ window.varCraft.weatherView = (function(namespace){
             console.log("[wind :]",when.forecastWind);
             when.forecastWindSpeed.innerHTML = newForecast.windSpeed;
             when.forecastWindDirection.innerHTML = newForecast.windDirection;
-            namespace.dom.substituteClass(when.forecastHumidity, namespace.CONST.regExps.humidity, humidity[newForecast.humidity]);
+            //namespace.dom.substituteClass(when.forecastHumidity, namespace.CONST.regExps.humidity, humidity[newForecast.humidity]);
             when.forecastHumidityTitle.innerHTML = newForecast.humidityTitle;
             console.log(newForecast.humidityTitle);
         }

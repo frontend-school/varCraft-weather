@@ -45,12 +45,15 @@ function main(){
         varCraft.router._switchRoute(varCraft.CONST.hash.mainPage);
     });
     varCraft.locationController.subscribe("login", varCraft.locationController.getLocation);
-    varCraft.weatherController.subscribe("login", varCraft.weatherController.changeForecast);
+    varCraft.weatherController.subscribe("gotLocation", varCraft.weatherController.setLocation);
+    varCraft.weatherController.subscribe("gotLocation", varCraft.weatherController.changeForecast);
 
     varCraft.loginController.subscribe("logout", varCraft.loginController.deleteUserName);
     varCraft.mediator.subscribe("logout", function(){
         varCraft.router._switchRoute(varCraft.CONST.hash.loginPage);
     });
+
+    
 
     varCraft.loginController._start(); //this one os here because for page refresh proper work, believe me
 }

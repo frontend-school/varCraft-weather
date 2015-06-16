@@ -6,6 +6,7 @@ window.varCraft.weatherModel = (function(nameSpace){
     forecast.yesterday = {};
     forecast.today = {};
     forecast.tomorrow = {};
+    var location = "";
 
     forecast.yesterday.date = "";
     forecast.yesterday.weatherCondition = "";
@@ -56,6 +57,16 @@ window.varCraft.weatherModel = (function(nameSpace){
             if(forecast[day]){
                 return forecast[day];
             }
+        },
+        setLocation: function(newLocation){
+            if(typeof location === "string"){
+                location = newLocation;
+                console.log("[weatherModel lcoation]:", location);
+            }
+            else console.log("[weatherModel setLocation func]: newLocation should be string");
+        },
+        getLocation: function(){
+            return location;
         }
     };
 })(window.varCraft);

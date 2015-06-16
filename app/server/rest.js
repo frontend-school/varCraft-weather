@@ -8,7 +8,8 @@ var fs = require('fs');
 var auth = require('./lib/auth');
 var session = require('express-session');
 var sessionStore = require('./lib/sessionStore');
-var weatherResponse = require('./lib/weather');
+//var weatherResponse = require('./lib/weather');
+var getWeather = require('./lib/weather');
 
 var app = express();
 
@@ -65,6 +66,7 @@ app.get('/login', function(req, res, next){
     else {
     	//console.log(parsedUrl.query.login);
 		res.statusCode = 403;
+
 	    res.json({"status":"failed"});
 	    res.end();
     }
@@ -96,7 +98,20 @@ app.get('/weather', function(req, res){
 	//console.log("Cookie: ", typeof req.cookies);
 	res.statusCode = 200;
 
-	res.json(weatherResponse);
+	var parsedWeatherUrl = url.parse(req.url, true);
+	var location = parsedWeatherUrl.query.location;
+	console.log("[location]:", location);
+
+	var weatherResponse = getWeather(location);
+	
+
+	function delay(){
+		res.json(weatherResponse);
+		console.log("[rest]:", weatherResponse);
+	}
+
+	setTimeout(delay, 2000);
+
 	}
 	else{
 		res.set('Access-Control-Allow-Origin', 'http://localhost:8080'  );//

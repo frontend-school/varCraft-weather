@@ -7,7 +7,7 @@ window.varCraft.weatherController = (function(namespace){
 
 
 		this.changeForecast = function(){
-                namespace.xhr.getAsync("http://localhost:3000/weather", function(){
+                namespace.xhr.getAsync("http://localhost:3000/weather?"+ "location=" + namespace.weatherModel.getLocation(), function(){
                         var resp = JSON.parse(this.responseText);
                         //console.log(resp);
 
@@ -22,6 +22,10 @@ window.varCraft.weatherController = (function(namespace){
                 });
 
 		};
+
+        this.setLocation = function(newLocation){
+            namespace.weatherModel.setLocation(newLocation);
+        };
 
 	}
 

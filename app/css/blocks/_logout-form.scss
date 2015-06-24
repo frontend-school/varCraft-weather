@@ -1,0 +1,22 @@
+.logout-form{
+    &_mobile{
+        & .logout-form__submit{
+            position: absolute;
+            z-index: 30;
+            top: 24px;
+            right: 21px;
+            z-index: 30;
+            margin-right: 0;
+        }
+    }
+
+    &__submit{
+          padding: 5/16 + em 0;
+          font-size: .8em;
+          width: 32px;
+          height: 32px;
+          border: none;
+          margin-right: 5%;
+          background: url('../img/app-icons.png') no-repeat 0 0;
+        }
+}

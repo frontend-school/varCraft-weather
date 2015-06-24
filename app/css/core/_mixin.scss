@@ -1,0 +1,33 @@
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media only screen and
+    (min-width: 1280px)
+        //and (-webkit-min-device-pixel-ratio: 1)
+    {
+        @content ;
+    }
+  }
+
+  @else if $point == tablet {
+    @media only screen
+        and (min-width: 568px)
+        and (max-width: 1280px)
+    {
+        @content ;
+    }
+  }
+
+  @else if $point == mobile {
+    @media only screen
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2)
+        //and (orientation: portrait)
+    {
+        @content ;
+    }
+  }
+}
+
+// @include breakpoint(tablet){
+//     border: 2px solid;
+//   }

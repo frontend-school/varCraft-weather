@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<head>
+        <meta charset="utf-8">
+        <title>varCraft weatherApp</title>
+        <link rel = "stylesheet" type="text/css" href = "css/style.css">
+        <link rel="Shortcut Icon" type="image/x-icon" href="/img/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+</head>
+<html>
+
+    <body>
+        <script src="/js/script.js"></script>
+
+        <section class="login-page js-login-page">
+
+            <form action="" method = "get" class="login-form js-login-form" name="login-form">
+                <label class="login-form__label" for="login-field">Login:</label>
+                <input type="text" class="login-form__input" name="login" id="login-field">
+                <label for="password-field" name="password-field" class="login-form__label">Password:</label>
+                <input type= "password" class="login-form__input" name="password" id="password-field">
+                <input type="submit" class="login-form__submit" value="Log in">
+            </form>
+        </section>
+
+
+    <section class="main-page  js-main-page hide">
+
+        <div class="main-page-content">
+
+
+            <div class="user-info">
+
+                <div class="user-info-hello">
+                    <form action="" method="get" name="log-out" class="logout-form js-logout-form">
+                        Hello, <span class="user-info-hello__name js-user-name">user-name</span>!
+                            <input type="submit" class="logout-form__submit" value="">
+                    </form>
+                </div>
+
+
+                <div class="user-info-time js-main-time"><span class="user-info-time__digits  js-main-time-digits">0:00</span><span class="user-info-time__day-part js-main-time-dayPart">AM</span></div>
+                <div class="user-info__date js-main-date">Mon, Jan 1</div>
+                <div class="user-info-location">
+                    <span class="user-info-location__city js-location-city">Unknown</span>
+                    <br>
+                    <span class="user-info-location__country js-location-country">Unknown</span>
+                </div>
+            </div>
+
+                <div class="forecast js-yesterday-forecast">
+                    <div class="forecast-header">
+                        <div class="forecast-header__day-of-week">Yesterday<span class="user-info-location__city_mobile"> in <span class="js-yesterday-location-city-mobile">Unknown</span></span></div>
+                        <div class="forecast-header__date js-yesterday-forecast-date">00 / 00 / 0000</div>
+                    </div>
+
+                    <div class="forecast-weather">
+                        <div class="forecast-weather__logo"></div>
+                        <div class="forecast-weather__description js-yesterday-forecast-description">Unspecified</div>
+                    </div>
+
+                    <div class="forecast-temperature">
+                        <span class="forecast-temperature__at-day js-yesterday-forecast-dayTemp">00</span>
+                        <span class="forecast-temperature-at-night"><span class="forecast-temperature__at-night__title">Night</span><br><span class="js-yesterday-forecast-nightTemp">00</span></span>
+                    </div>
+
+
+
+                    <div class="forecast-extra-info forecast-extra-info__humidity js-yesterday-forecast-humidity">
+                        <div class="forecast-extra-info__title js-yesterday-forecast-humidity-title">00</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info__wind  js-yesterday-forecast-wind">
+                        <div class="forecast-extra-info__title js-yesterday-forecast-wind-speed">00</div>
+                        <div class="forecast-extra-info__logo js-yesterday-wind-direction"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info__moon js-yesterday-forecast-moon">
+                        <div class="forecast-extra-info__title ">Moon</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                </div>
+
+                <div class="forecast js-today-forecast">
+                    <div class="forecast-header">
+                        <div class="forecast-header__day-of-week">Today<span class="user-info-location__city_mobile"> in <span class="js-today-location-city-mobile">Unknown</span></span></div>
+                        <div class="forecast-header__date js-today-forecast-date">00 / 00 / 0000</div>
+                    </div>
+
+                    <div class="forecast-weather">
+                        <div class="forecast-weather__logo forecast-weather__logo_snow-fall"></div>
+                        <div class="forecast-weather__description js-today-forecast-description">Unspecified</div>
+                    </div>
+
+                    <div class="forecast-temperature">
+                        <span class="forecast-temperature__at-day js-today-forecast-dayTemp">00</span>
+                        <span class="forecast-temperature-at-night "><span class="forecast-temperature__at-night__title">Night</span><br><span class="js-today-forecast-nightTemp">00</span></span>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info__humidity js-today-forecast-humidity">
+                        <div class="forecast-extra-info__title js-today-forecast-humidity-title">00</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info__wind  js-today-forecast-wind">
+                        <div class="forecast-extra-info__title js-today-forecast-wind-speed">00</div>
+                        <div class="forecast-extra-info__logo js-today-wind-direction"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info__moon js-today-forecast-moon">
+                        <div class="forecast-extra-info__title">Moon</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                </div>
+
+                <div class="forecast js-tomorrow-forecast">
+                    <div class="forecast-header">
+                        <div class="forecast-header__day-of-week">Tomorrow<span class="user-info-location__city_mobile"> in <span class="js-tomorrow-location-city-mobile"></span></span></div>
+                        <div class="forecast-header__date js-tomorrow-forecast-date">00 / 00 / 0000</div>
+                    </div>
+
+                    <div class="forecast-weather">
+                        <div class="forecast-weather__logo forecast-weather__logo_fog"></div>
+                        <div class="forecast-weather__description js-tomorrow-forecast-description">Unspecified</div>
+                    </div>
+
+                    <div class="forecast-temperature">
+                        <span class="forecast-temperature__at-day js-tomorrow-forecast-dayTemp">00</span>
+                        <span class="forecast-temperature-at-night"><span class="forecast-temperature__at-night__title">Night</span><br><span class="js-tomorrow-forecast-nightTemp">00</span></span>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info__humidity js-tomorrow-forecast-humidity">
+                        <div class="forecast-extra-info__title js-tomorrow-forecast-humidity-title">77%</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                    <div class="forecast-extra-info forecast-extra-info__wind js-tomorrow-forecast-wind">
+                        <div class="forecast-extra-info__title js-tomorrow-forecast-wind-speed">00</div>
+                        <div class="forecast-extra-info__logo js-tomorrow-wind-direction"></div>
+                    </div>
+
+                    <div class="forecast-extra-info forecast-extra-info__moon js-tomorrow-forecast-moon">
+                        <div class="forecast-extra-info__title">Moon</div>
+                        <div class="forecast-extra-info__logo"></div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="mobile">
+            <a href="#/settings"><div class="mobile__settings js-mobile-settings"></div></a>
+            <form action="" method="get" name="log-out" class="logout-form logout-form_mobile js-logout-form_mobile">
+                <input type="submit" class="logout-form__submit" value=""> 
+            </form>
+
+            <div class="mobile__change-day mobile__change-day_previous js-mobile-previous"></div>
+            <div class="mobile__change-day mobile__change-day_next js-mobile-next"></div>
+            <ul class="mobile-day-list js-mobile-day-list">
+                <li class="mobile-day-list__item js-mobile-list-day-0"></li>
+                <li class="mobile-day-list__item mobile-day-list__item_active js-mobile-list-day-1"></li>
+                <li class="mobile-day-list__item js-mobile-list-day-2"></li>
+            </ul>
+        </div>
+    </section>
+
+
+    </body>
+</html>

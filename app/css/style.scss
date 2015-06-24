@@ -1,0 +1,16 @@
+@import 'normalize.css';
+@import url('http://fonts.googleapis.com/css?family=Titillium+Web');
+//core
+@import 'core/var';
+@import 'core/mixin';
+@import 'core/common';
+@import 'core/fonts';
+
+
+//blocks
+@import 'blocks/login-form';
+@import 'blocks/logout-form';
+@import 'blocks/main-page';
+@import 'blocks/user-info';
+@import 'blocks/forecast';
+

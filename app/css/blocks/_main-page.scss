@@ -1,0 +1,120 @@
+ @include breakpoint(desktop){
+	.main-page{
+	  width: 100%;
+	  height: 100%;
+	  &-content{
+	    width: 100%;
+	    max-width: 1920/16 + em;
+	    height: 100%;
+	    min-height: 700/16 + em;
+	    margin: 0 auto;
+	  }
+	}
+
+	.mobile{
+	  display: none; //to hide all buttons of mobile version
+	}
+}
+
+@include breakpoint(tablet){
+	.main-page{
+	  width: 100%;
+	  height: 100%;
+	  &-content{
+	    width: 100%;
+	    max-width: 1920/16 + em;
+	    height: 100%;
+	    min-height: 720/16 + em;
+	    margin: 0 auto;
+	  }
+	}
+
+	.mobile{
+	  display: none; //to hide all buttons of mobile version
+	}
+}
+
+@include breakpoint(mobile){
+	.main-page{
+        width:100%;
+		height: 100% ;
+        min-height: 568px;
+        min-width: 320px;
+        position: absolute;
+        z-index: 20;
+	    overflow: hidden;
+        &-content{
+            min-width: 960px;
+            min-height: 568px;
+            height:100%;
+            width: 100%;
+            margin: 0 auto;
+        }
+	}
+
+	.mobile{
+	  display: block; //to show all extra elements of  mobile version
+
+	  &__settings{
+	    position: absolute;
+	    z-index: 30;
+	    top: 24px;
+	    left: 21px;
+
+	    width: 32px;
+	    height: 32px;
+
+	    background: url('../img/app-icons.png') no-repeat -42px 0;
+	  }
+
+	  &__change-day{
+	    position: absolute;
+	    z-index: 30; //to show navigation arrows under content
+	    top: 43%;
+	    width: 30px;
+	    height: 67px;
+
+	    &_previous{
+	      left: 5%;
+	      background: url('../img/arrows.png') no-repeat 0 0 ;
+	    }
+	    &_next{
+	      right: 5%;
+	      background: url('../img/arrows.png') no-repeat -40px 0;
+	    }
+
+	    &_hide{
+	      opacity: .3;
+	      //display: none;
+	    }
+
+	  }
+	  &-day-list{
+	    position: absolute;
+	    z-index: 30;
+	    top: 70%;
+	    margin: 0 auto;
+	    text-align: center;
+	    width: 100%;
+	    padding: 0;
+	    &__item{
+	      display: inline-block;
+
+	      width: 7px;
+	      height: 7px;
+	      margin: 0 15px;
+	      list-style: none ;
+	      vertical-align: middle;
+	      border: 4px solid #fff;
+	      border-radius: 50%;
+	      &_active{
+	        width: 12px;
+	        height: 12px;
+
+	        border: 3px solid #fff;
+	      }
+	    }
+	  }
+	}
+
+}

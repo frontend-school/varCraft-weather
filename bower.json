@@ -1,0 +1,25 @@
+{
+  "name": "varCraft-weather",
+  "version": "0.0.0",
+  "homepage": "https://github.com/frontend-school/varCraft-weather",
+  "authors": [
+    "Stas-Dolgachov <s.dolgachov@gmail.com>"
+  ],
+  "description": "first project",
+  "keywords": [
+    "varCraft",
+    "weatherApp"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    
+  }
+}

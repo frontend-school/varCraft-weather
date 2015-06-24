@@ -10,6 +10,7 @@ varCraft.logoutController = (function(namespace){
             setLogStatus: function(status){
                 namespace.logoutModel.setLogStatus(status);
             }
+
         };
 })(window.varCraft);
 

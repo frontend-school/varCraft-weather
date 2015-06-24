@@ -9,26 +9,40 @@ var gulp = require('gulp'),
     concat = require('gulp-concat') ,
     autoprefixer = require('gulp-autoprefixer'),
     express = require('gulp-express'),
+    watch  = require('gulp-watch'),
     reload = browserSync.reload;
 
 var source = "app";
 var destination = "dist";
-var filteredSource = [source + '/css/**/*.css',
-                      source + '/css/**/*.scss',
-                      source + '/css/fonts/*.*',
-                      source + '/js/**/*.js',
-                      source + '/img/**/*.*',
-                      source + '/index.html',
-                      source + '/pages/*.html'];
-
-var filteredDestination = ['dist/css/*.css',
-                            'dist/css/fonts/*.*',
-                            'dist/js/**/*.js',
-                            'dist/*.html',
-                            'dist/img/*.*',
-                            'dist/pages/*.html'];
-
 var appComponents  = "bower_components";
+
+var path = {
+        src: {
+            html: source + '/*.html',
+            js: source + '/js/**/*.js',
+            css: source + '/css/**/*.scss',
+            fonts: source + '/css/fonts/*.*',
+            img: source + '/img/**/*.js',
+            appComponents: 'bower_components'
+        },
+        dest: {
+            html: destination,
+            js: destination + '/js',
+            css: destination + '/css',
+            fonts: destination + '/css/fonts',
+            img: destination + '/img',
+            appComponents: source + '/vendor'
+        },
+        watch: {
+            html: source + '/*.*',
+            js: source + '/js/**/*.js',
+            css: source + '/css/**/*.*',
+            fonts: source + '/css/fonts/*.*',
+            img: source + '/img/*',
+            appComponents: 'bower_components'
+        }
+};
+
 var runningPage = "index.html";
 var testAPI = "/pages/testAPI.html";
 var expressServer = source + "/server/rest.js";
@@ -67,13 +81,15 @@ gulp.task('clean', function () {
 
 gulp.task('html', function() {
     gulp.src(source + '/*.html')
-    .pipe(gulp.dest(destination));
-})
+    .pipe(gulp.dest(destination))
+        .pipe(reload({stream: true}));
+});
 
 gulp.task('mobile-html', function() {
     gulp.src(source + '/pages/*.html')
-    .pipe(gulp.dest(destination + '/pages'));
-})
+    .pipe(gulp.dest(destination + '/pages'))
+        .pipe(reload({stream: true}));
+});
 
 gulp.task('js', function() {
    return gulp.src(source + '/js/**/*.js')
@@ -83,50 +99,59 @@ gulp.task('js', function() {
     .pipe(gulp.dest(destination + '/js')) // this code copy initiall script.js file to the "dist" folder
     .pipe( uglify() )
     .pipe( rename( { suffix: '.min' } ))
-    .pipe(gulp.dest(destination + '/js'));
-})
+    .pipe(gulp.dest(destination + '/js'))
+    .pipe(reload({stream: true}));
+});
 
 gulp.task( 'css', function() {
-    gulp.src([source + '/css/style.scss', source + '/css/normalize.css', source + '/css/style-mobile.scss' ])
+    gulp.src([source + '/css/*.*'])
     .pipe(sass())
     .pipe(autoprefixer({
             browsers: ['last 3 versions'],
             cascade: false
         }))
-    .pipe( gulp.dest( destination + '/css' )); //transform files from SCSS to CSS and copy them to "dist/css"
+    .pipe( gulp.dest( destination + '/css' ))
+        .pipe(reload({stream: true})); //transform files from SCSS to CSS and copy them to "dist/css"
 
+});
+
+gulp.task("fonts", function() {
     gulp.src(source + '/css/fonts/*.*')
-    .pipe(gulp.dest(destination + '/css/fonts'));
-})
+        .pipe(gulp.dest(destination + '/css/fonts'));
+});
 
 gulp.task('img', function() {
     gulp.src(source + '/img/**')
     .pipe(gulp.dest(destination + '/img'))
-})
+        .pipe(reload({stream: true}));
+});
 
 gulp.task('bower', function () {
     bowerSrc()
-        .pipe(gulp.dest(destination + '/vendor'));
-})
+        .pipe(gulp.dest(destination + '/vendor'))
+        .pipe(reload({stream: true}));
+});
 
-//watcher
-gulp.task('watch-source', function() {
-    gulp.watch(filteredSource, ['build']);
-})
+gulp.task('watch-s', function(){
+    watch([path.watch.html], function (event, cb) {
+        gulp.start('html');
+    });
+    watch([path.watch.css], function (event, cb) {
+        gulp.start('css');
+    });
+    watch([path.watch.js], function (event, cb) {
+        gulp.start('js');
+    });
+    watch([path.watch.img], function (event, cb) {
+        gulp.start('img');
+    });
+    watch([path.watch.fonts], function (event, cb) {
+        gulp.start('fonts');
+    });
 
-gulp.task('watch-components', function() {
-    gulp.watch(appComponents, ['bower']);
-})
+});
 
-
-gulp.task('livereload', function() {
-            gulp.watch(filteredDestination).on('change', browserSync.reload);
-})
-
-gulp.task('watcher', ['watch-source', 'watch-components']);
-gulp.task('build', ['html', 'css', 'js', 'img', 'mobile-html']);
-//gulp.task("default", ['server', 'build', 'watcher', 'livereload']);
-gulp.task("default", ['server', 'build', 'watcher', 'livereload', 'express']);
-gulp.task('expbuild',['build', 'express', 'watch-source']);
+gulp.task('build', ['html', 'css','fonts', 'js', 'img', 'mobile-html']);
+gulp.task("default", ['server', 'build', 'watch-s', 'express']);
+gulp.task('expbuild',['build', 'express', 'watch-s']);
 gulp.task('testAPI', ['build', 'testAPIserver']);
-gulp.task('2servers',['build', 'server', 'express']);

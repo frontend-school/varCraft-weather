@@ -1,5 +1,6 @@
 @include breakpoint(desktop){
 	.forecast{
+
 	  position: relative;// used for changing order of elements in mobile version("temperature" position absolute)
 	  float: left;
 	  width: 21%;

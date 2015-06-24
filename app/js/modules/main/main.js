@@ -6,6 +6,7 @@ function ready(fn) {
   }
 }
 
+
 function main(){
     var pages = {
         loginPage: varCraft.dom.getElem(varCraft.CONST.loginPage),
